@@ -1,0 +1,12 @@
+.carousel-container {
+  background-color: black;
+  margin: 0 200px 0 200px;
+}
+
+.carousel-item {
+  filter: brightness(80%);
+}
+
+.carousel-img {
+  height: 300px;
+}
