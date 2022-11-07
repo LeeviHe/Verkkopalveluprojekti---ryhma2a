@@ -1,12 +1,22 @@
 import './App.css';
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Product from './pages/Product';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div>
-      testi
-    </div>
+    <>
+      <Navbar />
+      <div className='container'>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<Product />} />
+        </Routes>
+      </div>
+      <Footer />
+    </>
   );
 }
 
