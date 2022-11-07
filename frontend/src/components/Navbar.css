@@ -5,3 +5,20 @@
 .main-logo {
   height: 5rem;
 }
+
+.nav-image {
+  height: 20px;
+  background-color: none;
+  margin-left: 0.5rem;
+}
+
+button .nav-image{
+  margin-bottom: 0.4rem;
+  margin-right: 0.5rem;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+}
+
