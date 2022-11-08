@@ -17,13 +17,13 @@ export default function Navbar() {
           <ul className="nav nav-pills">
             <li className="nav-item">
               <form>
-                <input type="search" classNameName="form-control-dark text-bg-dark me-2" placeholder="Search..." aria-label="Search"></input>
-                <button className="nav-item"><img src = "https://cdn-icons-png.flaticon.com/512/149/149852.png"></img></button>
+                <input type="search" className="form-control-dark text-bg-dark me-2" placeholder="Search..." aria-label="Search"></input>
+                <button className="nav-item"><img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" className="nav-image"></img></button>
               </form>
             </li>
 
-            <li className="nav-item me-2">Account</li>
-            <li className="nav-item me-2">Cart</li>
+            <li className="nav-item me-2"><img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" className="nav-image"></img></li>
+            <li className="nav-item me-2"><img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" className="nav-image"></img></li>
           </ul>
         </header>
       </div>
@@ -33,10 +33,10 @@ export default function Navbar() {
 
 
 /*search
-https://www.flaticon.com/free-icon/search_149852?term=search&page=1&position=2&page=1&position=2&related_id=149852&origin=search
+https://cdn-icons-png.flaticon.com/512/622/622669.png
 
 account
-https://www.flaticon.com/free-icon/user_1144760?related_id=1144760&origin=search
+https://cdn-icons-png.flaticon.com/512/1144/1144760.png
 
 cart
-https://www.flaticon.com/free-icon/shopping-cart_3144456?term=cart&page=1&position=2&page=1&position=2&related_id=3144456&origin=style*/
+https://cdn-icons-png.flaticon.com/512/3144/3144456.png*/
