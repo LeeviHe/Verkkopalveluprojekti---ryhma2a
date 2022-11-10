@@ -84,9 +84,9 @@ export default function Home() {
 
                   <div className="container">
                     <div className="carousel-caption text-start">
-                      <h1>Example headline.</h1>
-                      <p>Some representative placeholder content for the first slide of the carousel.</p>
-                      <p><a className="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                      <h1>Talvikausi on alkanut</h1>
+                      <p>Monet laatukengät nyt alennuksessa niin kauan kun tavaraa riittää</p>
+                      <p><a className="btn btn-lg btn-primary" href="#">Tarjouksiin</a></p>
                     </div>
                   </div>
                 </div>
@@ -95,9 +95,9 @@ export default function Home() {
 
                   <div className="container">
                     <div className="carousel-caption">
-                      <h1>Another example headline.</h1>
-                      <p>Some representative placeholder content for the second slide of the carousel.</p>
-                      <p><a className="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                      <h1>Ilmaiset toimitukset yli 40€ maksaviin tilauksiin!*</h1>
+                      <p>Tarjous koskee vain valittuja tuotteita.</p>
+                      <p><a className="btn btn-lg btn-primary" href="#">Lue lisää</a></p>
                     </div>
                   </div>
                 </div>
