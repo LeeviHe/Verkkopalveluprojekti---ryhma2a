@@ -1,9 +1,14 @@
 .navbar-container {
-  background-color: #696969;
+  background-color: #333;
 }
 
 .main-logo {
   height: 5rem;
+}
+
+.nav-item {
+  background-color: transparent;
+  border: none;
 }
 
 .nav-image {
@@ -17,8 +22,4 @@ button .nav-image{
   margin-right: 0.5rem;
 }
 
-button{
-  background-color: transparent;
-  border: none;
-}
 

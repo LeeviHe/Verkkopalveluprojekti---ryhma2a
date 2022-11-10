@@ -1,6 +1,5 @@
 import React from "react";
 import './Navbar.css';
-import { Link } from "react-router-dom";
 import img from '../images/shoelando_logo.png';
 
 
@@ -9,7 +8,7 @@ export default function Navbar() {
     <>
 
       <div className="container navbar-container">
-        <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <header className="d-flex flex-wrap justify-content-center py-3">
           <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
             <img src={img} className="main-logo" alt="Shoelando logo" />
           </a>
