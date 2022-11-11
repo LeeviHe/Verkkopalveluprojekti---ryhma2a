@@ -1,3 +1,5 @@
+drop database if exists shoelando_db;
+
 CREATE DATABASE shoelando_db;
 
 CREATE TABLE `customer` (
