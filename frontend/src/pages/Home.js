@@ -9,6 +9,15 @@ import logo1 from '../images/Adidas.png';
 import logo2 from '../images/Nike.png';
 import logo3 from '../images/Puma.png';
 import logo4 from '../images/Timberland.png';
+import kenka1 from'../images/Adidas Kenka3.png'
+import kenka2 from'../images/Adidas Kenka2.png'
+import kenka3 from'../images/Nike Kenka2.jpg'
+import kenka4 from'../images/Nike Kenka.png'
+import kenka5 from'../images/Nike Kenka3.png'
+import kenka6 from'../images/Adidas kenka.jpg'
+import kenka7 from'../images/Puma Kenka.png'
+import kenka8 from'../images/Puma Kenka2.png'
+import kenka9 from'../images/Puma Kenka3.png'
 
 /*
 let sliderFeat = document.getElementById("slider-featured");
@@ -147,21 +156,21 @@ export default function Home() {
               <div className="item item-featured">
                 <div className="text">
                   <a href="#">
-                    <img src={logo2} alt="" />
+                    <img src={kenka1} alt="" />
                   </a>
                 </div>
               </div>
               <div className="item item-featured">
                 <div className="text">
                   <a href="#">
-                    <img src={logo2} alt="" />
+                    <img src={kenka2} alt="" />
                   </a>
                 </div>
               </div>
               <div className="item item-featulogo2">
                 <div className="text">
                   <a href="#">
-                    <img src={logo2} alt="" />
+                    <img src={kenka3} alt="" />
                   </a>
                 </div>
               </div>
@@ -182,21 +191,21 @@ export default function Home() {
               <div className="item item-indoors">
                 <div className="text">
                   <a href="#">
-                    <img src={logo2} alt="" />
+                    <img src={kenka4} alt="" />
                   </a>
                 </div>
               </div>
               <div className="item item-indoors">
                 <div className="text">
                   <a href="#">
-                    <img src={logo2} alt="" />
+                    <img src={kenka5} alt="" />
                   </a>
                 </div>
               </div>
               <div className="item item-indoors">
                 <div className="text">
                   <a href="#">
-                    <img src={logo2} alt="" />
+                    <img src={kenka6} alt="" />
                   </a>
                 </div>
               </div>
@@ -217,21 +226,21 @@ export default function Home() {
               <div className="item item-outdoors">
                 <div className="text">
                   <a href="#">
-                    <img src={logo2} alt="" />
+                    <img src={kenka7} alt="" />
                   </a>
                 </div>
               </div>
               <div className="item item-outdoors">
                 <div className="text">
                   <a href="#">
-                    <img src={logo2} alt="" />
+                    <img src={kenka8} alt="" />
                   </a>
                 </div>
               </div>
               <div className="item item-outdoors">
                 <div className="text">
                   <a href="#">
-                    <img src={logo2} alt="" />
+                    <img src={kenka9} alt="" />
                   </a>
                 </div>
               </div>
