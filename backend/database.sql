@@ -1,4 +1,4 @@
-```CREATE DATABASE shoelando_db;
+CREATE DATABASE shoelando_db;
 
 CREATE TABLE `customer` (
   `customerid` char(6) NOT NULL,
@@ -97,4 +97,4 @@ ALTER TABLE `orderrow`
 -- Constraints for table `product`
 
 ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`categorynumber`) REFERENCES `category` (`categorynumber`);```
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`categorynumber`) REFERENCES `category` (`categorynumber`);
