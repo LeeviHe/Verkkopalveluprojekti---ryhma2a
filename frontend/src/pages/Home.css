@@ -1,6 +1,5 @@
 body {
   font-family: 'Belgrano', serif;
-  background-color: #deb887;
 }
 
 /* SIDEBAR */
@@ -27,8 +26,7 @@ body {
 
 .carousel-caption {
 font-family: 'Secular One', sans-serif;
-
-text-shadow: 2px 3px 7px rgba(43, 43, 43, 0.8);
+text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
 }
 
 .carousel-item {
@@ -38,10 +36,10 @@ text-shadow: 2px 3px 7px rgba(43, 43, 43, 0.8);
 .carousel-img {
   height: 300px;
   width: 100%;
+  filter: blur(2px);
 }
 
 .logo-section {
-  background-color: inherit;
   margin: 1rem;
 }
 
@@ -55,6 +53,17 @@ text-shadow: 2px 3px 7px rgba(43, 43, 43, 0.8);
   height: 2rem;
   filter: brightness(0);
   opacity: 40%;
+}
+
+.btn-primary {
+  background-color: rgb(112, 89, 74);
+  border: none;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+  background-color: rgb(171, 89, 34);
+  border: none;
 }
 
 /* product carousel */
@@ -117,7 +126,7 @@ text-shadow: 2px 3px 7px rgba(43, 43, 43, 0.8);
 
 .slider-btn {
   padding-bottom: 3rem;
-  background-color: #a7cbaf;
+  background-color: #1f1f1f;
   border: none;
   outline: none;
   font-size: 2rem;

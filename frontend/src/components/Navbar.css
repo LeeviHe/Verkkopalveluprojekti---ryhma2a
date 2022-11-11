@@ -1,9 +1,12 @@
 .navbar-container {
+  display: inline-flex;
+  position: relative;
+  overflow: visible;
   background-color: #6c402e;
 }
 
-.flex-wrap {
-  margin: 0 10rem;
+.d-flex {
+  gap: 40rem;
 }
 
 .main-logo {

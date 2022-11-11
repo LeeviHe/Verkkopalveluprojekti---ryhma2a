@@ -6,7 +6,7 @@ export default function Shoppingcart() {
   return (
     <>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ostoskori</a>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <div className="container cart-container">
 
@@ -34,6 +34,7 @@ export default function Shoppingcart() {
               </div>
 
               <div className="d">
+                <div>Hinta</div>
                 <div>Toimituskulut</div>
                 <div>Summa EUR</div>
               </div>
