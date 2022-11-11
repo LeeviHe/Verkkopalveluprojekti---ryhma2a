@@ -1,5 +1,9 @@
 .navbar-container {
-  background-color: #6c402e
+  background-color: #6c402e;
+}
+
+.flex-wrap {
+  margin: 0 10rem;
 }
 
 .main-logo {

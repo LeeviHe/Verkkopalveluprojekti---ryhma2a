@@ -37,6 +37,7 @@ text-shadow: 2px 3px 7px rgba(43, 43, 43, 0.8);
 
 .carousel-img {
   height: 300px;
+  width: 100%;
 }
 
 .logo-section {

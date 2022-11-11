@@ -1,0 +1,32 @@
+.a {
+  display: flex;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+.b {
+  padding: 0.3rem 0.5rem;
+}
+
+.c { 
+  border-right: 2px solid #999;
+}
+
+.asd {
+  color: black;
+}
+
+.asd:hover,
+.asd:active {
+  color: rgb(74, 74, 74);
+  cursor: pointer;
+}
+
+.d {
+  margin: 1rem 0;
+}
+
+.form-btn {
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+}
