@@ -1,5 +1,6 @@
 import React from "react";
 import './Navbar.css';
+import Shoppingcart from './Shoppingcart';
 import img from '../images/shoelando_logo.png';
 
 
@@ -22,7 +23,11 @@ export default function Navbar() {
             </li>
 
             <li className="nav-item me-2"><img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" className="nav-icon"></img></li>
-            <li className="nav-item me-2"><img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" className="nav-icon"></img></li>
+
+            <li className="nav-item me-2 dropdown">
+              <a className="nav-link dropdown-toggle" href="/shoppingcart">
+                <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" className="nav-icon"></img>
+              </a></li>
           </ul>
         </header>
       </div>

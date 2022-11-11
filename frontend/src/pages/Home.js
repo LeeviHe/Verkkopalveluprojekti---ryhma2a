@@ -1,8 +1,10 @@
 import React from 'react';
 import '../App.js';
 import './Home.css';
-import red from '../images/testred.jpg';
-import blue from '../images/testblue.jpg';
+import test1 from '../images/banner1.jpg';
+// https://www.pexels.com/photo/trendy-sporty-boots-placed-in-box-4211330/
+import test2 from '../images/banner2.jpg';
+// https://www.pexels.com/photo/person-standing-on-the-white-snow-7026763/
 import logo1 from '../images/Adidas.png';
 import logo2 from '../images/Nike.png';
 import logo3 from '../images/Puma.png';
@@ -80,7 +82,7 @@ export default function Home() {
               </div>
               <div className="carousel-inner">
                 <div className="carousel-item active">
-                  <img src={red} alt="picture"></img>
+                  <img src={test2} className="carousel-img" alt="picture"></img>
 
                   <div className="container">
                     <div className="carousel-caption text-start">
@@ -91,7 +93,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="carousel-item">
-                  <img src={blue} alt="picture"></img>
+                  <img src={test1} className="carousel-img" alt="picture"></img>
 
                   <div className="container">
                     <div className="carousel-caption">
@@ -121,14 +123,12 @@ export default function Home() {
       <div className="logo-section">
         <div className="container">
           <div className="logos">
-            <img src={logo3} alt="Adidas logo" />
+            <img src={logo1} alt="Adidas logo" />
             <img src={logo2} alt="Nike logo" />
             <img src={logo3} alt="Puma logo" />
-            <img src={logo2} alt="Timberland logo" />
-            <img src={logo3} alt="Adidas logo" />
+            <img src={logo4} alt="Timberland logo" />
+            <img src={logo1} alt="Adidas logo" />
             <img src={logo2} alt="Nike logo" />
-            <img src={logo3} alt="Puma logo" />
-            <img src={logo2} alt="Timberland logo" />
           </div>
         </div>
       </div>
@@ -147,21 +147,21 @@ export default function Home() {
               <div className="item item-featured">
                 <div className="text">
                   <a href="#">
-                    <img src={red} alt="" />
+                    <img src={logo2} alt="" />
                   </a>
                 </div>
               </div>
               <div className="item item-featured">
                 <div className="text">
                   <a href="#">
-                    <img src={red} alt="" />
+                    <img src={logo2} alt="" />
                   </a>
                 </div>
               </div>
-              <div className="item item-featured">
+              <div className="item item-featulogo2">
                 <div className="text">
                   <a href="#">
-                    <img src={red} alt="" />
+                    <img src={logo2} alt="" />
                   </a>
                 </div>
               </div>
@@ -182,21 +182,21 @@ export default function Home() {
               <div className="item item-indoors">
                 <div className="text">
                   <a href="#">
-                    <img src={red} alt="" />
+                    <img src={logo2} alt="" />
                   </a>
                 </div>
               </div>
               <div className="item item-indoors">
                 <div className="text">
                   <a href="#">
-                    <img src={red} alt="" />
+                    <img src={logo2} alt="" />
                   </a>
                 </div>
               </div>
               <div className="item item-indoors">
                 <div className="text">
                   <a href="#">
-                    <img src={red} alt="" />
+                    <img src={logo2} alt="" />
                   </a>
                 </div>
               </div>
@@ -217,21 +217,21 @@ export default function Home() {
               <div className="item item-outdoors">
                 <div className="text">
                   <a href="#">
-                    <img src={red} alt="" />
+                    <img src={logo2} alt="" />
                   </a>
                 </div>
               </div>
               <div className="item item-outdoors">
                 <div className="text">
                   <a href="#">
-                    <img src={red} alt="" />
+                    <img src={logo2} alt="" />
                   </a>
                 </div>
               </div>
               <div className="item item-outdoors">
                 <div className="text">
                   <a href="#">
-                    <img src={red} alt="" />
+                    <img src={logo2} alt="" />
                   </a>
                 </div>
               </div>
