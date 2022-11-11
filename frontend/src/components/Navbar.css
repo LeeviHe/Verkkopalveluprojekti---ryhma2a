@@ -1,24 +1,35 @@
 .navbar-container {
-  background-color: #696969;
+  background-color: #6c402e
 }
 
 .main-logo {
   height: 5rem;
 }
 
-.nav-image {
-  height: 20px;
-  background-color: none;
-  margin-left: 0.5rem;
+.nav {
+  align-items: center;
 }
 
-button .nav-image{
-  margin-bottom: 0.4rem;
-  margin-right: 0.5rem;
-}
-
-button{
+.nav-item {
   background-color: transparent;
   border: none;
 }
 
+input {
+ border: 3px solid rgb(98, 48, 26);
+ border-radius: 4px;
+ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.nav-icon {
+  height: 1.5rem;
+  background-color: none;
+  margin-right: 1.5rem;
+  margin-bottom: 0.4rem;
+  
+}
+
+.search-icon {
+  margin-right: 3rem;
+  margin-bottom: 0.4rem;
+}
