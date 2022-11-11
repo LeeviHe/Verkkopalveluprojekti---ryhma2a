@@ -100,3 +100,8 @@ ALTER TABLE `orderrow`
 
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`categorynumber`) REFERENCES `category` (`categorynumber`);
+
+INSERT INTO category (categorynumber, categoryname)
+VALUES ('1', 'ryhma1'), ('2','ryhma2');
+INSERT INTO product (productnumber, productname, price, categorynumber)
+VALUES (1, 'kenka1', 2, 1), (2, 'kenka2', 50, 2), (3, 'kenka3', 200, 1);
