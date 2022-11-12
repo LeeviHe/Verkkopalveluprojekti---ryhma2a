@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className='footer'>
       <div className='container'>
-        <span>sticky footer</span>
+        <span>footer</span>
       </div>
     </footer>
   )
