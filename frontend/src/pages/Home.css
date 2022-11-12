@@ -66,8 +66,8 @@ text-shadow: 2px 3px 7px rgba(43, 43, 43, 0.8);
 
 .container-fluid {
   text-align: center;
-  overflow: hidden;
   background-color: #b6986e;
+  /*overflow: hidden;*/
 }
 
 .slider-wrap {

@@ -7,6 +7,7 @@ import Shoppingcart from './components/Shoppingcart';
 import Product from './pages/Product';
 import Footer from './components/Footer';
 
+
 function App() {
   return (
     <>
