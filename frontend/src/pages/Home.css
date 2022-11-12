@@ -46,10 +46,11 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
 .btn-xmas {
   display: inline-block;
   border-radius: 7px;
-  padding: 10px 20px;
+  padding: 0.3rem 0.5rem;
   background-color: rgb(25, 111, 32);
   border: none;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-sizing: border-box;
 }
 
 .btn-xmas:hover {
@@ -156,7 +157,7 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
   background-size: cover;
 }
 
-.col a {
+.random-col a {
   padding: 0.75rem 0.375rem;
   background: rgba(0, 0, 0, 0.556);
   border: 2px solid rgba(0, 0, 0, 0.516);
@@ -166,7 +167,7 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
 
 .album {
   grid-column: 2;
-
+margin-bottom: 5rem;
 }
 
 .product-row {
@@ -196,11 +197,11 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
 
 .qwert {
   grid-column: 2;
-  background-image: url(../images/test.jpg);
-  min-height: 500px;
+  background-image: url(../images/fixed-img.jpg);
+  min-height: 300px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
-
+  background-size: cover;
+filter: blur(1px);
 }

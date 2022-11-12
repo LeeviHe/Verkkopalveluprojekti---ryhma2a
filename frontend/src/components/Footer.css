@@ -1,35 +1,51 @@
-footer .container {
-  padding: 0;
-}
-
 footer {
-  padding: 0;
+  padding: 2rem 0 0 2rem;
   background-color: #333;
   color: white;
 }
 
-button{
+h5 {
+  color: rgba(248, 175, 102, 0.573);
+  padding: 0.5rem 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.footer-icon {
+  height: 2rem;
+  background-color: none;
+  margin-right: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.footer-col,
+.footer-col a {
+  text-align: start;
+}
+
+.footer-column {
   padding: 0;
-  background-color: #333;
-  border: none;
-  width: 60px;
+  list-style: none;
+  flex-direction: column;
 }
 
-.row-cols-1{
-  
+.footer-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
 }
 
-.instagram, .twitter, .facebook{
-  padding-left: 17px;
+.footer-link:hover {
+  color: white;
+  text-decoration: underline;
 }
 
-.text-muted{
-  padding-right: 5px;
-  margin: 0;
-}
-
-.container-fluid{
-  padding: 0;
+.helper-margin {
+  margin-top: 2rem;
 }
 
 
