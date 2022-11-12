@@ -82,4 +82,6 @@ account
 https://cdn-icons-png.flaticon.com/512/1144/1144760.png
 
 cart
-https://cdn-icons-png.flaticon.com/512/3144/3144456.png*/
+https://cdn-icons-png.flaticon.com/512/3144/3144456.png
+
+<a href="https://www.freepik.com/free-photo/pastel-acrylic-abstract-background-vector_15559399.htm#query=simple%20background&position=43&from_view=keyword">Image by rawpixel.com</a> on Freepik*/

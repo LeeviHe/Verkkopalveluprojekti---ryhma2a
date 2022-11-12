@@ -22,6 +22,9 @@ body {
   padding-right: 1.5rem;
 }
 
+.sidebar-select:hover {
+  text-decoration: underline;
+}
 /* MAIN CAROUSEL */
 
 .carousel-grid {
@@ -40,7 +43,7 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
 .carousel-img {
   height: 300px;
   width: 100%;
-  filter: blur(2px);
+  filter: blur(1px);
 }
 
 .btn-xmas {
@@ -167,7 +170,7 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
 
 .album {
   grid-column: 2;
-margin-bottom: 5rem;
+  margin-bottom: 10rem;
 }
 
 .product-row {
@@ -195,13 +198,26 @@ margin-bottom: 5rem;
 
 /* SECTION */
 
-.qwert {
-  grid-column: 2;
-  background-image: url(../images/fixed-img.jpg);
-  min-height: 300px;
+.fixed-section {
+  background-image: url(../images/silk.jpg);
+  min-height: 250px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-filter: blur(1px);
+  filter: blur(1px);
+  filter: brightness(70%);
+  margin: 5rem 0;
+  color: white;
+  text-align: left;
+}
+
+.fixed-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  /*background: rgba(28, 28, 28, 0.1);*/
+  padding: 0 0 4rem 2rem;
+  position: absolute;
+  bottom: 0;
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import '../App.js';
 import './Home.css';
-import test1 from '../images/banner1.jpg';
+import banner1 from '../images/banner-img1.jpg';
 // https://www.pexels.com/photo/trendy-sporty-boots-placed-in-box-4211330/
-import test2 from '../images/banner2.jpg';
+import banner2 from '../images/banner-img2.jpg';
 // https://www.pexels.com/photo/person-standing-on-the-white-snow-7026763/
 import logo1 from '../images/Adidas.png';
 import logo2 from '../images/Nike.png';
@@ -43,33 +43,45 @@ export default function Home() {
         <div className="sidebar flex-shrink-0 p-3">
           <ul className="list-unstyled ps-0">
             <li class="mb-1">
-              <button className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+              <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
                 Kesäkengät
               </button>
               <div className="collapse" id="home-collapse">
                 <ul className="btn-toggle-nav small">
-                  <li><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Tennarit</a></li>
-                  <li><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Sandaalit</a></li>
+                  <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Tennarit</a></li>
+                  <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Sandaalit</a></li>
                 </ul>
               </div>
             </li>
 
             <li className="mb-1">
-              <button className="btn btn-toggle d-inline-flex align-items-center rounded border-0 ">
+              <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 ">
                 Talvikengät
               </button>
             </li>
 
             <li className="mb-1">
-              <button className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+              <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
                 Juhlakengät
               </button>
               <div className="collapse" id="dashboard-collapse">
                 <ul className="btn-toggle-nav small">
-                  <li><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Korkokengät</a></li>
-                  <li><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Puvun kengät</a></li>
+                  <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Korkokengät</a></li>
+                  <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Puvun kengät</a></li>
                 </ul>
               </div>
+            </li>
+
+            <li className="mb-1">
+              <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 ">
+                Juoksuun
+              </button>
+            </li>
+
+            <li className="mb-1">
+              <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 ">
+                ALE
+              </button>
             </li>
           </ul>
         </div>
@@ -85,7 +97,7 @@ export default function Home() {
             </div>
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img src={test2} className="carousel-img" alt="picture"></img>
+                <img src={banner2} className="carousel-img" alt="picture"></img>
 
                 <div className="container">
                   <div className="carousel-caption text-start">
@@ -96,7 +108,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="carousel-item">
-                <img src={test1} className="carousel-img" alt="picture"></img>
+                <img src={banner1} className="carousel-img" alt="picture"></img>
 
                 <div className="container">
                   <div className="carousel-caption">
@@ -186,7 +198,7 @@ export default function Home() {
 
           <div className="product-row row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-            <h1 className="product-header py-2">Lumisiin oloihin</h1>
+            <h1 className="product-header py-2">ALE</h1>
             <div className="col">
               <div className="card shadow-sm">
                 <img src={kenka1} className="product-img"></img>
@@ -232,7 +244,7 @@ export default function Home() {
               </div>
             </div>
 
-            <h1 className="product-header py-2">Juoksuun</h1>
+            <h1 className="product-header py-2">Uutuudet</h1>
             <div className="col">
               <div className="card shadow-sm">
                 <img src={kenka4} className="product-img"></img>
@@ -279,7 +291,7 @@ export default function Home() {
               </div>
             </div>
 
-            <h1 className="product-header py-2">Hienompiin hetkiin</h1>
+            <h1 className="product-header py-2">Suosituimmat</h1>
             <div className="col">
               <div className="card shadow-sm">
                 <img src={kenka7} className="product-img"></img>
@@ -328,117 +340,27 @@ export default function Home() {
           </div>
         </div>
 
-        {/* SECTION */}
 
-        <div className='qwert'></div>
-
-        {/* PRODUCTS CAROUSEL 
-
-        <section className="product">
-          <div className="container-fluid">
-            <div>
-              <button type="button" className="slider-btn" onclick="previous_f()"><ion-icon name="chevron-back-outline" aria-hidden="true"></ion-icon></button>
-              <button type="button" className="slider-btn" onclick="next_f()"><ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon></button>
-            </div>
-            <div className="slider-wrap">
-              <div className="slider-main" id="slider-featured">
-
-                <div className="item item-featured">
-                  <div className="text">
-                    <a href="#">
-                      <img src={kenka1} alt="" />
-                    </a>
-                  </div>
-                </div>
-                <div className="item item-featured">
-                  <div className="text">
-                    <a href="#">
-                      <img src={kenka2} alt="" />
-                    </a>
-                  </div>
-                </div>
-                <div className="item item-featulogo2">
-                  <div className="text">
-                    <a href="#">
-                      <img src={kenka3} alt="" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="product indoors">
-          <div className="container-fluid">
-            <div>
-              <button type="button" className="slider-btn" onClick="previous_i()"><ion-icon name="chevron-back-outline" aria-hidden="true"></ion-icon></button>
-              <button type="button" className="slider-btn" onClick="next_i()"><ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon></button>
-            </div>
-            <div className="slider-wrap">
-              <div className="slider-main" id="slider-indoors">
-
-                <div className="item item-indoors">
-                  <div className="text">
-                    <a href="#">
-                      <img src={kenka4} alt="" />
-                    </a>
-                  </div>
-                </div>
-                <div className="item item-indoors">
-                  <div className="text">
-                    <a href="#">
-                      <img src={kenka5} alt="" />
-                    </a>
-                  </div>
-                </div>
-                <div className="item item-indoors">
-                  <div className="text">
-                    <a href="#">
-                      <img src={kenka6} alt="" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="product">
-          <div className="container-fluid">
-            <div>
-              <button type="button" className="slider-btn" onclick="previous_outdoors()"><ion-icon name="chevron-back-outline" aria-hidden="true"></ion-icon></button>
-              <button type="button" className="slider-btn" onclick="next_outdoors()"><ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon></button>
-            </div>
-            <div className="slider-wrap">
-              <div className="slider-main" id="slider-outdoors">
-
-                <div className="item item-outdoors">
-                  <div className="text">
-                    <a href="#">
-                      <img src={kenka7} alt="" />
-                    </a>
-                  </div>
-                </div>
-                <div className="item item-outdoors">
-                  <div className="text">
-                    <a href="#">
-                      <img src={kenka8} alt="" />
-                    </a>
-                  </div>
-                </div>
-                <div className="item item-outdoors">
-                  <div className="text">
-                    <a href="#">
-                      <img src={kenka9} alt="" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
       </div>
+
+
+      {/* FIXED SECTION */}
+
+      <div className='fixed-section'>
+        <div className='fixed-banner'>
+          <div className='fixed-text'>
+            <h2 class="fw-normal">10% Alennus ensimmäisestä ostoksestasi.</h2>
+            <p>Liity uutiskirjeen tilaajaksi ja nauti tervetuliaislahjasta</p>
+
+            <form>
+              <label for="email" placeholder='Sähköpostiosoite'></label>
+              <input type="email" id="email" name="email"></input>
+              <button className='fixed-btn'>Alennus</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
     </>
   )
 }
