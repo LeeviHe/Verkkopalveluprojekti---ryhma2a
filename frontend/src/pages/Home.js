@@ -5,19 +5,19 @@ import banner1 from '../images/banner-img1.jpg';
 // https://www.pexels.com/photo/trendy-sporty-boots-placed-in-box-4211330/
 import banner2 from '../images/banner-img2.jpg';
 // https://www.pexels.com/photo/person-standing-on-the-white-snow-7026763/
-import logo1 from '../images/Adidas.png';
-import logo2 from '../images/Nike.png';
-import logo3 from '../images/Puma.png';
-import logo4 from '../images/Timberland.png';
-import kenka1 from '../images/Adidas Kenka3.png'
-import kenka2 from '../images/Adidas Kenka2.png'
-import kenka3 from '../images/Nike kenkä 2.png'
-import kenka4 from '../images/Nike Kenka.png'
-import kenka5 from '../images/Nike Kenka3.png'
-import kenka6 from '../images/Adidas kenkä.png'
-import kenka7 from '../images/Puma Kenka.png'
-import kenka8 from '../images/Puma Kenka2.png'
-import kenka9 from '../images/Puma Kenka3.png'
+import logo1 from '../images/Adidaslogo.png';
+import logo2 from '../images/Nikelogo.png';
+import logo3 from '../images/Pumalogo.png';
+import logo4 from '../images/Timberlandlogo.png';
+import kenka1 from '../images/Adidas3.png'
+import kenka2 from '../images/Adidas2.png'
+import kenka3 from '../images/Nike2.png'
+import kenka4 from '../images/Nike.png'
+import kenka5 from '../images/Nike3.png'
+import kenka6 from '../images/Adidas.png'
+import kenka7 from '../images/Puma.png'
+import kenka8 from '../images/Puma2.png'
+import kenka9 from '../images/Puma3.png'
 
 import { useState } from 'react';
 
