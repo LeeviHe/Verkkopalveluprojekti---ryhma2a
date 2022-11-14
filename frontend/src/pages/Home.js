@@ -11,10 +11,10 @@ import logo3 from '../images/Puma.png';
 import logo4 from '../images/Timberland.png';
 import kenka1 from '../images/Adidas Kenka3.png'
 import kenka2 from '../images/Adidas Kenka2.png'
-import kenka3 from '../images/Nike Kenka2.jpg'
+import kenka3 from '../images/Nike kenkä 2.png'
 import kenka4 from '../images/Nike Kenka.png'
 import kenka5 from '../images/Nike Kenka3.png'
-import kenka6 from '../images/Adidas kenka.jpg'
+import kenka6 from '../images/Adidas kenkä.png'
 import kenka7 from '../images/Puma Kenka.png'
 import kenka8 from '../images/Puma Kenka2.png'
 import kenka9 from '../images/Puma Kenka3.png'
