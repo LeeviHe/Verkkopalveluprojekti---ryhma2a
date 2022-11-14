@@ -9,15 +9,15 @@ import logo1 from '../images/Adidaslogo.png';
 import logo2 from '../images/Nikelogo.png';
 import logo3 from '../images/Pumalogo.png';
 import logo4 from '../images/Timberlandlogo.png';
-import kenka1 from '../images/Adidas3.png'
-import kenka2 from '../images/Adidas2.png'
-import kenka3 from '../images/Nike2.png'
-import kenka4 from '../images/Nike.png'
-import kenka5 from '../images/Nike3.png'
-import kenka6 from '../images/Adidas.png'
-import kenka7 from '../images/Puma.png'
-import kenka8 from '../images/Puma2.png'
-import kenka9 from '../images/Puma3.png'
+import kenka1 from '../images/adidas3.png'
+import kenka2 from '../images/adidas2.png'
+import kenka3 from '../images/nike2.png'
+import kenka4 from '../images/nike.png'
+import kenka5 from '../images/nike3.png'
+import kenka6 from '../images/adidas1.png'
+import kenka7 from '../images/puma.png'
+import kenka8 from '../images/puma2.png'
+import kenka9 from '../images/puma3.png'
 
 import { useState } from 'react';
 
@@ -137,12 +137,12 @@ export default function Home() {
         <div className="logo-section pt-4">
           <div className="container">
             <div className="logos">
-              <img src={logo1} alt="Adidas logo" />
-              <img src={logo2} alt="Nike logo" />
-              <img src={logo3} alt="Puma logo" />
-              <img src={logo4} alt="Timberland logo" />
-              <img src={logo1} alt="Adidas logo" />
-              <img src={logo2} alt="Nike logo" />
+              <img src={logo1} alt="Adidaslogo" />
+              <img src={logo2} alt="Nikelogo" />
+              <img src={logo3} alt="Pumalogo" />
+              <img src={logo4} alt="Timberlandlogo" />
+              <img src={logo1} alt="Adidaslogo" />
+              <img src={logo2} alt="Nikelogo" />
             </div>
           </div>
         </div>
