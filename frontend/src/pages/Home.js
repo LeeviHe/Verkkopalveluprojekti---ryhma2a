@@ -15,7 +15,7 @@ import kenka3 from '../images/nike2.png'
 import kenka4 from '../images/nike.png'
 import kenka5 from '../images/nike3.png'
 import kenka6 from '../images/adidas1.png'
-import kenka7 from '../images/puma.png'
+import kenka7 from '../images/puma1.png'
 import kenka8 from '../images/puma2.png'
 import kenka9 from '../images/puma3.png'
 
