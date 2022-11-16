@@ -8,10 +8,10 @@ import banner2 from '../images/banner/banner-img2.jpg';
 import logo1 from '../images/logos/Adidas.png';
 import logo2 from '../images/logos/Nike.png';
 import logo3 from '../images/logos/Puma.png';
-import logo4 from '../images/logos/Timberland.png';
-import kenka1 from '../images/products/Adidas Kenka3.png'
-import kenka2 from '../images/products/Adidas Kenka2.png'
-import kenka3 from '../images/products/Nike Kenka2.jpg'
+import logo4 from '../images/logos/Timberlandlogo.png';
+import kenka1 from '../images/products/adidas2.png';
+import kenka2 from '../images/products/adidas3.png';
+import kenka3 from '../images/products/adidas2.png';
 
 import { useState } from 'react';
 
@@ -29,11 +29,12 @@ export default function Home() {
 
   return (
     <>
+      {/* GRID */}
 
+      <div className="container grid-container pt-4">
 
-      {/* SIDEBAR */}
+        {/* SIDEBAR */}
 
-      <div className="grid-container pt-4">
         <div className="sidebar flex-shrink-0 p-3">
           <ul className="list-unstyled ps-0">
             <li class="mb-1">
@@ -188,7 +189,35 @@ export default function Home() {
 
         {/* PRODUCTS */}
 
-        <div className="album py-5 bg-light">
+
+
+
+      </div>
+
+
+      {/* FIXED SECTION */}
+
+      <div className='fixed-section'>
+        <div className='fixed-banner'>
+          <div className='fixed-text'>
+            <h2 class="fw-normal">10% Alennus ensimmäisestä ostoksestasi.</h2>
+            <p>Liity uutiskirjeen tilaajaksi ja nauti tervetuliaislahjasta</p>
+
+            <form>
+              <label for="email" placeholder='Sähköpostiosoite'></label>
+              <input type="email" id="email" name="email"></input>
+              <button className='fixed-btn'>Alennus</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </>
+  )
+}
+
+/*
+<div className="album py-5 bg-light">
 
           <div className="product-row row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
@@ -333,28 +362,4 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-
-      </div>
-
-
-      {/* FIXED SECTION */}
-
-      <div className='fixed-section'>
-        <div className='fixed-banner'>
-          <div className='fixed-text'>
-            <h2 class="fw-normal">10% Alennus ensimmäisestä ostoksestasi.</h2>
-            <p>Liity uutiskirjeen tilaajaksi ja nauti tervetuliaislahjasta</p>
-
-            <form>
-              <label for="email" placeholder='Sähköpostiosoite'></label>
-              <input type="email" id="email" name="email"></input>
-              <button className='fixed-btn'>Alennus</button>
-            </form>
-          </div>
-        </div>
-      </div>
-
-    </>
-  )
-}
+*/
