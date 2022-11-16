@@ -1,8 +1,8 @@
-.navbar-container {
+.header-container {
   display: inline-flex;
   position: relative;
   overflow: visible;
-  background-image: url(../images/navbar.png);
+  background-image: url(../images/header.png);
   background-size: cover;
 }
 

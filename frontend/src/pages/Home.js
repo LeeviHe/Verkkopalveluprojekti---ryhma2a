@@ -1,23 +1,17 @@
 import React from 'react';
 import '../App.js';
 import './Home.css';
-import banner1 from '../images/banner-img1.jpg';
+import banner1 from '../images/banner/banner-img1.jpg';
 // https://www.pexels.com/photo/trendy-sporty-boots-placed-in-box-4211330/
-import banner2 from '../images/banner-img2.jpg';
+import banner2 from '../images/banner/banner-img2.jpg';
 // https://www.pexels.com/photo/person-standing-on-the-white-snow-7026763/
-import logo1 from '../images/Adidas.png';
-import logo2 from '../images/Nike.png';
-import logo3 from '../images/Puma.png';
-import logo4 from '../images/Timberland.png';
-import kenka1 from '../images/Adidas Kenka3.png'
-import kenka2 from '../images/Adidas Kenka2.png'
-import kenka3 from '../images/Nike Kenka2.jpg'
-import kenka4 from '../images/Nike Kenka.png'
-import kenka5 from '../images/Nike Kenka3.png'
-import kenka6 from '../images/Adidas kenka.jpg'
-import kenka7 from '../images/Puma Kenka.png'
-import kenka8 from '../images/Puma Kenka2.png'
-import kenka9 from '../images/Puma Kenka3.png'
+import logo1 from '../images/logos/Adidas.png';
+import logo2 from '../images/logos/Nike.png';
+import logo3 from '../images/logos/Puma.png';
+import logo4 from '../images/logos/Timberland.png';
+import kenka1 from '../images/products/Adidas Kenka3.png'
+import kenka2 from '../images/products/Adidas Kenka2.png'
+import kenka3 from '../images/products/Nike Kenka2.jpg'
 
 import { useState } from 'react';
 
@@ -147,11 +141,11 @@ export default function Home() {
           </div>
         </div>
 
-        {/* RANDOM */}
+        {/* ADDITIONAL SECTION */}
 
-        <div class="random pt-4">
+        <div class="additional pt-4">
 
-          <div class="col random-col col1">
+          <div class="col additional-col col1">
             <div className='col-banner'>
               <h2 class="fw-normal">Joululahjat</h2>
               <a class="btn btn-secondary" style={{
@@ -164,7 +158,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div class="col random-col col2">
+          <div class="col additional-col col2">
             <div className='col-banner'>
               <h2 class="fw-normal">Uutuudet</h2>
               <a class="btn btn-secondary" style={{
@@ -177,7 +171,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div class="col random-col col3">
+          <div class="col additional-col col3">
             <div className='col-banner'>
               <h2 class="fw-normal">Tarvikkeet</h2>
               <a class="btn btn-secondary" style={{
@@ -247,7 +241,7 @@ export default function Home() {
             <h1 className="product-header py-2">Uutuudet</h1>
             <div className="col">
               <div className="card shadow-sm">
-                <img src={kenka4} className="product-img"></img>
+                <img src={kenka1} className="product-img"></img>
 
                 <div className="card-body">
                   <p className="card-text">Product info.</p>
@@ -262,7 +256,7 @@ export default function Home() {
             </div>
             <div className="col">
               <div className="card shadow-sm">
-                <img src={kenka5} className="product-img"></img>
+                <img src={kenka2} className="product-img"></img>
 
                 <div className="card-body">
                   <p className="card-text">Product info.</p>
@@ -277,7 +271,7 @@ export default function Home() {
             </div>
             <div className="col">
               <div className="card shadow-sm">
-                <img src={kenka6} className="product-img"></img>
+                <img src={kenka3} className="product-img"></img>
 
                 <div className="card-body">
                   <p className="card-text">Product info.</p>
@@ -294,7 +288,7 @@ export default function Home() {
             <h1 className="product-header py-2">Suosituimmat</h1>
             <div className="col">
               <div className="card shadow-sm">
-                <img src={kenka7} className="product-img"></img>
+                <img src={kenka1} className="product-img"></img>
 
                 <div className="card-body">
                   <p className="card-text">Product info.</p>
@@ -309,7 +303,7 @@ export default function Home() {
             </div>
             <div className="col">
               <div className="card shadow-sm">
-                <img src={kenka8} className="product-img"></img>
+                <img src={kenka2} className="product-img"></img>
 
                 <div className="card-body">
                   <p className="card-text">Product info.</p>
@@ -324,7 +318,7 @@ export default function Home() {
             </div>
             <div className="col">
               <div className="card shadow-sm">
-                <img src={kenka9} className="product-img"></img>
+                <img src={kenka3} className="product-img"></img>
 
                 <div className="card-body">
                   <p className="card-text">Product info.</p>

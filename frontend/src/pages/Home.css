@@ -119,9 +119,9 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
   opacity: 40%;
 }
 
-/* something section */
+/* ADDITIONAL SECTION */
 
-.random {
+.additional {
   display: flex;
   grid-column: 2;
   gap: 20px;
@@ -129,7 +129,7 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
   margin-bottom: 5rem;
 }
 
-.random-col {
+.additional-col {
   padding-top: 15rem;
 }
 
@@ -146,21 +146,21 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
 }
 
 .col1 {
-  background-image: url(../images/xmas.jpg);
+  background-image: url(../images/additional/xmas.jpg);
   background-size: cover;
 }
 
 .col2 {
-  background-image: url(../images/new.jpg);
+  background-image: url(../images/additional/new.jpg);
   background-size: cover;
 }
 
 .col3 {
-  background-image: url(../images/supplies.jpg);
+  background-image: url(../images/additional/supplies.jpg);
   background-size: cover;
 }
 
-.random-col a {
+.additional-col a {
   padding: 0.75rem 0.375rem;
   background: rgba(0, 0, 0, 0.556);
   border: 2px solid rgba(0, 0, 0, 0.516);

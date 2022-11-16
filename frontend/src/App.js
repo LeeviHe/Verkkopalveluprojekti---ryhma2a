@@ -2,7 +2,7 @@ import './App.css';
 import './pages/Home.js';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Navbar from './components/Navbar';
+import Header from './components/Header';
 import Shoppingcart from './components/Shoppingcart';
 import Product from './pages/Product';
 import Footer from './components/Footer';
@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <>
-      <Navbar />
+      <Header />
       <div className='container'>
         <Routes>
           <Route path="/" element={<Home />} />
