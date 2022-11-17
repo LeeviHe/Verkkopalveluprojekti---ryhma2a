@@ -10,12 +10,15 @@ import Header from './components/Header';
 import Shoppingcart from './components/Shoppingcart';
 import Product from './pages/Product';
 import Footer from './components/Footer';
+import Sidebar from './components/Sidebar';
+
 
 function App() {
   return (
     <>
       <Header />
       <div className='container'>
+        <Sidebar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<Product />} />
