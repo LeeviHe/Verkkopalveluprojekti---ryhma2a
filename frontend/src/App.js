@@ -1,8 +1,4 @@
-import Carousel from './components/Carousel/Carousel';
-import { CarouselData } from './components/Carousel/CarouselData';
-import { useSwipeable } from "react-swipeable";
 import axios from 'axios';
-
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
