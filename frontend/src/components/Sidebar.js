@@ -15,8 +15,8 @@ export default function Sidebar() {
         </button>
         <div className="collapse" id="home-collapse">
           <ul className="btn-toggle-nav small">
-            <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Tennarit</a></li>
-            <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Sandaalit</a></li>
+            <li className='sidebar-select'><a href="products/1" className="link-dark d-inline-flex text-decoration-none rounded">Tennarit</a></li>
+            <li className='sidebar-select'><a href="products/2" className="link-dark d-inline-flex text-decoration-none rounded">Sandaalit</a></li>
           </ul>
         </div>
       </li>
