@@ -126,7 +126,7 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
   grid-column: 2;
   gap: 20px;
   color: white;
-  margin-bottom: 5rem;
+  margin-bottom: 2.5rem;
 }
 
 .additional-col {
@@ -168,33 +168,18 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
 
 /* PRODUCTS */
 
-.album {
+.products-carousel {
   grid-column: 2;
-  margin-bottom: 10rem;
 }
 
-.product-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
+.products-header {
+  color: #333;
+  margin: 2rem 0;
 }
 
-.product-header {
-  grid-column: 1 / span 3;
-  width: 100%;
-}
-
-.product-img {
-  width: 100%;
-}
-
-.card-body {
-  background-color: rgb(57, 57, 57);
-}
-
-.col {
-  width: auto;
-}
+/* .products-carousel div{
+gap: 10px;
+} */
 
 /* SECTION */
 

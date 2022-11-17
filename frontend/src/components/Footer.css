@@ -12,7 +12,6 @@ h5 {
 .footer-container {
   display: flex;
   justify-content: center;
-  gap: 5rem;
 }
 
 .footer-icon {
