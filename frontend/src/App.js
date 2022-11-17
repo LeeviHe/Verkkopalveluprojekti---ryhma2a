@@ -10,7 +10,6 @@ import Header from './components/Header';
 import Shoppingcart from './components/Shoppingcart';
 import Product from './pages/Product';
 import Footer from './components/Footer';
-import Sidebar from './components/Sidebar';
 
 
 function App() {
@@ -20,7 +19,7 @@ function App() {
       <div className='container'>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="*" element={<Product />} />
+          <Route path="/products" element={<Product />} />
           <Route path="/shoppingcart" element={<Shoppingcart />} />
         </Routes>
         <Carousel slides={CarouselData} />
