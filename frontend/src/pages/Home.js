@@ -12,8 +12,8 @@ import logo4 from '../images/logos/Timberlandlogo.png';
 import kenka1 from '../images/products/adidas2.png';
 import kenka2 from '../images/products/adidas3.png';
 import kenka3 from '../images/products/adidas2.png';
-
 import { useState } from 'react';
+import Sidebar from '../components/Sidebar.js';
 
 export default function Home() {
 
@@ -32,11 +32,12 @@ export default function Home() {
       {/* GRID */}
 
       <div className="container grid-container pt-4">
-
-
+        <>
+          <Sidebar />
+        </>
         {/* MAIN CAROUSEL */}
 
-        <div className='carousel-grid'>
+        <div className='carousel-grid col-12'>
           <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-indicators">
               <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>

@@ -1,10 +1,12 @@
 import React from 'react'
 import '../App.js';
-import './Home.css';
+import '../pages/Home.css';
 
 
 export default function Sidebar() {
  return (
+
+    <div className="container grid-container pt-4">
     <div className="sidebar flex-shrink-0 p-3">
     <ul className="list-unstyled ps-0">
       <li class="mb-1">
@@ -49,6 +51,7 @@ export default function Sidebar() {
         </button>
       </li>
     </ul>
+  </div>
   </div>
   )
 }
