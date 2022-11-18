@@ -1,5 +1,8 @@
 body {
   font-family: 'Belgrano', serif;
+  /*bg-img: https://www.freepik.com/free-photo/neutral-abstract-texture-simple-background_15554674.htm#query=brown%20banner&position=4&from_view=keyword*/
+  background-image: url('../images/body-background.png');
+  background-size: cover;
 }
 
 /* GRID */
@@ -40,17 +43,30 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
   filter: brightness(80%);
 }
 
-.carousel-img {
+.carousel-img1 {
+  /* https://www.pexels.com/photo/person-standing-on-the-white-snow-7026763/ */
+  background-image: url('../images//banner/banner-img1.jpg');
+  background-size: cover;
   height: 300px;
   width: 100%;
-  filter: blur(1px);
+  filter: blur(0.7px);
+}
+
+.carousel-img2 {
+  /* https://unsplash.com/photos/jIC8KrAn0j8 */
+  background-image: url('../images//banner/banner-img2.jpg');
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  filter: blur(0.7px);
+  filter: brightness(70%);
 }
 
 .btn-xmas {
   display: inline-block;
   border-radius: 7px;
   padding: 10px 20px;
-  background-color: rgba(48, 123, 57, 0.801);
+  background-color: rgba(48, 123, 57, 0.943);
   border: none;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   box-sizing: border-box;
@@ -170,7 +186,6 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
 
 .products-carousel {
   grid-column: 2;
-  background-color: rgba(51, 51, 51, 0.519);
 }
 
 .products-header {

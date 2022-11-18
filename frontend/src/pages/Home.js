@@ -1,10 +1,6 @@
 import React from 'react';
 import '../App.js';
 import './Home.css';
-import banner1 from '../images/banner/banner-img1.jpg';
-// https://www.pexels.com/photo/trendy-sporty-boots-placed-in-box-4211330/
-import banner2 from '../images/banner/banner-img2.jpg';
-// https://www.pexels.com/photo/person-standing-on-the-white-snow-7026763/
 import logo1 from '../images/logos/Adidas.png';
 import logo2 from '../images/logos/Nike.png';
 import logo3 from '../images/logos/Puma.png';
@@ -46,7 +42,7 @@ export default function Home() {
             </div>
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img src={banner2} className="carousel-img" alt="picture"></img>
+                <div className='carousel-img1' />
 
                 <div className="container">
                   <div className="carousel-caption text-start">
@@ -57,7 +53,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="carousel-item">
-                <img src={banner1} className="carousel-img" alt="picture"></img>
+                <div className='carousel-img2' />
 
                 <div className="container">
                   <div className="carousel-caption">
