@@ -113,7 +113,14 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
   justify-content: center;
 }
 
-.logos img {
+.TomTailor, .Timberland{
+  height: 2.5rem;
+  filter: brightness(0);
+  opacity: 40%;
+  
+}
+
+.Adidas, .Nike, .Puma, .Ugg {
   height: 2rem;
   filter: brightness(0);
   opacity: 40%;

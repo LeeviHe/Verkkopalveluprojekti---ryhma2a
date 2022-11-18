@@ -8,7 +8,9 @@ import banner2 from '../images/banner/banner-img2.jpg';
 import logo1 from '../images/logos/Adidas.png';
 import logo2 from '../images/logos/Nike.png';
 import logo3 from '../images/logos/Puma.png';
-import logo4 from '../images/logos/Timberlandlogo.png';
+import logo4 from '../images/logos/Timberlandlogouus.png';
+import logo5 from "../images/logos/ugg.png"
+import logo6 from "../images/logos/tomtailor.png"
 import kenka1 from '../images/products/adidas1.png';
 import kenka2 from '../images/products/adidas2.png';
 import kenka3 from '../images/products/adidas3.png';
@@ -86,12 +88,12 @@ export default function Home() {
         <div className="logo-section pt-4">
           <div className="container">
             <div className="logos">
-              <img src={logo1} alt="Adidaslogo" />
-              <img src={logo2} alt="Nikelogo" />
-              <img src={logo3} alt="Pumalogo" />
-              <img src={logo4} alt="Timberlandlogo" />
-              <img src={logo1} alt="Adidaslogo" />
-              <img src={logo2} alt="Nikelogo" />
+              <img className="Adidas" src={logo1} alt="Adidaslogo" />
+              <img className="Nike" src={logo2} alt="Nikelogo" />
+              <img className="Puma" src={logo3} alt="Pumalogo" />
+              <img className="Timberland" src={logo4} alt="Timberlandlogo" />
+              <img className="Ugg" src={logo5} alt="Ugg" />
+              <img className="TomTailor" src={logo6} alt="TomTailor" />
             </div>
           </div>
         </div>
