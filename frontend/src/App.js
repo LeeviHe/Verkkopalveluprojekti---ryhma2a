@@ -1,27 +1,33 @@
+import axios from 'axios';
 import './App.css';
-import './pages/Home.js';
 import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
 import Home from './pages/Home';
-import Navbar from './components/Navbar';
 import Shoppingcart from './components/Shoppingcart';
-import Product from './pages/Product';
+import Products from './pages/Products';
 import Footer from './components/Footer';
+import Carousel from './components/Carousel/Carousel';
 
+const URL = 'http://localhost:3000/backend/'
 
 function App() {
   return (
     <>
-      <Navbar />
+      <Header />
+
       <div className='container'>
+
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="*" element={<Product />} />
+          <Route path="/products/:categoryId" element={<Products url={URL} />} />
           <Route path="/shoppingcart" element={<Shoppingcart />} />
         </Routes>
+
       </div>
+
       <Footer />
     </>
   );
 }
 
-export default App; 
+export default App;
