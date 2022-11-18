@@ -15,6 +15,18 @@ h5 {
   gap: 5rem;
 }
 
+.dhl{
+  width: 50px;
+}
+
+.postnord{
+  width: 50px;
+}
+
+.posti{
+  width: 50px;
+}
+
 .footer-icon {
   height: 2rem;
   background-color: none;
@@ -47,6 +59,9 @@ h5 {
 .helper-margin {
   margin-top: 2rem;
 }
+
+
+
 
 
 
