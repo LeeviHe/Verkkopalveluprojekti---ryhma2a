@@ -2,6 +2,8 @@ drop database if exists shoelando_db;
 
 CREATE DATABASE shoelando_db;
 
+USE shoelando_db;
+
 CREATE TABLE `customer` (
   `customerid` char(6) NOT NULL,
   `customername` char(20) NOT NULL,
@@ -34,13 +36,20 @@ CREATE TABLE `product` (
   `productnumber` int(11) NOT NULL,
   `productname` char(20) NOT NULL,
   `price` decimal(5,2) DEFAULT NULL,
-  `categorynumber` smallint(6) NOT NULL
+  `categorynumber` SMALLINT(6) NOT NULL,
+  `subcategorynumber` SMALLINT(6) NOT NULL
 );
 
 CREATE TABLE `category` (
   `categorynumber` smallint(6) NOT NULL,
-  `categoryname` char(10) DEFAULT NULL
+  `categoryname` char(20) DEFAULT NULL
 ) ;
+
+CREATE TABLE `subcategory` (
+  `subcategorynumber` SMALLINT(6) NOT NULL,
+  `subcategoryname` char(20) DEFAULT NULL,
+  `categorynumber` SMALLINT(6) NOT NULL
+);
 
 -- Indexes for table `customer`
 ALTER TABLE `customer`
@@ -71,12 +80,23 @@ ALTER TABLE `orderrow`
 
 ALTER TABLE `product`
   ADD PRIMARY KEY (`productnumber`),
-  ADD KEY `categorynumber` (`categorynumber`);
+  ADD KEY `categorynumber` (`categorynumber`),
+  ADD KEY `subcategorynumber` (`subcategorynumber`);
 
 -- Indexes for table `category`
 
 ALTER TABLE `category`
   ADD PRIMARY KEY (`categorynumber`);
+
+-- Indexes and constraint for table `subcategory`
+
+ALTER TABLE `subcategory`
+	ADD PRIMARY KEY (`subcategorynumber`),
+    ADD KEY `categorynumber` (`categorynumber`);
+
+-- Constraints for table `subcategory`
+ALTER TABLE `subcategory`
+	ADD CONSTRAINT `subcategory_ibfk_1` FOREIGN KEY (`categorynumber`) REFERENCES `category` (`categorynumber`);
 
 -- Constraints for table `customer`
 
@@ -99,9 +119,12 @@ ALTER TABLE `orderrow`
 -- Constraints for table `product`
 
 ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`categorynumber`) REFERENCES `category` (`categorynumber`);
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`categorynumber`) REFERENCES `category` (`categorynumber`),
+  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`subcategorynumber`) REFERENCES `subcategory` (`subcategorynumber`);
 
 INSERT INTO category (categorynumber, categoryname)
-VALUES ('1', 'ryhma1'), ('2','ryhma2');
-INSERT INTO product (productnumber, productname, price, categorynumber)
-VALUES (1, 'kenka1', 2, 1), (2, 'kenka2', 50, 2), (3, 'kenka3', 200, 1);
+VALUES ('1', 'kesa'), ('2','talvikengat'), ('3', 'juhla');
+INSERT INTO subcategory (subcategorynumber, subcategoryname, categorynumber)
+VALUES (1, 'tennarit', 1), (2, 'sandaalit', 1), (3, 'talvikengat', 2), (4, 'korko', 3);
+INSERT INTO product (productnumber, productname, price, categorynumber, subcategorynumber)
+VALUES (1, 'kenka1', 2, 1, 1), (2, 'kenka3', 200, 1, 2), (3, 'uggit', 10, 2, 3), (4, 'korko', 50, 3, 4);
