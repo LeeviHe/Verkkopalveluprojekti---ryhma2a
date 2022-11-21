@@ -10,6 +10,16 @@ export default function Products({url}) {
   let params = useParams();
   
   useEffect(() => {
+    if (params.subcategoryId != null) {
+      axios.get(url + 'products/getsubproducts.php/' + params.categoryId + '/' + params.subcategoryId)
+      .then((response) => {
+        const json = response.data;
+        setCategoryName(json.subcategory);
+        setProducts(json.subproducts);
+      }).catch(error => {
+        alert(error.response === undefined ? error : error.response.data.error);
+      })
+    } else {
     axios.get(url + 'products/getproducts.php/' + params.categoryId)
       .then((response) => {
         const json = response.data;
@@ -17,7 +27,8 @@ export default function Products({url}) {
         setProducts(json.products);
       }).catch(error => {
         alert(error.response === undefined ? error : error.response.data.error);
-      })
+      }) 
+    }
   }, [params])
 
   return (
