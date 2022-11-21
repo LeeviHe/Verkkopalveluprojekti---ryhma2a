@@ -20,7 +20,8 @@ function App() {
       <div className='container'>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/products/:categoryId" element={<Products url={URL}/>} />
+          <Route path="/kategoriat/:categoryId" element={<Products url={URL}/>} />
+          <Route path="/kategoriat/:categoryId/:subcategoryId" element={<Products url={URL}/>} />
           <Route path="/shoppingcart" element={<Shoppingcart />} />
         </Routes>
         <Carousel slides={CarouselData} />
