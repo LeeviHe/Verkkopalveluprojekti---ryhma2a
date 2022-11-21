@@ -1,5 +1,8 @@
 body {
   font-family: 'Belgrano', serif;
+  /*bg-img: https://www.freepik.com/free-photo/neutral-abstract-texture-simple-background_15554674.htm#query=brown%20banner&position=4&from_view=keyword*/
+  background-image: url('../images/body-background.png');
+  background-size: cover;
 }
 
 /* GRID */
@@ -40,25 +43,39 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
   filter: brightness(80%);
 }
 
-.carousel-img {
+.carousel-img1 {
+  /* https://www.pexels.com/photo/person-standing-on-the-white-snow-7026763/ */
+  background-image: url('../images//banner/banner-img1.jpg');
+  background-size: cover;
   height: 300px;
   width: 100%;
-  filter: blur(1px);
+  filter: blur(0.7px);
+  filter: brightness(90%);
+}
+
+.carousel-img2 {
+  /* https://unsplash.com/photos/jIC8KrAn0j8 */
+  background-image: url('../images//banner/banner-img2.jpg');
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  filter: blur(0.7px);
+  filter: brightness(70%);
 }
 
 .btn-xmas {
   display: inline-block;
   border-radius: 7px;
-  padding: 0.3rem 0.5rem;
-  background-color: rgb(25, 111, 32);
+  padding: 10px 20px;
+  background-color: rgba(48, 123, 57, 0.943);
   border: none;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   box-sizing: border-box;
 }
 
 .btn-xmas:hover {
-  filter: brightness(70%);
-  transition: 0.6s;
+  background-color: rgba(78, 205, 82, 0.581);
+  transition: 0.5s;
 }
 
 .btn-xmas span::after {
@@ -113,7 +130,14 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
   justify-content: center;
 }
 
-.logos img {
+.TomTailor, .Timberland{
+  height: 2.5rem;
+  filter: brightness(0);
+  opacity: 40%;
+  
+}
+
+.Adidas, .Nike, .Puma, .Ugg {
   height: 2rem;
   filter: brightness(0);
   opacity: 40%;
@@ -126,7 +150,7 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
   grid-column: 2;
   gap: 20px;
   color: white;
-  margin-bottom: 5rem;
+  margin-bottom: 2.5rem;
 }
 
 .additional-col {
@@ -168,33 +192,18 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
 
 /* PRODUCTS */
 
-.album {
+.products-carousel {
   grid-column: 2;
-  margin-bottom: 10rem;
 }
 
-.product-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
+.products-header {
+  color: #333;
+  margin: 2rem 0;
 }
 
-.product-header {
-  grid-column: 1 / span 3;
-  width: 100%;
-}
-
-.product-img {
-  width: 100%;
-}
-
-.card-body {
-  background-color: rgb(57, 57, 57);
-}
-
-.col {
-  width: auto;
-}
+/* .products-carousel div{
+gap: 10px;
+} */
 
 /* SECTION */
 
@@ -206,7 +215,7 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
   background-repeat: no-repeat;
   background-size: cover;
   filter: blur(1px);
-  filter: brightness(70%);
+  filter: brightness(75%);
   margin: 5rem 0;
   color: white;
   text-align: left;
@@ -220,4 +229,22 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
   padding: 0 0 4rem 2rem;
   position: absolute;
   bottom: 0;
+}
+
+.fixed-section input {
+  height: 2rem;
+}
+
+.fixed-btn {
+  height: 2rem;
+  margin-left: 1rem;
+  padding: 0 10px;
+  background-color: rgba(0, 0, 0, 0.558);
+  color: white;
+  border: none;
+  border-radius: 2px;
+}
+
+.fixed-btn:hover {
+  background-color: rgba(110, 58, 8, 0.573);
 }

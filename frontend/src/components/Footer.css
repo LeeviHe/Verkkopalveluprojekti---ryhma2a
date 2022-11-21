@@ -1,6 +1,6 @@
 footer {
   padding: 2rem 0 0 2rem;
-  background-color: #333;
+  background-color: rgba(36, 36, 36, 0.722);
   color: white;
 }
 
@@ -12,7 +12,18 @@ h5 {
 .footer-container {
   display: flex;
   justify-content: center;
-  gap: 5rem;
+}
+
+.dhl{
+  width: 50px;
+}
+
+.postnord{
+  width: 50px;
+}
+
+.posti{
+  width: 50px;
 }
 
 .footer-icon {
@@ -47,6 +58,9 @@ h5 {
 .helper-margin {
   margin-top: 2rem;
 }
+
+
+
 
 
 

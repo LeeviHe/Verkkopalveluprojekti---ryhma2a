@@ -1,19 +1,18 @@
 import React from 'react';
 import '../App.js';
 import './Home.css';
-import banner1 from '../images/banner/banner-img1.jpg';
-// https://www.pexels.com/photo/trendy-sporty-boots-placed-in-box-4211330/
-import banner2 from '../images/banner/banner-img2.jpg';
-// https://www.pexels.com/photo/person-standing-on-the-white-snow-7026763/
 import logo1 from '../images/logos/Adidas.png';
 import logo2 from '../images/logos/Nike.png';
 import logo3 from '../images/logos/Puma.png';
-import logo4 from '../images/logos/Timberlandlogo.png';
-import kenka1 from '../images/products/adidas2.png';
-import kenka2 from '../images/products/adidas3.png';
-import kenka3 from '../images/products/adidas2.png';
+import logo4 from '../images/logos/Timberlandlogouus.png';
+import logo5 from "../images/logos/ugg.png"
+import logo6 from "../images/logos/tomtailor.png"
+import kenka1 from '../images/products/adidas1.png';
+import kenka2 from '../images/products/adidas2.png';
+import kenka3 from '../images/products/adidas3.png';
 import { useState } from 'react';
 import Sidebar from '../components/Sidebar.js';
+import Carousel from '../components/Carousel/Carousel';
 
 export default function Home() {
 
@@ -45,7 +44,7 @@ export default function Home() {
             </div>
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img src={banner2} className="carousel-img" alt="picture"></img>
+                <div className='carousel-img1' />
 
                 <div className="container">
                   <div className="carousel-caption text-start">
@@ -56,12 +55,12 @@ export default function Home() {
                 </div>
               </div>
               <div className="carousel-item">
-                <img src={banner1} className="carousel-img" alt="picture"></img>
+                <div className='carousel-img2' />
 
                 <div className="container">
                   <div className="carousel-caption">
                     <h1>Ilmaiset toimitukset yli 40€ maksaviin tilauksiin!*</h1>
-                    <p>Tarjous koskee vain valittuja tuotteita.</p>
+                    <p>*Tarjous koskee vain valittuja tuotteita.</p>
                     <button className="btn-about" href="#"><span>Lue lisää </span></button>
                   </div>
                 </div>
@@ -85,12 +84,12 @@ export default function Home() {
         <div className="logo-section pt-4">
           <div className="container">
             <div className="logos">
-              <img src={logo1} alt="Adidaslogo" />
-              <img src={logo2} alt="Nikelogo" />
-              <img src={logo3} alt="Pumalogo" />
-              <img src={logo4} alt="Timberlandlogo" />
-              <img src={logo1} alt="Adidaslogo" />
-              <img src={logo2} alt="Nikelogo" />
+              <img className="Adidas" src={logo1} alt="Adidaslogo" />
+              <img className="Nike" src={logo2} alt="Nikelogo" />
+              <img className="Puma" src={logo3} alt="Pumalogo" />
+              <img className="Timberland" src={logo4} alt="Timberlandlogo" />
+              <img className="Ugg" src={logo5} alt="Ugg" />
+              <img className="TomTailor" src={logo6} alt="TomTailor" />
             </div>
           </div>
         </div>
@@ -142,7 +141,107 @@ export default function Home() {
 
         {/* PRODUCTS */}
 
+        <div className='products-carousel'>
 
+          <h1 className="products-header">ALE</h1>
+          <Carousel
+            show={3}
+            infiniteLoop
+          >
+            <div>
+              <div className="m-carousel-img">
+                <img src={kenka1} alt="placeholder" style={{ width: '100%' }} />
+              </div>
+            </div>
+            <div>
+              <div className="m-carousel-img">
+                <img src={kenka2} alt="placeholder" style={{ width: '100%' }} />
+              </div>
+            </div>
+            <div>
+              <div className="m-carousel-img">
+                <img src={kenka3} style={{ width: '100%' }} />
+              </div>
+            </div>
+            <div>
+              <div className="m-carousel-img">
+                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+              </div>
+            </div>
+            <div>
+              <div className="m-carousel-img">
+                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+              </div>
+            </div>
+          </Carousel>
+
+          <h1 className="products-header">Uutuudet</h1>
+
+          <Carousel
+            show={3}
+            infiniteLoop
+          >
+            <div>
+              <div className="m-carousel-img">
+                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+              </div>
+            </div>
+            <div>
+              <div className="m-carousel-img">
+                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+              </div>
+            </div>
+            <div>
+              <div className="m-carousel-img">
+                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+              </div>
+            </div>
+            <div>
+              <div className="m-carousel-img">
+                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+              </div>
+            </div>
+            <div>
+              <div className="m-carousel-img">
+                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+              </div>
+            </div>
+          </Carousel>
+
+          <h1 className="products-header">Suosituimmat</h1>
+
+          <Carousel
+            show={3}
+            infiniteLoop
+          >
+            <div>
+              <div className="m-carousel-img">
+                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+              </div>
+            </div>
+            <div>
+              <div className="m-carousel-img">
+                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+              </div>
+            </div>
+            <div>
+              <div className="m-carousel-img">
+                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+              </div>
+            </div>
+            <div>
+              <div className="m-carousel-img">
+                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+              </div>
+            </div>
+            <div>
+              <div className="m-carousel-img">
+                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+              </div>
+            </div>
+          </Carousel>
+
+        </div>
 
 
       </div>

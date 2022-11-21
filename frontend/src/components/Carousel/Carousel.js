@@ -1,61 +1,142 @@
 import React, { useEffect, useState } from 'react';
-import { CarouselData } from './CarouselData';
-import { useSwipeable } from 'react-swipeable';
-
 import './Carousel.css';
 
-const Carousel = ({ slides }) => {
+const Carousel = (props) => {
+  const { children, show, infiniteLoop } = props;
 
-  const [current, setCurrent] = useState(0);
-  const length = slides.length;
+  const [currentIndex, setCurrentIndex] = useState(infiniteLoop ? show : 0);
+  const [length, setLength] = useState(children.length);
 
-  /* SWIPING FOR MOBILE */
-  const handlers = useSwipeable({
-    onSwipedLeft: () => nextSlide(),
-    onSwipedRight: () => prevSlide()
-  });
+  const [isRepeating, setIsRepeating] = useState(infiniteLoop && children.length > show);
+  const [transitionEnabled, setTransitionEnabled] = useState(true);
 
-  /* BUTTONS */
+  const [touchPosition, setTouchPosition] = useState(null);
 
-  const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1);
+  // Set the length to match current children from props
+  useEffect(() => {
+    setLength(children.length)
+    setIsRepeating(infiniteLoop && children.length > show)
+  }, [children, infiniteLoop, show])
+
+  useEffect(() => {
+    if (isRepeating) {
+      if (currentIndex === show || currentIndex === length) {
+        setTransitionEnabled(true)
+      }
+    }
+  }, [currentIndex, isRepeating, show, length])
+
+  const next = () => {
+    if (isRepeating || currentIndex < (length - show)) {
+      setCurrentIndex(prevState => prevState + 1)
+    }
   }
 
-  const prevSlide = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1);
+  const prev = () => {
+    if (isRepeating || currentIndex > 0) {
+      setCurrentIndex(prevState => prevState - 1)
+    }
   }
 
-
-  if (!Array.isArray(slides) || slides.length <= 0) {
-    return null;
+  const handleTouchStart = (e) => {
+    const touchDown = e.touches[0].clientX
+    setTouchPosition(touchDown)
   }
 
+  const handleTouchMove = (e) => {
+    const touchDown = touchPosition
+
+    if (touchDown === null) {
+      return
+    }
+
+    const currentTouch = e.touches[0].clientX
+    const diff = touchDown - currentTouch
+
+    if (diff > 5) {
+      next()
+    }
+
+    if (diff < -5) {
+      prev()
+    }
+
+    setTouchPosition(null)
+  }
+
+  const handleTransitionEnd = () => {
+    if (isRepeating) {
+      if (currentIndex === 0) {
+        setTransitionEnabled(false)
+        setCurrentIndex(length)
+      } else if (currentIndex === length + show) {
+        setTransitionEnabled(false)
+        setCurrentIndex(show)
+      }
+    }
+  }
+
+  const renderExtraPrev = () => {
+    let output = []
+    for (let index = 0; index < show; index++) {
+      output.push(children[length - 1 - index])
+    }
+    output.reverse()
+    return output
+  }
+
+  const renderExtraNext = () => {
+    let output = []
+    for (let index = 0; index < show; index++) {
+      output.push(children[index])
+    }
+    return output
+  }
 
   return (
-    <>
-      <div {...handlers} className='slider' >
-        <button className='left-arrow' onClick={prevSlide}>&larr;</button>
-        <button className='right-arrow' onClick={nextSlide}>&rarr;</button>
+    <div className="m-carousel-container">
+      <div className="m-carousel-wrapper">
+        {/* You can alwas change the content of the button to other things */}
         {
-          CarouselData.map((slide, index) => {
-            return (
-              <div className={index === current ? 'slide active' : 'slide'}
-                key={index}>
-                {index === current && (<img src={slide.image} className='slider-image' alt="flower img" />)}
-              </div>
-            )
-
-          })
+          (isRepeating || currentIndex > 0) &&
+          <button onClick={prev} className="left-arrow">
+            &lt;
+          </button>
+        }
+        <div
+          className="m-carousel-content-wrapper"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+        >
+          <div
+            className={`m-carousel-content show-${show}`}
+            style={{
+              transform: `translateX(-${currentIndex * (100 / show)}%)`,
+              transition: !transitionEnabled ? 'none' : undefined,
+            }}
+            onTransitionEnd={() => handleTransitionEnd()}
+          >
+            {
+              (length > show && isRepeating) &&
+              renderExtraPrev()
+            }
+            {children}
+            {
+              (length > show && isRepeating) &&
+              renderExtraNext()
+            }
+          </div>
+        </div>
+        {/* You can alwas change the content of the button to other things */}
+        {
+          (isRepeating || currentIndex < (length - show)) &&
+          <button onClick={next} className="right-arrow">
+            &gt;
+          </button>
         }
       </div>
-    </>
+    </div>
   )
 }
 
 export default Carousel;
-
-/*<div className={index === current ? 'slide active' : 'slide'}
-                key={index}>
-                {index === current && (<img src={slide.image} className='slider-image' alt="flower img" />,
-                  <img src={slide.image} className='slider-image' alt="flower img" />)}
-              </div> */

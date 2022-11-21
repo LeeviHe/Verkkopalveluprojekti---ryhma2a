@@ -7,21 +7,21 @@ export default function Footer() {
   return (
 
     <div className="container-fluid">
-      <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 footer-container">
+      <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 footer-container pb-3">
 
         <div className="col mb-3">
           <h5>Sosiaalinen media</h5>
           <div>
-            <a className="footer-icons">
+            <a href="https://www.instagram.com/" className="footer-icons">
               <img src="https://png.pngtree.com/png-clipart/20180626/ourmid/pngtree-instagram-icon-instagram-logo-png-image_3584852.png" alt="instagram icon" className='footer-icon'>
               </img>
             </a>
 
-            <a className="footer-icons">
+            <a href="https://twitter.com/" className="footer-icons">
               <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="twitter icon" className='footer-icon'></img>
             </a>
 
-            <a className="footer-icons">
+            <a href="https://fi-fi.facebook.com/" className="footer-icons">
               <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="facebook icon" className='footer-icon'>
               </img>
             </a>
@@ -52,25 +52,26 @@ export default function Footer() {
 
           <div className='delivery'>
             <a className="footer-icons">
-              posti
+            <img src="https://www.dhlexpress.nl/sites/default/files/styles/grid_image_1x/public/content/images/dhl_logo_met_gele_achtergrond.png?itok=cWJaeDnT" alt="DHL icon" className='footer-icon dhl'>
+              </img>
             </a>
 
             <a className="footer-icons">
-              postnord
+            <img src="https://ekovalaistus.fi/wp-content/uploads/2017/10/postnord-logo.jpg" alt="Postnord icon" className='footer-icon postnord'>
+              </img>
             </a>
 
             <a className="footer-icons">
-              dhl
+            <img src="https://kauppaseinajoki.fi/wp-content/uploads/2017/08/posti-logo.png" alt="Posti icon" className='footer-icon posti'>
+              </img>
             </a>
           </div>
 
-          <div>
-            <p className="text-muted">© 2022</p>
-          </div>
+          
+
+          
         </div>
-
-
-        <div className="col mb-3 footer-col">
+          <div className="col mb-3 footer-col">
           <h5>Tietoa</h5>
           <ul className="footer-column">
             <li className="footer-item mb-2"><a href="#" className="footer-link p-0">Yhteystiedot</a></li>
@@ -79,7 +80,7 @@ export default function Footer() {
             <li className="footer-item mb-2"><a href="#" className="footer-link p-0">Lahjakortit</a></li>
             <li className="footer-item mb-2"><a href="#" className="footer-link p-0">Uutiskirje</a></li>
           </ul>
-        </div>
+          </div>
 
 
         <div className="col mb-3 footer-col">
