@@ -14,7 +14,7 @@ const URL = 'http://localhost:3000/backend/'
 
 function App() {
  
-    const [cart, setCart] = useState([0]); 
+    const [cart, setCart] = useState([]); 
 
   useEffect(() => {
     if ('cart' in localStorage) {
