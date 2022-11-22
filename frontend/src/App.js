@@ -3,6 +3,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
+import Order from './pages/Order'
 import Shoppingcart from './components/Shoppingcart';
 import Products from './pages/Products';
 import Footer from './components/Footer';
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/kategoriat/:categoryId" element={<Products url={URL}/>} />
           <Route path="/kategoriat/:categoryId/:subcategoryId" element={<Products url={URL}/>} />
+          <Route path="/order" element={<Order />} />
           <Route path="/shoppingcart" element={<Shoppingcart />} />
         </Routes>
 

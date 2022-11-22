@@ -1,6 +1,6 @@
 import React from "react";
 import './Shoppingcart.css';
-
+import { Link } from 'react-router-dom';
 
 export default function Shoppingcart() {
   return (
@@ -44,7 +44,9 @@ export default function Shoppingcart() {
         </div>
 
         <div className="d-flex justify-content-center py-3">
-          <button className="form-btn">Siirry kassalle</button>
+          <Link to="/order">
+          <button className="form-btn">Siirry tilaamaan</button>
+          </Link>
         </div>
       </form>
     </div>
