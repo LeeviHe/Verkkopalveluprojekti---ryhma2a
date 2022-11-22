@@ -3,7 +3,7 @@ import React,{useState,useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 
-export default function Products({url}) {
+export default function Products({url,addToCart}) {
   const [categoryName,setCategoryName] = useState('');
   const [products, setProducts] = useState([]);
 
@@ -57,7 +57,7 @@ export default function Products({url}) {
                     {product.price}</p>
                 </div>
                 <div className="col-">
-                  <a className="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                <button className='btn btn-success' type="button" onClick={e => addToCart(product)}>Add to cart</button>
                 </div>
               </div>
             </div>

@@ -2,56 +2,58 @@ import React from "react";
 import './Shoppingcart.css';
 import { Link } from 'react-router-dom';
 
-export default function Shoppingcart() {
+export default function Cart({cart}) {
   return (
     <>
-            <li className="nav-item me-2"><img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" className="nav-icon"></img></li>
+      <li className="nav-item me-2"><img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" className="nav-icon"></img></li>
 
-<li className="nav-item me-2 dropdown">
-  <a className="nav-link dropdown-toggle" href="/shoppingcart" id="headerDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" className="nav-icon"></img>
-  </a>
-  <div class="dropdown-menu" aria-labelledby="headerDropdownMenuLink">
-    <div className="container cart-container">
+      <li className="nav-item me-2 dropdown">
 
-      <strong className="d-flex  py-3">Ostoskorissa on x määrä tuotteita</strong>
+        <a className="nav-link dropdown-toggle" href="/shoppingcart" id="headerDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span style={{ color: '#fff' }}>{cart.length}</span>
+          <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" className="nav-icon"></img>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="headerDropdownMenuLink">
+          <div className="container cart-container">
 
-      <form className="cart-form">
-        <div className="a">
+            <strong className="d-flex  py-3">Ostoskorissa on x määrä tuotteita</strong>
 
-          <div className="b c">tuotekuva</div>
-          <div className="b c">tuote</div>
+            <form className="cart-form">
+              <div className="a">
 
-          <label for="maara" style={{ padding: "0.3rem" }}>Määrä</label>
-          <select id="maara" name="maara" className="b">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
+                <div className="b c">tuotekuva</div>
+                <div className="b c">tuote</div>
+
+                <label for="maara" style={{ padding: "0.3rem" }}>Määrä</label>
+                <select id="maara" name="maara" className="b">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+
+              <div className="form-links a">
+                <a className="asd">tyhjennä ostoskori</a>
+              </div>
+
+              <div className="d">
+                <div>Summa</div>
+                <div>Toimituskulut</div>
+                <div>Summa EUR</div>
+              </div>
+
+              <div className="d-flex justify-content-center py-3">
+                <Link to="/order">
+                  <button className="form-btn">Siirry tilaamaan</button>
+                </Link>
+              </div>
+            </form>
+          </div>
         </div>
-
-        <div className="form-links a">
-          <a className="asd">tyhjennä ostoskori</a>
-        </div>
-
-        <div className="d">
-          <div>Summa</div>
-          <div>Toimituskulut</div>
-          <div>Summa EUR</div>
-        </div>
-
-        <div className="d-flex justify-content-center py-3">
-          <Link to="/order">
-          <button className="form-btn">Siirry tilaamaan</button>
-          </Link>
-        </div>
-      </form>
-    </div>
-  </div>
-</li>
+      </li>
 
     </>
   );

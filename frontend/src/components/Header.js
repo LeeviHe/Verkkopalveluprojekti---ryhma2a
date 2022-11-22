@@ -1,9 +1,9 @@
 import React from "react";
 import './Header.css';
 import img from '../images/logos/shoelando_logo.png';
-import Shoppingcart from './Shoppingcart.js';
+import Cart from './Cart.js';
 
-export default function Header() {
+export default function Header({cart,removeFromCart}) {
   return (
     <>
 
@@ -22,7 +22,7 @@ export default function Header() {
             </li>
 
               <>
-                <Shoppingcart />
+                <Cart cart={cart}/>
               </>
 
           </ul>

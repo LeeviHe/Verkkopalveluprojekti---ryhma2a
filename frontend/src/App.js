@@ -4,28 +4,42 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Order from './pages/Order'
-import Shoppingcart from './components/Shoppingcart';
 import Products from './pages/Products';
 import Footer from './components/Footer';
 import Carousel from './components/Carousel/Carousel';
+import { useState, useEffect } from 'react';
+
 
 const URL = 'http://localhost:3000/backend/'
 
 function App() {
+ 
+    const [cart, setCart] = useState([0]); 
+
+  useEffect(() => {
+    if ('cart' in localStorage) {
+      setCart(JSON.parse(localStorage.getItem('cart')));
+    }
+   }, [])
+   
+   function addToCart(product) {
+     const newCart = [...cart,product];
+     setCart(newCart);
+     localStorage.setItem('cart', JSON.stringify(newCart));
+   }
+
   return (
     <>
-      <Header />
+      <Header url={URL} cart={cart} />
 
       <div className='container'>
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/kategoriat/:categoryId" element={<Products url={URL}/>} />
-          <Route path="/kategoriat/:categoryId/:subcategoryId" element={<Products url={URL}/>} />
-          <Route path="/order" element={<Order />} />
-          <Route path="/shoppingcart" element={<Shoppingcart />} />
+          <Route path="/kategoriat/:categoryId" element={<Products url={URL} addToCart={addToCart} />} />
+          <Route path="/kategoriat/:categoryId/:subcategoryId" element={<Products url={URL} addToCart={addToCart}/>} />
+          <Route path="/order" element={<Order cart={cart}/>} />
         </Routes>
-
       </div>
 
       <Footer />
