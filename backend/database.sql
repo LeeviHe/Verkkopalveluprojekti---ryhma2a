@@ -37,7 +37,7 @@ CREATE TABLE `product` (
   `productname` char(20) NOT NULL,
   `price` decimal(5,2) DEFAULT NULL,
   `categorynumber` SMALLINT(6) NOT NULL,
-  `subcategorynumber` SMALLINT(6) NOT NULL
+  `subcategorynumber` SMALLINT(6)
 );
 
 CREATE TABLE `category` (
@@ -48,7 +48,7 @@ CREATE TABLE `category` (
 CREATE TABLE `subcategory` (
   `subcategorynumber` SMALLINT(6) NOT NULL,
   `subcategoryname` char(20) DEFAULT NULL,
-  `categorynumber` SMALLINT(6) NOT NULL
+  `categorynumber` SMALLINT(6)
 );
 
 -- Indexes for table `customer`
@@ -80,8 +80,7 @@ ALTER TABLE `orderrow`
 
 ALTER TABLE `product`
   ADD PRIMARY KEY (`productnumber`),
-  ADD KEY `categorynumber` (`categorynumber`),
-  ADD KEY `subcategorynumber` (`subcategorynumber`);
+  ADD KEY `categorynumber` (`categorynumber`);
 
 -- Indexes for table `category`
 
@@ -123,8 +122,9 @@ ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`subcategorynumber`) REFERENCES `subcategory` (`subcategorynumber`);
 
 INSERT INTO category (categorynumber, categoryname)
-VALUES ('1', 'kesa'), ('2','talvikengat'), ('3', 'juhla');
+VALUES ('1', 'kesäkengät'), ('2','talvikengät'), ('3', 'juhlakengät');
 INSERT INTO subcategory (subcategorynumber, subcategoryname, categorynumber)
-VALUES (1, 'tennarit', 1), (2, 'sandaalit', 1), (3, 'talvikengat', 2), (4, 'korko', 3);
+VALUES (1, 'tennarit', 1), (2, 'sandaalit', 1), (3, 'korkokengät', 3), (4, 'puvunkengät', 3);
 INSERT INTO product (productnumber, productname, price, categorynumber, subcategorynumber)
-VALUES (1, 'kenka1', 2, 1, 1), (2, 'kenka3', 200, 1, 2), (3, 'uggit', 10, 2, 3), (4, 'korko', 50, 3, 4);
+VALUES (1, 'tennari1', 25, 1, 1), (2, 'tennari2', 75, 1, 1), (3, 'sandaali1', 10, 1, 2), (4, 'sandaali2', 25, 1, 2),
+(5, 'talvikenka1', 50, 2, null), (6, 'talvikenkä2', 120, 2, null), (7, 'korkkari1', 125, 3, 3), (8, 'korkkari2', 250, 3, 3), (9, 'puvunkenka1', 125, 3, 4), (10, 'puvunkenka2', 250, 3, 4);

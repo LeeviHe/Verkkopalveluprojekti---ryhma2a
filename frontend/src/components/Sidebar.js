@@ -45,13 +45,12 @@ let params = useParams();
                 {<Link className='sidebar-select' to= 
                 {'/kategoriat/' + category.categorynumber}>
                 {category.categoryname}
-                </Link>}            
+                </Link>}         
             </button>
-))}      
-          <div className="" id="home-collapse">
-                <ul className="btn-toggle-nav small">
-                  {subcategories.map(subcategory => (
-                  
+            ))}
+              <div className="" id="home-collapse">
+                  <ul className="btn-toggle-nav small">
+                    {subcategories.map(subcategory => (
                   <li key = {subcategory.subcategorynumber}>
                   {<Link className='sidebar-select' to=
                   {'/kategoriat/' + subcategory.categorynumber + '/' + subcategory.subcategorynumber}>
@@ -59,8 +58,6 @@ let params = useParams();
                   </Link>}
                   </li>
                   ))}
-                  {//<li className='sidebar-select'><a href="" className="link-dark d-inline-flex text-decoration-none rounded"></a></li>
-                  }
                 </ul>
               </div>
             </li>        
