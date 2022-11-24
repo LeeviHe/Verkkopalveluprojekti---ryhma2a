@@ -31,36 +31,81 @@ export default function Sidebar() {
   }, [params])
 
 
-
   return (
     <>
-      <div className="sidebar flex-shrink-0 p-3">
-        <ul className="list-unstyled ps-0">
+      <div>
+        <div className="sidebar flex-shrink-0 p-3">
+          <ul className="list-unstyled ps-0">
 
-          <li class="mb-1" >
-            {categories.map(category => (
-              <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                data-bs-toggle="" data-bs-target="#home-collapse" aria-expanded="true" key={category.categorynumber}>
-                {<Link className='sidebar-select' to=
-                  {'/kategoriat/' + category.categorynumber}>
-                  {category.categoryname}
-                </Link>}
-              </button>
-            ))}
-            <div className="" id="home-collapse">
+            <li class="mb-1" >
+              {categories.map(category => (
+                <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                  data-bs-toggle="" data-bs-target="#home-collapse" aria-expanded="true" key={category.categorynumber}>
+                  {<Link className='sidebar-select' to=
+                    {'/kategoriat/' + category.categorynumber}>
+                    {category.categoryname}
+                  </Link>}
+                </button>
+              ))}
+              <div className="" id="home-collapse">
+                <ul className="btn-toggle-nav small">
+                  {subcategories.map(subcategory => (
+                    <li key={subcategory.subcategorynumber}>
+                      {<Link className='sidebar-select' to=
+                        {'/kategoriat/' + subcategory.categorynumber + '/' + subcategory.subcategorynumber}>
+                        {subcategory.subcategoryname}
+                      </Link>}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <ul className="list-unstyled ps-0">
+          <li class="mb-1">
+            <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+              Kesäkengät
+            </button>
+            <div className="collapse" id="home-collapse">
               <ul className="btn-toggle-nav small">
-                {subcategories.map(subcategory => (
-                  <li key={subcategory.subcategorynumber}>
-                    {<Link className='sidebar-select' to=
-                      {'/kategoriat/' + subcategory.categorynumber + '/' + subcategory.subcategorynumber}>
-                      {subcategory.subcategoryname}
-                    </Link>}
-                  </li>
-                ))}
+                <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Tennarit</a></li>
+                <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Sandaalit</a></li>
               </ul>
             </div>
           </li>
 
+          <li className="mb-1">
+            <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 ">
+              Talvikengät
+            </button>
+          </li>
+
+          <li className="mb-1">
+            <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+              Juhlakengät
+            </button>
+            <div className="collapse" id="dashboard-collapse">
+              <ul className="btn-toggle-nav small">
+                <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Korkokengät</a></li>
+                <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Puvun kengät</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li className="mb-1">
+            <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 ">
+              Juoksuun
+            </button>
+          </li>
+
+          <li className="mb-1">
+            <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 ">
+              <strong>ALE</strong>
+            </button>
+          </li>
         </ul>
       </div>
     </>

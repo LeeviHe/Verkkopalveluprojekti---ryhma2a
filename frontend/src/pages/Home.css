@@ -16,11 +16,8 @@ body {
 /* SIDEBAR */
 
 .sidebar {
-  background-color: rgba(9, 9, 75, 0.405);
-  display: flex;
   grid-column: 1;
   grid-row: 1 / span end;
-  flex-direction: column;
 }
 
 .btn-toggle {
