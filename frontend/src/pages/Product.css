@@ -58,3 +58,20 @@
 #products {
     display: inline-flex;
 }
+
+.category-name {
+    background-color: rgba(255, 0, 0, 0.318);
+    grid-column: 2;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.products-col {
+    background-color: rgba(255, 127, 80, 0.445);
+    grid-column: 2;
+}
+
+.item {
+    background-color: rgba(0, 128, 0, 0.287);
+    padding: 0.5rem;
+}

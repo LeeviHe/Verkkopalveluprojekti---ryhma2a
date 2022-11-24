@@ -31,6 +31,8 @@ export default function Home() {
       {/* GRID */}
 
       <div className="container grid-container pt-4">
+
+        {/* SIDEBAR */}
         <>
           <Sidebar />
         </>
@@ -242,8 +244,6 @@ export default function Home() {
           </Carousel>
 
         </div>
-
-
       </div>
 
 

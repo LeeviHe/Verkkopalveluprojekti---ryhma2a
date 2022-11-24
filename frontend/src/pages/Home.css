@@ -9,7 +9,6 @@ body {
 
 .grid-container {
   display: grid;
-  /* background-color: #deb887; */
   grid-template-columns: 20% 2fr;
   grid-template-rows: 1fr auto;
 }
@@ -17,8 +16,11 @@ body {
 /* SIDEBAR */
 
 .sidebar {
+  background-color: rgba(9, 9, 75, 0.405);
+  display: flex;
   grid-column: 1;
   grid-row: 1 / span end;
+  flex-direction: column;
 }
 
 .btn-toggle {

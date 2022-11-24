@@ -6,64 +6,63 @@ import { Link } from 'react-router-dom';
 const URL = 'http://localhost:3000/backend/'
 
 export default function Sidebar() {
-const [categories,setCategories] = useState([])
-const [subcategories,setSubCategories] = useState([])
+  const [categories, setCategories] = useState([])
+  const [subcategories, setSubCategories] = useState([])
 
-let params = useParams();
+  let params = useParams();
 
   useEffect(() => {
-  axios.get(URL + 'products/getcategories.php')
-  .then((response) => {
-    const json = response.data;
-    setCategories(json);
-  }).catch (error => {
-    alert(error.response === undefined ? error : error.response.data.error)
-  })
-    if (params.categoryId != null && params.subcategoryId == null ) {
-      axios.get(URL + 'products/getsubcategories.php/'+ params.categoryId)
+    axios.get(URL + 'products/getcategories.php')
       .then((response) => {
         const json = response.data;
-        setSubCategories(json);
-      }).catch (error => {
+        setCategories(json);
+      }).catch(error => {
         alert(error.response === undefined ? error : error.response.data.error)
       })
+    if (params.categoryId != null && params.subcategoryId == null) {
+      axios.get(URL + 'products/getsubcategories.php/' + params.categoryId)
+        .then((response) => {
+          const json = response.data;
+          setSubCategories(json);
+        }).catch(error => {
+          alert(error.response === undefined ? error : error.response.data.error)
+        })
     }
-}, [params])
+  }, [params])
 
 
 
   return (
-
-    <div className="container grid-container pt-4">
+    <>
       <div className="sidebar flex-shrink-0 p-3">
         <ul className="list-unstyled ps-0">
-      
+
           <li class="mb-1" >
             {categories.map(category => (
-            <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" 
-            data-bs-toggle="" data-bs-target="#home-collapse" aria-expanded="true" key= {category.categorynumber}>
-                {<Link className='sidebar-select' to= 
-                {'/kategoriat/' + category.categorynumber}>
-                {category.categoryname}
-                </Link>}         
-            </button>
+              <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="" data-bs-target="#home-collapse" aria-expanded="true" key={category.categorynumber}>
+                {<Link className='sidebar-select' to=
+                  {'/kategoriat/' + category.categorynumber}>
+                  {category.categoryname}
+                </Link>}
+              </button>
             ))}
-              <div className="" id="home-collapse">
-                  <ul className="btn-toggle-nav small">
-                    {subcategories.map(subcategory => (
-                  <li key = {subcategory.subcategorynumber}>
-                  {<Link className='sidebar-select' to=
-                  {'/kategoriat/' + subcategory.categorynumber + '/' + subcategory.subcategorynumber}>
-                  {subcategory.subcategoryname}
-                  </Link>}
+            <div className="" id="home-collapse">
+              <ul className="btn-toggle-nav small">
+                {subcategories.map(subcategory => (
+                  <li key={subcategory.subcategorynumber}>
+                    {<Link className='sidebar-select' to=
+                      {'/kategoriat/' + subcategory.categorynumber + '/' + subcategory.subcategorynumber}>
+                      {subcategory.subcategoryname}
+                    </Link>}
                   </li>
-                  ))}
-                </ul>
-              </div>
-            </li>        
+                ))}
+              </ul>
+            </div>
+          </li>
 
         </ul>
       </div>
-    </div>
+    </>
   )
 }
