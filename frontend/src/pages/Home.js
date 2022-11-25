@@ -16,16 +16,6 @@ import Carousel from '../components/Carousel/Carousel';
 
 export default function Home() {
 
-  const [isHovering, setIsHovering] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovering(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovering(false);
-  };
-
   return (
     <>
       {/* GRID */}
@@ -103,40 +93,21 @@ export default function Home() {
           <div class="col additional-col col1">
             <div className='col-banner'>
               <h2 class="fw-normal">Joululahjat</h2>
-              <a class="btn btn-secondary" style={{
-                background: isHovering ? "rgba(75, 75, 75, 0.556)" : '',
-                border: isHovering ? "2px solid rgba(158, 158, 158, 0.516)" : '',
-                color: isHovering ? 'white' : '',
-              }}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave} defaultValue="false" href="#">Ostoksille &raquo;</a>
+              <button class="add-btn btn btn-primary">Ostoksille &raquo;</button>
             </div>
           </div>
 
           <div class="col additional-col col2">
             <div className='col-banner'>
               <h2 class="fw-normal">Uutuudet</h2>
-              <a class="btn btn-secondary" style={{
-                background: isHovering ? "rgba(75, 75, 75, 0.556)" : '',
-                border: isHovering ? "2px solid rgba(158, 158, 158, 0.516)" : '',
-                color: isHovering ? 'white' : '',
-              }}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave} href="#">Ostoksille &raquo;</a>
+              <button class="add-btn btn btn-primary">Ostoksille &raquo;</button>
             </div>
           </div>
 
           <div class="col additional-col col3">
             <div className='col-banner'>
               <h2 class="fw-normal">Tarvikkeet</h2>
-              <a class="btn btn-secondary" style={{
-                background: isHovering ? "rgba(75, 75, 75, 0.556)" : '',
-                border: isHovering ? "2px solid rgba(158, 158, 158, 0.516)" : '',
-                color: isHovering ? 'white' : '',
-              }}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                href="#">Ostoksille &raquo;</a>
+              <button class="add-btn btn btn-primary">Ostoksille &raquo;</button>
             </div>
           </div>
         </div>
