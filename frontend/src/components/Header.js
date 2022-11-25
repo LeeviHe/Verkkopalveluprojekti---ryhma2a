@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './Header.css';
 import img from '../images/logos/shoelando_logo.png';
 import Cart from './Cart.js';
 
-export default function Header({cart,removeFromCart}) {
+export default function Header({ cart, removeFromCart }) {
   return (
     <>
 
@@ -17,13 +18,23 @@ export default function Header({cart,removeFromCart}) {
             <li className="nav-item">
               <form>
                 <input type="search" className="form-control-dark me-2" placeholder="Etsi..." aria-label="Search"></input>
-                <button className="nav-item"><img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" className="nav-icon search-icon"></img></button>
+
+                <button className="nav-item">
+                  <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" className="nav-icon search-icon"></img>
+                </button>
+
+                <button className="nav-item">
+                  <Link to="/login">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" className="nav-icon"></img>
+                  </Link>
+                </button>
+
               </form>
             </li>
 
-              <>
-                <Cart cart={cart}/>
-              </>
+            <>
+              <Cart cart={cart} />
+            </>
 
           </ul>
         </header>

@@ -1,0 +1,75 @@
+input {
+  border: 2px solid rgba(98, 55, 27, 0.746);
+}
+
+input:focus {
+  background-color: rgba(255, 255, 255, 0.576);
+  outline: none;
+  color: rgba(98, 55, 27, 0.939);
+}
+
+p {
+  font-size: small;
+  margin-bottom: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: inherit;
+}
+
+.login-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 3rem auto;
+  width: 60rem;
+  column-gap: 5rem;
+}
+
+.register,
+.login {
+  padding: 2rem;
+
+  /* toinen vaihtoehto
+  background: rgb(112,79,22);
+  background: linear-gradient(180deg, rgba(199, 162, 100, 0.75) 26%, rgba(235, 200, 164, 0.75) 70%, rgba(255, 242, 214, 0.75) 100%);
+  */
+  background: rgb(112,79,22);
+  background: linear-gradient(180deg, rgba(136, 100, 69, 0.75) 20%, rgba(205, 159, 112, 0.75) 70%, rgba(246, 215, 165, 0.75) 100%);
+
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.register-btn,
+.login-btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background-color: rgba(98, 55, 27, 0.746);
+  border: none;
+}
+
+.register-btn:hover,
+.login-btn:hover {
+  --bs-btn-hover-bg: rgba(70, 40, 20, 0.746);
+  border: none;
+}
+
+.register-btn span::after,
+.login-btn span::after {
+  content: '\00bb';
+  opacity: 0;
+  top: 10px;
+  transition: 0.4s;
+}
+
+.register-btn:hover span:after,
+.login-btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
