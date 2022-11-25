@@ -23,12 +23,24 @@ a:hover {
   color: inherit;
 }
 
-.login-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 3rem auto;
-  width: 60rem;
-  column-gap: 5rem;
+.login-title {
+  font-family: secular one;
+}
+
+.form-row {
+  margin: 4rem 0;
+}
+
+.form-col {
+  margin: 5rem;
+}
+
+.register {
+  grid-column: 1;
+}
+
+.login {
+  grid-column: 3;
 }
 
 .register,
