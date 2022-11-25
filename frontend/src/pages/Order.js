@@ -1,33 +1,59 @@
-import React from 'react'
+import React, { useState, useEffect, createRef } from 'react'
+import Cart from '../components/Cart';
 import '../components/Shoppingcart.css';
+import { v4 as uuidv4 } from 'uuid';
 
-export default function Order() {
+export default function Order({ removeFromCart, cart, updateAmount, product }) {
+    {/*  const [inputs, _] = useState([]);
+    const [inputIndex, setInputIndex] = useState(-1);
+    
+ 
+    useEffect(() => {
+        for (let i = 0; i < cart.length;i++) {
+            inputs[i] = React.createRef();
+        }
+    }, [cart.length])
+
+    useEffect(() => {
+        if (inputs.length > 0 && inputIndex > -1 && inputs[inputIndex].current !== null) {
+            inputs[inputIndex].current.focus();
+        }
+    }, [cart])
+
+   
+
+    function changeAmount(e, product, index) {
+        updateAmount(e.target.value, product);
+        setInputIndex(index);
+    } */}
+
+    let sum = 0;
+
     return (
-        <div> 
-             
-        <strong>Items in cart</strong>
+        <div>
+
+            <strong>Items in cart</strong>
             <div className="container cart-container">
-
-              
-                <form className="cart-form">
-                    <div className="a">             
+                {cart.map(product => {
+                    sum+=parseFloat(product.price);
+                    return (
+                    <form className="cart-form" key={uuidv4()}>
                         <div className="b c">tuotekuva</div>
-                        <div className="b c">tuotenimi</div>
-                    </div>
+                        <div className="a">
+                            <div className="b c">{product.productname}</div>
+                            {/*<input ref={inputs[index]} style={{ width: '60px'}} value={productnumber.amount} onChange={e => changeAmount(e,productnumber,index)} />*/}
+                            <div>{product.price} €</div>
+                            <a href="#" onClick={() => removeFromCart(product)}>tyhjennä ostoskori</a>    
+                        </div>
+                          
+                    </form>
 
-                    <div className="form-links a">
-                        <a className="asd">tyhjennä ostoskori</a>
-                    </div>
-
-                    <div className="d">
-                        <div>hinta</div>
-                        <div>Toimituskulut</div>
-                    </div>
-
-                    <div className="d-flex justify-content-center py-3">
-                        <button className="form-btn">Tilaa</button>
-                    </div>
-                </form>
+                    )
+                })}
+                <div key={uuidv4()}>
+                    <div> </div>
+                    <div>{sum.toFixed(2)} €</div>
+                </div>
             </div>
         </div>
     )

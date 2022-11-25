@@ -3,7 +3,7 @@ import './Header.css';
 import img from '../images/logos/shoelando_logo.png';
 import Cart from './Cart.js';
 
-export default function Header({cart,removeFromCart}) {
+export default function Header({cart}) {
   return (
     <>
 
