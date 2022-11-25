@@ -43,9 +43,9 @@ export default function Order({ removeFromCart, cart, updateAmount, product }) {
                             <div className="b c">{product.productname}</div>
                             {/*<input ref={inputs[index]} style={{ width: '60px'}} value={productnumber.amount} onChange={e => changeAmount(e,productnumber,index)} />*/}
                             <div>{product.price} €</div>
-                            <a href="#" onClick={() => removeFromCart(product)}>tyhjennä ostoskori</a>    
+                            
                         </div>
-                          
+                           <button className="form-btn" type="button" onClick={() => removeFromCart(product)}>tyhjennä ostoskori</button>   
                     </form>
 
                     )
