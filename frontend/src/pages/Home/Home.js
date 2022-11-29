@@ -1,18 +1,18 @@
 import React from 'react';
-import '../App.js';
+import '../../App.js';
 import './Home.css';
-import logo1 from '../images/logos/Adidas.png';
-import logo2 from '../images/logos/Nike.png';
-import logo3 from '../images/logos/Puma.png';
-import logo4 from '../images/logos/Timberlandlogouus.png';
-import logo5 from "../images/logos/ugg.png"
-import logo6 from "../images/logos/tomtailor.png"
-import kenka1 from '../images/products/adidas1.png';
-import kenka2 from '../images/products/adidas2.png';
-import kenka3 from '../images/products/adidas3.png';
+import logo1 from '../../images/logos/Adidas.png';
+import logo2 from '../../images/logos/Nike.png';
+import logo3 from '../../images/logos/Puma.png';
+import logo4 from '../../images/logos/Timberlandlogouus.png';
+import logo5 from "../../images/logos/ugg.png"
+import logo6 from "../../images/logos/tomtailor.png"
+import kenka1 from '../../images/products/adidas1.png';
+import kenka2 from '../../images/products/adidas2.png';
+import kenka3 from '../../images/products/adidas3.png';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import Carousel from '../../components/Carousel/Carousel';
 import { useState } from 'react';
-import Sidebar from '../components/Sidebar.js';
-import Carousel from '../components/Carousel/Carousel';
 
 export default function Home() {
 

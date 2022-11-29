@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './Header.css';
-import img from '../images/logos/shoelando_logo.png';
-import Cart from './Cart.js';
+import img from '../../images/logos/shoelando_logo.png';
+import Cart from '../Shoppingcart/Shoppingcart.js';
 
-export default function Header({cart}) {
+export default function Header({ cart }) {
   return (
     <>
 

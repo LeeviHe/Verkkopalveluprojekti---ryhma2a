@@ -3,7 +3,7 @@
   position: relative;
   overflow: visible;
   /*bg-img: https://unsplash.com/photos/cuIPyl8Xd1E*/
-  background-image: url(../images/header.jpg);
+  background-image: url(../../images/header.jpg);
   background-size: cover;
 }
 
