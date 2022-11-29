@@ -3,13 +3,13 @@ import Cart from '../../components/Shoppingcart/Shoppingcart';
 import '../../components/Shoppingcart/Shoppingcart.css';
 import { v4 as uuidv4 } from 'uuid';
 
-export default function Order({ removeFromCart, cart, updateAmount, product }) {
-    {/*  const [inputs, _] = useState([]);
+export default function Order({ removeFromCart, cart, updateAmount }) {
+    let sum = 0;
+    const [inputs] = useState([]);
     const [inputIndex, setInputIndex] = useState(-1);
-    
- 
+
     useEffect(() => {
-        for (let i = 0; i < cart.length;i++) {
+        for (let i = 0; i < cart.length; i++) {
             inputs[i] = React.createRef();
         }
     }, [cart.length])
@@ -20,14 +20,12 @@ export default function Order({ removeFromCart, cart, updateAmount, product }) {
         }
     }, [cart])
 
-   
+
 
     function changeAmount(e, product, index) {
         updateAmount(e.target.value, product);
         setInputIndex(index);
-    } */}
-
-    let sum = 0;
+    }
 
     return (
         <div>
@@ -51,7 +49,6 @@ export default function Order({ removeFromCart, cart, updateAmount, product }) {
                     )
                 })}
                 <div key={uuidv4()}>
-                    <div> </div>
                     <div>{sum.toFixed(2)} €</div>
                 </div>
             </div>
