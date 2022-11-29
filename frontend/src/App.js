@@ -10,7 +10,7 @@ import Footer from './components/Footer/Footer';
 import { useState, useEffect } from 'react';
 
 
-const URL = 'http://localhost:3000/backend/'
+const URL = 'http://localhost:3000/backend/';
 
 function App() {
 
@@ -40,33 +40,33 @@ function App() {
     setCart(itemsWithoutRemoved);
     localStorage.setItem('cart', JSON.stringify(itemsWithoutRemoved));
   }
+  function updateAmount(amount, product) {
+    product.amount = amount;
+    const index = cart.findIndex((item => item.productnumber === product.productnumber));
+    const modifiedCart = Object.assign([...cart], { [index]: product });
+    setCart(modifiedCart);
+    localStorage.setItem('cart', JSON.stringify(modifiedCart));
+  }
+
+  return (
+    <>
+      <Header url={URL} cart={cart} removeFromCart={removeFromCart} />
+
+      <div className='container'>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/kategoriat/:categoryId" element={<Products url={URL} addToCart={addToCart} />} />
+          <Route path="/kategoriat/:categoryId/:subcategoryId" element={<Products url={URL} addToCart={addToCart} />} />
+          <Route path="/order" element={<Order cart={cart} removeFromCart={removeFromCart} />} />
+        </Routes>
+      </div>
+
+      <Footer />
+    </>
+  );
 }
-function updateAmount(amount, product) {
-  product.amount = amount;
-  const index = cart.findIndex((item => item.productnumber === product.productnumber));
-  const modifiedCart = Object.assign([...cart], { [index]: product });
-  setCart(modifiedCart);
-  localStorage.setItem('cart', JSON.stringify(modifiedCart));
-}
 
-return (
-  <>
-    <Header url={URL} cart={cart} removeFromCart={removeFromCart} />
-
-    <div className='container'>
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/kategoriat/:categoryId" element={<Products url={URL} addToCart={addToCart} />} />
-        <Route path="/kategoriat/:categoryId/:subcategoryId" element={<Products url={URL} addToCart={addToCart} />} />
-        <Route path="/order" element={<Order cart={cart} removeFromCart={removeFromCart} />} />
-      </Routes>
-    </div>
-
-    <Footer />
-  </>
-);
-}
 
 export default App;
