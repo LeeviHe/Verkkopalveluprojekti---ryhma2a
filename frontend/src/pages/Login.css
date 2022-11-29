@@ -69,6 +69,7 @@ a:hover {
 .register-btn:hover,
 .login-btn:hover {
   --bs-btn-hover-bg: rgba(70, 40, 20, 0.746);
+  --bs-btn-active-bg: rgba(98, 55, 27, 0.746);
   border: none;
 }
 

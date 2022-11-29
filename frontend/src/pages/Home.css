@@ -193,6 +193,8 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
 .add-btn:hover {
   --bs-btn-hover-bg: rgba(75, 75, 75, 0.556);
   --bs-btn-hover-border-color: rgba(158, 158, 158, 0.516);
+  --bs-btn-active-bg: rgba(0, 0, 0, 0.556);
+  --bs-btn-active-border-color: black;
 }
 
 /* PRODUCTS */
