@@ -1,0 +1,16 @@
+/* SIDEBAR */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1;
+  grid-row: span 1 / end;
+}
+
+.btn-toggle {
+  padding-right: 1.5rem;
+}
+
+.sidebar-select:hover {
+  text-decoration: underline;
+}

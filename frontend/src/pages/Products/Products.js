@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import './Product.css';
 
+import shoepic from '../../images/products/nike3.png';
+
 export default function Products({ url, addToCart }) {
   const [categoryName, setCategoryName] = useState('');
   const [products, setProducts] = useState([]);
@@ -34,44 +36,49 @@ export default function Products({ url, addToCart }) {
 
   return (
     <>
+
       {/* GRID */}
 
-      <div className="container grid-container pt-4">
+      <div className="container product-container pt-4">
 
         {/* SIDEBAR */}
-        <>
-          <Sidebar />
-        </>
 
-        <div className='category-name'>Tuotteet kategoriassa {categoryName}</div>
+        <div className='side'>
+          <>
+            <Sidebar />
+          </>
+        </div>
 
-        <div className='products-col'>
-          <div id="products" className="col additiona-col pt-4">
-            {products.map(product => (
-              <div className='item' key={product.productid}>
 
-                <div className='thumbnail'>
-                  <h4>{product.productname}</h4>
-                  <p className='group inner list-group-item-text'>
-                    Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                  </p>
-                </div>
+        <div className='product-item category-name'>Tuotteet kategoriassa {categoryName}</div>
 
-                <div className="row">
-                  <div className="col-">
-                    <p className="lead">
-                      {product.price}</p>
-                  </div>
+        <div className='products-col pt-4'>
 
-                  <div className="col-">
-                    <button className='btn btn-success' type="button" onClick={e => addToCart(product)}>Lisää ostoskoriin</button>
-                  </div>
-                </div>
+          {products.map(product => (
+            <div className='item' key={product.productid}>
 
+              <div className='thumbnail'>
+                <img className='product-img' src={shoepic} />
+                <p className='group inner list-group-item-text'>
+                  brand
+                </p>
+                <h6>{product.productname}</h6> {/* productname -> productbrand tai brand*/}
               </div>
-            ))}
-          </div>
+
+              <div className="row">
+                <div className="col-">
+                  <p className="lead">
+                    {product.price} €</p>
+                </div>
+
+                <div className="col-">
+                  <button className='btn btn-success' type="button" onClick={e => addToCart(product)}>Lisää ostoskoriin</button>
+                </div>
+              </div>
+
+            </div>
+          ))}
+
         </div>
       </div>
     </>

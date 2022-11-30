@@ -13,20 +13,6 @@ body {
   grid-template-rows: 1fr auto;
 }
 
-/* SIDEBAR */
-
-.sidebar {
-  grid-column: 1;
-  grid-row: 1 / span end;
-}
-
-.btn-toggle {
-  padding-right: 1.5rem;
-}
-
-.sidebar-select:hover {
-  text-decoration: underline;
-}
 /* MAIN CAROUSEL */
 
 .carousel-grid {
