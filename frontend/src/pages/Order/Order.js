@@ -32,14 +32,14 @@ export default function Order({ removeFromCart, cart, updateAmount }) {
 
             <strong>Items in cart</strong>
             <div className="container cart-container">
-                {cart.map(product => {
-                    sum += parseFloat(product.price);
+                {cart.map((product, index) => {
+                    sum += parseFloat(product.price * product.amount);
                     return (
                         <form className="cart-form" key={uuidv4()}>
                             <div className="b c">tuotekuva</div>
                             <div className="a">
                                 <div className="b c">{product.productname}</div>
-                                {/*<input ref={inputs[index]} style={{ width: '60px'}} value={productnumber.amount} onChange={e => changeAmount(e,productnumber,index)} />*/}
+                                <input type="number" ref={inputs[index]} style={{ width: '60px'}} value={product.amount} onChange={e => changeAmount(e,product,index)} />
                                 <div>{product.price} €</div>
 
                             </div>
