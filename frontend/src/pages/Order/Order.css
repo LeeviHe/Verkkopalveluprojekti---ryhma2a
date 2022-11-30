@@ -3,7 +3,6 @@
     margin-bottom: 50px;
     border: 1px solid #333;
     border-radius: 5px;
-    height: 50rem;
     display: flex;
     background:#efe9e9 78%;
     box-shadow: rgba(86, 86, 86, 0.313) 0px 5px 10px, rgba(81, 81, 81, 0.461) 0px 5px 10px;
@@ -17,7 +16,8 @@
 }
 
 .checkout {
-    margin-top: 50px
+    margin-top: 50px;
+    margin-bottom: 10px;
 }
 
 .amount {
