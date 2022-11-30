@@ -35,6 +35,11 @@ function App() {
     } 
   }
 
+  function emptyCart() {
+    setCart([])
+    localStorage.removeItem('cart');
+  }
+
    function removeFromCart(product) {
     const itemsWithoutRemoved = cart.filter(item => item.productnumber !== product.productnumber);
     setCart(itemsWithoutRemoved);
@@ -59,7 +64,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/kategoriat/:categoryId" element={<Products url={URL} addToCart={addToCart} />} />
           <Route path="/kategoriat/:categoryId/:subcategoryId" element={<Products url={URL} addToCart={addToCart}/>} />
-          <Route path="/order" element={<Order cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount}/> } />
+          <Route path="/order" element={<Order cart={cart} removeFromCart={removeFromCart} emptyCart={emptyCart} updateAmount={updateAmount}/> } />
         </Routes>
       </div>
 
