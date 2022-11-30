@@ -1,16 +1,14 @@
 import React, { useState, useEffect, createRef } from 'react'
-import Cart from '../../components/Shoppingcart/Shoppingcart';
-import '../../components/Shoppingcart/Shoppingcart.css';
-import { v4 as uuidv4 } from 'uuid';
+import './Order.css';
+import { v4 as uuid } from 'uuid';
 
-export default function Order({ removeFromCart, cart, updateAmount }) {
-    let sum = 0;
-    const [inputs] = useState([]);
+export default function Order({ cart, emptyCart, removeFromCart, updateAmount }) {
+    const [inputs, _] = useState([]);
     const [inputIndex, setInputIndex] = useState(-1);
 
     useEffect(() => {
         for (let i = 0; i < cart.length; i++) {
-            inputs[i] = React.createRef();
+            inputs[i] = createRef();
         }
     }, [cart.length])
 
@@ -21,35 +19,36 @@ export default function Order({ removeFromCart, cart, updateAmount }) {
     }, [cart])
 
 
-
     function changeAmount(e, product, index) {
         updateAmount(e.target.value, product);
         setInputIndex(index);
     }
-
+    let sum = 0;
     return (
-        <div>
+        <div className="ordercont">
+            <div className="container mb-3">
+                <h3 className="d-flex  py-3">Tuotteet</h3>
+                <div className="container cart-container">
+                    {cart.map((product, index) => {
+                        sum += parseFloat(product.price * product.amount);
+                        return (
+                            <form className="form" key={uuid()} >
+                                <div className="formitem">tuotekuva</div>
+                                    <div className="formitem">{product.productname}</div>
+                                    <div className="formitem">Määrä 
+                                    <input type="number" className="amount" ref={inputs[index]} value={product.amount} onChange={e => changeAmount(e, product, index)} /></div>
+                                    <div className="formitem">{product.price} kpl</div>
+                                <a className="asd" onClick={() => removeFromCart(product)}>Poista tuote</a>
+                            </form>
 
-            <strong>Items in cart</strong>
-            <div className="container cart-container">
-                {cart.map((product, index) => {
-                    sum += parseFloat(product.price * product.amount);
-                    return (
-                        <form className="cart-form" key={uuidv4()}>
-                            <div className="b c">tuotekuva</div>
-                            <div className="a">
-                                <div className="b c">{product.productname}</div>
-                                <input type="number" ref={inputs[index]} style={{ width: '60px'}} value={product.amount} onChange={e => changeAmount(e,product,index)} />
-                                <div>{product.price} €</div>
+                        )
+                    })}
+                    <div className="checkout" key={uuid()}>
+                        <div>Tuotteet Yhteensä</div>
+                        <div>{sum.toFixed(2)} €</div>
+                        <button type="button" className="form-btn" onClick={() => emptyCart()}>Tyhjennä ostoskori</button>
 
-                            </div>
-                            <button className="form-btn" type="button" onClick={() => removeFromCart(product)}>tyhjennä ostoskori</button>
-                        </form>
-
-                    )
-                })}
-                <div key={uuidv4()}>
-                    <div>{sum.toFixed(2)} €</div>
+                    </div>
                 </div>
             </div>
         </div>
