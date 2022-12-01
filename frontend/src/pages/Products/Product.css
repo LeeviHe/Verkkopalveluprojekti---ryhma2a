@@ -1,7 +1,7 @@
 .glyphicon { margin-right:5px; }
 .thumbnail
 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 0px;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
@@ -59,19 +59,42 @@
     display: inline-flex;
 }
 
+.product-container {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    grid-template-rows: auto;
+}
+
+.side {
+    grid-column: 1;
+    grid-row: 1 / span end;
+}
+
 .category-name {
-    background-color: rgba(255, 0, 0, 0.318);
     grid-column: 2;
     font-weight: bold;
     font-size: 1.5rem;
 }
 
 .products-col {
-    background-color: rgba(255, 127, 80, 0.445);
-    grid-column: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 5rem;
 }
 
 .item {
-    background-color: rgba(0, 128, 0, 0.287);
     padding: 0.5rem;
+    margin: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.032);
+    border-radius: 5px;
+}
+
+.item:hover {
+    cursor: pointer;
+    box-shadow: rgba(255, 186, 106, 0.25) 0px 30px 60px -12px inset, rgba(251, 191, 161, 0.292) 0px 18px 36px -18px inset;
+}
+
+.product-img {
+    max-width: 100%;
+    min-height: 100%;
 }
