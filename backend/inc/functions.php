@@ -31,3 +31,13 @@ function returnError(PDOException $pdoex){
     print json_encode($error);
     exit;
 }
+
+function registerUser($fname, $lname, $email, $password) {
+    $db = openDb();
+
+    $pw = password_hash($password, PASSWORD_DEFAULT);
+
+    $sql = "INSERT INTO customer (fname, lname, email, password) values (?, ?, ?, ?)";
+    $statement = $db->prepare($sql);
+    $statement->execute(array($fname, $lname, $email, $pw));
+}

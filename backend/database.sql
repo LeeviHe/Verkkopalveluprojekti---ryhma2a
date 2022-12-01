@@ -5,10 +5,11 @@ CREATE DATABASE shoelando_db;
 USE shoelando_db;
 
 CREATE TABLE `customer` (
-  `customerid` char(6) NOT NULL,
-  `customername` char(20) NOT NULL,
+  `customerid` SMALLINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `fname` char(20) NOT NULL,
+  `lname` char(20) NOT NULL,
+  `email` char(50) DEFAULT NULL,
   `password` char(15) DEFAULT NULL,
-  `address` char(50) DEFAULT NULL,
   `postnumber` char(5) DEFAULT NULL,
   `postdistrict` char(15) DEFAULT NULL);
 
@@ -19,7 +20,7 @@ CREATE TABLE `post` (
 
 CREATE TABLE `order` (
   `ordernumber` int(11) NOT NULL,
-  `customerid` char(6) NOT NULL,
+  `customerid` SMALLINT NOT NULL,
   `orderdate` datetime NOT NULL,
   `status` char(1) DEFAULT NULL,
   `savedate` datetime DEFAULT NULL
@@ -52,9 +53,9 @@ CREATE TABLE `subcategory` (
 );
 
 -- Indexes for table `customer`
-ALTER TABLE `customer`
-  ADD PRIMARY KEY (`customerid`),
-  ADD KEY `postnumber` (`postnumber`);
+ -- ALTER TABLE `customer`
+   -- ADD PRIMARY KEY (`customerid`),
+   -- ADD KEY `postnumber` (`postnumber`);
 
 
 -- Indexes for table `post`
@@ -99,8 +100,8 @@ ALTER TABLE `subcategory`
 
 -- Constraints for table `customer`
 
-ALTER TABLE `customer`
-  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`postnumber`) REFERENCES `post` (`postnumber`);
+-- ALTER TABLE `customer`
+  -- ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`postnumber`) REFERENCES `post` (`postnumber`);
 
 -- Constraints for table `order`
 
@@ -127,4 +128,5 @@ INSERT INTO subcategory (subcategorynumber, subcategoryname, categorynumber)
 VALUES (1, 'tennarit', 1), (2, 'sandaalit', 1), (3, 'korkokengät', 3), (4, 'puvunkengät', 3);
 INSERT INTO product (productnumber, productname, price, categorynumber, subcategorynumber)
 VALUES (1, 'tennari1', 25, 1, 1), (2, 'tennari2', 75, 1, 1), (3, 'sandaali1', 10, 1, 2), (4, 'sandaali2', 25, 1, 2),
-(5, 'talvikenka1', 50, 2, null), (6, 'talvikenkä2', 120, 2, null), (7, 'korkkari1', 125, 3, 3), (8, 'korkkari2', 250, 3, 3), (9, 'puvunkenka1', 125, 3, 4), (10, 'puvunkenka2', 250, 3, 4);
+(5, 'talvikenka1', 50, 2, null), (6, 'talvikenkä2', 120, 2, null), (7, 'korkkari1', 125, 3, 3), (8, 'korkkari2', 250, 3, 3), (9, 'puvunkenka1', 125, 3, 4), (10, 'puvunkenka2', 250, 3, 4), 
+(11, 'tennari3', 25, 1, 1), (12, 'tennari4', 75, 1, 1), (13, 'sandaali3', 10, 1, 2), (14, 'sandaali4', 25, 1, 2);
