@@ -30,41 +30,46 @@ export default function Sidebar() {
     }
   }, [params])
 
-
-  return (
-    <>
-      <div>
-        <div className="sidebar flex-shrink-0 p-3">
-          <ul className="list-unstyled ps-0">
-
-            <li class="mb-1" >
-              {categories.map(category => (
+  function showSub (catnum, subcatcatnum, subcatnum, subcatname) {
+    if(catnum == subcatcatnum) {
+      return ( 
+        <div className="sidebar flex-shrink-0" id="home-collapse">
+          <ul className="btn-toggle-nav small">
+            <li key={subcatnum}>
+              <Link className='sidebar-select' to=
+              {'/kategoriat/' + subcatcatnum + '/' + subcatnum}>
+              {subcatname}
+              </Link>                    
+            </li>
+          </ul>
+        </div>
+      )
+    }
+  }
+    return (
+      <>
+        <div>{categories.map(category => (
+          <div className="sidebar flex-shrink-0">    
+            <ul className="list-unstyled ps-0">
+              <li class="mb-1" >   
                 <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                   data-bs-toggle="" data-bs-target="#home-collapse" aria-expanded="true" key={category.categorynumber}>
                   {<Link className='sidebar-select' to=
-                    {'/kategoriat/' + category.categorynumber}>
-                    {category.categoryname}
+                  {'/kategoriat/' + category.categorynumber}>
+                  {category.categoryname}
                   </Link>}
                 </button>
-              ))}
-              <div className="" id="home-collapse">
-                <ul className="btn-toggle-nav small">
-                  {subcategories.map(subcategory => (
-                    <li key={subcategory.subcategorynumber}>
-                      {<Link className='sidebar-select' to=
-                        {'/kategoriat/' + subcategory.categorynumber + '/' + subcategory.subcategorynumber}>
-                        {subcategory.subcategoryname}
-                      </Link>}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </li>
+              </li>
+              {subcategories.map(subcategory => (
+                <div key = {subcategory.subcategorynumber}>
+                  {showSub(category.categorynumber, subcategory.categorynumber, subcategory.subcategorynumber, subcategory.subcategoryname)}
+                </div>
+                ))}
+            </ul>
+          </div>
+          ))}
 
-          </ul>
-        </div>
-
-        <ul className="list-unstyled ps-0">
+       {/*<ul className="list-unstyled ps-0">
           <li class="mb-1">
             <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
               Kesäkengät
@@ -106,7 +111,7 @@ export default function Sidebar() {
               <strong>ALE</strong>
             </button>
           </li>
-        </ul>
+              </ul>*/}
       </div>
     </>
   )
