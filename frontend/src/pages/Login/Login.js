@@ -10,17 +10,46 @@ export default function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
+  const [logemail, setLogemail] = useState("")
+  const [logpassword, setLogpassword] = useState("")
+  const [loggedUser, setLoggedUser] = useState(null);
+
+  useEffect(() => {
+    axios.post(URL+"products/login.php", {}, {withCredentials:true})
+    .then(resp => setLoggedUser(resp.data))
+    .catch(e => console.log(e.message))
+  }, [])
+
   function Register() {
     const json = {fname, lname, email, password}
-      axios.post(URL + "products/register.php", json)
+      axios.post(URL + "products/register.php", json, {withCredentials:true})
       .catch(error => {
         alert(error.response === undefined ? error : error.response.data.error)})
       }
+  
+  function LogInre() {
+    const formData = new FormData();
+    formData.append("logemail", logemail);
+    formData.append("logpassword", logpassword);
+    
+    axios.post(URL + "products/login.php", formData)
+    .then(resp => setLoggedUser(resp.data))
+    .catch(e => console.log(e.message))
+  }
+
+  function logout() {
+    axios.get(URL + "products/logout.php", {withCredentials:true} )
+    .then (resp => setLoggedUser(null))
+    .catch(e => console.log(e.messahe))
+  }
+
   return (
     <>
       <div class="container">
         <div class="row form-row">
           <h2 className='login-title text-center mb-4'>Kirjautuneena käyttäjänä saat käyttöösi henkilökohtaiset suositukset, hintavahdin ja paljon muita etuja</h2>
+          <p>User is {loggedUser}</p>
+          <button type= "submit"className='login-btn btn btn-primary mb-3 mt-3'onClick={logout}><span>logout </span></button>
 
 
           {/* REKISTERÖINTI */}
@@ -66,7 +95,8 @@ export default function Login() {
               <p style={{ fontStyle: "italic", color: "gray" }}> Reskisteröimällä käyttäjätilin hyväksyt <a href="under-construction.html ">yleiset käyttöehdot</a>.</p>
               <p> Lue <a href="under-construction.html ">yksityisyydestämme</a>.</p>
             </form>
-          </div><button type="submit" className='register-btn btn btn-primary mb-3 mt-3' onClick={Register}><span>Rekisteröi </span></button>
+            <button type="submit" className='register-btn btn btn-primary mb-3 mt-3' onClick={Register}><span>Rekisteröi </span></button>
+          </div>
 
           {/* KIRJAUTUMINEN */}
 
@@ -80,23 +110,22 @@ export default function Login() {
               <div>
                 <label for="email">Sähköposti<span style={{ color: 'red' }}>*</span></label>
                 <br />
-                <input id="email" type="email" placeholder="nimi@example.com" required />
+                <input id="email" type="email" value= {logemail} onChange={e=>setLogemail(e.target.value)} placeholder="nimi@example.com" required />
                 <p id="email-field"></p>
               </div>
 
               <div>
                 <label for="password">Salasana<span style={{ color: 'red' }}>*</span></label>
                 <br />
-                <input id="password" type="password" minlength="8" placeholder="salasana" autocomplete="off" required />
+                <input id="password" type="password" value ={logpassword} onChange={e=>setLogpassword(e.target.value)} minlength="8" placeholder="salasana" autocomplete="off" required />
                 <p id="password-field"></p>
               </div>
 
-              <button className='login-btn btn btn-primary mb-3 mt-3'><span>Kirjaudu sisään </span></button>
 
               <p><span style={{ color: 'red' }}>* Pakolliset kentät</span></p>
               <p className='forgotten-password'><a href='#'>Unohditko salasanasi?</a></p>
 
-            </form>
+            </form><button type= "submit" className='login-btn btn btn-primary mb-3 mt-3'onClick={LogInre}><span>Kirjaudu sisään </span></button>
           </div>
 
         </div>

@@ -41,3 +41,32 @@ function registerUser($fname, $lname, $email, $password) {
     $statement = $db->prepare($sql);
     $statement->execute(array($fname, $lname, $email, $pw));
 }
+
+//Käyttäjän email osoitetta käytetään $username:na
+function checkLogin ($username, $password) {
+    $db = openDb();
+
+    $sql = "SELECT password FROM customer WHERE email=?";
+    $statement = $db->prepare($sql);
+    $statement->execute(array($username));
+
+    $hashedpw = $statement->fetchColumn();
+
+    
+    if(isset($hashedpw)){
+        return password_verify($password, $hashedpw) ? $username : null;
+    } else {
+        return null;
+    }
+}
+
+// Testi toistaseks
+function getUserName ($username) {
+    $db = openDb();
+
+    $sql = "SELECT fname, lname FROM  customer WHERE email=?";
+    $statement = $db -> prepare($sql);
+    $statement -> execute(array($username));
+
+    return $statement -> fetchAll(PDO::FETCH_COLUMN,0);
+}
