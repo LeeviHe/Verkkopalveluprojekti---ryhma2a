@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import './Login.css';
+import './Forms.css';
 import { Link } from "react-router-dom";
 
 const URL = 'http://localhost:3000/backend/'
@@ -36,43 +36,43 @@ export default function Login() {
 
   return (
     <>
-      <div class="container">
-        <div class="row form-row">
-          <h2 className='login-title text-center mb-2'>Tervetuloa takaisin!</h2>
+      <div className="container form-container">
+        <div className="row form-row">
+          <h2 className='h2-title text-center mt-5
+           mb-4'>Tervetuloa takaisin!</h2>
 
           {/* KIRJAUTUMINEN */}
 
-          <div class="col form-col login">
+          <div className="col form-col mt-4 mb-5 text-center">
 
-            <form className='login-form'>
+            <form name='logForm' id='logForm'>
               <h4 className='login-heading mb-4'>
                 Kirjaudu sisään
               </h4>
 
               <div>
-                <label for="email">Sähköposti<span style={{ color: 'red' }}>*</span></label>
                 <br />
-                <input id="email" type="email" value={logemail} onChange={e => setLogemail(e.target.value)} placeholder="nimi@example.com" required />
+                <input className='form-input' id="email" type="email" value={logemail} onChange={e => setLogemail(e.target.value)} placeholder="Sähköposti" autoComplete='off' required />
                 <p id="email-field"></p>
               </div>
 
               <div>
-                <label for="password">Salasana<span style={{ color: 'red' }}>*</span></label>
                 <br />
-                <input id="password" type="password" value={logpassword} onChange={e => setLogpassword(e.target.value)} minlength="8" placeholder="salasana" autocomplete="off" required />
+                <input className='form-input' id="password" type="password" value={logpassword} onChange={e => setLogpassword(e.target.value)} minlength="8" placeholder="Salasana" autoComplete="off" required />
                 <p id="password-field"></p>
               </div>
 
+              <button type="submit" className='form-btn btn btn-primary mb-4 mt-4' onClick={LogInre}><span>Kirjaudu sisään </span></button>
 
-              <p><span style={{ color: 'red' }}>* Pakolliset kentät</span></p>
-              <p className='forgotten-password'><a href='#'>Unohditko salasanasi?</a></p>
 
-            </form><button type="submit" className='login-btn btn btn-primary mb-3 mt-3' onClick={LogInre}><span>Kirjaudu sisään </span></button>
+              <div>
+                <Link to={"/register"} style={{ fontSize: 'small' }}><span style={{ fontWeight: 'bold' }}>Uusi käyttäjä?</span> Rekisteröidy tästä</Link>
+                <p className='forgotten-password'><a href='#'>Unohditko salasanasi?</a></p>
+              </div>
+            </form>
 
-            <div>
-              <Link to={"/register"} style={{ fontSize: 'small' }}><span style={{ fontWeight: 'bold' }}>Uusi käyttäjä?</span> Rekisteröidy tästä</Link>
-            </div>
           </div>
+
 
         </div>
       </div>

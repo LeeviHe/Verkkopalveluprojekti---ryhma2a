@@ -2,8 +2,8 @@ import axios from 'axios';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Login from './pages/Login/Login';
-import Register from './pages/Register/Register';
+import Login from './pages/Forms/Login';
+import Register from './pages/Forms/Register';
 import Home from './pages/Home/Home';
 import Order from './pages/Order/Order'
 import Products from './pages/Products/Products';
