@@ -5,33 +5,19 @@ import { Link } from "react-router-dom";
 
 const URL = 'http://localhost:3000/backend/'
 
-export default function Login() {
+export function Login({setLoggedUser}) {
 
   const [logemail, setLogemail] = useState("")
   const [logpassword, setLogpassword] = useState("")
-  const [loggedUser, setLoggedUser] = useState(null);
-
-  useEffect(() => {
-    axios.post(URL + "products/login.php", {}, { withCredentials: true })
-      .then(resp => setLoggedUser(resp.data))
-      .catch(e => console.log(e.message))
-  }, [])
-
 
   function LogInre() {
     const formData = new FormData();
     formData.append("logemail", logemail);
     formData.append("logpassword", logpassword);
 
-    axios.post(URL + "products/login.php", formData)
+    axios.post(URL + "products/login.php", formData, {withCredentials:true})
       .then(resp => setLoggedUser(resp.data))
       .catch(e => console.log(e.message))
-  }
-
-  function logout() {
-    axios.get(URL + "products/logout.php", { withCredentials: true })
-      .then(resp => setLoggedUser(null))
-      .catch(e => console.log(e.messahe))
   }
 
   return (
@@ -62,7 +48,7 @@ export default function Login() {
                 <p id="password-field"></p>
               </div>
 
-              <button type="submit" className='form-btn btn btn-primary mb-4 mt-4' onClick={LogInre}><span>Kirjaudu sisään </span></button>
+              
 
 
               <div>
@@ -70,12 +56,27 @@ export default function Login() {
                 <p className='forgotten-password'><a href='#'>Unohditko salasanasi?</a></p>
               </div>
             </form>
-
+            <Link><button type="submit" className='form-btn btn btn-primary mb-4 mt-4' onClick={LogInre}><span>Kirjaudu sisään </span></button></Link>
           </div>
 
 
         </div>
       </div>
     </>
+  )
+}
+export function Userpage({logemail}) {
+  const [names, setNames] = useState([]);
+
+  useEffect(() =>{
+    axios.get(URL + "products/user_info.php", {withCredentials:true})
+    .then(resp => setNames(resp.data.names))
+    .catch(e => console.log(e.message))
+  },[])
+
+  return (
+    <div>
+      <h1>Welcome {logemail} Your name: {names.map(customer => <li>{customer.fname} {customer.lname}</li>)}</h1>
+    </div>
   )
 }

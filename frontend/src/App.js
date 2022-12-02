@@ -2,7 +2,7 @@ import axios from 'axios';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Login from './pages/Forms/Login';
+import {Login, Userpage } from './pages/Forms/Login';
 import Register from './pages/Forms/Register';
 import Home from './pages/Home/Home';
 import Order from './pages/Order/Order'
@@ -12,8 +12,13 @@ import { useState, useEffect } from 'react';
 
 
 const URL = 'http://localhost:3000/backend/';
-
 function App() {
+  const [loggedUser, setLoggedUser] = useState(null);
+  useEffect(() => {
+    axios.post(URL + "products/login.php",{}, { withCredentials: true })
+      .then(resp => setLoggedUser(resp.data))
+      .catch(e => console.log(e.message))//
+  }, [])
 
   const [cart, setCart] = useState([]);
 
@@ -58,15 +63,15 @@ function App() {
 
   return (
     <>
-      <Header url={URL} cart={cart} removeFromCart={removeFromCart} />
+      <Header loggedUser={loggedUser} setLoggedUser={setLoggedUser}url={URL} cart={cart} removeFromCart={removeFromCart} />
 
       <div className='container'>
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          {loggedUser ?<Route path="/login" element={<Userpage logemail={loggedUser}/>} /> : <Route path="/login" element={<Login setLoggedUser={setLoggedUser}/>} />}
           <Route path="/register" element={<Register />} />
-          <Route path="/kategoriat/:categoryId" element={<Products url={URL} addToCart={addToCart} />} />
+          <Route path="/kategoriat/:categoryId" element={<Products  url={URL} addToCart={addToCart} />} />
           <Route path="/kategoriat/:categoryId/:subcategoryId" element={<Products url={URL} addToCart={addToCart} />} />
           <Route path="/order" element={<Order cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />} />
         </Routes>

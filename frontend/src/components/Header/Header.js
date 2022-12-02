@@ -5,23 +5,16 @@ import './Header.css';
 import img from '../../images/logos/shoelando_logo.png';
 import Cart from '../Shoppingcart/Shoppingcart.js';
 
-export default function Header({ cart }) {
+
+export default function Header({loggedUser, setLoggedUser, url, cart }) {
 
 
-  /**leevin testailu */
 
-  const [loggedUser, setLoggedUser] = useState(null);
-
-  /*useEffect(() => {
-    axios.post(URL + "products/login.php", {}, { withCredentials: true })
-      .then(resp => setLoggedUser(resp.data))
-      .catch(e => console.log(e.message))
-  }, [])*/
 
   function logout() {
-    axios.get(URL + "products/logout.php", { withCredentials: true })
+    axios.get(url + "products/logout.php", { withCredentials: true })
       .then(resp => setLoggedUser(null))
-      .catch(e => console.log(e.messahe))
+      .catch(e => console.log(e.message))
   }
   return (
     <>
@@ -38,7 +31,7 @@ export default function Header({ cart }) {
 
             {/**leevin testailu */}
 
-            <p>User is {loggedUser}</p>
+            {loggedUser ? <h1>Olet kirjautunut</h1> : <h1>Kirjaudu hyvä ukko</h1>}
             <button type="submit" className='login-btn btn btn-primary mb-3 mt-3' onClick={logout}><span>logout </span></button>
 
             <li className="nav-item">

@@ -1,7 +1,6 @@
 <?php
-/*
-require_once '../inc/functions.php';
 session_start();
+require_once '../inc/functions.php';
 require_once '../inc/headers.php';
 
 if (!isset($_SESSION['username'])) {
@@ -12,7 +11,10 @@ if (!isset($_SESSION['username'])) {
 
 $names = getUserName($_SESSION['username']);
 
-$json = json_encode($names);
+$result = array();
+$result['names'] = $names;
+
+$json = json_encode($result);
 header('Content-type: application/json');
-echo $json;*/ 
+echo $json;
 //Testi tiedosto atm
