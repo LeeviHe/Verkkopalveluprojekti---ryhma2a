@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const URL = 'http://localhost:3000/backend/'
 
-export function Login({setLoggedUser}) {
+export function Login({ setLoggedUser }) {
 
   const [logemail, setLogemail] = useState("")
   const [logpassword, setLogpassword] = useState("")
@@ -15,7 +15,7 @@ export function Login({setLoggedUser}) {
     formData.append("logemail", logemail);
     formData.append("logpassword", logpassword);
 
-    axios.post(URL + "products/login.php", formData, {withCredentials:true})
+    axios.post(URL + "products/login.php", formData, { withCredentials: true })
       .then(resp => setLoggedUser(resp.data))
       .catch(e => console.log(e.message))
   }
@@ -48,9 +48,6 @@ export function Login({setLoggedUser}) {
                 <p id="password-field"></p>
               </div>
 
-              
-
-
               <div>
                 <Link to={"/register"} style={{ fontSize: 'small' }}><span style={{ fontWeight: 'bold' }}>Uusi käyttäjä?</span> Rekisteröidy tästä</Link>
                 <p className='forgotten-password'><a href='#'>Unohditko salasanasi?</a></p>
@@ -65,14 +62,14 @@ export function Login({setLoggedUser}) {
     </>
   )
 }
-export function Userpage({logemail}) {
+export function Userpage({ logemail }) {
   const [names, setNames] = useState([]);
 
-  useEffect(() =>{
-    axios.get(URL + "products/user_info.php", {withCredentials:true})
-    .then(resp => setNames(resp.data.names))
-    .catch(e => console.log(e.message))
-  },[])
+  useEffect(() => {
+    axios.get(URL + "products/user_info.php", { withCredentials: true })
+      .then(resp => setNames(resp.data.names))
+      .catch(e => console.log(e.message))
+  }, [])
 
   return (
     <div>

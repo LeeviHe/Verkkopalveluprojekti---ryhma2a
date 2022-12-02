@@ -118,7 +118,7 @@ export default function Register() {
                   id="password"
                   name='password'
                   type={showPassw ? "text" : "password"}
-                  pattern="^(?=.*?[A-ZÄ-Ö])(?=.*?[a-zä-ö])(?=.*?[0-9])(?=.*?[#!@$%^&*?-/\.€{}´`~()+=])\S{8,20}$"
+                  pattern="^(?=.*?[A-ZÄ-Ö])(?=.*?[a-zä-ö])(?=.*?[0-9])(?=.*?[#!@$%^&*?/\.€{}´`~()+=])\S{8,20}$"
                   onChange={e => setPassword(e.target.value)}
                   minlength="8"
                   title='disabled'
@@ -138,7 +138,7 @@ export default function Register() {
 
             </form>
 
-            <Link to="/"><button type="submit" className='register-btn btn btn-primary mb-3 mt-3' onClick={Register}><span>Rekisteröi </span></button></Link>
+            <Link to="/"><button type="submit" className='form-btn btn btn-primary mb-4 mt-4' onClick={Register}><span>Rekisteröi </span></button></Link>
 
             <p style={{ fontStyle: "italic", color: "gray" }}> Reskisteröimällä käyttäjätilin hyväksyt <a href="under-construction.html ">yleiset käyttöehdot</a>.</p>
             <p> Lue <a href="under-construction.html ">yksityisyydestämme</a>.</p>
