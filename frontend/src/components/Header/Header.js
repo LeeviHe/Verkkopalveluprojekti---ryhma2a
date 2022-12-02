@@ -27,11 +27,6 @@ export default function Header({ cart }) {
     <>
 
 
-      {/**leevin testailu */}
-
-      <p>User is {loggedUser}</p>
-      <button type="submit" className='login-btn btn btn-primary mb-3 mt-3' onClick={logout}><span>logout </span></button>
-
 
       <div className="container-fluid header-container justify-content-center">
         <header className="d-flex flex-wrap py-3">
@@ -40,6 +35,12 @@ export default function Header({ cart }) {
           </Link>
 
           <ul className="nav nav-pills">
+
+            {/**leevin testailu */}
+
+            <p>User is {loggedUser}</p>
+            <button type="submit" className='login-btn btn btn-primary mb-3 mt-3' onClick={logout}><span>logout </span></button>
+
             <li className="nav-item">
               <form>
                 <input type="search" className="form-control-dark me-2" placeholder="Etsi..." aria-label="Search"></input>

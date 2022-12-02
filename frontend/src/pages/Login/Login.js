@@ -38,7 +38,7 @@ export default function Login() {
     <>
       <div class="container">
         <div class="row form-row">
-          <h2 className='login-title text-center mb-4'>Kirjautuneena käyttäjänä saat käyttöösi henkilökohtaiset suositukset, hintavahdin ja paljon muita etuja</h2>
+          <h2 className='login-title text-center mb-2'>Tervetuloa takaisin!</h2>
 
           {/* KIRJAUTUMINEN */}
 
@@ -70,7 +70,7 @@ export default function Login() {
             </form><button type="submit" className='login-btn btn btn-primary mb-3 mt-3' onClick={LogInre}><span>Kirjaudu sisään </span></button>
 
             <div>
-              <Link to={"/register"} style={{ fontSize: 'small' }}>Uusi käyttäjä? Rekisteröidy tästä</Link>
+              <Link to={"/register"} style={{ fontSize: 'small' }}><span style={{ fontWeight: 'bold' }}>Uusi käyttäjä?</span> Rekisteröidy tästä</Link>
             </div>
           </div>
 
