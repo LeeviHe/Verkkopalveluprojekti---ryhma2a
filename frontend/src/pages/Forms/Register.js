@@ -13,11 +13,13 @@ export default function Register() {
 
   /** TOGGLE PASSWORD VISIBILITY */
   const [showPassw, setShowPassw] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const togglePassw = (e) => {
     e.preventDefault();
     setShowPassw(!showPassw);
-  }
+    setIsActive(current => !current);
+  };
 
   const [loggedUser, setLoggedUser] = useState(null);
 
@@ -38,7 +40,7 @@ export default function Register() {
   function logout() {
     axios.get(URL + "products/logout.php", { withCredentials: true })
       .then(resp => setLoggedUser(null))
-      .catch(e => console.log(e.messahe))
+      .catch(e => console.log(e.message))
   }
 
   return (
@@ -70,7 +72,7 @@ export default function Register() {
                   autoComplete="off"
                   required />
                 <span className='error-msg' style={{ fontSize: 'small', color: 'red' }}>
-                  Nimissä ei saa esiintyä numeroita tai erikoismerkkejä.
+                  Nimen täytyy olla vähintään 3 merkkiä pitkä. Nimissä ei saa esiintyä numeroita tai erikoismerkkejä.
                 </span>
 
                 <p id="fname-field"></p>
@@ -90,7 +92,7 @@ export default function Register() {
                   required />
 
                 <span className='error-msg' style={{ fontSize: 'small', color: 'red' }}>
-                  Nimissä ei saa esiintyä numeroita tai erikoismerkkejä.
+                  Nimen täytyy olla vähintään 3 merkkiä pitkä.Nimissä ei saa esiintyä numeroita tai erikoismerkkejä.
                 </span>
 
                 <p id="lname-field"></p>
@@ -113,12 +115,18 @@ export default function Register() {
               </div>
 
               <br />
+
               <div className='input-container'>
+
+                <button className={isActive ? 'hidden' : 'passw-btn'} onClick={togglePassw}><ion-icon name="eye-off-outline"></ion-icon></button>
+
+                <button className={isActive ? 'passw-btn' : 'hidden'} onClick={togglePassw}><ion-icon name="eye-outline"></ion-icon></button>
+
                 <input className='form-input register'
                   id="password"
                   name='password'
                   type={showPassw ? "text" : "password"}
-                  pattern="^(?=.*?[A-ZÄ-Ö])(?=.*?[a-zä-ö])(?=.*?[0-9])(?=.*?[#!@$%^&*?/\.€{}´`~()+=])\S{8,20}$"
+                  pattern="^(?=.*?[A-ZÄ-Ö])(?=.*?[a-zä-ö])(?=.*?[0-9])(?=.*?[#!@$%^&*?/\.€{}´`~()+=])\S{8,30}$"
                   onChange={e => setPassword(e.target.value)}
                   minlength="8"
                   title='disabled'
@@ -127,14 +135,12 @@ export default function Register() {
                   required
                 />
 
-                <button className='passw-btn' onClick={togglePassw}><ion-icon name="eye-off-outline"></ion-icon></button>
+                <span className='error-msg' style={{ fontSize: 'small', color: 'red' }}>
+                  Salasanan tulee olla vähintään 8 merkkiä pitkä ja sisältää vähintään yksi iso ja pieni kirjain, yksi numero ja yksi erikoismerkki. Välilyöntejä ei sallita.
+                </span>
 
                 <p id="password-field"></p>
               </div>
-
-              <span className='error-msg' style={{ fontSize: 'small', color: 'red' }}>
-                Salasanan tulee olla vähintään 8 merkkiä pitkä ja sisältää vähintään yksi iso ja pieni kirjain, yksi numero ja yksi erikoismerkki. Välilyöntejä ei sallita.
-              </span>
 
             </form>
 

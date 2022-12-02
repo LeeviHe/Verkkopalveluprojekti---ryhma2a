@@ -1,36 +1,36 @@
 /* INPUT FIELD SETTINGS */
 
-input:required:focus:valid {
+.register:required:focus:valid {
   border-color: green;
 }
-input:focus:invalid {
+.register:focus:invalid {
   border-color: red;
 }
 
-input:not(:placeholder-shown):not(:focus):valid {
+.register:not(:placeholder-shown):not(:focus):valid {
   background: url(../../images/checkmark-circle-outline.svg) no-repeat 95% 50%;
   background-size: 25px;
   border-color: green;
 }
 
-input:not(:placeholder-shown):not(:focus):invalid {
+.register:not(:placeholder-shown):not(:focus):invalid {
   background: url(../../images/warning-outline.svg) no-repeat 95% 50%;
   background-size: 25px;
   border-color: red;
 }
 
-.error-msg {
-  display: none;
-}
 
-input:not(:placeholder-shown):not(:focus):invalid + .error-msg {
+.register:not(:placeholder-shown):not(:focus):invalid + .error-msg {
   display: block;
 } 
 
-
-input:not(:placeholder-shown):not(:focus):invalid + .error-message,
-input:not(:placeholder-shown):not(:focus):valid + .error-message {
+.register:not(:placeholder-shown):not(:focus):invalid + .error-message,
+.register:not(:placeholder-shown):not(:focus):valid + .error-message {
   display: block;
+}
+
+.error-msg {
+  display: none;
 }
 
 /* FORM SETTINGS */
@@ -54,14 +54,14 @@ a:hover {
   margin: 2rem 0;
 }
 
-.h2-title {
-  color: rgba(98, 55, 27, 0.939);
-  font-family: secular one;
-}
-
 .form-row {
   margin: 0 auto;
   width: 60rem;
+}
+
+.h2-title {
+  color: rgba(98, 55, 27, 0.939);
+  font-family: secular one;
 }
 
 .form-col {
@@ -85,25 +85,26 @@ a:hover {
   box-shadow: rgba(255, 186, 106, 0.25) 0px 30px 60px -12px inset, rgba(251, 191, 161, 0.292) 0px 18px 36px -18px inset;
 }
 
+
 .input-container {
-  display: flex;
+  display: block;
 }
 
 .passw-btn {
-  display: flex;
   background: none;
   border: none;
   padding: 0;
-  z-index: 0;
   position: absolute;
 }
 
 .passw-btn ion-icon {
-  position: absolute;
-  z-index: 0;
   height: 1.5rem;
   width: 3rem;
   color: gray;
+}
+
+.hidden {
+  display: none;
 }
 
 .form-btn {
