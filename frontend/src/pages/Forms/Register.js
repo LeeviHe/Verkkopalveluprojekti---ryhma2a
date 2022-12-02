@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import './Forms.css';
+import { Link } from "react-router-dom";
 
 const URL = 'http://localhost:3000/backend/'
 
@@ -136,7 +137,7 @@ export default function Register() {
               </div>
             </form>
 
-            <button type="submit" className='form-btn btn btn-primary mb-4 mt-4' onClick={Register}><span>Rekisteröi </span></button>
+            <Link to ="/"><button type="submit" className='register-btn btn btn-primary mb-3 mt-3' onClick={Register}><span>Rekisteröi </span></button></Link>
 
             <p style={{ fontStyle: "italic", color: "gray" }}> Reskisteröimällä käyttäjätilin hyväksyt <a href="under-construction.html ">yleiset käyttöehdot</a>.</p>
             <p> Lue <a href="under-construction.html ">yksityisyydestämme</a>.</p>

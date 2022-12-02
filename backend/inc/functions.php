@@ -68,5 +68,5 @@ function getUserName ($username) {
     $statement = $db -> prepare($sql);
     $statement -> execute(array($username));
 
-    return $statement -> fetchAll(PDO::FETCH_COLUMN,0);
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
