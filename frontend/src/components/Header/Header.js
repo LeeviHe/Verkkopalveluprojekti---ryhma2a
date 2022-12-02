@@ -1,12 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 import { Link } from "react-router-dom";
 import './Header.css';
 import img from '../../images/logos/shoelando_logo.png';
 import Cart from '../Shoppingcart/Shoppingcart.js';
 
 export default function Header({ cart }) {
+
+
+  /**leevin testailu */
+
+  const [loggedUser, setLoggedUser] = useState(null);
+
+  /*useEffect(() => {
+    axios.post(URL + "products/login.php", {}, { withCredentials: true })
+      .then(resp => setLoggedUser(resp.data))
+      .catch(e => console.log(e.message))
+  }, [])*/
+
+  function logout() {
+    axios.get(URL + "products/logout.php", { withCredentials: true })
+      .then(resp => setLoggedUser(null))
+      .catch(e => console.log(e.messahe))
+  }
   return (
     <>
+
+
+      {/**leevin testailu */}
+
+      <p>User is {loggedUser}</p>
+      <button type="submit" className='login-btn btn btn-primary mb-3 mt-3' onClick={logout}><span>logout </span></button>
+
 
       <div className="container-fluid header-container justify-content-center">
         <header className="d-flex flex-wrap py-3">
