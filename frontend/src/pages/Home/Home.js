@@ -8,8 +8,8 @@ import logo4 from '../../images/logos/Timberlandlogouus.png';
 import logo5 from "../../images/logos/ugg.png"
 import logo6 from "../../images/logos/tomtailor.png"
 import kenka1 from '../../images/products/adidas1.png';
-import kenka2 from '../../images/products/adidas2.png';
-import kenka3 from '../../images/products/adidas3.png';
+import kenka2 from '../../images/products/adidas4.png';
+import kenka3 from '../../images/products/adidas5.png';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Carousel from '../../components/Carousel/Carousel';
 import { useState } from 'react';
@@ -138,12 +138,12 @@ export default function Home() {
             </div>
             <div>
               <div className="m-carousel-img">
-                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+                <img src={kenka1} style={{ width: '100%' }} />
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+                <img src={kenka2} style={{ width: '100%' }} />
               </div>
             </div>
           </Carousel>
@@ -156,27 +156,27 @@ export default function Home() {
           >
             <div>
               <div className="m-carousel-img">
-                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+                <img src={kenka1} alt="placeholder" style={{ width: '100%' }} />
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+                <img src={kenka2} alt="placeholder" style={{ width: '100%' }} />
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+                <img src={kenka3} style={{ width: '100%' }} />
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+                <img src={kenka1} style={{ width: '100%' }} />
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+                <img src={kenka2} style={{ width: '100%' }} />
               </div>
             </div>
           </Carousel>
@@ -189,27 +189,27 @@ export default function Home() {
           >
             <div>
               <div className="m-carousel-img">
-                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+                <img src={kenka1} alt="placeholder" style={{ width: '100%' }} />
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+                <img src={kenka2} alt="placeholder" style={{ width: '100%' }} />
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+                <img src={kenka3} style={{ width: '100%' }} />
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+                <img src={kenka1} style={{ width: '100%' }} />
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img src="https://images.unsplash.com/photo-1668405409882-0b3a8b6fc912?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="placeholder" style={{ width: '100%' }} />
+                <img src={kenka2} style={{ width: '100%' }} />
               </div>
             </div>
           </Carousel>

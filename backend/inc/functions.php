@@ -31,3 +31,42 @@ function returnError(PDOException $pdoex){
     print json_encode($error);
     exit;
 }
+
+function registerUser($fname, $lname, $email, $password) {
+    $db = openDb();
+
+    $pw = password_hash($password, PASSWORD_DEFAULT);
+
+    $sql = "INSERT INTO customer (fname, lname, email, password) values (?, ?, ?, ?)";
+    $statement = $db->prepare($sql);
+    $statement->execute(array($fname, $lname, $email, $pw));
+}
+
+//Käyttäjän email osoitetta käytetään $username:na
+function checkLogin ($username, $password) {
+    $db = openDb();
+
+    $sql = "SELECT password FROM customer WHERE email=?";
+    $statement = $db->prepare($sql);
+    $statement->execute(array($username));
+
+    $hashedpw = $statement->fetchColumn();
+
+    
+    if(isset($hashedpw)){
+        return password_verify($password, $hashedpw) ? $username : null;
+    } else {
+        return null;
+    }
+}
+
+// Testi toistaseks
+function getUserName ($username) {
+    $db = openDb();
+
+    $sql = "SELECT fname, lname FROM  customer WHERE email=?";
+    $statement = $db -> prepare($sql);
+    $statement -> execute(array($username));
+
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}

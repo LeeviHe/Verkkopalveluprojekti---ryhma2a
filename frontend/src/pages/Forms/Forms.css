@@ -1,0 +1,132 @@
+/* INPUT FIELD SETTINGS */
+
+input:required:focus:valid {
+  border-color: green;
+}
+input:focus:invalid {
+  border-color: red;
+}
+
+input:not(:placeholder-shown):not(:focus):valid {
+  background: url(../../images/checkmark-circle-outline.svg) no-repeat 95% 50%;
+  background-size: 25px;
+  border-color: green;
+}
+
+input:not(:placeholder-shown):not(:focus):invalid {
+  background: url(../../images/warning-outline.svg) no-repeat 95% 50%;
+  background-size: 25px;
+  border-color: red;
+}
+
+.error-msg {
+  display: none;
+}
+
+input:not(:placeholder-shown):not(:focus):invalid + .error-msg {
+  display: block;
+} 
+
+
+input:not(:placeholder-shown):not(:focus):invalid + .error-message,
+input:not(:placeholder-shown):not(:focus):valid + .error-message {
+  display: block;
+}
+
+/* FORM SETTINGS */
+
+p {
+  font-size: small;
+  margin-bottom: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: inherit;
+}
+
+.form-container {
+  margin: 2rem 0;
+}
+
+.h2-title {
+  color: rgba(98, 55, 27, 0.939);
+  font-family: secular one;
+}
+
+.form-row {
+  margin: 0 auto;
+  width: 60rem;
+}
+
+.form-col {
+  margin: 0 auto;
+  max-width: 20rem;
+}
+
+.form-input {
+  color: rgba(98, 55, 27, 0.939);
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid rgba(98, 55, 27, 0.746);
+  width: 100%;
+  background-color: inherit;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.form-input:focus {
+  outline: none;
+  box-shadow: rgba(255, 186, 106, 0.25) 0px 30px 60px -12px inset, rgba(251, 191, 161, 0.292) 0px 18px 36px -18px inset;
+}
+
+.input-container {
+  display: flex;
+}
+
+.passw-btn {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0;
+  z-index: 0;
+  position: absolute;
+}
+
+.passw-btn ion-icon {
+  position: absolute;
+  z-index: 0;
+  height: 1.5rem;
+  width: 3rem;
+  color: gray;
+}
+
+.form-btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background-color: rgba(98, 55, 27, 0.746);
+  border: none;
+}
+
+.form-btn:hover {
+  --bs-btn-hover-bg: rgba(70, 40, 20, 0.746);
+  --bs-btn-active-bg: rgba(98, 55, 27, 0.746);
+  border: none;
+}
+
+.form-btn span::after {
+  content: '\00bb';
+  opacity: 0;
+  top: 10px;
+  transition: 0.4s;
+}
+
+.form-btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}

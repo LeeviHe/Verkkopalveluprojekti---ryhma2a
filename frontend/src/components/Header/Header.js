@@ -1,20 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 import { Link } from "react-router-dom";
 import './Header.css';
 import img from '../../images/logos/shoelando_logo.png';
 import Cart from '../Shoppingcart/Shoppingcart.js';
 
-export default function Header({ cart }) {
+
+export default function Header({loggedUser, setLoggedUser, url, cart }) {
+
+
+
+
+  function logout() {
+    axios.get(url + "products/logout.php", { withCredentials: true })
+      .then(resp => setLoggedUser(null))
+      .catch(e => console.log(e.message))
+  }
   return (
     <>
 
+
+
       <div className="container-fluid header-container justify-content-center">
         <header className="d-flex flex-wrap py-3">
-          <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+          <Link to="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
             <img src={img} className="main-logo" alt="Shoelando logo" />
-          </a>
+          </Link>
 
           <ul className="nav nav-pills">
+
+            {/**leevin testailu */}
+
+            {loggedUser ? <h1>Olet kirjautunut</h1> : <h1>Kirjaudu hyvä ukko</h1>}
+            <button type="submit" className='login-btn btn btn-primary mb-3 mt-3' onClick={logout}><span>logout </span></button>
+
             <li className="nav-item">
               <form>
                 <input type="search" className="form-control-dark me-2" placeholder="Etsi..." aria-label="Search"></input>
