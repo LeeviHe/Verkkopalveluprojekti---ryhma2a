@@ -117,7 +117,7 @@ export default function Register() {
                   id="password"
                   name='password'
                   type={showPassw ? "text" : "password"}
-                  pattern="^(?=.*?[A-ZÄ-Ö])(?=.*?[a-zä-ö])(?=.*?[0-9])(?=.*?[#!@$%^&*()+=])\S{8,20}$"
+                  pattern="^(?=.*?[A-ZÄ-Ö])(?=.*?[a-zä-ö])(?=.*?[0-9])(?=.*?[#!@$%^&*?-/\.€{}´`~()+=])\S{8,20}$"
                   onChange={e => setPassword(e.target.value)}
                   minlength="8"
                   title='disabled'
@@ -128,18 +128,14 @@ export default function Register() {
 
                 <button className='passw-btn' onClick={togglePassw}><ion-icon name="eye-off-outline"></ion-icon></button>
 
-                <span className='error-msg' style={{ fontSize: 'small', color: 'red' }}>
-                  Salasanan tulee olla vähintään 8 merkkiä pitkä ja sisältää vähintään yksi iso ja pieni kirjain, yksi numero ja yksi erikoismerkki. Välilyöntejä ei sallita.
-                </span>
-
                 <p id="password-field"></p>
               </div>
+
+              <span className='error-msg' style={{ fontSize: 'small', color: 'red' }}>
+                Salasanan tulee olla vähintään 8 merkkiä pitkä ja sisältää vähintään yksi iso ja pieni kirjain, yksi numero ja yksi erikoismerkki. Välilyöntejä ei sallita.
+              </span>
+
             </form>
-
-            <button type="submit" className='form-btn btn btn-primary mb-4 mt-4' onClick={Register}><span>Rekisteröi </span></button>
-
-            <p style={{ fontStyle: "italic", color: "gray" }}> Reskisteröimällä käyttäjätilin hyväksyt <a href="under-construction.html ">yleiset käyttöehdot</a>.</p>
-            <p> Lue <a href="under-construction.html ">yksityisyydestämme</a>.</p>
 
           </div>
 
