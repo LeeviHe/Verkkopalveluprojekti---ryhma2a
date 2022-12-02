@@ -10,9 +10,9 @@ export default function Header({ cart }) {
 
       <div className="container-fluid header-container justify-content-center">
         <header className="d-flex flex-wrap py-3">
-          <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+          <Link to="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
             <img src={img} className="main-logo" alt="Shoelando logo" />
-          </a>
+          </Link>
 
           <ul className="nav nav-pills">
             <li className="nav-item">
