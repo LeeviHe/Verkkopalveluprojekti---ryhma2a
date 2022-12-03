@@ -65,7 +65,7 @@ export default function Register() {
                   id='first-name'
                   name='first-name'
                   type="text"
-                  pattern='[a-zA-Zä-öÄ-Ö]+'
+                  pattern='^[a-zA-Zä-öÄ-Ö][-]\S+{3,20}$'
                   onChange={e => setFname(e.target.value)}
                   minlength="3"
                   placeholder="Etunimi"
@@ -84,7 +84,7 @@ export default function Register() {
                   id='last-name'
                   name='last-name'
                   type="text"
-                  pattern='[a-zA-Zä-öÄ-Ö]+'
+                  pattern='[a-zA-Zä-öÄ-Ö][-]\S+{3,20}$'
                   onChange={e => setLname(e.target.value)}
                   minlength="3"
                   placeholder="Sukunimi"
