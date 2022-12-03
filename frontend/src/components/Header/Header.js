@@ -6,7 +6,7 @@ import img from '../../images/logos/shoelando_logo.png';
 import Cart from '../Shoppingcart/Shoppingcart.js';
 
 
-export default function Header({loggedUser, setLoggedUser, url, cart }) {
+export default function Header({loggedUser, setLoggedUser, url, cart, emptyCart, removeFromCart, updateAmount }) {
 
 
 
@@ -52,7 +52,7 @@ export default function Header({loggedUser, setLoggedUser, url, cart }) {
             </li>
 
             <>
-              <Cart cart={cart} />
+              <Cart cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart}/>
             </>
 
           </ul>

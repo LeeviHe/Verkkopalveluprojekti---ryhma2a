@@ -1,10 +1,3 @@
-#maara {
-  height: 2rem;
-  border: 1px solid rgba(128, 128, 128, 0.615);
-  border-radius: 5px;
-  box-shadow: rgba(86, 86, 86, 0.313) 0px 3px 5px, rgba(81, 81, 81, 0.461) 0px 1px 6px;
-}
-
 .dropdown-menu {
   background: linear-gradient(to top, #efe9e9 78%, #c7b89b 50%);
   padding: 2rem;
@@ -15,6 +8,7 @@
   display: flex;
   padding: 0.5rem 0;
   text-align: center;
+  border-bottom:  1px solid #333;
 }
 
 .b {
@@ -27,6 +21,7 @@
 
 .asd {
   color: black;
+ 
 }
 
 .asd:hover,

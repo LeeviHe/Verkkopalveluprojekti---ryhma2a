@@ -63,7 +63,7 @@ function App() {
 
   return (
     <>
-      <Header loggedUser={loggedUser} setLoggedUser={setLoggedUser}url={URL} cart={cart} removeFromCart={removeFromCart} />
+      <Header loggedUser={loggedUser} setLoggedUser={setLoggedUser}url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />
 
       <div className='container'>
 

@@ -38,16 +38,14 @@ export default function Order({ cart, emptyCart, removeFromCart, updateAmount })
                                     <div className="formitem">Määrä 
                                     <input type="number" className="amount" ref={inputs[index]} value={product.amount} onChange={e => changeAmount(e, product, index)} /></div>
                                     <div className="formitem">{product.price} kpl</div>
-                                <a className="asd" onClick={() => removeFromCart(product)}>Poista tuote</a>
+                                <a href="#" className="asd" onClick={() => removeFromCart(product)}>Poista tuote</a>
                             </form>
-
                         )
                     })}
                     <div className="checkout" key={uuid()}>
                         <div>Tuotteet Yhteensä</div>
                         <div>{sum.toFixed(2)} €</div>
                         <button type="button" className="form-btn" onClick={() => emptyCart()}>Tyhjennä ostoskori</button>
-
                     </div>
                 </div>
             </div>
