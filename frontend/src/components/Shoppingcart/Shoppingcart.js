@@ -30,7 +30,6 @@ export default function Cart({ cart, removeFromCart, updateAmount }) {
 
   return (
     <>
-      <li className="nav-item me-2"><img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" className="nav-icon"></img></li>
 
       <li className="nav-item me-2 dropdown">
 
