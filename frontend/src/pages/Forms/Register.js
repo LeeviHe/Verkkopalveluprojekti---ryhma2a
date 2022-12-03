@@ -135,6 +135,16 @@ export default function Register() {
                   required
                 />
 
+                <div className='checkbox'>
+                  <input id='checkbox' type="checkbox" />
+                  <label style={{
+                    color: "black"
+                  }}
+                    for="checkbox">
+                    Kyllä, haluan vastaanottaa ajankohtaisia mainoksia ja tiedotuksia Shoelandolta sähköpostiini.
+                  </label>
+                </div>
+
                 <span className='error-msg' style={{ fontSize: 'small', color: 'red' }}>
                   Salasanan tulee olla vähintään 8 merkkiä pitkä ja sisältää vähintään yksi iso ja pieni kirjain, yksi numero ja yksi erikoismerkki. Välilyöntejä ei sallita.
                 </span>

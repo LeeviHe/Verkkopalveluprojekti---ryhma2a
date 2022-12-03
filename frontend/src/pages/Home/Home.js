@@ -13,6 +13,7 @@ import kenka3 from '../../images/products/adidas5.png';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Carousel from '../../components/Carousel/Carousel';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
 
@@ -227,9 +228,10 @@ export default function Home() {
             <p>Liity uutiskirjeen tilaajaksi ja nauti tervetuliaislahjasta</p>
 
             <form>
-              <label for="email" placeholder='Sähköpostiosoite'></label>
               <input type="email" id="email" name="email"></input>
-              <button className='fixed-btn'>Alennus</button>
+              <Link to={"/register"}>
+                <button className='fixed-btn'>Alennus</button>
+              </Link>
             </form>
           </div>
         </div>

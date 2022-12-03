@@ -1,26 +1,53 @@
-.ordercont {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    display: flex;
-    background:#efe9e9 78%;
-    box-shadow: rgba(86, 86, 86, 0.313) 0px 5px 10px, rgba(81, 81, 81, 0.461) 0px 5px 10px;
+.font {
+    font-family: 'Secular One', sans-serif;
 }
 
-.form {
-    margin-top: 50px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    padding: 5px;
+.order-container {
+    display: block;
 }
 
-.checkout {
-    margin-top: 50px;
-    margin-bottom: 10px;
+.order-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5rem;
+}
+
+.cart-form {
+    grid-column: 1;
+    padding: 0.5rem;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: none;
+}
+
+.form-item {
+    padding: 0.5rem;
+    text-align: justify;
+}
+
+.form-item.rcol {
+    grid-column: 2;
+}
+
+.form-item.lcol {
+    grid-column: 3;
+    text-align: end;
+    margin-right: 1rem;
+}
+
+hr {
+    grid-column: 1 / span 3;
+}
+
+.cart-form-img {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    margin-right: 1rem;
 }
 
 .amount {
+    text-align: center;
     height: 2rem;
     border: 1px solid rgba(128, 128, 128, 0.615);
     border-radius: 5px;
@@ -28,11 +55,54 @@
     width: 60px;
 }
 
-h3{
-    margin-top: 10px;
-    padding: 5px;
+.empty-cart-btn {
+    background-color: rgba(169, 67, 53, 0.614);
+    border: none;
 }
 
-.formitem {
-    padding: 10px;
+.empty-cart-btn:active {
+   font-weight: bold;
+   --bs-btn-active-bg: rgba(169, 67, 53, 0.614);
+   border: none;
+}
+
+.empty-cart-btn:hover {
+    --bs-btn-hover-bg: rgba(169, 67, 53, 0.786);
+}
+
+.checkout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 60%;
+}
+
+.checkout .mb-3 {
+    grid-column: 1;
+}
+
+.cart-price {
+    grid-column: 2;
+    text-align: end;
+}
+
+.checkout-btn {
+    display: inline-block;
+    padding: 0.5rem;
+    width: 60%;
+    background-color: rgba(98, 55, 27, 0.746);
+    border: none;
+}
+
+.checkout-btn:hover {
+    --bs-btn-hover-bg: rgba(70, 40, 20, 0.746);
+}
+
+.checkout-btn:active {
+    text-decoration: underline;
+    --bs-btn-active-bg: rgba(98, 55, 27, 0.746);
+    border: none;
+}
+
+.info-text {
+    margin-bottom: 2rem;
 }

@@ -107,8 +107,29 @@ a:hover {
   display: none;
 }
 
+.checkbox {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  text-align: left;
+  padding-top: 1.5rem;
+  gap: 1rem;
+}
+
+.checkbox label {
+  font-size: 0.9rem;
+}
+
+#checkbox {
+  height: 1rem;
+  width: 1rem;
+  margin-top: 50%;
+  accent-color: brown;
+}
+
+
 .form-btn {
   display: inline-block;
+  width: 100%;
   padding: 0.7rem 1.5rem;
   background-color: rgba(98, 55, 27, 0.746);
   border: none;
@@ -130,4 +151,9 @@ a:hover {
 .form-btn:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.form-btn:active {
+  text-decoration: underline;
+  border: none;
 }

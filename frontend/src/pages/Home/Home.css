@@ -102,6 +102,12 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
   right: 0;
 }
 
+.btn-xmas:active,
+.btn-about:active {
+  text-decoration: underline;
+  border: none;
+}
+
 /* LOGOS SECTION */
 
 .logo-section {
@@ -176,7 +182,8 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
   color: white;
 }
 
-.add-btn:hover {
+.add-btn:hover,
+.add-btn:active {
   --bs-btn-hover-bg: rgba(75, 75, 75, 0.556);
   --bs-btn-hover-border-color: rgba(158, 158, 158, 0.516);
   --bs-btn-active-bg: rgba(0, 0, 0, 0.556);
@@ -240,4 +247,9 @@ gap: 10px;
 
 .fixed-btn:hover {
   background-color: rgba(110, 58, 8, 0.573);
+}
+
+.fixed-btn:active {
+  font-weight: bold;
+  border: none;
 }
