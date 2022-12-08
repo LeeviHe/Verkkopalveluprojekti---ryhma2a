@@ -8,6 +8,7 @@ CREATE TABLE `customer` (
   `customerid` SMALLINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `fname` char(20) NOT NULL,
   `lname` char(20) NOT NULL,
+  `address`char(50) NOT NULL,
   `email` char(50) DEFAULT NULL,
   `password` char(255) DEFAULT NULL,
   `postnumber` char(5) DEFAULT NULL,
