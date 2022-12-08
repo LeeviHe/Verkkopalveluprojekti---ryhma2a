@@ -21,26 +21,12 @@ export default function Register() {
     setIsActive(current => !current);
   };
 
-  const [loggedUser, setLoggedUser] = useState(null);
-
-  useEffect(() => {
-    axios.post(URL + "products/login.php", {}, { withCredentials: true })
-      .then(resp => setLoggedUser(resp.data))
-      .catch(e => console.log(e.message))
-  }, [])
-
   function Register() {
     const json = { fname, lname, email, password }
     axios.post(URL + "products/register.php", json, { withCredentials: true })
       .catch(error => {
         alert(error.response === undefined ? error : error.response.data.error)
       })
-  }
-
-  function logout() {
-    axios.get(URL + "products/logout.php", { withCredentials: true })
-      .then(resp => setLoggedUser(null))
-      .catch(e => console.log(e.message))
   }
 
   return (
