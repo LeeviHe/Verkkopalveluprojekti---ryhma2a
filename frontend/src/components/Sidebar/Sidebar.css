@@ -2,15 +2,59 @@
 
 .sidebar {
   display: flex;
-  flex-direction: column;
   grid-column: 1;
   grid-row: span 1 / end;
 }
 
-.btn-toggle {
-  padding-right: 1.5rem;
+.sidebar-btn,
+.sidebar-btn:active {
+  border: none;
+}
+
+.list-unstyled {
+  margin-bottom: 0;
+}
+
+.sidebar-btn:hover {
+  text-decoration: underline;
+}
+
+.sidebar-select {
+  margin-right: 0.5rem;
+}
+
+.sidebar-select a,
+.sidebar-select a:hover {
+  border: none;
 }
 
 .sidebar-select:hover {
+ text-decoration: none !important;
+}
+
+.arr-icon {
+  height: 2rem;
+  opacity: 40%;
+  margin-right: 1rem;
+}
+
+.arr-icon:hover {
+  opacity: 60%;
+}
+
+.arr-icon::before {
+  width: 1.25em;
+  line-height: 0;
+  transition: transform .35s ease;
+  transform-origin: 0.5em 50%;
+}
+
+.sub-list-item {
+  padding: 0.5rem;
+  margin-left: 2rem;
+}
+
+.sub-list-item:hover {
+  cursor: pointer;
   text-decoration: underline;
 }

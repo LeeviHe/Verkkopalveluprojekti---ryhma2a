@@ -8,13 +8,13 @@
 }
 
 .register:not(:placeholder-shown):not(:focus):valid {
-  background: url(../../images/checkmark-circle-outline.svg) no-repeat 95% 50%;
+  background: url(../../images/ion-icon/checkmark-circle-outline.svg) no-repeat 95% 50%;
   background-size: 25px;
   border-color: green;
 }
 
 .register:not(:placeholder-shown):not(:focus):invalid {
-  background: url(../../images/warning-outline.svg) no-repeat 95% 50%;
+  background: url(../../images/ion-icon/warning-outline.svg) no-repeat 95% 50%;
   background-size: 25px;
   border-color: red;
 }

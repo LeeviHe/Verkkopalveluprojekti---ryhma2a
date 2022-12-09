@@ -77,12 +77,12 @@ export default function Home() {
         <div className="logo-section pt-4">
           <div className="container">
             <div className="logos">
-              <img className="Adidas" src={logo1} alt="Adidaslogo" />
-              <img className="Nike" src={logo2} alt="Nikelogo" />
-              <img className="Puma" src={logo3} alt="Pumalogo" />
-              <img className="Timberland" src={logo4} alt="Timberlandlogo" />
-              <img className="Ugg" src={logo5} alt="Ugg" />
-              <img className="TomTailor" src={logo6} alt="TomTailor" />
+              <img className="logo" src={logo1} alt="Adidaslogo" />
+              <img className="logo" src={logo2} alt="Nikelogo" />
+              <img className="logo" src={logo3} alt="Pumalogo" />
+              <img className="logo" src={logo4} alt="Timberlandlogo" />
+              <img className="logo" src={logo5} alt="Ugg" />
+              <img className="logo" src={logo6} alt="TomTailor" />
             </div>
           </div>
         </div>

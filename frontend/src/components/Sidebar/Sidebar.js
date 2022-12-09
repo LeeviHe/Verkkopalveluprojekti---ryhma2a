@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import './Sidebar.css';
+import darr from '../../images/ion-icon/chevron-down-outline.svg';
 
 const URL = 'http://localhost:3000/backend/'
 
@@ -30,24 +32,59 @@ export default function Sidebar() {
     }
   }, [params])
 
-  function showSub (catnum, subcatcatnum, subcatnum, subcatname) {
-    if(catnum == subcatcatnum) {
-      return ( 
-        <div className="sidebar flex-shrink-0" id="home-collapse">
-          <ul className="btn-toggle-nav small">
+  function showSub(catnum, subcatcatnum, subcatnum, subcatname) {
+    if (catnum == subcatcatnum) {
+      return (
+        <div className="sidebar flex-shrink-0 sub-list-item justify-content-center" id="home-collapse">
+          <ul className="btn-toggle-nav list-unstyled">
             <li key={subcatnum}>
               <Link className='sidebar-select' to=
-              {'/kategoriat/' + subcatcatnum + '/' + subcatnum}>
-              {subcatname}
-              </Link>                    
+                {'/kategoriat/' + subcatcatnum + '/' + subcatnum}>
+                {subcatname}
+              </Link>
             </li>
           </ul>
         </div>
       )
     }
   }
-    return (
-      <>
+  return (
+    <>
+      <div>{categories.map(category => (
+        <div className="sidebar flex-shrink-0">
+          <ul className="list-unstyled ps-0">
+            <li className='mt-2'>
+
+              <button className="btn btn-toggle d-flex sidebar-btn d-inline-flex align-items-center collapsed">
+
+                <span className='btn btn-toggle d-flex sidebar-btn d-inline-flex align-items-center collapsed' data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+
+                  <img className="arr-icon" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true" src={darr} alt="arrow-down" key={category.categorynumber} />
+
+                </span>
+
+                {<Link className='sidebar-select' to=
+                  {'/kategoriat/' + category.categorynumber}>
+                  {category.categoryname}
+                </Link>}
+
+              </button>
+
+            </li>
+
+            {subcategories.map(subcategory => (
+              <div key={subcategory.subcategorynumber}>
+                {showSub(category.categorynumber, subcategory.categorynumber, subcategory.subcategorynumber, subcategory.subcategoryname)}
+              </div>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+        {/*
+
+        VIIME VERSIO
+
         <div>{categories.map(category => (
           <div className="sidebar flex-shrink-0">    
             <ul className="list-unstyled ps-0">
@@ -67,9 +104,10 @@ export default function Sidebar() {
                 ))}
             </ul>
           </div>
-          ))}
-
-       {/*<ul className="list-unstyled ps-0">
+        
+        OG 
+        
+        <ul className="list-unstyled ps-0">
           <li class="mb-1">
             <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
               Kesäkengät
