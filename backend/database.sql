@@ -10,8 +10,8 @@ CREATE TABLE `customer` (
   `lname` char(20) NOT NULL,
   `address`char(50) NOT NULL,
   `email` char(50) DEFAULT NULL,
-  `postnumber` char(5) DEFAULT NULL,
-  `postdistrict` char(15) DEFAULT NULL,
+  `zip` char(5) DEFAULT NULL,
+  `city` char(15) DEFAULT NULL,
   `password` char(255) DEFAULT NULL,
   `subscribe` char(1) DEFAULT NULL
   );
