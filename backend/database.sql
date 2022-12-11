@@ -21,18 +21,16 @@ CREATE TABLE `post` (
 ) ;
 
 CREATE TABLE `order` (
-  `ordernumber` int(11) NOT NULL,
+  `ordernumber` int(11) NOT NULL AUTO_INCREMENT,
   `customerid` SMALLINT NOT NULL,
-  `orderdate` datetime NOT NULL,
-  `status` char(1) DEFAULT NULL,
-  `savedate` datetime DEFAULT NULL
+  `orderdate` datetime NOT NULL
 );
 
 CREATE TABLE `orderrow` (
   `ordernumber` int(11) NOT NULL,
-  `rownumber` smallint(6) NOT NULL,
+  `rownumber` smallint(6) NOT NULL AUTO_INCREMENT,
   `productnumber` int(11) NOT NULL,
-  `items` int(11) NOT NULL
+  `amount` int
 );
 
 CREATE TABLE `product` (
