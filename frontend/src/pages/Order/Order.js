@@ -2,7 +2,7 @@ import React, { useState, useEffect, createRef } from 'react'
 import './Order.css';
 import '../../components/Shoppingcart/Shoppingcart';
 import { v4 as uuid } from 'uuid';
-
+import { Link } from 'react-router-dom';
 import shoepic from '../../images/products/nike3.png';
 
 
@@ -104,7 +104,9 @@ export default function Order({ cart, emptyCart, removeFromCart, updateAmount })
                             <div className='cart-price'>{finalsum.toLocaleString(navigator.language, { minimumFractionDigits: 2 })} €</div>
 
                         </div>
-                        <button type="button" className="checkout-btn btn btn-primary mt-4" onClick={() => emptyCart()}>Kassalle</button>
+                        <Link to="/checkout">
+                        <button type="button" className="checkout-btn btn btn-primary mt-4">Kassalle</button>
+                        </Link>
                     </div>
                 </div>
 

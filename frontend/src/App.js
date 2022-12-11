@@ -7,6 +7,7 @@ import Register from './pages/Forms/Register';
 import Home from './pages/Home/Home';
 import Order from './pages/Order/Order'
 import Products from './pages/Products/Products';
+import Checkout from './pages/Checkout/Checkout';
 import Footer from './components/Footer/Footer';
 import { useState, useEffect } from 'react';
 
@@ -74,6 +75,7 @@ function App() {
           <Route path="/kategoriat/:categoryId" element={<Products  url={URL} addToCart={addToCart} />} />
           <Route path="/kategoriat/:categoryId/:subcategoryId" element={<Products url={URL} addToCart={addToCart} />} />
           <Route path="/order" element={<Order cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />} />
+          <Route path="/checkout" element= {<Checkout />} />
         </Routes>
       </div>
 
