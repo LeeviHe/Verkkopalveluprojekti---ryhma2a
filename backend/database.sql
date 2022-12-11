@@ -10,10 +10,11 @@ CREATE TABLE `customer` (
   `lname` char(20) NOT NULL,
   `address`char(50) NOT NULL,
   `email` char(50) DEFAULT NULL,
-  `password` char(255) DEFAULT NULL,
-  `subscribe` char(1) DEFAULT NULL,
   `postnumber` char(5) DEFAULT NULL,
-  `postdistrict` char(15) DEFAULT NULL);
+  `postdistrict` char(15) DEFAULT NULL,
+  `password` char(255) DEFAULT NULL,
+  `subscribe` char(1) DEFAULT NULL
+  );
 
 CREATE TABLE `post` (
   `postnumber` char(5) NOT NULL,
@@ -67,14 +68,14 @@ ALTER TABLE `post`
 -- Indexes for table `tilaus`
 
 ALTER TABLE `order`
-  ADD PRIMARY KEY (`ordernumber`),
+  ADD PRIMARY KEY AUTO_INCREMENT (`ordernumber`),
   ADD KEY `customerid` (`customerid`);
 
 
 -- Indexes for table `tilausrivi`
 
 ALTER TABLE `orderrow`
-  ADD PRIMARY KEY (`ordernumber`,`rownumber`),
+  ADD PRIMARY KEY AUTO_INCREMENT (`ordernumber`,`rownumber`),
   ADD KEY `productnumber` (`productnumber`);
 
 -- Indexes for table `product`
