@@ -37,7 +37,7 @@ export default function Cart({ cart, removeFromCart, updateAmount }) {
         <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" className="nav-icon"></img>
       </a>
 
-      <div className="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div className="offcanvas offcanvas-end" data-bs-scroll="true" tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div className="offcanvas-header d-flex py-3 justify-content-between align-items-center">
           <h5 className="cart-title" id="offcanvasRightLabel">Ostoskori</h5>
 
