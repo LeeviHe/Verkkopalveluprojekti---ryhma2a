@@ -21,14 +21,14 @@ CREATE TABLE `post` (
 ) ;
 
 CREATE TABLE `order` (
-  `ordernumber` int(11) NOT NULL AUTO_INCREMENT,
+  `ordernumber` int(11) NOT NULL,
   `customerid` SMALLINT NOT NULL,
   `orderdate` datetime NOT NULL
 );
 
 CREATE TABLE `orderrow` (
   `ordernumber` int(11) NOT NULL,
-  `rownumber` smallint(6) NOT NULL AUTO_INCREMENT,
+  `rownumber` smallint(6) NOT NULL ,
   `productnumber` int(11) NOT NULL,
   `amount` int
 );
