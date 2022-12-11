@@ -70,3 +70,10 @@ function getUserName ($username) {
 
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
+
+
+//excecutetaan sqllauseet
+function executeInsert(object $db, string $sql): int {
+    $query = $db->query($sql);
+    return $db->lastInsertId();
+}

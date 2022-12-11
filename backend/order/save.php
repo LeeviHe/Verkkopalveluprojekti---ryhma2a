@@ -1,50 +1,59 @@
 <?php
-session_start();
+
 require_once '../inc/functions.php';
 require_once '../inc/headers.php';
 
-$input = json_decode(file_get_contents('php://input'));
+$db = null;
 
-$fname = filter_var($input->fname,FILTER_SANITIZE_SPECIAL_CHARS);
-$lname = filter_var($input->lname,FILTER_SANITIZE_SPECIAL_CHARS);
-$address = filter_var($input->address,FILTER_SANITIZE_SPECIAL_CHARS);
-$email = filter_var($input->email,FILTER_SANITIZE_SPECIAL_CHARS);
-$postnumber = filter_var($input->postnumber,FILTER_SANITIZE_SPECIAL_CHARS);
-$postdist = filter_var($input->postdist,FILTER_SANITIZE_SPECIAL_CHARS);
+$input = json_decode(file_get_contents('php://input'));
+$fname = filter_var($input->firstname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$lname = filter_var($input->lastname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$address = filter_var($input->address, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$email = filter_var($input->email, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$zip = filter_var($input->zip, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$city = filter_var($input->city, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
 $cart = $input->cart;
 
+try {
+  $db = openDb();
 
-try{
-    $db = openDb();
-    $db-> beginTransaction();
+  $db->beginTransaction();
 
-    $sql =  "INSERT INTO customer (fname, lname, address, email, postnumber, postdist) values ('$fname', '$lame', '$address', '$email', '$postnumber', '$postdist')";
-    $statement = $db->prepare($sql);
-    $statement->execute();
+  //lisää asiakas
+  $sql = "insert into customer (fname,lname,address,email,zip,city) values 
+    ('" .
+    filter_var($fname, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "','" .
+    filter_var($lname, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "','" .
+    filter_var($address, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "','" .
+    filter_var($email, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "','" .
+    filter_var($zip, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "','" .
+    filter_var($city, FILTER_SANITIZE_FULL_SPECIAL_CHARS)
+    . "')";
 
-    
-  $customerid = 	$db->lastInsertId();
+  $customerid = executeInsert($db, $sql);
 
+  //lisää tilaus
+  $sql = "insert into `order` (customerid) values ($customerid)";
+  $ordernumber = executeInsert($db, $sql);
 
-  $sql = "insert into order (customerid, orderdate) values ($customerid, '$date')";
-  $statement = $db->prepare($sql);
-  $statement->execute();
-
-  $order_id = $db->lastInsertId();
-
+  //lisää tilausrivit
   foreach ($cart as $product) {
-    $sql = "insert into orderrow (ordernumber, productnumber, amount) values ($ordernumber, $product->productnumber, $product->amount )";
-    $statement = $db->prepare($sql);
-    $statement->execute();
+    $sql = "insert into orderrow (ordernumber,productnumber, amount) values ("
+      .
+      $ordernumber . "," .
+      $product->productnumber . "," .
+      $product->amount
+      .   ")";
+    executeInsert($db, $sql);
   }
-  $db->commit();
 
+  $db->commit();
   header('HTTP/1.1 200 OK');
-  $data = array('id' => $customerid);
+  $data = array('id' => $customer_id);
   echo json_encode($data);
-} 
-catch (PDOException $pdoex) {
-    $db->rollBack();
-    returnError($pdoex);
-  
-}
+} catch (PDOException $pdoex) {
+  $db->rollback();
+  returnError($pdoex);
+  echo ($pdoex);
+};
