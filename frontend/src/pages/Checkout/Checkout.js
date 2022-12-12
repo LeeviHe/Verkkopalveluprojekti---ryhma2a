@@ -1,7 +1,6 @@
 import React, { useState, useEffect, createRef } from 'react'
 import axios from 'axios'
 import { v4 as uuid } from 'uuid';
-import shoepic from '../../images/products/nike3.png';
 import '../Order/Order.css';
 
 
@@ -89,7 +88,7 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                         <form className="cart-form" key={uuid()} >
 
                           <div className="form-item cart-form-img">
-                            <img src={shoepic}
+                            <img
                               style={{ width: '50%' }} />
                           </div>
 

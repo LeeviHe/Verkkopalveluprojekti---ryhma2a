@@ -3,8 +3,6 @@ import './Shoppingcart.css';
 import { Link } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
 
-import shoepic from '../../images/products/nike3.png';
-
 
 export default function Cart({ cart, removeFromCart, updateAmount }) {
 
@@ -55,7 +53,7 @@ export default function Cart({ cart, removeFromCart, updateAmount }) {
                   <form className="cart-form2 text-justify" key={uuid()}>
 
                     <div className="cart-pic d-flex justify-content-center">
-                      <img src={shoepic}
+                      <img
                         style={{ width: '100%', marginRight: '10px' }} />
                     </div>
 

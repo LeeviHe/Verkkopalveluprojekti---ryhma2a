@@ -3,7 +3,6 @@ import './Order.css';
 import '../../components/Shoppingcart/Shoppingcart';
 import { v4 as uuid } from 'uuid';
 import { Link } from 'react-router-dom';
-import shoepic from '../../images/products/nike3.png';
 
 
 export default function Order({ cart, emptyCart, removeFromCart, updateAmount }) {
@@ -50,7 +49,7 @@ export default function Order({ cart, emptyCart, removeFromCart, updateAmount })
                                     <form className="cart-form mb-3" key={uuid()} >
 
                                         <div className="form-item cart-form-img">
-                                            <img src={shoepic}
+                                            <img 
                                                 style={{ width: '100%' }} />
                                         </div>
 
