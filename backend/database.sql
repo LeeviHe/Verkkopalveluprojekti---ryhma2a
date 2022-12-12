@@ -5,7 +5,7 @@ CREATE DATABASE shoelando_db;
 USE shoelando_db;
 
 CREATE TABLE `customer` (
-  `customer_id` SMALLINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `customer_id` SMALLINT PRIMARY KEY AUTO_INCREMENT,
   `fname` char(20) NOT NULL,
   `lname` char(20) NOT NULL,
   `address`char(50) NOT NULL,
@@ -22,16 +22,15 @@ CREATE TABLE `post` (
 ) ;
 
 CREATE TABLE `order` (
-  `order_id` int(11) NOT NULL,
-  `customer_id` SMALLINT NOT NULL,
-  `orderdate` datetime NOT NULL
+  `id` int primary key AUTO_INCREMENT,
+  `order_date` timestamp default current_timestamp,
+  `customer_id` SMALLINT NOT NULL
 );
 
 CREATE TABLE `orderrow` (
-  `order_id` int(11) NOT NULL,
-  `rownumber` smallint(6) NOT NULL ,
-  `product_id` int(11) NOT NULL,
-  `amount` int
+  `order_id` int NOT NULL,
+  `productid` int(11) NOT NULL,
+  `amount` int not null
 );
 
 CREATE TABLE `product` (
@@ -67,16 +66,14 @@ ALTER TABLE `post`
 
 -- Indexes for table `tilaus`
 
+
 ALTER TABLE `order`
-  ADD PRIMARY KEY AUTO_INCREMENT (`order_id`),
-  ADD KEY `customer_id` (`customer_id`);
+   add constraint `order_ifbfk_1` foreign KEY (`customer_id`) references `customer` (`customer_id`);
+   
+   
+   -- Constraints for table `orderrow`
 
 
--- Indexes for table `tilausrivi`
-
-ALTER TABLE `orderrow`
-  ADD PRIMARY KEY AUTO_INCREMENT (`order_id`,`rownumber`),
-  ADD KEY `product_id` (`product_id`);
 
 -- Indexes for table `product`
 
@@ -93,7 +90,7 @@ ALTER TABLE `category`
 
 ALTER TABLE `subcategory`
 	ADD PRIMARY KEY (`subcategory_id`),
-    ADD KEY `category_id` (`category_id`);
+  ADD KEY `category_id` (`category_id`);
 
 -- Constraints for table `subcategory`
 ALTER TABLE `subcategory`
@@ -104,24 +101,18 @@ ALTER TABLE `subcategory`
 -- ALTER TABLE `customer`
   -- ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`postnumber`) REFERENCES `post` (`postnumber`);
 
--- Constraints for table `order`
-
-ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`);
-
-
--- Constraints for table `orderrow`
-
-ALTER TABLE `orderrow`
-  ADD CONSTRAINT `orderrow_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`),
-  ADD CONSTRAINT `orderrow_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
-
-
 -- Constraints for table `product`
+
 
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`),
   ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategory` (`subcategory_id`);
+  
+  
+  ALTER TABLE `orderrow`
+  ADD CONSTRAINT `orderrow_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`),
+  add constraint `orderrow_ifbfk_3` foreign KEY (`productid`) references `product` (`product_id`);
+
 
 INSERT INTO category (category_id, categoryname)
 VALUES ('1', 'Kesäkengät'), ('2','Talvikengät'), ('3', 'Juhlakengät');
