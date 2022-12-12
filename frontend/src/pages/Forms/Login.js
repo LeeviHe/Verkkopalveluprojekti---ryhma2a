@@ -10,7 +10,7 @@ export function Login({ setLoggedUser }) {
   const [logemail, setLogemail] = useState("")
   const [logpassword, setLogpassword] = useState("")
 
-  function LogInre() {
+  function LogIn() {
     const formData = new FormData();
     formData.append("logemail", logemail);
     formData.append("logpassword", logpassword);
@@ -53,7 +53,7 @@ export function Login({ setLoggedUser }) {
                 <p className='forgotten-password'><a href='#'>Unohditko salasanasi?</a></p>
               </div>
             </form>
-            <Link><button type="submit" className='form-btn btn btn-primary mb-4 mt-4' onClick={LogInre}><span>Kirjaudu sisään </span></button></Link>
+            <Link><button type="submit" className='form-btn btn btn-primary mb-4 mt-4' onClick={LogIn}><span>Kirjaudu sisään </span></button></Link>
           </div>
 
 

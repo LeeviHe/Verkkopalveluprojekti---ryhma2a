@@ -55,7 +55,7 @@ export default function Products({ url, addToCart }) {
         <div className='products-col pt-4'>
 
           {products.map(product => (
-            <div className='item' key={product.productid}>
+            <div className='item' key={product.product_id}>
 
               <div className='thumbnail'>
                 <img className='product-img' src={shoepic} />

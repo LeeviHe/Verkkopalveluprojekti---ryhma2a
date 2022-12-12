@@ -59,12 +59,12 @@ export default function Sidebar() {
 
                 <span className='btn btn-toggle d-flex sidebar-btn d-inline-flex align-items-center collapsed' data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
 
-                  <img className="arr-icon" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true" src={darr} alt="arrow-down" key={category.categorynumber} />
+                  <img className="arr-icon" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true" src={darr} alt="arrow-down" key={category.category_id} />
 
                 </span>
 
                 {<Link className='sidebar-select' to=
-                  {'/kategoriat/' + category.categorynumber}>
+                  {'/kategoriat/' + category.category_id}>
                   {category.categoryname}
                 </Link>}
 
@@ -73,8 +73,8 @@ export default function Sidebar() {
             </li>
 
             {subcategories.map(subcategory => (
-              <div key={subcategory.subcategorynumber}>
-                {showSub(category.categorynumber, subcategory.categorynumber, subcategory.subcategorynumber, subcategory.subcategoryname)}
+              <div key={subcategory.subcategory_id}>
+                {showSub(category.category_id, subcategory.category_id, subcategory.subcategory_id, subcategory.subcategoryname)}
               </div>
             ))}
           </ul>

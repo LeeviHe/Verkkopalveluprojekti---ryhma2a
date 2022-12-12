@@ -8,11 +8,11 @@ $subcategory_id = $parameters[2];
 
 try {
     $db = openDb();
-    $sql = "select * from subcategory where subcategorynumber =".$subcategory_id;
+    $sql = "select * from subcategory where subcategory_id =".$subcategory_id;
     $query = $db->query($sql);
     $subcategory = $query->fetch(PDO::FETCH_ASSOC);
 
-    $sql = "select * from product where subcategorynumber =".$subcategory_id;
+    $sql = "select * from product where subcategory_id =".$subcategory_id;
     $query = $db->query($sql);
     $subproducts = $query->fetchAll(PDO::FETCH_ASSOC);
 

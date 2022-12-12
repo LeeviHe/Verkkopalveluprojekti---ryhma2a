@@ -8,11 +8,11 @@ $category_id = $parameters[1];
 
 try {
   $db = openDb();
-  $sql = "select * from category where categorynumber =".$category_id;
+  $sql = "select * from category where category_id =".$category_id;
   $query = $db->query($sql);
   $category = $query->fetch(PDO::FETCH_ASSOC);
 
-  $sql = "select * from product where categorynumber =".$category_id;
+  $sql = "select * from product where category_id =".$category_id;
   $query = $db->query($sql);
   $products = $query->fetchAll(PDO::FETCH_ASSOC);
 
