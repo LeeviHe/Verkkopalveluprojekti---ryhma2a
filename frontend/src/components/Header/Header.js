@@ -12,7 +12,7 @@ export default function Header({loggedUser, setLoggedUser, url, cart, emptyCart,
 
 
   function logout() {
-    axios.get(url + "products/logout.php", { withCredentials: true })
+    axios.get(url + "credentials/logout.php", { withCredentials: true })
       .then(resp => setLoggedUser(null))
       .catch(e => console.log(e.message))
   }

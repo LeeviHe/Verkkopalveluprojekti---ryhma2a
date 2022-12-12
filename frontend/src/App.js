@@ -16,7 +16,7 @@ const URL = 'http://localhost:3000/backend/';
 function App() {
   const [loggedUser, setLoggedUser] = useState(null);
   useEffect(() => {
-    axios.post(URL + "products/login.php",{}, { withCredentials: true })
+    axios.post(URL + "credentials/login.php",{}, { withCredentials: true })
       .then(resp => setLoggedUser(resp.data))
       .catch(e => console.log(e.message))//
   }, [])

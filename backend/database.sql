@@ -13,7 +13,8 @@ CREATE TABLE `customer` (
   `zip` char(5) DEFAULT NULL,
   `city` char(15) DEFAULT NULL,
   `password` char(255) DEFAULT NULL,
-  `subscribe` char(1) DEFAULT NULL
+  `subscribe` char(1) DEFAULT NULL,
+  `admin` INT(1)
   );
 
 CREATE TABLE `post` (
@@ -126,8 +127,10 @@ ALTER TABLE `product`
 INSERT INTO category (category_id, categoryname)
 VALUES ('1', 'Kesäkengät'), ('2','Talvikengät'), ('3', 'Juhlakengät');
 INSERT INTO subcategory (subcategory_id, subcategoryname, category_id)
-VALUES (1, 'Tennarit', 1), (2, 'Sandaalit', 1), (3, 'Korkokengät', 3), (4, 'Puvunkengät', 3);
+VALUES (1, 'Tennarit', 1), (2, 'Sandaalit', 1), (3, 'Nilkkurit', 2), (4, 'Talvisaappaat', 2), (5, 'Korkokengät', 3), (6, 'Puvunkengät', 3);
 INSERT INTO product (product_id, productname, price, category_id, subcategory_id)
 VALUES (1, 'Tennari1', 25, 1, 1), (2, 'Tennari2', 75, 1, 1), (3, 'Sandaali1', 10, 1, 2), (4, 'Sandaali2', 25, 1, 2),
-(5, 'Talvikenka1', 50, 2, null), (6, 'Talvikenkä2', 120, 2, null), (7, 'Korkkari1', 125, 3, 3), (8, 'Korkkari2', 250, 3, 3), (9, 'Puvunkenka1', 125, 3, 4), (10, 'Puvunkenka2', 250, 3, 4), 
+(5, 'Talvikenka1', 50, 2, null), (6, 'Talvikenkä2', 120, 2, null), (7, 'Korkkari1', 125, 3, 5), (8, 'Korkkari2', 250, 3, 5), (9, 'Puvunkenka1', 125, 3, 6), (10, 'Puvunkenka2', 250, 3, 6), 
 (11, 'Tennari3', 25, 1, 1), (12, 'Tennari4', 75, 1, 1), (13, 'Sandaali3', 10, 1, 2), (14, 'Sandaali4', 25, 1, 2);
+INSERT INTO customer (fname, lname, email, password, admin)
+VALUES ('Ylläpito', 'Maisteri', 'admin@admin', '$2y$10$eNAxooWSvnHdqXcbuCqxEutdkCjVcsW/ykkjf9B25JsjNLlSQnA5.', 1);

@@ -15,7 +15,7 @@ export function Login({ setLoggedUser }) {
     formData.append("logemail", logemail);
     formData.append("logpassword", logpassword);
 
-    axios.post(URL + "products/login.php", formData, { withCredentials: true })
+    axios.post(URL + "credentials/login.php", formData, { withCredentials: true })
       .then(resp => setLoggedUser(resp.data))
       .catch(e => console.log(e.message))
   }
@@ -66,7 +66,7 @@ export function Userpage({ logemail }) {
   const [names, setNames] = useState([]);
 
   useEffect(() => {
-    axios.get(URL + "products/user_info.php", { withCredentials: true })
+    axios.get(URL + "credentials/user_info.php", { withCredentials: true })
       .then(resp => setNames(resp.data.names))
       .catch(e => console.log(e.message))
   }, [])

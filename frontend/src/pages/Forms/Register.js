@@ -23,7 +23,7 @@ export default function Register() {
 
   function Register() {
     const json = { fname, lname, email, password }
-    axios.post(URL + "products/register.php", json, { withCredentials: true })
+    axios.post(URL + "credentials/register.php", json, { withCredentials: true })
       .catch(error => {
         alert(error.response === undefined ? error : error.response.data.error)
       })
