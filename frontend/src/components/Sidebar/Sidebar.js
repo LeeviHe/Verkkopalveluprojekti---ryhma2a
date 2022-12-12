@@ -35,7 +35,7 @@ export default function Sidebar() {
   function showSub(catnum, subcatcatnum, subcatnum, subcatname) {
     if (catnum == subcatcatnum) {
       return (
-        <div className="sidebar flex-shrink-0 sub-list-item justify-content-center" id="home-collapse">
+        <div className="sidebar flex-shrink-0 sub-list-item justify-content-center" id={"home-collapse" + catnum}>
           <ul className="btn-toggle-nav list-unstyled">
             <li key={subcatnum}>
               <Link className='sidebar-select' to=
@@ -48,109 +48,111 @@ export default function Sidebar() {
       )
     }
   }
+
   return (
     <>
-      <div>{categories.map(category => (
-        <div className="sidebar flex-shrink-0">
-          <ul className="list-unstyled ps-0">
+      <div className="sidebar flex-shrink-0">
+        <ul className="list-unstyled ps-0">
+
+          {categories.map(category => (
             <li className='mt-2'>
 
-              <button className="btn btn-toggle d-flex sidebar-btn d-inline-flex align-items-center collapsed">
+              <button className="btn btn-toggle d-flex sidebar-btn d-inline-flex align-items-center">
 
-                <span className='btn btn-toggle d-flex sidebar-btn d-inline-flex align-items-center collapsed' data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                <span className='collapsed' data-bs-toggle="collapse" data-bs-target={"#home-collapse" + category.category_id} aria-expanded="true">
 
-                  <img className="arr-icon" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true" src={darr} alt="arrow-down" key={category.category_id} />
+                  <img className="arr-icon" src={darr} alt="arrow-down" key={category.category_id} />
 
                 </span>
 
-                {<Link className='sidebar-select' to=
-                  {'/kategoriat/' + category.category_id}>
+                {<Link className='sidebar-select'
+                  to={'/kategoriat/' + category.category_id}>
                   {category.categoryname}
                 </Link>}
 
               </button>
 
-            </li>
-
-            {subcategories.map(subcategory => (
-              <div key={subcategory.subcategory_id}>
-                {showSub(category.category_id, subcategory.category_id, subcategory.subcategory_id, subcategory.subcategoryname)}
-              </div>
-            ))}
-          </ul>
-        </div>
-      ))}
-
-        {/*
-
-        VIIME VERSIO
-
-        <div>{categories.map(category => (
-          <div className="sidebar flex-shrink-0">    
-            <ul className="list-unstyled ps-0">
-              <li class="mb-1" >   
-                <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="" data-bs-target="#home-collapse" aria-expanded="true" key={category.categorynumber}>
-                  {<Link className='sidebar-select' to=
-                  {'/kategoriat/' + category.categorynumber}>
-                  {category.categoryname}
-                  </Link>}
-                </button>
-              </li>
               {subcategories.map(subcategory => (
-                <div key = {subcategory.subcategorynumber}>
-                  {showSub(category.categorynumber, subcategory.categorynumber, subcategory.subcategorynumber, subcategory.subcategoryname)}
+                <div key={subcategory.subcategory_id}>
+                  {showSub(category.category_id, subcategory.category_id, subcategory.subcategory_id, subcategory.subcategoryname)}
                 </div>
-                ))}
-            </ul>
-          </div>
-        
-        OG 
-        
-        <ul className="list-unstyled ps-0">
-          <li class="mb-1">
-            <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-              Kesäkengät
-            </button>
-            <div className="collapse" id="home-collapse">
-              <ul className="btn-toggle-nav small">
-                <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Tennarit</a></li>
-                <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Sandaalit</a></li>
-              </ul>
-            </div>
-          </li>
+              ))}
 
-          <li className="mb-1">
-            <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 ">
-              Talvikengät
-            </button>
-          </li>
-
-          <li className="mb-1">
-            <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-              Juhlakengät
-            </button>
-            <div className="collapse" id="dashboard-collapse">
-              <ul className="btn-toggle-nav small">
-                <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Korkokengät</a></li>
-                <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Puvun kengät</a></li>
-              </ul>
-            </div>
-          </li>
-
-          <li className="mb-1">
-            <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 ">
-              Juoksuun
-            </button>
-          </li>
-
-          <li className="mb-1">
-            <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 ">
-              <strong>ALE</strong>
-            </button>
-          </li>
-              </ul>*/}
+            </li>
+          ))}
+        </ul>
       </div>
     </>
   )
 }
+
+
+{/*
+
+  VIIME VERSIO
+
+  <div>{categories.map(category => (
+    <div className="sidebar flex-shrink-0">    
+      <ul className="list-unstyled ps-0">
+        <li class="mb-1" >   
+          <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+            data-bs-toggle="" data-bs-target="#home-collapse" aria-expanded="true" key={category.categorynumber}>
+            {<Link className='sidebar-select' to=
+            {'/kategoriat/' + category.categorynumber}>
+            {category.categoryname}
+            </Link>}
+          </button>
+        </li>
+        {subcategories.map(subcategory => (
+          <div key = {subcategory.subcategorynumber}>
+            {showSub(category.categorynumber, subcategory.categorynumber, subcategory.subcategorynumber, subcategory.subcategoryname)}
+          </div>
+          ))}
+      </ul>
+    </div>
+  
+  OG 
+  
+  <ul className="list-unstyled ps-0">
+    <li class="mb-1">
+      <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+        Kesäkengät
+      </button>
+      <div className="collapse" id="home-collapse">
+        <ul className="btn-toggle-nav small">
+          <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Tennarit</a></li>
+          <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Sandaalit</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li className="mb-1">
+      <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 ">
+        Talvikengät
+      </button>
+    </li>
+
+    <li className="mb-1">
+      <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+        Juhlakengät
+      </button>
+      <div className="collapse" id="dashboard-collapse">
+        <ul className="btn-toggle-nav small">
+          <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Korkokengät</a></li>
+          <li className='sidebar-select'><a href="#" className="link-dark d-inline-flex text-decoration-none rounded">Puvun kengät</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li className="mb-1">
+      <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 ">
+        Juoksuun
+      </button>
+    </li>
+
+    <li className="mb-1">
+      <button className="sidebar-select btn btn-toggle d-inline-flex align-items-center rounded border-0 ">
+        <strong>ALE</strong>
+      </button>
+    </li>
+        </ul>*/}
