@@ -6,8 +6,8 @@ require_once '../inc/headers.php';
 $db = null;
 
 $input = json_decode(file_get_contents('php://input'));
-$fname = filter_var($input->firstname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-$lname = filter_var($input->lastname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$fname = filter_var($input->fname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$lname = filter_var($input->lname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $address = filter_var($input->address, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $email = filter_var($input->email, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $zip = filter_var($input->zip, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -20,7 +20,6 @@ try {
 
   $db->beginTransaction();
 
-  //lisää asiakas
   $sql = "insert into customer (fname,lname,address,email,zip,city) values 
     ('" .
     filter_var($fname, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "','" .
@@ -31,18 +30,18 @@ try {
     filter_var($city, FILTER_SANITIZE_FULL_SPECIAL_CHARS)
     . "')";
 
-  $customerid = executeInsert($db, $sql);
+  $customer_id = executeInsert($db, $sql);
 
   //lisää tilaus
-  $sql = "insert into `order` (customerid) values ($customerid)";
-  $ordernumber = executeInsert($db, $sql);
+  $sql = "insert into `order` (customer_id) values ($customer_id)";
+  $order_id = executeInsert($db, $sql);
 
   //lisää tilausrivit
   foreach ($cart as $product) {
-    $sql = "insert into orderrow (ordernumber,productnumber, amount) values ("
+    $sql = "insert into orderrow (order_id,productid, amount) values ("
       .
-      $ordernumber . "," .
-      $product->productnumber . "," .
+      $order_id . "," .
+      $product->product_id . "," .
       $product->amount
       .   ")";
     executeInsert($db, $sql);
@@ -55,5 +54,5 @@ try {
 } catch (PDOException $pdoex) {
   $db->rollback();
   returnError($pdoex);
-  echo ($pdoex);
+  echo($pdoex);
 };
