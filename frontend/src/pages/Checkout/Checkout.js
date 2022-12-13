@@ -225,7 +225,7 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                         className="form-control"
                         placeholder="Postinumero"
                         pattern="[0-9]{1,5}"
-                        nChange={e => setZip(e.target.value)} required />
+                        onChange={e => setZip(e.target.value)} required />
                       <div className="invalid-feedback">
                         Postinumero vaaditaan
                       </div>
