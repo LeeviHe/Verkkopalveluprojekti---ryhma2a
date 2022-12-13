@@ -154,6 +154,7 @@ a:hover {
 }
 
 .form-btn:active {
+  --bs-btn-active-bg: rgba(49, 28, 14, 0.746) !important;
   text-decoration: underline;
   border: none;
 }

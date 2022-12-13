@@ -52,7 +52,7 @@ export default function Register({ setLoggedUser }) {
                   id='first-name'
                   name='first-name'
                   type="text"
-                  pattern='^[a-zA-Zä-öÄ-Ö][-]\S+{3,20}$'
+                  pattern='^[a-zA-Zä-öÄ-Ö-_ ]+$'
                   onChange={e => setFname(e.target.value)}
                   minlength="3"
                   placeholder="Etunimi"
@@ -71,7 +71,7 @@ export default function Register({ setLoggedUser }) {
                   id='last-name'
                   name='last-name'
                   type="text"
-                  pattern='[a-zA-Zä-öÄ-Ö][-]\S+{3,20}$'
+                  pattern='^[a-zA-Zä-öÄ-Ö-_ ]+$'
                   onChange={e => setLname(e.target.value)}
                   minlength="3"
                   placeholder="Sukunimi"
@@ -90,6 +90,7 @@ export default function Register({ setLoggedUser }) {
                 <input className='form-input register'
                   id="email"
                   type="email"
+                  pattern="[a-zA-Zä-öÄ-Ö0-9._%+-]+@[a-z0-9.-]+\.[a-z].{2,}$"
                   onChange={e => setEmail(e.target.value)} placeholder="nimi@example.com" autoComplete='off'
                   required />
 
@@ -122,6 +123,10 @@ export default function Register({ setLoggedUser }) {
                   required
                 />
 
+                <span className='error-msg' style={{ fontSize: 'small', color: 'red' }}>
+                  Salasanan tulee olla vähintään 8 merkkiä pitkä ja sisältää vähintään yksi iso ja pieni kirjain, yksi numero ja yksi erikoismerkki. Välilyöntejä ei sallita.
+                </span>
+
                 <div className='checkbox'>
                   <input id='checkbox' type="checkbox" />
                   <label style={{
@@ -131,10 +136,6 @@ export default function Register({ setLoggedUser }) {
                     Kyllä, haluan vastaanottaa ajankohtaisia mainoksia ja tiedotuksia Shoelandolta sähköpostiini.
                   </label>
                 </div>
-
-                <span className='error-msg' style={{ fontSize: 'small', color: 'red' }}>
-                  Salasanan tulee olla vähintään 8 merkkiä pitkä ja sisältää vähintään yksi iso ja pieni kirjain, yksi numero ja yksi erikoismerkki. Välilyöntejä ei sallita.
-                </span>
 
                 <p id="password-field"></p>
               </div>
