@@ -3,8 +3,16 @@ import '../../App.js';
 import './Home.css';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Carousel from '../../components/Carousel/Carousel';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+// LOGOS
+
+import logo1 from '../../images/logos/Adidas.png';
+import logo2 from '../../images/logos/Nike.png';
+import logo3 from '../../images/logos/Puma.png';
+import logo4 from '../../images/logos/Timberland.png';
+import logo5 from '../../images/logos/Ugg.png';
+import logo6 from '../../images/logos/TomTailor.png';
 
 export default function Home() {
 
@@ -68,12 +76,12 @@ export default function Home() {
         <div className="logo-section pt-4">
           <div className="container">
             <div className="logos">
-              <img className="logo"  alt="Adidaslogo" />
-              <img className="logo"  alt="Nikelogo" />
-              <img className="logo"  alt="Pumalogo" />
-              <img className="logo"  alt="Timberlandlogo" />
-              <img className="logo"  alt="Ugg" />
-              <img className="logo"  alt="TomTailor" />
+              <img className="logo" src={logo1} alt="Adidas logo" />
+              <img className="logo" src={logo2} alt="Nike logo" />
+              <img className="logo" src={logo3} alt="Puma logo" />
+              <img className="logo" src={logo4} alt="Timberland logo" />
+              <img className="logo" src={logo5} alt="Ugg logo" />
+              <img className="logo" src={logo6} alt="TomTailor logo" />
             </div>
           </div>
         </div>
@@ -115,27 +123,27 @@ export default function Home() {
           >
             <div>
               <div className="m-carousel-img">
-                <img  alt="placeholder" style={{ width: '100%' }} />
+                <img alt="placeholder" style={{ width: '100%' }} />
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img  alt="placeholder" style={{ width: '100%' }} />
+                <img alt="placeholder" style={{ width: '100%' }} />
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img  style={{ width: '100%' }} />
+                <img style={{ width: '100%' }} />
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img  style={{ width: '100%' }} />
+                <img style={{ width: '100%' }} />
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img  style={{ width: '100%' }} />
+                <img style={{ width: '100%' }} />
               </div>
             </div>
           </Carousel>
@@ -148,27 +156,27 @@ export default function Home() {
           >
             <div>
               <div className="m-carousel-img">
-                <img  alt="placeholder" style={{ width: '100%' }} />
+                <img alt="placeholder" style={{ width: '100%' }} />
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img  alt="placeholder" style={{ width: '100%' }} />
+                <img alt="placeholder" style={{ width: '100%' }} />
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img  style={{ width: '100%' }} />
+                <img style={{ width: '100%' }} />
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img  style={{ width: '100%' }} />
+                <img style={{ width: '100%' }} />
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img  style={{ width: '100%' }} />
+                <img style={{ width: '100%' }} />
               </div>
             </div>
           </Carousel>
@@ -181,7 +189,7 @@ export default function Home() {
           >
             <div>
               <div className="m-carousel-img">
-                <img  alt="placeholder" style={{ width: '100%' }} />
+                <img alt="placeholder" style={{ width: '100%' }} />
               </div>
             </div>
             <div>
@@ -191,7 +199,7 @@ export default function Home() {
             </div>
             <div>
               <div className="m-carousel-img">
-                <img  style={{ width: '100%' }} />
+                <img style={{ width: '100%' }} />
               </div>
             </div>
             <div>
