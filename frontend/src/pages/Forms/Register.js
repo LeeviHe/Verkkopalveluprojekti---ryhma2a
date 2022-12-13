@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const URL = 'http://localhost:3000/backend/'
 
-export default function Register() {
+export default function Register({ setLoggedUser }) {
   const [fname, setFname] = useState("")
   const [lname, setLname] = useState("")
   const [email, setEmail] = useState("")
@@ -24,6 +24,7 @@ export default function Register() {
   function Register() {
     const json = { fname, lname, email, password }
     axios.post(URL + "credentials/register.php", json, { withCredentials: true })
+      .then (resp => setLoggedUser(resp.data))
       .catch(error => {
         alert(error.response === undefined ? error : error.response.data.error)
       })

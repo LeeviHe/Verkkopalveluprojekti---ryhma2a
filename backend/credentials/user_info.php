@@ -5,7 +5,7 @@ require_once '../inc/headers.php';
 
 if (!isset($_SESSION['username'])) {
     http_response_code(403);
-    echo "No acces for user data";
+    echo "No access for user data";
     return;
 }
 

@@ -72,7 +72,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           {loggedUser ? <Route path="/login" element={<Userpage logemail={loggedUser} />} /> : <Route path="/login" element={<Login setLoggedUser={setLoggedUser} />} />}
-          <Route path="/register" element={<Register />} />
+          <Route path="/register" element={<Register setLoggedUser={setLoggedUser} />} />
           <Route path="/kategoriat/:categoryId" element={<Products url={URL} addToCart={addToCart} />} />
           <Route path="/kategoriat/:categoryId/:subcategoryId" element={<Products url={URL} addToCart={addToCart} />} />
           <Route path="/order" element={<Order cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />} />
