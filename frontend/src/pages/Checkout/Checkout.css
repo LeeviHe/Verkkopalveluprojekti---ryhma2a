@@ -1,0 +1,56 @@
+.checkout-container {
+  max-width: 70rem;
+}
+
+.sum-col {
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.09);
+  max-width: 100%;
+}
+
+.form-control {
+  color: rgba(98, 55, 27, 0.939);
+  border: 2px solid rgba(98, 55, 27, 0.746);
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.form-control:focus,
+.form-control:active {
+  border: 2px solid rgba(98, 55, 27, 0.746);
+  outline: none !important;
+  box-shadow: rgba(255, 186, 106, 0.25) 0px 30px 60px -12px inset, rgba(251, 191, 161, 0.292) 0px 18px 36px -18px inset !important;
+}
+
+.submit-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 0.7rem 1.5rem;
+  background-color: rgba(98, 55, 27, 0.746);
+  border: none;
+}
+
+.submit-btn:hover {
+  --bs-btn-hover-bg: rgba(70, 40, 20, 0.746);
+  --bs-btn-active-bg: rgba(98, 55, 27, 0.746);
+  border: none;
+}
+
+.submit-btn span::after {
+  content: '\00bb';
+  opacity: 0;
+  top: 10px;
+  transition: 0.4s;
+}
+
+.submit-btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.submit-btn:active {
+  --bs-btn-active-bg: rgba(49, 28, 14, 0.746) !important;
+  text-decoration: underline;
+  border: none;
+}

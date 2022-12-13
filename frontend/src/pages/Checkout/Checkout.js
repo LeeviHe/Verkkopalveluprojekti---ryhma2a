@@ -1,8 +1,8 @@
-import React, { useState, useEffect, createRef } from 'react'
-import axios from 'axios'
+import React, { useState, useEffect, createRef } from 'react';
+import axios from 'axios';
 import { v4 as uuid } from 'uuid';
 import '../Order/Order.css';
-
+import './Checkout.css';
 
 
 export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount, url }) {
@@ -70,15 +70,15 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
   if (finished === false) {
     return (
 
-      <div className="container">
+      <div className="container checkout-container mb-5">
         <div className="row">
           {cart.length > 0 &&
             <main>
-              <div className="py-5 text-center">
-                <h2>Checkout form</h2>
+              <div className="py-5">
+                <h2 className='mb-4'>Tilauksen yhteenveto ja tilaus</h2>
               </div>
               <div className="col">
-                <h3 className='font' style={{ marginLeft: "2rem" }}>Tuotteet</h3>
+                <h3 className='font' style={{ paddingLeft: "1rem" }}>Tuotteet</h3>
                 {cart.map((product, index) => {
                   sum += parseFloat(product.price * product.amount);
                   finalsum += parseFloat(product.price * product.amount);
@@ -123,11 +123,13 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                   )
                 })}
 
-                {/**TYHJENNÄ OSTOSKORI */}
+                {/* TYHJENNÄ OSTOSKORI */}
 
                 <button type="button" className="btn empty-cart-btn d-flex mb-4" onClick={() => emptyCart()}>Tyhjennä ostoskori</button>
 
-                <div className="col">
+                {/* KOKONAISSUMMA */}
+
+                <div className="col sum-col mt-5">
                   <h3 className='font'>Kokonaissumma</h3>
                   <div className='justify-content-left mt-4'>
                     <div className="checkout" key={uuid()}>
@@ -149,8 +151,9 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
 
 
               <div className="col-md-auto">
-                <h4 className="mb-3">Postitusosoite</h4>
-                <form className="needs-validation" onSubmit={order} >
+                <h4 className="mb-3 mt-5">Postitusosoite</h4>
+
+                <form className="checkout-form" onSubmit={order} >
                   <div className="row g-3">
                     <div className="col-sm-6">
                       <label for="firstName" className="form-label">Etunimi</label>
@@ -159,6 +162,7 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                         id="firstName"
                         placeholder="Etunimi"
                         pattern='^[a-zA-Zä-öÄ-Ö-_ ]+$'
+                        autoComplete="off"
                         onChange={e => setFirstname(e.target.value)} required />
                       <div className="invalid-feedback">
                         Tarkista oikeinkirjoitus
@@ -173,6 +177,7 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                         id="lastName"
                         placeholder="Sukunimi"
                         pattern='^[a-zA-Zä-öÄ-Ö-_ ]+$'
+                        autoComplete="off"
                         onChange={e => setLastname(e.target.value)} required />
 
                       <div className="invalid-feedback">
@@ -188,6 +193,7 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                         id="email"
                         placeholder="nimi@example.com"
                         pattern="[a-zA-Zä-öÄ-Ö0-9._%+-]+@[a-z0-9.-]+\.[a-z].{2,}$"
+                        autoComplete="off"
                         onChange={e => setEmail(e.target.value)} />
                       <div className="invalid-feedback">
                         Syötä kelvollinen sähköpostiosoite toimituspäivityksiä varten
@@ -201,6 +207,7 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                         id="address"
                         placeholder="Osoite"
                         pattern='^[a-zA-Zä-öÄ-Ö-0-9_ ]+$'
+                        autoComplete="off"
                         onChange={e => setAddress(e.target.value)} required />
                       <div className="invalid-feedback">
                         Syötä kelvollinen toimitusosoite
@@ -213,6 +220,7 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                         className="form-control"
                         placeholder="Kaupunki"
                         pattern='^[a-zA-Zä-öÄ-Ö-_ ]+$'
+                        autoComplete="off"
                         onChange={e => setCity(e.target.value)} required />
                       <div className="invalid-feedback">
                         Valitse kelvollinen kaupunki
@@ -225,6 +233,7 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                         className="form-control"
                         placeholder="Postinumero"
                         pattern="[0-9]{1,5}"
+                        autoComplete="off"
                         onChange={e => setZip(e.target.value)} required />
                       <div className="invalid-feedback">
                         Postinumero vaaditaan
@@ -232,7 +241,7 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                     </div>
                   </div>
 
-                  <h4 className="mb-3">Maksutapa</h4>
+                  <h4 className="mb-3 mt-5">Maksutapa</h4>
 
                   <div className="my-3">
                     <div className="form-check">
@@ -255,7 +264,7 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                     </div>
                   </div>
 
-                  <button className="w-100 btn btn-primary btn-lg mb-5" type="submit">Tilaa</button>
+                  <button className="submit-btn w-100 btn btn-primary btn-lg mt-3" type="submit">Tilaa</button>
 
                 </form>
               </div>
