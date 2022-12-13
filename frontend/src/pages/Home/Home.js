@@ -53,7 +53,9 @@ export default function Home() {
                   <div className="carousel-caption">
                     <h1>Ilmaiset toimitukset yli 40€ maksaviin tilauksiin!*</h1>
                     <p>*Tarjous koskee vain valittuja tuotteita.</p>
-                    <button className="btn-about" href="#"><span>Lue lisää </span></button>
+                    <Link to="*">
+                      <button className="btn-about" href="#"><span>Lue lisää </span></button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -93,21 +95,33 @@ export default function Home() {
           <div class="col additional-col col1">
             <div className='col-banner'>
               <h2 class="fw-normal">Joululahjat</h2>
-              <button class="add-btn btn btn-primary">Ostoksille &raquo;</button>
+
+              <Link to="*">
+                <button class="add-btn btn btn-primary">Ostoksille &raquo;</button>
+              </Link>
+
             </div>
           </div>
 
           <div class="col additional-col col2">
             <div className='col-banner'>
               <h2 class="fw-normal">Uutuudet</h2>
-              <button class="add-btn btn btn-primary">Ostoksille &raquo;</button>
+
+              <Link to="*">
+                <button class="add-btn btn btn-primary">Ostoksille &raquo;</button>
+              </Link>
+
             </div>
           </div>
 
           <div class="col additional-col col3">
             <div className='col-banner'>
               <h2 class="fw-normal">Tarvikkeet</h2>
-              <button class="add-btn btn btn-primary">Ostoksille &raquo;</button>
+
+              <Link to="*">
+                <button class="add-btn btn btn-primary">Ostoksille &raquo;</button>
+              </Link>
+
             </div>
           </div>
         </div>
@@ -194,22 +208,38 @@ export default function Home() {
             </div>
             <div>
               <div className="m-carousel-img">
-                <img alt="placeholder" style={{ width: '100%' }} />
+
+                <Link to="*">
+                  <img alt="placeholder" style={{ width: '100%' }} />
+                </Link>
+
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img style={{ width: '100%' }} />
+
+                <Link to="*">
+                  <img alt="placeholder" style={{ width: '100%' }} />
+                </Link>
+
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img style={{ width: '100%' }} />
+
+                <Link to="*">
+                  <img alt="placeholder" style={{ width: '100%' }} />
+                </Link>
+
               </div>
             </div>
             <div>
               <div className="m-carousel-img">
-                <img style={{ width: '100%' }} />
+
+                <Link to="*">
+                  <img alt="placeholder" style={{ width: '100%' }} />
+                </Link>
+
               </div>
             </div>
           </Carousel>
@@ -228,9 +258,11 @@ export default function Home() {
 
             <form>
               <input type="email" id="email" name="email"></input>
+
               <Link to={"/register"}>
                 <button className='fixed-btn'>Alennus</button>
               </Link>
+
             </form>
           </div>
         </div>

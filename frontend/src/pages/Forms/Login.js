@@ -50,7 +50,9 @@ export function Login({ setLoggedUser }) {
 
               <div>
                 <Link to={"/register"} style={{ fontSize: 'small' }}><span style={{ fontWeight: 'bold' }}>Uusi käyttäjä?</span> Rekisteröidy tästä</Link>
-                <p className='forgotten-password'><a href='#'>Unohditko salasanasi?</a></p>
+                <p className='forgotten-password'>
+                  <Link to="*">Unohditko salasanasi?</Link>
+                </p>
               </div>
             </form>
             <Link><button type="submit" className='form-btn btn btn-primary mb-4 mt-4' onClick={LogIn}><span>Kirjaudu sisään </span></button></Link>

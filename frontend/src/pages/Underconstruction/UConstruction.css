@@ -1,0 +1,50 @@
+body {
+  background-color: #373b3e;
+}
+
+.u-container {
+  display: grid;
+  grid-template-columns: 2;
+  column-gap: 5rem;
+}
+
+.u-img {
+  grid-column: 1;
+  max-width: 100%;
+}
+
+.u-content {
+  grid-column: 2;
+}
+
+.u-btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background-color: rgba(98, 55, 27, 0.746);
+  border: none;
+  color: white;
+}
+
+.u-btn:hover {
+  --bs-btn-hover-bg: rgba(70, 40, 20, 0.746);
+  --bs-btn-active-bg: rgba(98, 55, 27, 0.746);
+  border: none;
+}
+
+.u-btn span::after {
+  content: '\00bb';
+  opacity: 0;
+  top: 10px;
+  transition: 0.4s;
+}
+
+.u-btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.u-btn:active {
+  --bs-btn-active-bg: rgba(49, 28, 14, 0.746) !important;
+  text-decoration: underline;
+  border: none;
+}

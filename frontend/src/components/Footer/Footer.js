@@ -1,6 +1,6 @@
 import './Footer.css';
 import React from 'react';
-
+import { Link } from "react-router-dom";
 
 
 export default function Footer() {
@@ -31,19 +31,14 @@ export default function Footer() {
           <h5 className='helper-margin'>Maksutavat</h5>
 
           <div className='payment'>
-            <a className="footer-icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/5968/5968397.png" alt="visa icon" className='footer-icon'>
-              </img>
-            </a>
 
-            <a className="footer-icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/349/349228.png" alt="american express icon" className='footer-icon'></img>
-            </a>
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968397.png" alt="visa icon" className='footer-icon'>
+            </img>
 
-            <a className="footer-icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="paypal icon" className='footer-icon'>
-              </img>
-            </a>
+            <img src="https://cdn-icons-png.flaticon.com/512/349/349228.png" alt="american express icon" className='footer-icon'></img>
+
+            <img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="paypal icon" className='footer-icon'>
+            </img>
           </div>
         </div>
 
@@ -51,57 +46,82 @@ export default function Footer() {
           <h5>Toimitustavat</h5>
 
           <div className='delivery'>
-            <a className="footer-icons">
+
             <img src="https://www.dhlexpress.nl/sites/default/files/styles/grid_image_1x/public/content/images/dhl_logo_met_gele_achtergrond.png?itok=cWJaeDnT" alt="DHL icon" className='footer-icon dhl'>
-              </img>
-            </a>
+            </img>
 
-            <a className="footer-icons">
             <img src="https://ekovalaistus.fi/wp-content/uploads/2017/10/postnord-logo.jpg" alt="Postnord icon" className='footer-icon postnord'>
-              </img>
-            </a>
+            </img>
 
-            <a className="footer-icons">
             <img src="https://kauppaseinajoki.fi/wp-content/uploads/2017/08/posti-logo.png" alt="Posti icon" className='footer-icon posti'>
-              </img>
-            </a>
+            </img>
+
           </div>
 
-          
 
-          
+
+
         </div>
-          <div className="col mb-3 footer-col">
+        <div className="col mb-3 footer-col">
           <h5>Tietoa</h5>
           <ul className="footer-column">
-            <li className="footer-item mb-2"><a href="#" className="footer-link p-0">Yhteystiedot</a></li>
-            <li className="footer-item mb-2"><a href="#" className="footer-link p-0">Kysymyksiä ja vastauksia</a></li>
-            <li className="footer-item mb-2"><a href="#" className="footer-link p-0">Toimitus</a></li>
-            <li className="footer-item mb-2"><a href="#" className="footer-link p-0">Lahjakortit</a></li>
-            <li className="footer-item mb-2"><a href="#" className="footer-link p-0">Uutiskirje</a></li>
+
+            <li className="footer-item mb-2">
+              <Link to="*" className="footer-link p-0">Yhteystiedot</Link>
+            </li>
+
+            <li className="footer-item mb-2">
+              <Link to="*" className="footer-link p-0">Kysymyksiä ja vastauksia</Link>
+            </li>
+
+            <li className="footer-item mb-2">
+              <Link to="*" className="footer-link p-0">Toimitus</Link>
+            </li>
+
+            <li className="footer-item mb-2">
+              <Link to="*" className="footer-link p-0">Lahjakortit</Link>
+            </li>
+
+            <li className="footer-item mb-2">
+              <Link to="*" className="footer-link p-0">Uutiskirje</Link>
+            </li>
+
           </ul>
-          </div>
+        </div>
 
 
         <div className="col mb-3 footer-col">
           <h5>Tietoa Shoelandosta</h5>
+
           <ul className="footer-column">
-            <li className="footer-item mb-2"><a href="#" className="footer-link p-0">Historiamme</a></li>
-            <li className="footer-item mb-2"><a href="#" className="footer-link p-0">Avoimet työpaikat</a></li>
-            <li className="footer-item mb-2"><a href="#" className="footer-link p-0"></a></li>
-            <li className="footer-item mb-2"><a href="#" className="footer-link p-0"></a></li>
-            <li className="footer-item mb-2"><a href="#" className="footer-link p-0"></a></li>
+
+            <li className="footer-item mb-2">
+              <Link to="*" className="footer-link p-0">Historiamme</Link>
+            </li>
+
+            <li className="footer-item mb-2">
+              <Link to="*" className="footer-link p-0">Avoimet työpaikat</Link>
+            </li>
+
           </ul>
         </div>
 
         <div className="col mb-3 footer-col">
           <h5>Lupauksemme</h5>
           <ul className="footer-column">
-            <li className="footer-item mb-2"><a className="footer-link p-0">Ilmainen kuljetus</a></li>
-            <li className="footer-item mb-2"><a className="footer-link p-0">Ilmainen palautus</a></li>
-            <li className="footer-item mb-2"><a className="footer-link p-0">100 päivän palautusoikeus</a></li>
-            <li className="footer-item mb-2"><a className="footer-link p-0"></a></li>
-            <li className="footer-item mb-2"><a className="footer-link p-0"></a></li>
+
+            <li className="footer-item mb-2">
+              <Link to="*" className="footer-link p-0">Ilmainen kuljetus*</Link>
+            </li>
+
+            <li className="footer-item mb-2">
+              <Link to="*" className="footer-link p-0">Ilmainen palautus</Link>
+            </li>
+
+            <li className="footer-item mb-2">
+              <Link to="*" className="footer-link p-0">100 päivän palautusoikeus</Link>
+            </li>
+
           </ul>
         </div>
       </footer >
