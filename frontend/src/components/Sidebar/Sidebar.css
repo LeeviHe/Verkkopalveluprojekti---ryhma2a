@@ -3,7 +3,7 @@
 .sidebar {
   display: flex;
   grid-column: 1;
-  grid-row: span 1 / end;
+  grid-row: 1 / span end;
 }
 
 .sidebar-btn,

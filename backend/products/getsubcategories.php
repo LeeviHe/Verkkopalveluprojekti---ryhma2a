@@ -9,7 +9,7 @@ $category_id = $parameters[1];
 // 
 try {
     $db = openDb();
-    selectAsJson($db, 'select * from subcategory where category_id =' .$category_id); /**/
+    selectAsJson($db, 'select * from subcategory'); /**/
     //$query = $db->query($sql);
     //$subcategory = $query->fetch(PDO::FETCH_ASSOC);
 

@@ -145,79 +145,120 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                 </div>
               </div>
 
-              {/**billing information from india or smth */}
-          
-              
-                <div className="col-md-auto">
-                  <h4 className="mb-3">Billing address</h4>
-                  <form className="needs-validation" onSubmit={order} >
-                    <div className="row g-3">
-                      <div className="col-sm-6">
-                        <label for="firstName" className="form-label">First name</label>
-                        <input type="text" className="form-control" id="firstName" placeholder="Firstname" onChange={e => setFirstname(e.target.value)} required />
-                        <div className="invalid-feedback">
-                          Valid first name is required.
-                        </div>
-                      </div>
+              {/* BILLING INFORMATION */}
 
-                      <div className="col-sm-6">
-                        <label for="lastName" className="form-label">Last name</label>
-                        <input type="text" className="form-control" id="lastName" placeholder="Lastname" onChange={e => setLastname(e.target.value)} required />
-                        <div className="invalid-feedback">
-                          Valid last name is required.
-                        </div>
-                      </div>
-                      <div className="col-12">
-                        <label for="email" className="form-label">Email</label>
-                        <input type="email" className="form-control" id="email" placeholder="you@example.com" onChange={e => setEmail(e.target.value)} />
-                        <div className="invalid-feedback">
-                          Please enter a valid email address for shipping updates.
-                        </div>
-                      </div>
 
-                      <div className="col-12">
-                        <label for="address" className="form-label">Address</label>
-                        <input type="text" className="form-control" id="address" placeholder="Address" onChange={e => setAddress(e.target.value)} required />
-                        <div className="invalid-feedback">
-                          Please enter your shipping address.
-                        </div>
-                      </div>
-                      <div className="col-md-5">
-                        <label for="country" className="form-label">City</label>
-                        <input type="text" className="form-control" placeholder="City" onChange={e => setCity(e.target.value)} required />
-                        <div className="invalid-feedback">
-                          Please select a valid city.
-                        </div>
-                      </div>
-
-                      <div className="col-md-4">
-                        <label for="state" className="form-label">Zip</label>
-                        <input type="text" className="form-control" placeholder="Zip" onChange={e => setZip(e.target.value)} required />
-                        <div className="invalid-feedback">
-                          Zip code required.
-                        </div>
+              <div className="col-md-auto">
+                <h4 className="mb-3">Postitusosoite</h4>
+                <form className="needs-validation" onSubmit={order} >
+                  <div className="row g-3">
+                    <div className="col-sm-6">
+                      <label for="firstName" className="form-label">Etunimi</label>
+                      <input type="text"
+                        className="form-control"
+                        id="firstName"
+                        placeholder="Etunimi"
+                        pattern='^[a-zA-Zä-öÄ-Ö-_ ]+$'
+                        onChange={e => setFirstname(e.target.value)} required />
+                      <div className="invalid-feedback">
+                        Tarkista oikeinkirjoitus
                       </div>
                     </div>
 
-                    <h4 className="mb-3">Payment</h4>
+                    <div className="col-sm-6">
 
-                    <div className="my-3">
-                      <div className="form-check">
-                        <input id="credit" name="paymentMethod" type="radio" className="form-check-input" required />
-                        <label className="form-check-label" for="credit">Credit card</label>
+                      <label for="lastName" className="form-label">Sukunimi</label>
+                      <input type="text"
+                        className="form-control"
+                        id="lastName"
+                        placeholder="Sukunimi"
+                        pattern='^[a-zA-Zä-öÄ-Ö-_ ]+$'
+                        onChange={e => setLastname(e.target.value)} required />
+
+                      <div className="invalid-feedback">
+                        Tarkista oikeinkirjoitus
                       </div>
-                      <div className="form-check">
-                        <input id="debit" name="paymentMethod" type="radio" className="form-check-input" required />
-                        <label className="form-check-label" for="debit">Debit card</label>
-                      </div>
-                      <div className="form-check">
-                        <input id="paypal" name="paymentMethod" type="radio" className="form-check-input" required />
-                        <label className="form-check-label" for="paypal">PayPal</label>
+
+                    </div>
+
+                    <div className="col-12">
+                      <label for="email" className="form-label">Sähköposti</label>
+                      <input type="email"
+                        className="form-control"
+                        id="email"
+                        placeholder="nimi@example.com"
+                        pattern="[a-zA-Zä-öÄ-Ö0-9._%+-]+@[a-z0-9.-]+\.[a-z].{2,}$"
+                        onChange={e => setEmail(e.target.value)} />
+                      <div className="invalid-feedback">
+                        Syötä kelvollinen sähköpostiosoite toimituspäivityksiä varten
                       </div>
                     </div>
-                    <button className="w-100 btn btn-primary btn-lg mb-5" type="submit">Tilaa</button>
-                  </form>
-                </div>
+
+                    <div className="col-12">
+                      <label for="address" className="form-label">Osoite</label>
+                      <input type="text"
+                        className="form-control"
+                        id="address"
+                        placeholder="Osoite"
+                        pattern='^[a-zA-Zä-öÄ-Ö-0-9_ ]+$'
+                        onChange={e => setAddress(e.target.value)} required />
+                      <div className="invalid-feedback">
+                        Syötä kelvollinen toimitusosoite
+                      </div>
+                    </div>
+
+                    <div className="col-md-5">
+                      <label for="country" className="form-label">Kaupunki</label>
+                      <input type="text"
+                        className="form-control"
+                        placeholder="Kaupunki"
+                        pattern='^[a-zA-Zä-öÄ-Ö-_ ]+$'
+                        onChange={e => setCity(e.target.value)} required />
+                      <div className="invalid-feedback">
+                        Valitse kelvollinen kaupunki
+                      </div>
+                    </div>
+
+                    <div className="col-md-4">
+                      <label for="state" className="form-label">Postinumero</label>
+                      <input type="text"
+                        className="form-control"
+                        placeholder="Postinumero"
+                        pattern="[0-9]{1,5}"
+                        nChange={e => setZip(e.target.value)} required />
+                      <div className="invalid-feedback">
+                        Postinumero vaaditaan
+                      </div>
+                    </div>
+                  </div>
+
+                  <h4 className="mb-3">Maksutapa</h4>
+
+                  <div className="my-3">
+                    <div className="form-check">
+                      <input id="credit" name="paymentMethod" type="radio" className="form-check-input" required />
+                      <label className="form-check-label" for="credit">Luottokortti</label>
+                    </div>
+
+                    <div className="form-check">
+                      <input id="debit"
+                        name="paymentMethod"
+                        type="radio" className="form-check-input" required />
+                      <label className="form-check-label" for="debit">Pankkikortti</label>
+                    </div>
+
+                    <div className="form-check">
+                      <input id="paypal"
+                        name="paymentMethod"
+                        type="radio" className="form-check-input" required />
+                      <label className="form-check-label" for="paypal">PayPal</label>
+                    </div>
+                  </div>
+
+                  <button className="w-100 btn btn-primary btn-lg mb-5" type="submit">Tilaa</button>
+
+                </form>
+              </div>
             </main>
           }
         </div>
