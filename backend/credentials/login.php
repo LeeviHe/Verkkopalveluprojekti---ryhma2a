@@ -25,5 +25,6 @@ if ($verified_user) {
     echo $verified_user;
 } else {
     http_response_code(401);
-    echo "Wrong username or password.";
+    $error = "Wrong username or password.";
+    echo $error;
 }

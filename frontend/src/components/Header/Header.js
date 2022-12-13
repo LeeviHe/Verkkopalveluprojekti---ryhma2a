@@ -8,8 +8,13 @@ import Cart from '../Shoppingcart/Shoppingcart.js';
 
 export default function Header({loggedUser, setLoggedUser, url, cart, emptyCart, removeFromCart, updateAmount }) {
 
+  const [names, setNames] = useState([]);
 
-
+  useEffect(() => {
+    axios.get(url + "credentials/user_info.php", { withCredentials: true })
+      .then(resp => setNames(resp.data.names))
+      .catch(e => console.log(e.message))
+  }, [])
 
   function logout() {
     axios.get(url + "credentials/logout.php", { withCredentials: true })
@@ -31,9 +36,9 @@ export default function Header({loggedUser, setLoggedUser, url, cart, emptyCart,
 
             {/**leevin testailu */}
 
-            {loggedUser ? <h1>Olet kirjautunut</h1> : <h1>Et ole kirjautunut</h1>}
-            {loggedUser == "admin@admin" ? <h1>ADMIN MODE</h1> : <h3></h3>}
-            {loggedUser ? <button type="submit" className='login-btn btn btn-primary mb-3 mt-3' onClick={logout}><span>logout </span></button> : <span></span>}
+            
+            {loggedUser == "admin@admin" ? <h1>ADMIN MODE</h1> : <span></span>}
+            
 
             <li className="nav-item">
               <form>
@@ -51,7 +56,8 @@ export default function Header({loggedUser, setLoggedUser, url, cart, emptyCart,
 
               </form>
             </li>
-
+            {loggedUser ? <h4>Hei {names.map(customer => <li>{customer.fname} {customer.lname}</li>)}! </h4> : <span></span>}
+            {loggedUser ? <button type="submit" className='login-btn btn btn-primary mb-3 mt-3' onClick={logout}><span>logout </span></button> : <span></span>}
             <>
               <Cart cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart}/>
             </>
