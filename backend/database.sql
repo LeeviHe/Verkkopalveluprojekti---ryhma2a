@@ -30,7 +30,7 @@ CREATE TABLE `order` (
 
 CREATE TABLE `orderrow` (
   `order_id` int NOT NULL,
-  `productid` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
   `amount` int not null
 );
 
@@ -39,7 +39,8 @@ CREATE TABLE `product` (
   `productname` char(20) NOT NULL,
   `price` decimal(5,2) DEFAULT NULL,
   `category_id` SMALLINT(6) NOT NULL,
-  `subcategory_id` SMALLINT(6)
+  `subcategory_id` SMALLINT(6),
+  `img` VARCHAR(128)
 );
 
 CREATE TABLE `category` (
@@ -112,7 +113,7 @@ ALTER TABLE `product`
   
   ALTER TABLE `orderrow`
   ADD CONSTRAINT `orderrow_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`),
-  add constraint `orderrow_ifbfk_3` foreign KEY (`productid`) references `product` (`product_id`);
+  add constraint `orderrow_ifbfk_3` foreign KEY (`product_id`) references `product` (`product_id`);
 
 
 INSERT INTO category (category_id, categoryname)

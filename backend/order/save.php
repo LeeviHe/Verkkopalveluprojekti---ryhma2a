@@ -38,7 +38,7 @@ try {
 
   //lisää tilausrivit
   foreach ($cart as $product) {
-    $sql = "insert into orderrow (order_id,productid, amount) values ("
+    $sql = "insert into orderrow (order_id,product_id, amount) values ("
       .
       $order_id . "," .
       $product->product_id . "," .

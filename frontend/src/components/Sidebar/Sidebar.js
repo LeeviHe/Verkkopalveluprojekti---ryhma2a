@@ -21,7 +21,6 @@ export default function Sidebar() {
       }).catch(error => {
         alert(error.response === undefined ? error : error.response.data.error)
       })
-    if (params.categoryId != null && params.subcategoryId == null) {
       axios.get(URL + 'products/getsubcategories.php/' + params.categoryId)
         .then((response) => {
           const json = response.data;
@@ -29,16 +28,15 @@ export default function Sidebar() {
         }).catch(error => {
           alert(error.response === undefined ? error : error.response.data.error)
         })
-    }
   }, [params])
 
   function showSub(catnum, subcatcatnum, subcatnum, subcatname) {
-    if (catnum == subcatcatnum) {
+    if (catnum === subcatcatnum) {
       return (
-        <div className="sidebar flex-shrink-0 sub-list-item justify-content-center" id={"home-collapse" + catnum}>
+        <div className="sidebar flex-shrink-0 sub-list-item justify-content-start collapsed" id={"home-collapse" + catnum}>
           <ul className="btn-toggle-nav list-unstyled">
             <li key={subcatnum}>
-              <Link className='sidebar-select' to=
+              <Link className='sidebar-select collapsed' to=
                 {'/kategoriat/' + subcatcatnum + '/' + subcatnum}>
                 {subcatname}
               </Link>
@@ -59,7 +57,7 @@ export default function Sidebar() {
 
               <button className="btn btn-toggle d-flex sidebar-btn d-inline-flex align-items-center">
 
-                <span className='collapsed' data-bs-toggle="collapse" data-bs-target={"#home-collapse" + category.category_id} aria-expanded="true">
+                <span class='collapsed' data-bs-toggle="collapse" data-bs-target={"#home-collapse" + category.category_id} aria-expanded="false">
 
                   <img className="arr-icon" src={darr} alt="arrow-down" key={category.category_id} />
 

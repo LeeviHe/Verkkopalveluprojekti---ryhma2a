@@ -32,6 +32,7 @@ export default function Header({loggedUser, setLoggedUser, url, cart, emptyCart,
             {/**leevin testailu */}
 
             {loggedUser ? <h1>Olet kirjautunut</h1> : <h1>Et ole kirjautunut</h1>}
+            {loggedUser == "admin@admin" ? <h1>ADMIN MODE</h1> : <h3></h3>}
             {loggedUser ? <button type="submit" className='login-btn btn btn-primary mb-3 mt-3' onClick={logout}><span>logout </span></button> : <span></span>}
 
             <li className="nav-item">
