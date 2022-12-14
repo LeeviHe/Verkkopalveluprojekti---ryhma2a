@@ -58,7 +58,7 @@ export default function Products({ url, addToCart }) {
               <div className='thumbnail'>
                 <img className='product-img' />
                 <p className='group inner list-group-item-text'>
-                  brand
+                  {product.brand}
                 </p>
                 <h6>{product.productname}</h6> {/* productname -> productbrand tai brand*/}
               </div>
