@@ -46,7 +46,7 @@ CREATE TABLE `orderrow` (
 );
 
 CREATE TABLE `product` (
-  `product_id` int(11) NOT NULL,
+  `product_id` int(11) primary key AUTO_INCREMENT,
   `brand` char(20),
   `productname` char(20) NOT NULL,
   `price` decimal(5,2) DEFAULT NULL,
@@ -56,12 +56,12 @@ CREATE TABLE `product` (
 );
 
 CREATE TABLE `category` (
-  `category_id` smallint(6) NOT NULL,
+  `category_id` smallint(6) PRIMARY KEY AUTO_INCREMENT,
   `categoryname` char(20) DEFAULT NULL
 ) ;
 
 CREATE TABLE `subcategory` (
-  `subcategory_id` SMALLINT(6) NOT NULL,
+  `subcategory_id` SMALLINT(6) PRIMARY KEY AUTO_INCREMENT,
   `subcategoryname` char(20) DEFAULT NULL,
   `category_id` SMALLINT(6)
 );
@@ -92,18 +92,14 @@ ALTER TABLE `order`
 -- Indexes for table `product`
 
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`product_id`),
   ADD KEY `category_id` (`category_id`);
 
 -- Indexes for table `category`
 
-ALTER TABLE `category`
-  ADD PRIMARY KEY (`category_id`);
 
 -- Indexes and constraint for table `subcategory`
 
 ALTER TABLE `subcategory`
-	ADD PRIMARY KEY (`subcategory_id`),
   ADD KEY `category_id` (`category_id`);
 
 -- Constraints for table `subcategory`
@@ -128,13 +124,13 @@ ALTER TABLE `product`
   add constraint `orderrow_ifbfk_3` foreign KEY (`product_id`) references `product` (`product_id`);
 
 
-INSERT INTO category (category_id, categoryname)
-VALUES ('1', 'Kesäkengät'), ('2','Talvikengät'), ('3', 'Juhlakengät');
-INSERT INTO subcategory (subcategory_id, subcategoryname, category_id)
-VALUES (1, 'Tennarit', 1), (2, 'Sandaalit', 1), (3, 'Nilkkurit', 2), (4, 'Talvisaappaat', 2), (5, 'Korkokengät', 3), (6, 'Puvunkengät', 3);
-INSERT INTO product (product_id, brand, productname, price, category_id, subcategory_id, img)
-VALUES (1, 'Adidas', 'Lite Racer Adapt', 149.99, 1, 1, 'adidas1.png'), (2, 'Adidas', 'Ace Tango', 75, 1, 1, 'adidas4.png'), (3, 'SeeByChloe', 'Gema leather mules', 139.99, 1, 2, 'Sandal1.png'), (4, 'Havaianas', 'Top-Tiras Ballet', 23.50, 1, 2, 'Sandal2.png'), 
-(5, 'DeeZee', 'Nilkkurit', 99.45, 2, 4, 'Long Wintershoe 4.png'), (6, 'Merrel', 'Bravada Edge 2', 129, 2, 3, 'Short Wintershoe 4.png'), (7, 'Prada', 'korkokengät', 850, 3, 5, 'Highheel.png'), (8, 'Evita Lisa', 'korkokengät', 210, 3, 5, 'Highheel2.png'), (9, 'Topman', 'juhlakenkä ruskea', 149, 3, 6, 'Suit Shoe1.png'), (10, 'Topman', 'juhlakenkä musta', 95, 3, 6, 'Suit Shoe2.png'), 
-(11, 'Adidas', 'Original Superstar', 119.99, 1, 1, 'adidas5.png'), (12, 'Air Jordan', '1 Mid', 200, 1, 1, 'nike3.png'), (13, 'Birkenstock', 'Arizona Oiled Black', 90, 1, 2, 'Sandal3.png'), (14, 'Aree', 'Re:Designed', 84.90, 1, 2, 'Sandal4.png');
+INSERT INTO category (categoryname)
+VALUES ('Kesäkengät'), ('Talvikengät'), ('Juhlakengät');
+INSERT INTO subcategory (subcategoryname, category_id)
+VALUES ('Tennarit', 1), ('Sandaalit', 1), ('Nilkkurit', 2), ('Talvisaappaat', 2), ('Korkokengät', 3), ('Puvunkengät', 3);
+INSERT INTO product (brand, productname, price, category_id, subcategory_id, img)
+VALUES ('Adidas', 'Lite Racer Adapt', 149.99, 1, 1, 'adidas1.png'), ('Adidas', 'Ace Tango', 75, 1, 1, 'adidas4.png'), ('SeeByChloe', 'Gema leather mules', 139.99, 1, 2, 'Sandal1.png'), ('Havaianas', 'Top-Tiras Ballet', 23.50, 1, 2, 'Sandal2.png'), 
+('DeeZee', 'Nilkkurit', 99.45, 2, 4, 'Long Wintershoe 4.png'), ('Merrel', 'Bravada Edge 2', 129, 2, 3, 'Short Wintershoe 4.png'), ('Prada', 'korkokengät', 850, 3, 5, 'Highheel.png'), ('Evita Lisa', 'korkokengät', 210, 3, 5, 'Highheel2.png'), ('Topman', 'juhlakenkä ruskea', 149, 3, 6, 'Suit Shoe1.png'), ('Topman', 'juhlakenkä musta', 95, 3, 6, 'Suit Shoe2.png'), 
+('Adidas', 'Original Superstar', 119.99, 1, 1, 'adidas5.png'), ('Air Jordan', '1 Mid', 200, 1, 1, 'nike3.png'), ('Birkenstock', 'Arizona Oiled Black', 90, 1, 2, 'Sandal3.png'), ('Aree', 'Re:Designed', 84.90, 1, 2, 'Sandal4.png');
 INSERT INTO customer (fname, lname, email, password, admin)
 VALUES ('Ylläpito', 'Maisteri', 'admin@admin', '$2y$10$eNAxooWSvnHdqXcbuCqxEutdkCjVcsW/ykkjf9B25JsjNLlSQnA5.', 1);
