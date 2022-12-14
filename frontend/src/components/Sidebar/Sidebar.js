@@ -21,19 +21,19 @@ export default function Sidebar() {
       }).catch(error => {
         alert(error.response === undefined ? error : error.response.data.error)
       })
-      axios.get(URL + 'products/getsubcategories.php/' + params.categoryId)
-        .then((response) => {
-          const json = response.data;
-          setSubCategories(json);
-        }).catch(error => {
-          alert(error.response === undefined ? error : error.response.data.error)
-        })
+    axios.get(URL + 'products/getsubcategories.php/' + params.categoryId)
+      .then((response) => {
+        const json = response.data;
+        setSubCategories(json);
+      }).catch(error => {
+        alert(error.response === undefined ? error : error.response.data.error)
+      })
   }, [params])
 
   function showSub(catnum, subcatcatnum, subcatnum, subcatname) {
     if (catnum === subcatcatnum) {
       return (
-        <div className="sidebar flex-shrink-0 sub-list-item justify-content-start collapsed" id={"home-collapse" + catnum}>
+        <div className="sidebar flex-shrink-0 sub-list-item collapse" id={"home-collapse" + catnum}>
           <ul className="btn-toggle-nav list-unstyled">
             <li key={subcatnum}>
               <Link className='sidebar-select collapsed' to=
@@ -53,9 +53,14 @@ export default function Sidebar() {
         <ul className="list-unstyled ps-0">
 
           {categories.map(category => (
-            <li className='mt-2'>
+            <li className='mt-2 testlist'>
 
-              <button className="btn btn-toggle d-flex sidebar-btn d-inline-flex align-items-center">
+              <button className="btn btn-toggle d-flex sidebar-btn align-items-center">
+
+                {<Link className='sidebar-select'
+                  to={'/kategoriat/' + category.category_id}>
+                  {category.categoryname}
+                </Link>}
 
                 <span class='collapsed' data-bs-toggle="collapse" data-bs-target={"#home-collapse" + category.category_id} aria-expanded="false">
 
@@ -63,10 +68,6 @@ export default function Sidebar() {
 
                 </span>
 
-                {<Link className='sidebar-select'
-                  to={'/kategoriat/' + category.category_id}>
-                  {category.categoryname}
-                </Link>}
 
               </button>
 
