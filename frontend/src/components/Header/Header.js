@@ -6,15 +6,7 @@ import img from '../../images/logos/shoelando_logo.png';
 import Cart from '../Shoppingcart/Shoppingcart.js';
 
 
-export default function Header({loggedUser, setLoggedUser, url, cart, emptyCart, removeFromCart, updateAmount }) {
-
-  const [names, setNames] = useState([]);
-
-  useEffect(() => {
-    axios.get(url + "credentials/user_info.php", { withCredentials: true })
-      .then(resp => setNames(resp.data.names))
-      .catch(e => console.log(e.message))
-  }, [])
+export default function Header({names, loggedUser, setLoggedUser, url, cart, emptyCart, removeFromCart, updateAmount }) {
 
   function logout() {
     axios.get(url + "credentials/logout.php", { withCredentials: true })

@@ -1,7 +1,7 @@
 <?php
+require_once '../inc/headers.php';
 session_start();
 require_once '../inc/functions.php';
-require_once '../inc/headers.php';
 
 if(isset($_SESSION["username"])) {
     http_response_code(200);

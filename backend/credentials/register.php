@@ -1,7 +1,7 @@
 <?php
+require_once '../inc/headers.php';
 session_start();
 require_once '../inc/functions.php';
-require_once '../inc/headers.php';
 
 $content = file_get_contents("php://input");
 $login_info = json_decode($content);

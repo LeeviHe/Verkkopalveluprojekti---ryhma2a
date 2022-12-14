@@ -22,6 +22,14 @@ function App() {
       .catch(e => console.log(e.message))//
   }, [])
 
+  const [names, setNames] = useState([]);
+
+  useEffect(() => {
+    axios.get(URL + "credentials/user_info.php", { withCredentials: true })
+      .then(resp => setNames(resp.data.names))
+      .catch(e => console.log(e.message))
+  }, [])
+
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -65,7 +73,7 @@ function App() {
 
   return (
     <>
-      <Header loggedUser={loggedUser} setLoggedUser={setLoggedUser} url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />
+      <Header names ={names} loggedUser={loggedUser} setLoggedUser={setLoggedUser} url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />
 
       <div className='container'>
 
