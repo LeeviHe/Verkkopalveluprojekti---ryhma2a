@@ -119,7 +119,7 @@ ALTER TABLE `product`
 INSERT INTO category (category_id, categoryname)
 VALUES ('1', 'Kesäkengät'), ('2','Talvikengät'), ('3', 'Juhlakengät');
 INSERT INTO subcategory (subcategory_id, subcategoryname, category_id)
-VALUES (1, 'Tennarit', 1), (2, 'Sandaalit', 1), (3, 'Nilkkurit', 2), (4, 'Talvisaappaat', 2), (5, 'Lyhytvartiset talvikengät', 2) (5, 'Korkokengät', 3), (6, 'Puvunkengät', 3);
+VALUES (1, 'Tennarit', 1), (2, 'Sandaalit', 1), (3, 'Nilkkurit', 2), (4, 'Talvisaappaat', 2), (5, 'Lyhytvartiset talvikengät', 2), (6, 'Korkokengät', 3), (7, 'Puvunkengät', 3);
 INSERT INTO product (product_id, productname, price, category_id, subcategory_id, img)
 VALUES (1, 'Adidas Lite Racer Adapt', 149.99, 1, 1, 'adidas1.png'), (2, 'Adidas Ace Tango', 75, 1, 1, 'adidas4.png'), (3, 'SeeByChloe Gema leather mules', 139.99, 1, 2, 'Sandal1.png'), (4, 'Havaianas Top-Tiras Ballet', 23.50, 1, 2, 'Sandal2.png'), 
 (5, 'DeeZee Nilkkurit', 99.45, 2, 4, 'Long Wintershoe 4.png'), (6, 'Merrel Bravada Edge 2', 129, 2, 5, 'Short Wintershoe 4.png'), (7, 'Prada korkokengät', 850, 3, 5, 'Highheel.png'), (8, 'Evita Lisa korkokengät', 210, 3, 5, 'Highheel2.png'), (9, 'Topman juhlakenkä ruskea', 149, 3, 6, 'Suit Shoe1.png'), (10, 'Topman juhlakenkä musta', 95, 3, 6, 'Suit Shoe2.png'), 
