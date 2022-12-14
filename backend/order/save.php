@@ -20,7 +20,7 @@ try {
 
   $db->beginTransaction();
 
-  $sql = "insert into customer (fname,lname,address,email,zip,city) values 
+  $sql = "insert into customer_order (fname,lname,address,email,zip,city) values 
     ('" .
     filter_var($fname, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "','" .
     filter_var($lname, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "','" .
@@ -30,10 +30,10 @@ try {
     filter_var($city, FILTER_SANITIZE_FULL_SPECIAL_CHARS)
     . "')";
 
-  $customer_id = executeInsert($db, $sql);
+  $customerorder_id = executeInsert($db, $sql);
 
   //lisää tilaus
-  $sql = "insert into `order` (customer_id) values ($customer_id)";
+  $sql = "insert into `order` (customerorder_id) values ($customerorder_id)";
   $order_id = executeInsert($db, $sql);
 
   //lisää tilausrivit
@@ -49,7 +49,7 @@ try {
 
   $db->commit();
   header('HTTP/1.1 200 OK');
-  $data = array('id' => $customer_id);
+  $data = array('id' => $customerorder_id);
   echo json_encode($data);
 } catch (PDOException $pdoex) {
   $db->rollback();
