@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import './Product.css';
 
-export default function Products({ url, addToCart }) {
+export default function Products({ url, addToCart, img }) {
   const [categoryName, setCategoryName] = useState('');
   const [products, setProducts] = useState([]);
 
@@ -56,7 +56,7 @@ export default function Products({ url, addToCart }) {
             <div className='item' key={product.product_id}>
 
               <div className='thumbnail'>
-                <img className='product-img' />
+                <img className='product-img'  src={url + 'img/' + product.img} alt="tuotekuva" />
                 <p className='group inner list-group-item-text'>
                   brand
                 </p>
