@@ -17,6 +17,17 @@ CREATE TABLE `customer` (
   `admin` INT(1)
   );
 
+  CREATE TABLE `customer_order`(
+  `customerorder_id` SMALLINT PRIMARY KEY AUTO_INCREMENT,
+  `fname` char(20) NOT NULL,
+  `lname` char(20) NOT NULL,
+  `address`char(50) NOT NULL,
+  `email` char(50) DEFAULT NULL UNIQUE,
+  `zip` char(5) DEFAULT NULL,
+  `city` char(15) DEFAULT NULL
+  );
+
+
 CREATE TABLE `post` (
   `zip` char(5) NOT NULL,
   `city` char(15) DEFAULT NULL
@@ -25,7 +36,7 @@ CREATE TABLE `post` (
 CREATE TABLE `order` (
   `id` int primary key AUTO_INCREMENT,
   `order_date` timestamp default current_timestamp,
-  `customer_id` SMALLINT NOT NULL
+  `customerorder_id` SMALLINT NOT NULL
 );
 
 CREATE TABLE `orderrow` (
@@ -70,7 +81,7 @@ ALTER TABLE `post`
 
 
 ALTER TABLE `order`
-   add constraint `order_ifbfk_1` foreign KEY (`customer_id`) references `customer` (`customer_id`);
+   add constraint `order_ifbfk_1` foreign KEY (`customerorder_id`) references `customer_order` (`customerorder_id`);
    
    
    -- Constraints for table `orderrow`
