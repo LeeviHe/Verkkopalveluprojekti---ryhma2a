@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import { Login, Userpage } from './pages/Forms/Login';
 import Register from './pages/Forms/Register';
 import Home from './pages/Home/Home';
+import Manage from './pages/Manage/Manage';
 import Order from './pages/Order/Order'
 import Products from './pages/Products/Products';
 import Checkout from './pages/Checkout/Checkout';
@@ -80,6 +81,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           {loggedUser ? <Route path="/login" element={<Userpage logemail={loggedUser} />} /> : <Route path="/login" element={<Login setLoggedUser={setLoggedUser} />} />}
+          <Route path="/manage" element={<Manage url={URL}/>} />
           <Route path="/register" element={<Register setLoggedUser={setLoggedUser} />} />
           <Route path="/kategoriat/:categoryId" element={<Products url={URL} addToCart={addToCart} />} />
           <Route path="/kategoriat/:categoryId/:subcategoryId" element={<Products url={URL} addToCart={addToCart} />} />
