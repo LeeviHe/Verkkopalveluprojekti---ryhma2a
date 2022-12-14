@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
 
 
-export default function Cart({ cart, removeFromCart, updateAmount }) {
+export default function Cart({ cart, removeFromCart, updateAmount, url }) {
 
   const [inputs, _] = useState([]);
   const [inputIndex, setInputIndex] = useState(-1);
@@ -54,7 +54,7 @@ export default function Cart({ cart, removeFromCart, updateAmount }) {
 
                     <div className="cart-pic d-flex justify-content-center">
                       <img
-                        style={{ width: '100%', marginRight: '10px' }} />
+                        style={{ width: '100%', marginRight: '10px' }}  src={url + 'img/' + product.img} alt="tuotekuva" />
                     </div>
 
                     <div className="help-container">

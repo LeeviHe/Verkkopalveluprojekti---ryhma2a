@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid';
 import { Link } from 'react-router-dom';
 
 
-export default function Order({ cart, emptyCart, removeFromCart, updateAmount }) {
+export default function Order({ cart, emptyCart, removeFromCart, updateAmount, url }) {
 
     const [inputs, _] = useState([]);
     const [inputIndex, setInputIndex] = useState(-1);
@@ -50,7 +50,7 @@ export default function Order({ cart, emptyCart, removeFromCart, updateAmount })
 
                                         <div className="form-item cart-form-img">
                                             <img 
-                                                style={{ width: '100%' }} />
+                                                style={{ width: '100%' }}  src={url + 'img/' + product.img} alt="tuotekuva" />
                                         </div>
 
                                         <div className='form-item rcol'>

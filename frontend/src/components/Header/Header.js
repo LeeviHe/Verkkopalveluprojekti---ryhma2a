@@ -51,7 +51,7 @@ export default function Header({names, loggedUser, setLoggedUser, url, cart, emp
             {loggedUser ? <h4>Hei {names.map(customer => <li>{customer.fname} {customer.lname}</li>)}! </h4> : <span></span>}
             {loggedUser ? <button type="submit" className='login-btn btn btn-primary mb-3 mt-3' onClick={logout}><span>logout </span></button> : <span></span>}
             <>
-              <Cart cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart}/>
+              <Cart cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} url={url}/>
             </>
 
           </ul>
