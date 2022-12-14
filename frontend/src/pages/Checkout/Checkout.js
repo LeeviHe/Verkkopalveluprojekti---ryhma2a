@@ -89,7 +89,7 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
 
                           <div className="form-item cart-form-img">
                             <img
-                              style={{ width: '50%' }} />
+                              style={{ width: '50%' }}  src={url + 'img/' + product.img} alt="tuotekuva"  />
                           </div>
 
                           <div className='form-item rcol'>
