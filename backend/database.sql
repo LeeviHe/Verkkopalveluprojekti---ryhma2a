@@ -119,10 +119,10 @@ ALTER TABLE `product`
 INSERT INTO category (category_id, categoryname)
 VALUES ('1', 'Kesäkengät'), ('2','Talvikengät'), ('3', 'Juhlakengät');
 INSERT INTO subcategory (subcategory_id, subcategoryname, category_id)
-VALUES (1, 'Tennarit', 1), (2, 'Sandaalit', 1), (3, 'Nilkkurit', 2), (4, 'Talvisaappaat', 2), (5, 'Korkokengät', 3), (6, 'Puvunkengät', 3);
-INSERT INTO product (product_id, productname, price, category_id, subcategory_id)
-VALUES (1, 'Tennari1', 25, 1, 1), (2, 'Tennari2', 75, 1, 1), (3, 'Sandaali1', 10, 1, 2), (4, 'Sandaali2', 25, 1, 2),
-(5, 'Talvikenka1', 50, 2, null), (6, 'Talvikenkä2', 120, 2, null), (7, 'Korkkari1', 125, 3, 5), (8, 'Korkkari2', 250, 3, 5), (9, 'Puvunkenka1', 125, 3, 6), (10, 'Puvunkenka2', 250, 3, 6), 
-(11, 'Tennari3', 25, 1, 1), (12, 'Tennari4', 75, 1, 1), (13, 'Sandaali3', 10, 1, 2), (14, 'Sandaali4', 25, 1, 2);
+VALUES (1, 'Tennarit', 1), (2, 'Sandaalit', 1), (3, 'Nilkkurit', 2), (4, 'Talvisaappaat', 2), (5, 'Lyhytvartiset talvikengät', 2) (5, 'Korkokengät', 3), (6, 'Puvunkengät', 3);
+INSERT INTO product (product_id, productname, price, category_id, subcategory_id, img)
+VALUES (1, 'Adidas Lite Racer Adapt', 149.99, 1, 1, 'adidas1.png'), (2, 'Adidas Ace Tango', 75, 1, 1, 'adidas4.png'), (3, 'SeeByChloe Gema leather mules', 139.99, 1, 2, 'Sandal1.png'), (4, 'Havaianas Top-Tiras Ballet', 23.50, 1, 2, 'Sandal2.png'), 
+(5, 'DeeZee Nilkkurit', 99.45, 2, 4, 'Long Wintershoe 4.png'), (6, 'Merrel Bravada Edge 2', 129, 2, 5, 'Short Wintershoe 4.png'), (7, 'Prada korkokengät', 850, 3, 5, 'Highheel.png'), (8, 'Evita Lisa korkokengät', 210, 3, 5, 'Highheel2.png'), (9, 'Topman juhlakenkä ruskea', 149, 3, 6, 'Suit Shoe1.png'), (10, 'Topman juhlakenkä musta', 95, 3, 6, 'Suit Shoe2.png'), 
+(11, 'Adidas Original Superstar', 119.99, 1, 1, 'adidas5.png'), (12, 'Air Jordan 1 Mid', 200, 1, 1, 'nike3.png'), (13, 'Birkenstock Arizona Oiled Black', 90, 1, 2, 'Sandal3.png'), (14, 'Aree Re:Designed', 84.90, 1, 2, 'Sandal4.png');
 INSERT INTO customer (fname, lname, email, password, admin)
 VALUES ('Ylläpito', 'Maisteri', 'admin@admin', '$2y$10$eNAxooWSvnHdqXcbuCqxEutdkCjVcsW/ykkjf9B25JsjNLlSQnA5.', 1);
