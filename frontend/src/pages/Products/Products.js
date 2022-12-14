@@ -56,7 +56,7 @@ export default function Products({ url, addToCart, img }) {
             <div className='item' key={product.product_id}>
 
               <div className='thumbnail'>
-                <img className='product-img'  src={url + 'img/' + product.img} alt="tuotekuva" />
+                <img className='product-img' src={url + 'img/' + product.img} alt="tuotekuva" />
                 <p className='group inner list-group-item-text'>
                   {product.brand}
                 </p>
@@ -70,7 +70,7 @@ export default function Products({ url, addToCart, img }) {
                 </div>
 
                 <div className="col-">
-                  <button className='btn btn-success' type="button" onClick={e => addToCart(product)}>Lisää ostoskoriin</button>
+                  <button className='btn checkout-btn btn-primary mt-4' type="button" onClick={e => addToCart(product)}>Lisää ostoskoriin</button>
                 </div>
               </div>
 

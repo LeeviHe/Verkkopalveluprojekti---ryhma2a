@@ -12,7 +12,8 @@ a:hover {
 }
 
 .offcanvas {
-  background-color: rgb(235, 222, 195);
+  background: url('../../images/body-background.png');
+  background-size: cover;
 }
 
 .cart-title {

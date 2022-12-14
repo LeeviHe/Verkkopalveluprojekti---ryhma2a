@@ -53,7 +53,7 @@ export default function Sidebar() {
         <ul className="list-unstyled ps-0">
 
           {categories.map(category => (
-            <li className='mt-2 testlist'>
+            <li className='mt-2'>
 
               <button className="btn btn-toggle d-flex sidebar-btn align-items-center">
 
@@ -62,7 +62,7 @@ export default function Sidebar() {
                   {category.categoryname}
                 </Link>}
 
-                <span class='collapsed' data-bs-toggle="collapse" data-bs-target={"#home-collapse" + category.category_id} aria-expanded="false">
+                <span className='collapsed' data-bs-toggle="collapse" data-bs-target={"#home-collapse" + category.category_id} aria-expanded="false">
 
                   <img className="arr-icon" src={darr} alt="arrow-down" key={category.category_id} />
 

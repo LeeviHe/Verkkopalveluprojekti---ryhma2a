@@ -24,7 +24,7 @@ export default function Register({ setLoggedUser }) {
   function Register() {
     const json = { fname, lname, email, password }
     axios.post(URL + "credentials/register.php", json, { withCredentials: true })
-      .then (resp => setLoggedUser(resp.data))
+      .then(resp => setLoggedUser(resp.data))
       .catch(error => {
         alert(error.response === undefined ? error : error.response.data.error)
       })
@@ -79,7 +79,7 @@ export default function Register({ setLoggedUser }) {
                   required />
 
                 <span className='error-msg' style={{ fontSize: 'small', color: 'red' }}>
-                  Nimen täytyy olla vähintään 3 merkkiä pitkä.Nimissä ei saa esiintyä numeroita tai erikoismerkkejä.
+                  Nimen täytyy olla vähintään 3 merkkiä pitkä. Nimissä ei saa esiintyä numeroita tai erikoismerkkejä.
                 </span>
 
                 <p id="lname-field"></p>
@@ -90,13 +90,13 @@ export default function Register({ setLoggedUser }) {
                 <input className='form-input register'
                   id="email"
                   type="email"
-                  pattern="[a-zA-Zä-öÄ-Ö0-9._%+-]+@[a-z0-9.-]+\.[a-z].{2,}$"
+                  pattern="[a-zA-Zä-öÄ-Ö0-9._%+-]+@[a-z0-9.-]+\.[a-z].{1,}$"
                   onChange={e => setEmail(e.target.value)} placeholder="nimi@example.com" autoComplete='off'
                   required />
 
                 <span className='error-msg' style={{ fontSize: 'small', color: 'red' }}>
                   Tarkista oikeinkirjoitus.<br />
-                  Sähköpostissa täytyy olla @-merkki.
+                  Sähköpostissa täytyy olla @-merkki, ja sen täytyy loppua .com/fi yms.
                 </span>
 
                 <p id="email-field"></p>
@@ -141,7 +141,7 @@ export default function Register({ setLoggedUser }) {
               </div>
               <Link to="/"><button type="submit" className='form-btn btn btn-primary mb-4 mt-4' onClick={Register}><span>Rekisteröi </span></button></Link>
             </form>
-            
+
 
             <p style={{ fontStyle: "italic", color: "gray" }}> Reskisteröimällä käyttäjätilin hyväksyt <Link to="*">yleiset käyttöehdot</Link>.</p>
             <p> Lue <Link to="*">yksityisyydestämme</Link>.</p>
