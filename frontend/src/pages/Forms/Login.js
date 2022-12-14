@@ -9,6 +9,7 @@ export function Login({ setLoggedUser }) {
 
   const [logemail, setLogemail] = useState("")
   const [logpassword, setLogpassword] = useState("")
+  const [errorMsg, setErrorMsg] = useState("")
 
   function LogIn() {
     const formData = new FormData();
@@ -17,9 +18,9 @@ export function Login({ setLoggedUser }) {
 
     axios.post(URL + "credentials/login.php", formData, { withCredentials: true })
       .then(resp => setLoggedUser(resp.data))
-      .catch(e => console.log(e.message))
+      .catch(e => setErrorMsg(e.response.data)
+      )
   }
-
   return (
     <>
       <div className="container form-container">
@@ -54,10 +55,10 @@ export function Login({ setLoggedUser }) {
                   <Link to="*">Unohditko salasanasi?</Link>
                 </p>
               </div>
+              <Link><button type="submit" className='form-btn btn btn-primary mb-4 mt-4' onClick={LogIn}><span>Kirjaudu sisään </span></button></Link>
             </form>
-            <Link><button type="submit" className='form-btn btn btn-primary mb-4 mt-4' onClick={LogIn}><span>Kirjaudu sisään </span></button></Link>
           </div>
-
+          <span>{errorMsg}</span>
 
         </div>
       </div>

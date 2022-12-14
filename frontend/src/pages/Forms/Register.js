@@ -139,10 +139,9 @@ export default function Register({ setLoggedUser }) {
 
                 <p id="password-field"></p>
               </div>
-
+              <Link to="/"><button type="submit" className='form-btn btn btn-primary mb-4 mt-4' onClick={Register}><span>Rekisteröi </span></button></Link>
             </form>
-
-            <Link to="/"><button type="submit" className='form-btn btn btn-primary mb-4 mt-4' onClick={Register}><span>Rekisteröi </span></button></Link>
+            
 
             <p style={{ fontStyle: "italic", color: "gray" }}> Reskisteröimällä käyttäjätilin hyväksyt <Link to="*">yleiset käyttöehdot</Link>.</p>
             <p> Lue <Link to="*">yksityisyydestämme</Link>.</p>

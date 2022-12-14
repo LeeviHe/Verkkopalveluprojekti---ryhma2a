@@ -11,8 +11,8 @@ import logo1 from '../../images/logos/Adidas.png';
 import logo2 from '../../images/logos/Nike.png';
 import logo3 from '../../images/logos/Puma.png';
 import logo4 from '../../images/logos/Timberland.png';
-import logo5 from '../../images/logos/Ugg.png';
-import logo6 from '../../images/logos/TomTailor.png';
+import logo5 from '../../images/logos/ugg.png';
+import logo6 from '../../images/logos/tomtailor.png';
 
 export default function Home() {
 
