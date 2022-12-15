@@ -4,12 +4,22 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
 import darr from '../../images/ion-icon/chevron-down-outline.svg';
+import uarr from '../../images/ion-icon/chevron-up-outline.svg';
 
-const URL = 'http://localhost:3000/backend/'
+const URL = 'http://localhost:3000/backend/';
 
 export default function Sidebar() {
   const [categories, setCategories] = useState([])
   const [subcategories, setSubCategories] = useState([])
+
+  const [showIcon, setShowIcon] = useState(false);
+  const [showActive, setShowActive] = useState(false);
+
+  const toggleIcon = (e) => {
+    e.preventDefault();
+    setShowIcon(!showIcon);
+    setShowActive(current => !current);
+  };
 
   let params = useParams();
 
@@ -52,10 +62,12 @@ export default function Sidebar() {
       <div className="sidebar flex-shrink-0">
         <ul className="list-unstyled ps-0">
 
+          <div className='d-flex justify-content-start sidebar-header'> Tuotealueet </div>
+
           {categories.map(category => (
             <li className='mt-2'>
 
-              <button className="btn btn-toggle d-flex sidebar-btn align-items-center">
+              <button className="btn btn-toggle d-flex sidebar-btn align-items-center justify-content-between">
 
                 {<Link className='sidebar-select'
                   to={'/kategoriat/' + category.category_id}>
@@ -64,18 +76,29 @@ export default function Sidebar() {
 
                 <span className='collapsed' data-bs-toggle="collapse" data-bs-target={"#home-collapse" + category.category_id} aria-expanded="false">
 
-                  <img className="arr-icon" src={darr} alt="arrow-down" key={category.category_id} />
+                  <span className={showActive ? '1' : 'hidden'}
+                    onClick={toggleIcon}>
+                    <img className="arr-icon" src={darr} alt="arrow-down"
+                      key={category.category_id} />
+                  </span>
+
+                  <span className={showActive ? 'hidden' : '1'}
+                    onClick={toggleIcon}>
+                    <img className="arr-icon" src={uarr} alt="arrow-up"
+                      key={category.category_id} />
+                  </span>
 
                 </span>
 
-
               </button>
 
-              {subcategories.map(subcategory => (
-                <div key={subcategory.subcategory_id}>
-                  {showSub(category.category_id, subcategory.category_id, subcategory.subcategory_id, subcategory.subcategoryname)}
-                </div>
-              ))}
+              {
+                subcategories.map(subcategory => (
+                  <div key={subcategory.subcategory_id}>
+                    {showSub(category.category_id, subcategory.category_id, subcategory.subcategory_id, subcategory.subcategoryname)}
+                  </div>
+                ))
+              }
 
             </li>
           ))}

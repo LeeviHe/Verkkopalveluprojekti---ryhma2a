@@ -11,9 +11,9 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
 
   const showToastMessage = () => {
     toast.success('Tilaus onnistui!', {
-        position: toast.POSITION.TOP_RIGHT
+      position: toast.POSITION.TOP_RIGHT
     });
-};
+  };
 
   const [inputs,] = useState([]);
   const [inputIndex, setInputIndex] = useState(-1);
@@ -97,7 +97,7 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
 
                           <div className="form-item cart-form-img">
                             <img
-                              style={{ width: '50%' }}  src={url + 'img/' + product.img} alt="tuotekuva"  />
+                              style={{ width: '50%' }} src={url + 'img/' + product.img} alt="tuotekuva" />
                           </div>
 
                           <div className='form-item rcol'>
@@ -249,37 +249,73 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                     </div>
                   </div>
 
-                  <h4 className="mb-3 mt-5">Maksutapa</h4>
 
-                  <div className="my-3">
-                    <div className="form-check">
+                  <div className='info-text mt-3 pb-3'>
+                    <p><ion-icon name="information-circle-outline"></ion-icon>&nbsp;Tuotteen keskimääräinen toimitusaika on 5-7 arkipäivää tilauksen vahvistamisesta.</p>
+                  </div>
+
+                  <div className="container-fluid mt-5 mb-5">
+
+                    <div className="row checkout-row">
+                      <div className="col-sm-2 checkout-helper">
+                        <div className="d-flex justify-content-center">
+                          <img className='checkout-icons mb-2' src='https://cdn-icons-png.flaticon.com/512/3260/3260867.png' />
+                        </div>
+                        <p className="text-center">95% Tyytyväisyys</p>
+                      </div>
+                      <div className="col-sm-2 checkout-helper">
+                        <div className='d-flex justify-content-center'>
+                          <img className='checkout-icons mb-2' src='https://cdn-icons-png.flaticon.com/512/1212/1212158.png' />
+                        </div>
+                        <p className="text-center">Tuotelaatu</p>
+                      </div>
+                      <div className="col-sm-2 checkout-helper">
+                        <div className="d-flex justify-content-center">
+                          <img className='checkout-icons mb-2' src='https://cdn-icons-png.flaticon.com/512/2951/2951105.png' />
+                        </div>
+                        <p className="text-center">Asiakasläheisyys</p>
+                      </div>
+                      <div className="col-sm-2 checkout-helper">
+                        <div className="d-flex justify-content-center">
+                          <img className='checkout-icons mb-2' src='https://cdn-icons-png.flaticon.com/512/1460/1460537.png' />
+                        </div>
+                        <p cclassName="text-center">Ympäristöystävällisyys</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <h4 className="mb-4 mt-4">Maksutapa</h4>
+
+                  <div className="row radio-row my-3 mb-5">
+                    <div className="col form-check">
                       <input id="credit" name="paymentMethod" type="radio" className="form-check-input" required />
                       <label className="form-check-label" for="credit">Luottokortti</label>
                     </div>
 
-                    <div className="form-check">
+                    <div className="col form-check">
                       <input id="debit"
                         name="paymentMethod"
                         type="radio" className="form-check-input" required />
                       <label className="form-check-label" for="debit">Pankkikortti</label>
                     </div>
 
-                    <div className="form-check">
+                    <div className="col form-check">
                       <input id="paypal"
                         name="paymentMethod"
                         type="radio" className="form-check-input" required />
                       <label className="form-check-label" for="paypal">PayPal</label>
                     </div>
+
                   </div>
 
-                  <button className="submit-btn w-100 btn btn-primary btn-lg mt-3" type="submit" onClick={showToastMessage}>Tilaa</button>
+                  <button className="mt-5 submit-btn w-100 btn btn-primary btn-lg mt-3" type="submit" onClick={showToastMessage}>Tilaa</button>
 
                 </form>
-              </div>
-            </main>
+              </div >
+            </main >
           }
-        </div>
-      </div>
+        </div >
+      </div >
     )
   } if (finished === true) {
     return (

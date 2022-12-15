@@ -76,7 +76,7 @@ input {
 }
 
 .dropdown-content a:hover {
-  background-color: rgba(0, 0, 0, 0.150);
+  background-color: rgba(0, 0, 0, 0.080);
 }
 
 .dropdown:hover .dropdown-content {

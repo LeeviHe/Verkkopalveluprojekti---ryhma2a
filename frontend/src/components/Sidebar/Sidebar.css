@@ -15,6 +15,11 @@
   grid-row: 1 / span end;
 }
 
+.sidebar-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
 .sidebar-btn {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.052);
