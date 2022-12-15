@@ -3,9 +3,17 @@ import axios from 'axios';
 import { v4 as uuid } from 'uuid';
 import '../Order/Order.css';
 import './Checkout.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount, url }) {
+
+  const showToastMessage = () => {
+    toast.success('Tilaus onnistui!', {
+        position: toast.POSITION.TOP_RIGHT
+    });
+};
 
   const [inputs,] = useState([]);
   const [inputIndex, setInputIndex] = useState(-1);
@@ -264,7 +272,7 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                     </div>
                   </div>
 
-                  <button className="submit-btn w-100 btn btn-primary btn-lg mt-3" type="submit">Tilaa</button>
+                  <button className="submit-btn w-100 btn btn-primary btn-lg mt-3" type="submit" onClick={showToastMessage}>Tilaa</button>
 
                 </form>
               </div>
@@ -273,10 +281,10 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
         </div>
       </div>
     )
-  } else {
+  } if (finished === true) {
     return (
       <div className="container col-md-7 col-lg-8">
-        <div className="alert alert-success text-center" role="alert"> Tilaus onnistui </div>
+        <ToastContainer />
       </div>
     )
   }
