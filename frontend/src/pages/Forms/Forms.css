@@ -56,7 +56,7 @@ a:hover {
 
 .form-row {
   margin: 0 auto;
-  width: 60rem;
+  max-width: 60rem;
 }
 
 .h2-title {

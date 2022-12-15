@@ -11,7 +11,7 @@ if(isset($_SESSION["username"])) {
 
 if (!isset($_POST['logemail']) || !isset($_POST["logpassword"])) {
     http_response_code(401);
-    echo "cannot login. Give valid info";
+    echo "Kirjautumistietoja ei löydetty.";
     return;
 }
 
@@ -25,5 +25,5 @@ if ($verified_user) {
     echo $verified_user;
 } else {
     http_response_code(401);
-    echo "Wrong username or password.";
+    echo "Väärä sähköpostiosoite tai salasana.";
 }

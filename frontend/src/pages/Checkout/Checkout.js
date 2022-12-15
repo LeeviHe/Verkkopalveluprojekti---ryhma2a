@@ -172,9 +172,6 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                         pattern='^[a-zA-Zä-öÄ-Ö-_ ]+$'
                         autoComplete="off"
                         onChange={e => setFirstname(e.target.value)} required />
-                      <div className="invalid-feedback">
-                        Tarkista oikeinkirjoitus
-                      </div>
                     </div>
 
                     <div className="col-sm-6">
@@ -187,11 +184,6 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                         pattern='^[a-zA-Zä-öÄ-Ö-_ ]+$'
                         autoComplete="off"
                         onChange={e => setLastname(e.target.value)} required />
-
-                      <div className="invalid-feedback">
-                        Tarkista oikeinkirjoitus
-                      </div>
-
                     </div>
 
                     <div className="col-12">
@@ -200,12 +192,9 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                         className="form-control"
                         id="email"
                         placeholder="nimi@example.com"
-                        pattern="[a-zA-Zä-öÄ-Ö0-9._%+-]+@[a-z0-9.-]+\.[a-z].{2,}$"
+                        pattern="^[a-zA-Zä-öÄ-Ö0-9._%+-]+@[a-z0-9.-]+\.[a-z].{2,}$"
                         autoComplete="off"
-                        onChange={e => setEmail(e.target.value)} />
-                      <div className="invalid-feedback">
-                        Syötä kelvollinen sähköpostiosoite toimituspäivityksiä varten
-                      </div>
+                        onChange={e => setEmail(e.target.value)} required />
                     </div>
 
                     <div className="col-12">
@@ -217,9 +206,6 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                         pattern='^[a-zA-Zä-öÄ-Ö-0-9_ ]+$'
                         autoComplete="off"
                         onChange={e => setAddress(e.target.value)} required />
-                      <div className="invalid-feedback">
-                        Syötä kelvollinen toimitusosoite
-                      </div>
                     </div>
 
                     <div className="col-md-5">
@@ -230,9 +216,6 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                         pattern='^[a-zA-Zä-öÄ-Ö-_ ]+$'
                         autoComplete="off"
                         onChange={e => setCity(e.target.value)} required />
-                      <div className="invalid-feedback">
-                        Valitse kelvollinen kaupunki
-                      </div>
                     </div>
 
                     <div className="col-md-4">
@@ -240,12 +223,9 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                       <input type="text"
                         className="form-control"
                         placeholder="Postinumero"
-                        pattern="[0-9]{1,5}"
+                        pattern="[0-9]{5,5}"
                         autoComplete="off"
                         onChange={e => setZip(e.target.value)} required />
-                      <div className="invalid-feedback">
-                        Postinumero vaaditaan
-                      </div>
                     </div>
                   </div>
 

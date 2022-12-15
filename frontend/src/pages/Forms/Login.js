@@ -39,7 +39,14 @@ export function Login({ setLoggedUser }) {
 
               <div>
                 <br />
-                <input className='form-input' id="email" type="email" value={logemail} onChange={e => setLogemail(e.target.value)} placeholder="Sähköposti" autoComplete='off' required />
+                <input className='form-input'
+                  id="email"
+                  type="email"
+                  value={logemail}
+                  onChange={e => setLogemail(e.target.value)}
+                  placeholder="Sähköposti"
+                  autoComplete='off'
+                  required />
                 <p id="email-field"></p>
               </div>
 
@@ -56,9 +63,9 @@ export function Login({ setLoggedUser }) {
                 </p>
               </div>
               <Link><button type="submit" className='form-btn btn btn-primary mb-4 mt-4' onClick={LogIn}><span>Kirjaudu sisään </span></button></Link>
+              <span style={{ color: 'red' }}>{errorMsg}</span>
             </form>
           </div>
-          <span>{errorMsg}</span>
 
         </div>
       </div>

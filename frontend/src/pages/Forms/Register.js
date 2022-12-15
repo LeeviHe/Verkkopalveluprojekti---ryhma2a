@@ -21,7 +21,8 @@ export default function Register({ setLoggedUser }) {
     setIsActive(current => !current);
   };
 
-  function Register() {
+  function Register(e) {
+    e.preventDefault()
     const json = { fname, lname, email, password }
     axios.post(URL + "credentials/register.php", json, { withCredentials: true })
       .then(resp => setLoggedUser(resp.data))
@@ -41,7 +42,7 @@ export default function Register({ setLoggedUser }) {
 
           <div className="col form-col mt-4 mb-5 text-center">
 
-            <form noValidate name='regForm' id='regForm'>
+            <form name='regForm' id='regForm' onSubmit={Register}>
               <h4 className='register-heading mb-4'>
                 Luo uusi tili
               </h4>
@@ -79,7 +80,7 @@ export default function Register({ setLoggedUser }) {
                   required />
 
                 <span className='error-msg' style={{ fontSize: 'small', color: 'red' }}>
-                  Nimen täytyy olla vähintään 3 merkkiä pitkä. Nimissä ei saa esiintyä numeroita tai erikoismerkkejä.
+                  Nimen täytyy olla vähintään 3 merkkiä pitkä.Nimissä ei saa esiintyä numeroita tai erikoismerkkejä.
                 </span>
 
                 <p id="lname-field"></p>
@@ -90,13 +91,13 @@ export default function Register({ setLoggedUser }) {
                 <input className='form-input register'
                   id="email"
                   type="email"
-                  pattern="[a-zA-Zä-öÄ-Ö0-9._%+-]+@[a-z0-9.-]+\.[a-z].{1,}$"
+                  pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z].{2,}$"
                   onChange={e => setEmail(e.target.value)} placeholder="nimi@example.com" autoComplete='off'
                   required />
 
                 <span className='error-msg' style={{ fontSize: 'small', color: 'red' }}>
                   Tarkista oikeinkirjoitus.<br />
-                  Sähköpostissa täytyy olla @-merkki, ja sen täytyy loppua .com/fi yms.
+                  Sähköpostissa täytyy olla @-merkki.
                 </span>
 
                 <p id="email-field"></p>
@@ -139,7 +140,7 @@ export default function Register({ setLoggedUser }) {
 
                 <p id="password-field"></p>
               </div>
-              <Link to="/"><button type="submit" className='form-btn btn btn-primary mb-4 mt-4' onClick={Register}><span>Rekisteröi </span></button></Link>
+              <button type="submit" className='form-btn btn btn-primary mb-4 mt-4'><span>Rekisteröi </span></button>
             </form>
 
 

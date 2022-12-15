@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import './Header.css';
 import img from '../../images/logos/shoelando_logo.png';
 import Cart from '../Shoppingcart/Shoppingcart.js';
-import ReactDOM from 'react-dom';
-import background from '../../images/header.jpg';
 
 
 export default function Header({ names, loggedUser, setLoggedUser, url, cart, emptyCart, removeFromCart, updateAmount }) {
@@ -15,16 +13,6 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
       .then(resp => setLoggedUser(null))
       .catch(e => console.log(e.message))
   }
-
-  /*
-  render() {
-    const adminmode = {
-      backgroundImage: `url(${background})`,
-      backgroundSize: 'cover',
-      filter: 'grayscale(1)'
-    };
-
-    ReactDOM.render(<Header />, document.getElementById('root')); */
 
   return (
     <>
@@ -48,7 +36,7 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
                 </button>
 
                 <div class="dropdown">
-                  <button class="dropbtn nav-item acc-btn d-flex justify-items-center align-items-center">
+                  <button class="dropbtn nav-item acc-btn d-flex justify-items-center align-items-center" disabled>
                     <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" className="nav-icon" style={{ marginRight: '1rem' }} />
 
                     <span style={{ color: 'black' }}>

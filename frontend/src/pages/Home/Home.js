@@ -20,7 +20,7 @@ export default function Home() {
     <>
       {/* GRID */}
 
-      <div className="container grid-container pt-4">
+      <div className=" grid-container pt-4">
 
         {/* SIDEBAR */}
         <>
