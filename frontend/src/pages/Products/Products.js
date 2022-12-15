@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import './Product.css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -37,9 +37,9 @@ export default function Products({ url, addToCart, img }) {
 
   return (
     <>
-    <ToastContainer />
+      <ToastContainer />
       {/* GRID */}
-      
+
       <div className="container product-container pt-4">
 
         {/* SIDEBAR */}
@@ -56,10 +56,11 @@ export default function Products({ url, addToCart, img }) {
         <div className='products-col pt-4'>
 
           {products.map(product => (
+
             <div className='item' key={product.product_id}>
 
               <div className='thumbnail'>
-                <img className='product-img' src={url + 'img/' + product.img} alt="tuotekuva" />
+                <Link to={"/Product/" + product.product_id}><img className='product-img' src={url + 'img/' + product.img} alt="tuotekuva" /></Link>
                 <p className='group inner list-group-item-text'>
                   {product.brand}
                 </p>

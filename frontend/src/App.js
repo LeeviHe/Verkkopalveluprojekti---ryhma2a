@@ -9,11 +9,11 @@ import Manage from './pages/Manage/Manage';
 import Order from './pages/Order/Order'
 import Products from './pages/Products/Products';
 import Checkout from './pages/Checkout/Checkout';
+import Product from './pages/Product/Product'
 import UConstruction from './pages/Underconstruction/UConstruction';
 import Footer from './components/Footer/Footer';
 import { useState, useEffect } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 
 const URL = 'http://localhost:3000/backend/';
@@ -94,6 +94,7 @@ function App() {
           <Route path="/register" element={<Register setLoggedUser={setLoggedUser} />} />
           <Route path="/kategoriat/:categoryId" element={<Products url={URL} addToCart={addToCart} />} />
           <Route path="/kategoriat/:categoryId/:subcategoryId" element={<Products url={URL} addToCart={addToCart} />} />
+          <Route path="/product/:productId" element={<Product url={URL} addToCart={addToCart} />}  />
           <Route path="/order" element={<Order url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />} />
           <Route path="/Checkout" element={<Checkout url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />} />
           <Route path="*" element={<UConstruction />} />
