@@ -12,6 +12,8 @@ import Checkout from './pages/Checkout/Checkout';
 import UConstruction from './pages/Underconstruction/UConstruction';
 import Footer from './components/Footer/Footer';
 import { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const URL = 'http://localhost:3000/backend/';
@@ -39,6 +41,12 @@ function App() {
     }
   }, [])
 
+  const showToastMessage = () => {
+    toast.success('Tuote lisätty ostoskoriin', {
+        position: toast.POSITION.TOP_RIGHT
+    });
+};
+
   function addToCart(product) {
     if (cart.some(item => item.product_id === product.product_id)) {
       const existingProduct = cart.filter(item => item.product_id === product.product_id);
@@ -50,6 +58,7 @@ function App() {
       setCart(newCart);
       localStorage.setItem('cart', JSON.stringify(newCart));
     }
+    showToastMessage()
   }
 
   function removeFromCart(product) {

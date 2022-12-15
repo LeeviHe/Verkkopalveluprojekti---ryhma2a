@@ -285,6 +285,8 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
     return (
       <div className="container col-md-7 col-lg-8">
         <ToastContainer />
+        <div>Kiitos tilauksestasi, Tilaustasi käsitellään.</div>
+
       </div>
     )
   }

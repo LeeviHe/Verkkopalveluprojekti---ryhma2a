@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import './Product.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function Products({ url, addToCart, img }) {
   const [categoryName, setCategoryName] = useState('');
@@ -34,9 +37,9 @@ export default function Products({ url, addToCart, img }) {
 
   return (
     <>
-
+    <ToastContainer />
       {/* GRID */}
-
+      
       <div className="container product-container pt-4">
 
         {/* SIDEBAR */}
