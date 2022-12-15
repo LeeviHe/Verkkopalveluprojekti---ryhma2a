@@ -54,3 +54,9 @@
   text-decoration: underline;
   border: none;
 }
+
+.message {
+  width: 100%;
+  height: 600px;
+  margin: 50px;
+}
