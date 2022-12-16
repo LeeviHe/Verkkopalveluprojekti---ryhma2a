@@ -51,8 +51,8 @@ export default function Home() {
 
                 <div className="container">
                   <div className="carousel-caption">
-                    <h1>Ilmaiset toimitukset yli 40€ maksaviin tilauksiin!*</h1>
-                    <p>*Tarjous koskee vain valittuja tuotteita.</p>
+                    <h1>Tilaukset Jouluun mennessä kotiin!*</h1>
+                    <p>*Tilaa tuotteet viimeistään 19.12.2022.</p>
                     <Link to="*">
                       <button className="btn-about" href="#"><span>Lue lisää </span></button>
                     </Link>

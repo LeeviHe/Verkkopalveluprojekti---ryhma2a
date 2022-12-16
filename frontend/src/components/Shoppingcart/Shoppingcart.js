@@ -54,13 +54,13 @@ export default function Cart({ cart, removeFromCart, updateAmount, url }) {
 
                     <div className="cart-pic d-flex justify-content-center">
                       <img
-                        style={{ width: '100%', marginRight: '10px' }}  src={url + 'img/' + product.img} alt="tuotekuva" />
+                        style={{ width: '100%', marginRight: '10px' }} src={url + 'img/' + product.img} alt="tuotekuva" />
                     </div>
 
                     <div className="help-container">
 
                       <div style={{ fontSize: "small", color: "darkslategray" }}>
-                        brändi
+                        {product.brand}
                       </div>
 
                       <div className="cart-pname" style={{ fontSize: "small", color: "darkslategray" }}>

@@ -22,15 +22,12 @@ export default function Order({ cart, emptyCart, removeFromCart, updateAmount, u
         }
     }, [cart])
 
-
     function changeAmount(e, product, index) {
         updateAmount(e.target.value, product);
         setInputIndex(index);
     }
 
     let sum = 0;
-
-    // POSTITUSKULUT LISÄTTY
     let finalsum = 1.90;
 
     return (
@@ -38,10 +35,12 @@ export default function Order({ cart, emptyCart, removeFromCart, updateAmount, u
             <div className="order-grid mt-5">
 
                 <div>
-                    <h3 className='font' style={{ marginLeft: "2rem" }}>Ostoskori (x tuotetta)</h3>
+                    <h3 className='font' style={{ marginLeft: "2rem" }}>Ostoskori ({cart.length} eri tuotetta)</h3>
+
                     {cart.map((product, index) => {
                         sum += parseFloat(product.price * product.amount);
                         finalsum += parseFloat(product.price * product.amount);
+
                         return (
                             <>
                                 <div className='container'>
@@ -49,12 +48,12 @@ export default function Order({ cart, emptyCart, removeFromCart, updateAmount, u
                                     <form className="cart-form mb-3" key={uuid()} >
 
                                         <div className="form-item cart-form-img">
-                                            <img 
-                                                style={{ width: '100%' }}  src={url + 'img/' + product.img} alt="tuotekuva" />
+                                            <img
+                                                style={{ width: '100%' }} src={url + 'img/' + product.img} alt="tuotekuva" />
                                         </div>
 
                                         <div className='form-item rcol'>
-                                            brändi
+                                            {product.brand}
                                         </div>
 
                                         <div className="form-item lcol">
@@ -98,13 +97,13 @@ export default function Order({ cart, emptyCart, removeFromCart, updateAmount, u
                             <div className='mb-3'>Välisumma</div>
                             <div className='cart-price'>{sum.toLocaleString(navigator.language, { minimumFractionDigits: 2 })} €</div>
                             <div className='mb-3'>Toimituskulut</div>
-                            <div className='cart-price'>1,90 €</div>
+                            <div className='cart-price'>{(finalsum - sum).toLocaleString(navigator.language, { minimumFractionDigits: 2 })} €</div>
                             <div className='mb-3'>Kokonaissumma</div>
                             <div className='cart-price'>{finalsum.toLocaleString(navigator.language, { minimumFractionDigits: 2 })} €</div>
 
                         </div>
                         <Link to="/checkout">
-                        <button type="button" className="checkout-btn btn btn-primary mt-4">Kassalle</button>
+                            <button type="button" className="checkout-btn btn btn-primary mt-4">Kassalle</button>
                         </Link>
                     </div>
                 </div>

@@ -101,7 +101,7 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
                           </div>
 
                           <div className='form-item rcol'>
-                            brändi
+                            {product.brand}
                           </div>
 
                           <div className="form-item lcol">

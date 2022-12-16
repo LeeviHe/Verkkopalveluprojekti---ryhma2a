@@ -111,7 +111,7 @@ export default function Footer() {
           <ul className="footer-column">
 
             <li className="footer-item mb-2">
-              <Link to="*" className="footer-link p-0">Ilmainen kuljetus*</Link>
+              <Link to="*" className="footer-link p-0">Ekologinen kuljetus</Link>
             </li>
 
             <li className="footer-item mb-2">
