@@ -1,14 +1,19 @@
 .product-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 5rem;;
+  column-gap: 3rem;
+  padding: 0 2rem;
 }
 
-.one {
+.f-g-col {
 grid-column: 1;
+padding: 0.5rem;
+    margin: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.032);
+    border-radius: 5px;
 }
 
-.two {
+.s-g-col {
   grid-column: 2;
 }
 

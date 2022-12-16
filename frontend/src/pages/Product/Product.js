@@ -22,8 +22,6 @@ export default function Product({ url, addToCart }) {
             })
     }, [params])
 
-
-
     return (
         <>
             <ToastContainer />
@@ -38,14 +36,13 @@ export default function Product({ url, addToCart }) {
                 </div>
 
                 <div className='container product-grid mt-5'>
-                    <div className='one'>
-
+                    <div className='f-g-col'>
                         <div>
                             <img className='product-img' src={url + 'img/' + product?.img} alt="tuotekuva" />
                         </div>
                     </div>
 
-                    <div className='two'>
+                    <div className='s-g-col'>
                         <p className='brand-name'>
                             {product?.brand}
                         </p>
