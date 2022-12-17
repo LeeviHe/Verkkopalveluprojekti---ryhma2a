@@ -1,0 +1,17 @@
+.manage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 3rem;
+}
+
+.manage-category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-column: 1;
+}
+
+.manage-product {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
