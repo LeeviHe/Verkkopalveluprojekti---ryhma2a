@@ -31,7 +31,7 @@ export default function Sidebar() {
       }).catch(error => {
         alert(error.response === undefined ? error : error.response.data.error)
       })
-    axios.get(URL + 'products/getsubcategories.php/' + params.categoryId)
+    axios.get(URL + 'products/getsubcategories.php')
       .then((response) => {
         const json = response.data;
         setSubCategories(json);
