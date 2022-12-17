@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import './Header.css';
 import img from '../../images/logos/shoelando_logo.png';
 import Cart from '../Shoppingcart/Shoppingcart.js';
@@ -8,10 +8,19 @@ import Cart from '../Shoppingcart/Shoppingcart.js';
 
 export default function Header({ names, loggedUser, setLoggedUser, url, cart, emptyCart, removeFromCart, updateAmount }) {
 
+  const [search, setSearch] = useState([]);
+
   function logout() {
     axios.get(url + "credentials/logout.php", { withCredentials: true })
       .then(resp => setLoggedUser(null))
       .catch(e => console.log(e.message))
+  }
+
+  function executeSearch(e) {
+    if (e.charCode === 13) {
+      e.preventDefault();
+      Navigate('/search/' + search);
+    }
   }
 
   return (
@@ -29,7 +38,12 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
 
             <li className="nav-item">
               <form className='d-flex justify-content-center align-items-center'>
-                <input type="search" className="form-control-dark me-2" placeholder="Etsi..." aria-label="Search"></input>
+                <input type="search"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  onKeyUp={(e) => executeSearch(e)}
+                  className="form-control-dark me-2" placeholder="Etsi..."
+                  aria-label="Search"></input>
 
                 <button className="nav-item">
                   <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" className="nav-icon search-icon"></img>
@@ -63,7 +77,7 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
                   </ul>
                 </div>
 
-                {loggedUser == "admin@admin" ?
+                {loggedUser == "admin" ?
                   <button className='nav-item' type="button">
                     <Link to="/manage">
                       <img src='https://cdn-icons-png.flaticon.com/512/2040/2040504.png' className='nav-icon' />

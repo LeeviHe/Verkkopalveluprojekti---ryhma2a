@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import '../../App.js';
 import './Home.css';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Carousel from '../../components/Carousel/Carousel';
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 // LOGOS
 
@@ -14,13 +15,49 @@ import logo4 from '../../images/logos/Timberland.png';
 import logo5 from '../../images/logos/ugg.png';
 import logo6 from '../../images/logos/tomtailor.png';
 
-export default function Home() {
+export default function Home({ url }) {
+
+  const [images, setImages] = useState([]);
+  const tester = []
+
+  useEffect(() => {
+    axios.get(url + 'products/getimages.php')
+      .then((response) => {
+        setImages(response.data);
+      }).catch(error => {
+        alert(error.response === undefined ? error : error.response.data.error);
+      })
+  }, [])
+  console.log(images)
+
+  /*
+    function showImage(subcategory_id, image) {
+      if (subcategory_id === 1) {
+        return (
+          <div className="m-carousel-img">
+            <img className='product-img' src={url + 'img/' + image} alt="tuotekuva" />
+          </div>
+        )
+      }
+    } */
+
+
+  function testi(testi, products) {
+    products.map(n => {
+      if (n.subcategory_id === testi) {
+        tester.append(n)
+        console.log(tester)
+      }
+    }
+    )
+  }
 
   return (
     <>
+      <button onClick={testi.bind(this, 3, images)}>TESTI</button>
       {/* GRID */}
 
-      <div className=" grid-container pt-4">
+      <div className="grid-container pt-4">
 
         {/* SIDEBAR */}
         <>
@@ -131,36 +168,20 @@ export default function Home() {
         <div className='products-carousel'>
 
           <h1 className="products-header">ALE</h1>
+          {/*
           <Carousel
             show={3}
-            infiniteLoop
-          >
-            <div>
+            infiniteLoop>
+
+            {tester.map(product => (
+
               <div className="m-carousel-img">
-                <img alt="placeholder" style={{ width: '100%' }} />
+                <img className='product-img' src={url + 'img/' + product.img} alt="tuotekuva" />
               </div>
-            </div>
-            <div>
-              <div className="m-carousel-img">
-                <img alt="placeholder" style={{ width: '100%' }} />
-              </div>
-            </div>
-            <div>
-              <div className="m-carousel-img">
-                <img style={{ width: '100%' }} />
-              </div>
-            </div>
-            <div>
-              <div className="m-carousel-img">
-                <img style={{ width: '100%' }} />
-              </div>
-            </div>
-            <div>
-              <div className="m-carousel-img">
-                <img style={{ width: '100%' }} />
-              </div>
-            </div>
-          </Carousel>
+            )
+
+            )} 
+            </Carousel>*/}
 
           <h1 className="products-header">Uutuudet</h1>
 
@@ -245,12 +266,12 @@ export default function Home() {
           </Carousel>
 
         </div>
-      </div>
+      </div >
 
 
       {/* FIXED SECTION */}
 
-      <div className='fixed-section'>
+      < div className='fixed-section' >
         <div className='fixed-banner'>
           <div className='fixed-text'>
             <h2 class="fw-normal">10% Alennus ensimmäisestä ostoksestasi.</h2>
@@ -266,7 +287,7 @@ export default function Home() {
             </form>
           </div>
         </div>
-      </div>
+      </div >
 
     </>
   )

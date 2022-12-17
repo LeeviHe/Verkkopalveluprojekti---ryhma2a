@@ -43,9 +43,9 @@ function App() {
 
   const showToastMessage = () => {
     toast.success('Tuote lisätty ostoskoriin', {
-        position: toast.POSITION.TOP_RIGHT
+      position: toast.POSITION.TOP_RIGHT
     });
-};
+  };
 
   function addToCart(product) {
     if (cart.some(item => item.product_id === product.product_id)) {
@@ -83,18 +83,20 @@ function App() {
 
   return (
     <>
-      <Header names ={names} loggedUser={loggedUser} setLoggedUser={setLoggedUser} url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />
+      <Header names={names} loggedUser={loggedUser} setLoggedUser={setLoggedUser} url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />
 
       <div className='container'>
 
         <Routes>
-          <Route path="/" element={<Home />} />
           {loggedUser ? <Route path="/login" element={<Userpage logemail={loggedUser} />} /> : <Route path="/login" element={<Login setLoggedUser={setLoggedUser} />} />}
-          <Route path="/manage" element={<Manage url={URL}/>} />
+
+          <Route path="/" element={<Home url={URL} />} />
+          <Route path="/manage" element={<Manage url={URL} />} />
           <Route path="/register" element={<Register setLoggedUser={setLoggedUser} />} />
           <Route path="/kategoriat/:categoryId" element={<Products url={URL} addToCart={addToCart} />} />
           <Route path="/kategoriat/:categoryId/:subcategoryId" element={<Products url={URL} addToCart={addToCart} />} />
-          <Route path="/product/:productId" element={<Product url={URL} addToCart={addToCart} />}  />
+          <Route path="/search/:searchPhrase" element={<Products url={URL} />} />
+          <Route path="/product/:productId" element={<Product url={URL} addToCart={addToCart} />} />
           <Route path="/order" element={<Order url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />} />
           <Route path="/Checkout" element={<Checkout url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />} />
           <Route path="*" element={<UConstruction />} />

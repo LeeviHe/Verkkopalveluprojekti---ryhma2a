@@ -2,11 +2,12 @@ import axios from 'axios';
 import './Manage.css';
 import React, { useState, useEffect } from 'react';
 import { CategoryList } from './Categorylist';
+import { SubCategoryList } from './Subcategorylist';
 
 export default function Manage({url}) {
     const [newCategory, setNewCategory] = useState("")
     const [newSubCategory, setNewSubCategory] = useState("")
-    const [newSubCategoryCatid, setNewSubCategoryCatid] = useState("")
+    const [newSubCategoryCat, setNewSubCategoryCat] = useState("")
     const [selectedCategory, setSelectedCategory] = useState(null)
     const [selectedSubCategory, setSelectedSubCategory] = useState(null)
     const [addingCategory, setAddingCategory] = useState(false)
@@ -31,7 +32,7 @@ export default function Manage({url}) {
 
     function saveSubCategory(e) {
         e.preventDefault()
-        const json = JSON.stringify({name: newSubCategory, id: newSubCategoryCatid})
+        const json = JSON.stringify({name: newSubCategory, id: newSubCategoryCat})
         axios.post(url + 'products/addsubcategory.php', json, {
             headers: {
                 'Content-Type' : 'application/json'
@@ -42,29 +43,28 @@ export default function Manage({url}) {
             setAddingSubCategory(false)
             setSelectedSubCategory(response.data)
         }) .catch(error => {
-            alert(error.response === undefined ? error + "testoi" : error.response.data.error)
+            alert(error.response === undefined ? error: error.response.data.error)
+        })
+    }
+
+    function saveProduct(e) {
+        e.preventDefault()
+        const json = JSON.stringify({name: newSubCategory, id: newSubCategoryCat})
+        axios.post(url + 'products/addproduct.php', json, {
+            headers: {
+                'Content-Type' : 'application/json'
+            }
+        })
+        .then((response) => {
+            setNewSubCategory('')
+            setAddingSubCategory(false)
+            setSelectedSubCategory(response.data)
+        }) .catch(error => {
+            alert(error.response === undefined ? error: error.response.data.error)
         })
     }
 
     if (!addingCategory && !addingSubCategory) {
-        return (
-            <>
-            <h3>Manage categories</h3>
-            <div>
-                <label>Category</label>
-                <CategoryList
-                url = {url}
-                selectedCategory= {selectedCategory}
-                setSelectedCategory = {setSelectedCategory}
-                selectedSubCategory = {selectedSubCategory}
-                setSelectedSubCategory = {setSelectedSubCategory}
-                />
-                <button className='btn btn-dark' type ="button" onClick={()=> setAddingCategory(true)}>Add category</button>
-                <button className='btn btn-dark' type ="button" onClick={()=> setAddingSubCategory(true)}>Add subcategory</button>
-            </div>
-            </>
-        )
-    } else if (addingCategory && !addingSubCategory) {
         return (
             <>
             <h3>Add new category</h3>
@@ -76,25 +76,62 @@ export default function Manage({url}) {
                 <button type="button" onClick={() => setAddingCategory(false)}>Cancel</button>
                 <button type="submit">Save</button>
             </form>
-            </>
-        )
-    } else if (!addingCategory && addingSubCategory) {
-        return (
-            <>
             <h3>Add new subcategory</h3>
             <form onSubmit={saveSubCategory}>
                 <div>
                     <label>Subcategory name</label>
                     <input type="text" value={newSubCategory} onChange={(e) => setNewSubCategory(e.target.value)}/>
                 </div>
+                {/*<div>
+                    <label>Category</label>
+                    <CategoryList
+                    url = {url}
+                    selectedCategory= {selectedCategory}
+                    setSelectedCategory = {setSelectedCategory}
+                    />
+                </div>*/}
                 <div>
-                    <label>Subcategory categoryid</label>
-                    <input type="text" value={newSubCategoryCatid} onChange={(e) => setNewSubCategoryCatid(e.target.value)}/>
+                    <input type="text" value={newSubCategoryCat} onChange={(e) => setNewSubCategoryCat(e.target.value)}/>
                 </div>
                 <button type="button" onClick={() => setAddingSubCategory(false)}>Cancel</button>
                 <button type="submit">Save</button>
             </form>
+            <h3>Add products</h3>
+            <form onSubmit={saveProduct}>
+                <div>
+                    <label>Brand</label>
+                    <input type="text" value={newSubCategory} onChange={(e) => setNewSubCategory(e.target.value)}/>
+                </div>
+                <div>
+                    <label>Product name</label>
+                    <input type="text" value={newSubCategory} onChange={(e) => setNewSubCategory(e.target.value)}/>
+                </div>
+                <div>
+                    <label>Product price</label>
+                    <input type="text" value={newSubCategory} onChange={(e) => setNewSubCategory(e.target.value)}/>
+                </div>            
+                <div>
+                    <label>Category</label>
+                    <CategoryList
+                    url = {url}
+                    selectedCategory= {selectedCategory}
+                    setSelectedCategory = {setSelectedCategory}
+                    />
+                </div>
+                {selectedCategory ?             
+                <div>
+                    <label>Subcategory</label>
+                    <SubCategoryList
+                    url = {url}
+                    selectedCategory = {selectedCategory}
+                    selectedSubCategory = {selectedSubCategory}
+                    setSelectedSubCategory = {setSelectedSubCategory}
+                    />
+                </div>
+                : <span></span>}
+                <button type="submit">Save</button>
+            </form>
             </>
         )
-    }
+}
 }
