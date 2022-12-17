@@ -88,8 +88,9 @@ function App() {
       <div className='container'>
 
         <Routes>
-          <Route path="/" element={<Home />} />
           {loggedUser ? <Route path="/login" element={<Userpage logemail={loggedUser} />} /> : <Route path="/login" element={<Login setLoggedUser={setLoggedUser} />} />}
+
+          <Route path="/" element={<Home url={URL} />} />
           <Route path="/manage" element={<Manage url={URL} />} />
           <Route path="/register" element={<Register setLoggedUser={setLoggedUser} />} />
           <Route path="/kategoriat/:categoryId" element={<Products url={URL} addToCart={addToCart} />} />
