@@ -58,7 +58,6 @@ export default function Product({ url, addToCart }) {
 
                     <div className='mt-5 mb-5 product-info'>
                         <p><ion-icon name="information-circle-outline"></ion-icon>&nbsp;Tuotteen keskimääräinen toimitusaika on 5-7 arkipäivää tilauksen vahvistamisesta.</p>
-                        <p><ion-icon name="information-circle-outline"></ion-icon>&nbsp;Ilmainen toimitus</p>
                     </div>
 
                     <div className='promises mt-5'>

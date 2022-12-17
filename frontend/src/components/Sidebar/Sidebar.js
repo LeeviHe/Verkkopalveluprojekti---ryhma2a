@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { UNSAFE_DataRouterContext, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
 import darr from '../../images/ion-icon/chevron-down-outline.svg';
@@ -11,7 +11,6 @@ const URL = 'http://localhost:3000/backend/';
 export default function Sidebar() {
   const [categories, setCategories] = useState([])
   const [subcategories, setSubCategories] = useState([])
-
   const [showIcon, setShowIcon] = useState(false);
   const [showActive, setShowActive] = useState(false);
 

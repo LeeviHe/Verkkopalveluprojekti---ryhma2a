@@ -48,7 +48,7 @@ CREATE TABLE `orderrow` (
 CREATE TABLE `product` (
   `product_id` int(11) primary key AUTO_INCREMENT,
   `brand` char(20),
-  `productname` char(20) NOT NULL,
+  `productname` char(30) NOT NULL,
   `price` decimal(5,2) DEFAULT NULL,
   `category_id` SMALLINT(6) NOT NULL,
   `subcategory_id` SMALLINT(6),
@@ -129,8 +129,36 @@ VALUES ('Kesäkengät'), ('Talvikengät'), ('Juhlakengät');
 INSERT INTO subcategory (subcategoryname, category_id)
 VALUES ('Tennarit', 1), ('Sandaalit', 1), ('Nilkkurit', 2), ('Talvisaappaat', 2), ('Korkokengät', 3), ('Puvunkengät', 3);
 INSERT INTO product (brand, productname, price, category_id, subcategory_id, img)
-VALUES ('Adidas', 'Lite Racer Adapt', 149.99, 1, 1, 'adidas1.png'), ('Adidas', 'Ace Tango', 75, 1, 1, 'adidas4.png'), ('SeeByChloe', 'Gema leather mules', 139.99, 1, 2, 'Sandal1.png'), ('Havaianas', 'Top-Tiras Ballet', 23.50, 1, 2, 'Sandal2.png'), 
-('DeeZee', 'Nilkkurit', 99.45, 2, 4, 'Long Wintershoe 4.png'), ('Merrel', 'Bravada Edge 2', 129, 2, 3, 'Short Wintershoe 4.png'), ('Prada', 'Korolliset sandaalit', 850, 3, 5, 'Highheel.png'), ('Evita Lisa', 'Korolliset avokkaat', 210, 3, 5, 'Highheel2.png'), ('Topman', 'Classic nauhakengät', 149, 3, 6, 'Suit Shoe1.png'), ('Topman', 'Loaferit', 95, 3, 6, 'Suit Shoe2.png'), 
-('Adidas', 'Original Superstar', 119.99, 1, 1, 'adidas5.png'), ('Nike', 'Air Jordan 1 Mid', 200, 1, 1, 'nike3.png'), ('Birkenstock', 'Arizona Oiled Black', 90, 1, 2, 'Sandal3.png'), ('Aree', 'Re:Designed', 84.90, 1, 2, 'Sandal4.png');
+VALUES
+-- KESÄKENGÄT
+('SeeByChloe', 'GEMA LEATHER MULES', 139.99, 1, 2, 'Sandal1.png'),
+('Adidas', 'ORIGINAL SUPERSTAR', 119.99, 1, 1, 'adidas5.png'),
+('Havaianas', 'TOP-TIRAS BALLET', 23.50, 1, 2, 'Sandal2.png'),
+('Nike', 'AIR 1 RETRO OG', 184.95, 1, 1, 'nike3.png'),
+('Puma', 'Lyhytvartiset tennarit', 44.99, 1, 1, 'puma1.png'),
+('Birkenstock', 'ARIZONA OILED BLACK', 90, 1, 2, 'Sandal3.png'),
+
+-- TALVIKENGÄT
+-- Nilkkurit
+('Marco Tozzi', 'Nauhalliset nilkkurit', 94.95, 2, 3, 'Long Wintershoe5.png'),
+('Merrel', 'BRAVADA EDGE 2', 129, 2, 3, 'Short Wintershoe 4.png'),
+('Timberland', '6 INCH WR BASIC', 219.95, 2, 3, 'Short Wintershoe 6.png'),
+
+-- Talvisaappaat
+('Desdemona', 'HICKORY', 199, 2, 4, 'Long Wintershoe6.png'),
+('Bianco', 'Vuorelliset talvisaappaat', 199, 2, 4, 'womenwinter.png'),
+('joku', 'joku', 199, 2, 4, 'Long Wintershoe6.png'),
+
+-- JUHLAKENGÄT
+-- Korkokengät
+('Prada', 'Korolliset sandaalit', 850, 3, 5, 'Highheel.png'),
+('Evita Lisa', 'Korolliset avokkaat', 210, 3, 5, 'Highheel2.png'),
+('Evita Lisa', 'Korolliset avokkaat', 210, 3, 5, 'Highheel2.png'),
+
+-- Puvunkengät
+('Topman', 'Klassiset nauhakengät', 149.99, 3, 6, 'Suit Shoe1.png'),
+('Topman', 'Loaferit/pistokkaat', 95, 3, 6, 'Suit Shoe2.png'),
+('Pier One', 'Loaferit/pistokkaat', 74.95, 3, 6, 'Suit shoe3.png');
+
 INSERT INTO customer (fname, lname, email, password, admin)
 VALUES ('Admin', 'Admin', 'admin', '$2y$10$eNAxooWSvnHdqXcbuCqxEutdkCjVcsW/ykkjf9B25JsjNLlSQnA5.', 1);

@@ -14,6 +14,28 @@ export default function Products({ url, addToCart, img }) {
   let params = useParams();
 
   useEffect(() => {
+    let address = '';
+
+    if (params.searchPhrase === undefined) {
+      address = url + 'products/getproducts.php/' + params.category_id;
+    } else {
+      address = url + 'products/search.php/' + params.searchPhrase;
+    }
+
+    axios.get(address)
+      .then((response) => {
+        const json = response.data;
+        if (params.searchPhrase === undefined) {
+          setCategoryName(json.category);
+          setProducts(json.products);
+        } else {
+          setCategoryName(params.searchPhrase);
+          setProducts(json);
+        }
+      })
+  })
+
+  useEffect(() => {
     if (params.subcategoryId != null) {
       axios.get(url + 'products/getsubproducts.php/' + params.categoryId + '/' + params.subcategoryId)
         .then((response) => {
@@ -64,7 +86,7 @@ export default function Products({ url, addToCart, img }) {
                 <p className='group inner list-group-item-text'>
                   {product.brand}
                 </p>
-                <h6>{product.productname}</h6> {/* productname -> productbrand tai brand*/}
+                <h6>{product.productname}</h6>
               </div>
 
               <div className="row">
