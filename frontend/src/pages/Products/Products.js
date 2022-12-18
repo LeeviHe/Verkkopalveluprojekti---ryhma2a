@@ -15,16 +15,16 @@ export default function Products({ url, addToCart, img }) {
 
   useEffect(() => {
     let address = '';
-
     if (params.searchPhrase === undefined) {
-      address = url + 'products/getproducts.php/' + params.category_id;
+      address = url + '/products/getproducts.php/' + params.categoryId;
     } else {
-      address = url + 'products/search.php/' + params.searchPhrase;
+      address = url + '/products/search.php/' + params.searchPhrase;
     }
 
     axios.get(address)
       .then((response) => {
         const json = response.data;
+        //console.log(json);
         if (params.searchPhrase === undefined) {
           setCategoryName(json.category);
           setProducts(json.products);
@@ -32,8 +32,10 @@ export default function Products({ url, addToCart, img }) {
           setCategoryName(params.searchPhrase);
           setProducts(json);
         }
+      }).catch(error => {
+        alert(error.response === undefined ? error : error.response.data.error)
       })
-  })
+  }, [params])
 
   useEffect(() => {
     if (params.subcategoryId != null) {
@@ -45,7 +47,7 @@ export default function Products({ url, addToCart, img }) {
         }).catch(error => {
           alert(error.response === undefined ? error : error.response.data.error);
         })
-    } else {
+    } else if (params.searchPhrase === undefined) {
       axios.get(url + 'products/getproducts.php/' + params.categoryId)
         .then((response) => {
           const json = response.data;
@@ -72,8 +74,7 @@ export default function Products({ url, addToCart, img }) {
           </>
         </div>
 
-
-        <div className='product-item category-name'>Tuotteet kategoriassa {categoryName}</div>
+        {params.searchPhrase ? <div className='product-item category-name'>Tuotteet haulla {categoryName}</div> : <div className='product-item category-name'>Tuotteet kategoriassa {categoryName}</div>}
 
         <div className='products-col pt-4'>
 
