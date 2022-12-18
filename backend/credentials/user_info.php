@@ -16,5 +16,5 @@ $result['names'] = $names;
 
 $json = json_encode($result);
 header('Content-type: application/json');
-echo htmlspecialchars($json);
+echo $json;
 //Testi tiedosto atm
