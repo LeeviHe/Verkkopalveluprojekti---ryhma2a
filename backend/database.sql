@@ -152,7 +152,7 @@ VALUES
 ('Topman', 'Loaferit/pistokkaat', 95, 3, 6, 'Suit2.png'),
 ('Pier One', 'Loaferit/pistokkaat', 74.95, 3, 6, 'Suit3.png'),
 ('Evita Lisa', 'Korolliset avokkaat', 210, 3, 5, 'Heel2.png'),
-('Topman', 'Klassiset nauhakengät', 149.99, 3, 6, 'Suit.png'),
+('Topman', 'Klassiset nauhakengät', 149.99, 3, 6, 'Suit1.png'),
 ('Prada', 'Korolliset sandaalit', 850, 3, 5, 'Heel.png');
 
 INSERT INTO customer (fname, lname, email, password, admin)
