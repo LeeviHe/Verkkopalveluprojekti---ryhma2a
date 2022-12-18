@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import './Forms.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const URL = 'http://localhost:3000/backend/'
 
@@ -10,6 +10,7 @@ export default function Register({ setLoggedUser }) {
   const [lname, setLname] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const navigate = useNavigate();
 
   /** TOGGLE PASSWORD VISIBILITY */
   const [showPassw, setShowPassw] = useState(false);
@@ -29,6 +30,7 @@ export default function Register({ setLoggedUser }) {
       .catch(error => {
         alert(error.response === undefined ? error : error.response.data.error)
       })
+    navigate('/');
   }
 
   return (
@@ -80,7 +82,7 @@ export default function Register({ setLoggedUser }) {
                   required />
 
                 <span className='error-msg' style={{ fontSize: 'small', color: 'red' }}>
-                  Nimen täytyy olla vähintään 3 merkkiä pitkä.Nimissä ei saa esiintyä numeroita tai erikoismerkkejä.
+                  Nimen täytyy olla vähintään 3 merkkiä pitkä. Nimissä ei saa esiintyä numeroita tai erikoismerkkejä.
                 </span>
 
                 <p id="lname-field"></p>
@@ -97,7 +99,7 @@ export default function Register({ setLoggedUser }) {
 
                 <span className='error-msg' style={{ fontSize: 'small', color: 'red' }}>
                   Tarkista oikeinkirjoitus.<br />
-                  Sähköpostissa täytyy olla @-merkki.
+                  Sähköpostissa täytyy olla @-merkki ja sen täytyy loppua .com/fi yms.
                 </span>
 
                 <p id="email-field"></p>

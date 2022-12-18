@@ -11,14 +11,6 @@ const URL = 'http://localhost:3000/backend/';
 export default function Sidebar() {
   const [categories, setCategories] = useState([])
   const [subcategories, setSubCategories] = useState([])
-  const [showIcon, setShowIcon] = useState(false);
-  const [showActive, setShowActive] = useState(false);
-
-  const toggleIcon = (e) => {
-    e.preventDefault();
-    setShowIcon(!showIcon);
-    setShowActive(current => !current);
-  };
 
   let params = useParams();
 
@@ -74,19 +66,7 @@ export default function Sidebar() {
                 </Link>}
 
                 <span className='collapsed' data-bs-toggle="collapse" data-bs-target={"#home-collapse" + category.category_id} aria-expanded="false">
-
-                  <span className={showActive ? '1' : 'hidden'}
-                    onClick={toggleIcon}>
-                    <img className="arr-icon" src={darr} alt="arrow-down"
-                      key={category.category_id} />
-                  </span>
-
-                  <span className={showActive ? 'hidden' : '1'}
-                    onClick={toggleIcon}>
-                    <img className="arr-icon" src={uarr} alt="arrow-up"
-                      key={category.category_id} />
-                  </span>
-
+                  <img className="arr-icon" src={darr} alt="arrow-down" key={category.category_id} />
                 </span>
 
               </button>

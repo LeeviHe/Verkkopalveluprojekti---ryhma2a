@@ -3,7 +3,7 @@ html {
   font-family: 'Belgrano', serif;
   /*bg-img: https://www.freepik.com/free-photo/neutral-abstract-texture-simple-background_15554674.htm#query=brown%20banner&position=4&from_view=keyword*/
   /*background-image: url('../../images/body-background.png'); */
-  background-color: black;
+  background: url('../../images/body-background.png');
   background-size: cover;
 }
 

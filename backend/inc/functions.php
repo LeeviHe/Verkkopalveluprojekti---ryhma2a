@@ -35,11 +35,19 @@ function returnError(PDOException $pdoex){
 function registerUser($fname, $lname, $email, $password) {
     $db = openDb();
 
+    // check if the connection was successsful
+    if ($db->connect_error) {
+        die('Connection failed: ' . $db->connect_error);
+    }
+
     $pw = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO customer (fname, lname, email, password) values (?, ?, ?, ?)";
     $statement = $db->prepare($sql);
     $statement->execute(array($fname, $lname, $email, $pw));
+
+    header('Location: register.php');
+    exit;
 }
 
 //Käyttäjän email osoitetta käytetään $username:na

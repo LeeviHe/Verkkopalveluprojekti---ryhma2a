@@ -139,26 +139,21 @@ VALUES
 ('Birkenstock', 'ARIZONA OILED BLACK', 90, 1, 2, 'Sandal3.png'),
 
 -- TALVIKENGÄT
--- Nilkkurit
 ('Marco Tozzi', 'Nauhalliset nilkkurit', 94.95, 2, 3, 'Winter4.png'),
-('Merrel', 'BRAVADA EDGE 2', 129, 2, 3, 'Winter3.png'),
-('Timberland', '6 INCH WR BASIC', 219.95, 2, 3, 'Winter2 6.png'),
-
--- Talvisaappaat
+('Catmandoo', 'TANYA LL Talvisaappaat', 79, 2, 4, 'Boots4.png'),
+('Timberland', '6 INCH WR BASIC', 219.95, 2, 3, 'Winter2.png'),
 ('Desdemona', 'HICKORY', 199, 2, 4, 'Boots3.png'),
 ('Bianco', 'Vuorelliset talvisaappaat', 199, 2, 4, 'Boots1.png'),
-('Catmandoo', 'Tanya LL Talvisaappaat', 79, 2, 4, 'Boots4.png'),
+('Merrel', 'BRAVADA EDGE 2', 129, 2, 3, 'Winter3.png'),
 
 -- JUHLAKENGÄT
 -- Korkokengät
-('Prada', 'Korolliset sandaalit', 850, 3, 5, 'Heel.png'),
-('Evita Lisa', 'Korolliset avokkaat', 210, 3, 5, 'Heel2.png'),
-('Next', 'Forever Comfort Korolliset avokkaat', 56, 3, 5, 'Heel3.png'),
-
--- Puvunkengät
-('Topman', 'Klassiset nauhakengät', 149.99, 3, 6, 'Suit1.png'),
+('Next', 'Korolliset avokkaat', 56, 3, 5, 'Heel3.png'),
 ('Topman', 'Loaferit/pistokkaat', 95, 3, 6, 'Suit2.png'),
-('Pier One', 'Loaferit/pistokkaat', 74.95, 3, 6, 'Suit3.png');
+('Pier One', 'Loaferit/pistokkaat', 74.95, 3, 6, 'Suit3.png'),
+('Evita Lisa', 'Korolliset avokkaat', 210, 3, 5, 'Heel2.png'),
+('Topman', 'Klassiset nauhakengät', 149.99, 3, 6, 'Suit1.png'),
+('Prada', 'Korolliset sandaalit', 850, 3, 5, 'Heel.png');
 
 INSERT INTO customer (fname, lname, email, password, admin)
 VALUES ('Admin', 'Admin', 'admin', '$2y$10$eNAxooWSvnHdqXcbuCqxEutdkCjVcsW/ykkjf9B25JsjNLlSQnA5.', 1);

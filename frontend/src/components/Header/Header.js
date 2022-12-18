@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './Header.css';
 import img from '../../images/logos/shoelando_logo.png';
 import Cart from '../Shoppingcart/Shoppingcart.js';
@@ -8,6 +8,7 @@ import Cart from '../Shoppingcart/Shoppingcart.js';
 
 export default function Header({ names, loggedUser, setLoggedUser, url, cart, emptyCart, removeFromCart, updateAmount }) {
 
+  const [categories, setCategories] = useState([]);
   const [search, setSearch] = useState([]);
 
   function logout() {
@@ -16,10 +17,23 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
       .catch(e => console.log(e.message))
   }
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log(url);
+    axios.get(url + '/products/getcategories.php')
+      .then((response) => {
+        const json = response.data;
+        setCategories(json);
+      }).catch(error => {
+        alert(error.response === undefined ? error : error.response.data.error)
+      })
+  }, [])
+
   function executeSearch(e) {
     if (e.charCode === 13) {
       e.preventDefault();
-      Navigate('/search/' + search);
+      navigate('/search/' + search);
     }
   }
 
@@ -37,15 +51,19 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
           <ul className="nav nav-pills">
 
             <li className="nav-item">
+
               <form className='d-flex justify-content-center align-items-center'>
-                <input type="search"
+
+                <input
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  onKeyUp={(e) => executeSearch(e)}
-                  className="form-control-dark me-2" placeholder="Etsi..."
-                  aria-label="Search"></input>
+                  onKeyPress={(e) => executeSearch(e)}
+                  className="form-control-dark me-2 search-input"
+                  type="search"
+                  placeholder='Etsi...'
+                  aria-label='Search'></input>
 
-                <button className="nav-item">
+                <button type="submit" className="nav-item">
                   <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" className="nav-icon search-icon"></img>
                 </button>
 

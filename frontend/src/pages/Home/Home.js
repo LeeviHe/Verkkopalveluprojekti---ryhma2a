@@ -17,44 +17,36 @@ import logo6 from '../../images/logos/tomtailor.png';
 
 export default function Home({ url }) {
 
-  const [images, setImages] = useState([]);
-  const tester = []
+  const [sale, setSale] = useState([]);
+  const [latest, setLatest] = useState([]);
+  const [wanted, setWanted] = useState([]);
 
   useEffect(() => {
-    axios.get(url + 'products/getimages.php')
+    axios.get(url + 'products/getcarouselimages.php/2')
       .then((response) => {
-        setImages(response.data);
+        const json = response.data;
+        setSale(json);
       }).catch(error => {
-        alert(error.response === undefined ? error : error.response.data.error);
+        alert(error.response === undefined ? error : error.response.data.error
+          )})
+      axios.get(url + 'products/getcarouselimages.php/3')
+      .then((response) => {
+        const json = response.data;
+        setLatest(json);
+      }).catch(error => {
+        alert(error.response === undefined ? error : error.response.data.error
+          )})
+    axios.get(url + 'products/getcarouselimages.php/1')
+      .then((response) => {
+        const json = response.data;
+        setWanted(json);
+      }).catch(error => {
+        alert(error.response === undefined ? error : error.response.data.error)
       })
   }, [])
-  console.log(images)
-
-  /*
-    function showImage(subcategory_id, image) {
-      if (subcategory_id === 1) {
-        return (
-          <div className="m-carousel-img">
-            <img className='product-img' src={url + 'img/' + image} alt="tuotekuva" />
-          </div>
-        )
-      }
-    } */
-
-
-  function testi(testi, products) {
-    products.map(n => {
-      if (n.subcategory_id === testi) {
-        tester.append(n)
-        console.log(tester)
-      }
-    }
-    )
-  }
 
   return (
     <>
-      <button onClick={testi.bind(this, 3, images)}>TESTI</button>
       {/* GRID */}
 
       <div className="grid-container pt-4">
@@ -163,25 +155,22 @@ export default function Home({ url }) {
           </div>
         </div>
 
-        {/* PRODUCTS */}
+        {/* PRODUCTS {return (showImage(product.category_id, product.img, 1))}*/}
 
         <div className='products-carousel'>
 
           <h1 className="products-header">ALE</h1>
-          {/*
+
           <Carousel
             show={3}
             infiniteLoop>
-
-            {tester.map(product => (
-
-              <div className="m-carousel-img">
-                <img className='product-img' src={url + 'img/' + product.img} alt="tuotekuva" />
-              </div>
-            )
-
-            )} 
-            </Carousel>*/}
+              
+            {sale.map(product => 
+            <div className='m-carousel-img'>
+              <img className='product-img' src={url + 'img/' + product.img} alt="tuotekuva" />
+            </div>
+            )}  
+            </Carousel>
 
           <h1 className="products-header">Uutuudet</h1>
 
@@ -189,31 +178,11 @@ export default function Home({ url }) {
             show={3}
             infiniteLoop
           >
-            <div>
+            {latest.map(product =>
               <div className="m-carousel-img">
-                <img alt="placeholder" style={{ width: '100%' }} />
+                <img classname='product-img' style={{ width: '100%' }} src={url + 'img/' + product.img} alt="tuotekuva"/>
               </div>
-            </div>
-            <div>
-              <div className="m-carousel-img">
-                <img alt="placeholder" style={{ width: '100%' }} />
-              </div>
-            </div>
-            <div>
-              <div className="m-carousel-img">
-                <img style={{ width: '100%' }} />
-              </div>
-            </div>
-            <div>
-              <div className="m-carousel-img">
-                <img style={{ width: '100%' }} />
-              </div>
-            </div>
-            <div>
-              <div className="m-carousel-img">
-                <img style={{ width: '100%' }} />
-              </div>
-            </div>
+              )}
           </Carousel>
 
           <h1 className="products-header">Suosituimmat</h1>
@@ -222,47 +191,11 @@ export default function Home({ url }) {
             show={3}
             infiniteLoop
           >
-            <div>
+            {wanted.map(product =>
               <div className="m-carousel-img">
-                <img alt="placeholder" style={{ width: '100%' }} />
+                <img classname='product-img' style={{ width: '100%' }} src={url + 'img/' + product.img} alt="tuotekuva"/>
               </div>
-            </div>
-            <div>
-              <div className="m-carousel-img">
-
-                <Link to="*">
-                  <img alt="placeholder" style={{ width: '100%' }} />
-                </Link>
-
-              </div>
-            </div>
-            <div>
-              <div className="m-carousel-img">
-
-                <Link to="*">
-                  <img alt="placeholder" style={{ width: '100%' }} />
-                </Link>
-
-              </div>
-            </div>
-            <div>
-              <div className="m-carousel-img">
-
-                <Link to="*">
-                  <img alt="placeholder" style={{ width: '100%' }} />
-                </Link>
-
-              </div>
-            </div>
-            <div>
-              <div className="m-carousel-img">
-
-                <Link to="*">
-                  <img alt="placeholder" style={{ width: '100%' }} />
-                </Link>
-
-              </div>
-            </div>
+              )}
           </Carousel>
 
         </div>
