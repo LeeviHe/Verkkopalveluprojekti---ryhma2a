@@ -132,33 +132,33 @@ INSERT INTO product (brand, productname, price, category_id, subcategory_id, img
 VALUES
 -- KESÄKENGÄT
 ('SeeByChloe', 'GEMA LEATHER MULES', 139.99, 1, 2, 'Sandal1.png'),
-('Adidas', 'ORIGINAL SUPERSTAR', 119.99, 1, 1, 'adidas5.png'),
+('Adidas', 'ORIGINAL SUPERSTAR', 119.99, 1, 1, 'Sneaker2.png'),
 ('Havaianas', 'TOP-TIRAS BALLET', 23.50, 1, 2, 'Sandal2.png'),
-('Nike', 'AIR 1 RETRO OG', 184.95, 1, 1, 'nike3.png'),
-('Puma', 'Lyhytvartiset tennarit', 44.99, 1, 1, 'puma1.png'),
+('Nike', 'AIR 1 RETRO OG', 184.95, 1, 1, 'Sneaker3.png'),
+('Puma', 'Lyhytvartiset tennarit', 44.99, 1, 1, 'Sneaker1.png'),
 ('Birkenstock', 'ARIZONA OILED BLACK', 90, 1, 2, 'Sandal3.png'),
 
 -- TALVIKENGÄT
 -- Nilkkurit
-('Marco Tozzi', 'Nauhalliset nilkkurit', 94.95, 2, 3, 'Long Wintershoe5.png'),
-('Merrel', 'BRAVADA EDGE 2', 129, 2, 3, 'Short Wintershoe 4.png'),
-('Timberland', '6 INCH WR BASIC', 219.95, 2, 3, 'Short Wintershoe 6.png'),
+('Marco Tozzi', 'Nauhalliset nilkkurit', 94.95, 2, 3, 'Winter4.png'),
+('Merrel', 'BRAVADA EDGE 2', 129, 2, 3, 'Winter3.png'),
+('Timberland', '6 INCH WR BASIC', 219.95, 2, 3, 'Winter2 6.png'),
 
 -- Talvisaappaat
-('Desdemona', 'HICKORY', 199, 2, 4, 'Long Wintershoe6.png'),
-('Bianco', 'Vuorelliset talvisaappaat', 199, 2, 4, 'womenwinter.png'),
-('joku', 'joku', 199, 2, 4, 'Long Wintershoe6.png'),
+('Desdemona', 'HICKORY', 199, 2, 4, 'Boots3.png'),
+('Bianco', 'Vuorelliset talvisaappaat', 199, 2, 4, 'Boots1.png'),
+('Catmandoo', 'Tanya LL Talvisaappaat', 79, 2, 4, 'Boots4.png'),
 
 -- JUHLAKENGÄT
 -- Korkokengät
-('Prada', 'Korolliset sandaalit', 850, 3, 5, 'Highheel.png'),
-('Evita Lisa', 'Korolliset avokkaat', 210, 3, 5, 'Highheel2.png'),
-('Evita Lisa', 'Korolliset avokkaat', 210, 3, 5, 'Highheel2.png'),
+('Prada', 'Korolliset sandaalit', 850, 3, 5, 'Heel.png'),
+('Evita Lisa', 'Korolliset avokkaat', 210, 3, 5, 'Heel2.png'),
+('Next', 'Forever Comfort Korolliset avokkaat', 56, 3, 5, 'Heel3.png'),
 
 -- Puvunkengät
-('Topman', 'Klassiset nauhakengät', 149.99, 3, 6, 'Suit Shoe1.png'),
-('Topman', 'Loaferit/pistokkaat', 95, 3, 6, 'Suit Shoe2.png'),
-('Pier One', 'Loaferit/pistokkaat', 74.95, 3, 6, 'Suit shoe3.png');
+('Topman', 'Klassiset nauhakengät', 149.99, 3, 6, 'Suit1.png'),
+('Topman', 'Loaferit/pistokkaat', 95, 3, 6, 'Suit2.png'),
+('Pier One', 'Loaferit/pistokkaat', 74.95, 3, 6, 'Suit3.png');
 
 INSERT INTO customer (fname, lname, email, password, admin)
 VALUES ('Admin', 'Admin', 'admin', '$2y$10$eNAxooWSvnHdqXcbuCqxEutdkCjVcsW/ykkjf9B25JsjNLlSQnA5.', 1);
