@@ -25,51 +25,60 @@ export default function Product({ url, addToCart }) {
     return (
         <>
             <ToastContainer />
-            <div className="container product-container pt-4">
+            <div className="container cont-help pt-5 pb-5">
 
-                {/* SIDEBAR */}
+                {/* SIDEBAR 
 
                 <div className='side'>
                     <>
                         <Sidebar />
                     </>
-                </div>
+                </div>*/}
 
-                <div className='container product-grid mt-5'>
-                    <div className='f-g-col'>
-                        <div>
-                            <img className='product-img' src={url + 'img/' + product?.img} alt="tuotekuva" />
+                <div className="row">
+
+                    <div className="col-12 col-md-8 mb-3 d-flex justify-content-center">
+                        <div className='img-col d-flex justify-content-center'>
+                            <img className='img-fluid product-img' src={url + 'img/' + product?.img} alt="tuotekuva" />
                         </div>
                     </div>
 
-                    <div className='s-g-col'>
-                        <p className='brand-name'>
-                            {product?.brand}
-                        </p>
+                    <div className="col-6 col-md-4 full-width-col d-flex">
+                        <div className='d-flex justify-content-center flex-d-c'>
+                            <p className='brand-name'>
+                                {product?.brand}
+                            </p>
 
-                        <h6 className='brand-desc'>{product?.productname}</h6>
+                            <h6 className='brand-desc'>{product?.productname}</h6>
 
-                        <p className="product-price">
-                            {product?.price}  €
-                        </p>
+                            <p className="product-price">
+                                {product?.price}  €
+                            </p>
 
-                        <button className='btn checkout-btn btn-primary mt-4' type="button" onClick={() => addToCart(product)}>Lisää ostoskoriin</button>
-                    </div>
-
-                    <div className='mt-5 mb-5 product-info'>
-                        <p><ion-icon name="information-circle-outline"></ion-icon>&nbsp;Tuotteen keskimääräinen toimitusaika on 5-7 arkipäivää tilauksen vahvistamisesta.</p>
-                    </div>
-
-                    <div className='promises mt-5'>
-                        <div>
-                            <ion-icon style={{ color: "green" }} name="checkmark-circle-outline"></ion-icon>Kestävä kehitys
-                        </div>
-                        <div>
-                            <ion-icon style={{ color: "green" }} name="checkmark-circle-outline"></ion-icon>
-                            Ilmainen palautus
+                            <button className='product-btn btn checkout-btn btn-primary mt-4' type="button" onClick={() => addToCart(product)}>Lisää ostoskoriin</button>
                         </div>
                     </div>
 
+                    <div className="w-100 mt-3 mb-3"></div>
+
+                    <div className="col-6 d-flex align-items-center mt-3 mb-3">
+                        <div>
+                            <p style={{ margin: '0' }}><ion-icon name="information-circle-outline"></ion-icon>&nbsp;Tuotteen keskimääräinen toimitusaika on 5-7 arkipäivää tilauksen vahvistamisesta.</p>
+                        </div>
+                    </div>
+
+                    <div className="col-6 d-flex align-items-center mt-3 mb-3">
+                        <div>
+                            <div className='d-flex align-items-center'>
+                                <ion-icon style={{ color: "green" }} name="checkmark-circle-outline"></ion-icon>
+                                Kestävä kehitys
+                            </div>
+                            <div className='d-flex align-items-center'>
+                                <ion-icon style={{ color: "green" }} name="checkmark-circle-outline"></ion-icon>
+                                Ilmainen palautus
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>

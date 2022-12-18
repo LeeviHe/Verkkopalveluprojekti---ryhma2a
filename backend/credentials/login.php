@@ -33,7 +33,7 @@ try {
     if ($verified_user) {
       $_SESSION["username"] = $verified_user;
       http_response_code(200);
-      echo htmlspecialchars($verified_user), ENT_NOQUOTES;
+      echo htmlspecialchars($verified_user);
 
     } else {
       http_response_code(401);
