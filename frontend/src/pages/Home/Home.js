@@ -28,14 +28,16 @@ export default function Home({ url }) {
         setSale(json);
       }).catch(error => {
         alert(error.response === undefined ? error : error.response.data.error
-          )})
-      axios.get(url + 'products/getcarouselimages.php/3')
+        )
+      })
+    axios.get(url + 'products/getcarouselimages.php/3')
       .then((response) => {
         const json = response.data;
         setLatest(json);
       }).catch(error => {
         alert(error.response === undefined ? error : error.response.data.error
-          )})
+        )
+      })
     axios.get(url + 'products/getcarouselimages.php/1')
       .then((response) => {
         const json = response.data;
@@ -164,13 +166,15 @@ export default function Home({ url }) {
           <Carousel
             show={3}
             infiniteLoop>
-              
-            {sale.map(product => 
-            <div className='m-carousel-img'>
-              <img className='product-img' src={url + 'img/' + product.img} alt="tuotekuva" />
-            </div>
-            )}  
-            </Carousel>
+
+            {sale.map(product =>
+              <div className='m-carousel-img'>
+                <Link to={"/Product/" + product.product_id}>
+                  <img className='product-img' src={url + 'img/' + product.img} alt="tuotekuva" />
+                </Link>
+              </div>
+            )}
+          </Carousel>
 
           <h1 className="products-header">Uutuudet</h1>
 
@@ -180,9 +184,11 @@ export default function Home({ url }) {
           >
             {latest.map(product =>
               <div className="m-carousel-img">
-                <img classname='product-img' style={{ width: '100%' }} src={url + 'img/' + product.img} alt="tuotekuva"/>
+                <Link to={"/Product/" + product.product_id}>
+                  <img classname='product-img' style={{ width: '100%' }} src={url + 'img/' + product.img} alt="tuotekuva" />
+                </Link>
               </div>
-              )}
+            )}
           </Carousel>
 
           <h1 className="products-header">Suosituimmat</h1>
@@ -193,9 +199,11 @@ export default function Home({ url }) {
           >
             {wanted.map(product =>
               <div className="m-carousel-img">
-                <img classname='product-img' style={{ width: '100%' }} src={url + 'img/' + product.img} alt="tuotekuva"/>
+                <Link to={"/Product/" + product.product_id}>
+                  <img classname='product-img' style={{ width: '100%' }} src={url + 'img/' + product.img} alt="tuotekuva" />
+                </Link>
               </div>
-              )}
+            )}
           </Carousel>
 
         </div>
