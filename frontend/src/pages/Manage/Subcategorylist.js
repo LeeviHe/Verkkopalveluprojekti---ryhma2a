@@ -6,7 +6,7 @@ export function SubCategoryList({url, selectedCategory, selectedSubCategory, set
     const [subCategories, setSubCategories] = useState([])
 
     useEffect(() =>{
-        axios.get(url + 'products/getsubcategories.php')
+        axios.get(url + 'products/getmanagesub.php/' + selectedCategory?.category_id)
         .then((response) => {
             const json = response.data;
             if (json) {
@@ -18,28 +18,19 @@ export function SubCategoryList({url, selectedCategory, selectedSubCategory, set
         }).catch (error => {
             alert(error.response === undefined ? error : error.response.data.error)
         })
-
-    }, [selectedSubCategory])
+    }, [selectedCategory, selectedSubCategory])
 
     function onSubCategoryChange(value) {
-        setSelectedSubCategory(subCategories.filter(subcategory => subcategory.subcategoryname === value))
+        const filtered = subCategories.find(index => index.subcategory_id == value)
+        setSelectedSubCategory(filtered)
     }
-
-    function showSub(categorytesti, subcat, name) {
-        if (categorytesti === subcat) {
-          return(name)
-          } 
-      }
-
     return (
-        
-        <select value={selectedSubCategory?.id} onChange={(e) => onSubCategoryChange(e.target.value)}>
-        {subCategories.map((subcategory) =>(   
-                <option key={subcategory.subcategory_id} value={subcategory.subcategoryname}>
-                    {showSub(selectedCategory?.category_id, subcategory.category_id, subcategory.subcategoryname)}
+        <select value={selectedSubCategory?.subcategory_id} onChange={(e) => onSubCategoryChange(e.target.value)}>
+            {subCategories.map((subcategory) => (
+                <option key={subcategory.subcategory_id} value={subcategory.subcategory_id}>
+                    {subcategory.subcategoryname}
                 </option>
-        ))}</select>
-        
-        
+                ))}
+        </select>
     )
 } 

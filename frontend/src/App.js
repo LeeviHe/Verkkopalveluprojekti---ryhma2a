@@ -2,7 +2,7 @@ import axios from 'axios';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
-import { Login, Userpage } from './pages/Forms/Login';
+import { Login} from './pages/Forms/Login';
 import Register from './pages/Forms/Register';
 import Home from './pages/Home/Home';
 import Manage from './pages/Manage/Manage';
