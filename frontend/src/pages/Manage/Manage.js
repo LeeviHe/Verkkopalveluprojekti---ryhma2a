@@ -3,10 +3,10 @@ import './Manage.css';
 import React, { useState, useEffect } from 'react';
 import { CategoryList } from './Categorylist';
 import { SubCategoryList } from './Subcategorylist';
-import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function Manage({url}) {
-    const navigate = useNavigate();
+
 
     const [newCategory, setNewCategory] = useState("")
     const [newSubCategory, setNewSubCategory] = useState("")
@@ -23,6 +23,12 @@ export default function Manage({url}) {
     const [productName, setProductName] = useState('')
     const [price, setPrice] = useState('')
 
+    const ToastAdd = () => {
+        toast.success('Lisäys onnistui', {
+            position: toast.POSITION.TOP_RIGHT
+        });
+    }
+
     function saveCategory(e) {
         e.preventDefault()
         const json = JSON.stringify({ name: newCategory })
@@ -34,6 +40,7 @@ export default function Manage({url}) {
             .then((response) => {
                 setNewCategory('')
                 setSelectedCategory(response.data)
+                ToastAdd()
             }).catch(error => {
                 alert(error.response === undefined ? error : error.response.data.error)
             })
@@ -51,7 +58,7 @@ export default function Manage({url}) {
             .then((response) => {
                 setNewSubCategory('')
                 setSelectedSubCategoryCat(null)
-                
+                ToastAdd()
             }).catch(error => {
                 alert(error.response === undefined ? error : error.response.data.error)
             })
@@ -93,8 +100,10 @@ export default function Manage({url}) {
                 setBrand('')
                 setProductName('')
                 setPrice('')
-            }) .catch(error => {
-                alert(error.response === undefined ? error: error.response.data.error)
+                ToastAdd()
+            })    
+            .catch(error => {
+                alert(error.response === undefined ? error : error.response.data.error)
             })
             
         }

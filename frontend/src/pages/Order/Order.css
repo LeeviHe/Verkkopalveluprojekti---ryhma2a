@@ -106,3 +106,12 @@ hr {
 .info-text {
     margin-bottom: 2rem;
 }
+
+@media (max-width: 425px) {
+    .order-grid {
+        display: block;
+    }
+    .checkout-btn{
+        margin: 12px;
+    }
+}
