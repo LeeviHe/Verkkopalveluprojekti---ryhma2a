@@ -15,7 +15,7 @@ export default function Manage({ url }) {
     const [addingSubCategory, setAddingSubCategory] = useState(false)
 
     const ToastAdd = () => {
-        toast.success('penis', {
+        toast.success('Lisäys onnistui', {
             position: toast.POSITION.TOP_RIGHT
         });
     }
