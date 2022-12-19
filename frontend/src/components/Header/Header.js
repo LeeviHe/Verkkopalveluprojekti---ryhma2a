@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import './Header.css';
 import img from '../../images/logos/shoelando_logo.png';
 import Cart from '../Shoppingcart/Shoppingcart.js';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 export default function Header({ names, loggedUser, setLoggedUser, url, cart, emptyCart, removeFromCart, updateAmount }) {
@@ -11,9 +12,15 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
   const [categories, setCategories] = useState([]);
   const [search, setSearch] = useState([]);
 
+  const ToastLogOut = () => {
+    toast.success('Olet kirjautunut ulos', {
+      position: toast.POSITION.TOP_RIGHT
+    });
+  }
+
   function logout() {
     axios.get(url + "credentials/logout.php", { withCredentials: true })
-      .then(resp => setLoggedUser(null))
+      .then(resp => setLoggedUser(null) & navigate('/') & ToastLogOut())
       .catch(e => console.log(e.message))
   }
 
@@ -39,6 +46,7 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
 
   return (
     <>
+      <ToastContainer />
 
       <div className="container-fluid header-container d-flex justify-content-center align-items-center">
 
@@ -58,7 +66,7 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   onKeyPress={(e) => executeSearch(e)}
-                  className="search_input form-control-dark me-2 search-input"
+                  className="form-control-dark me-2 search-input"
                   type="search"
                   placeholder='Etsi...'
                   aria-label='Search'></input>

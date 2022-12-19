@@ -3,6 +3,7 @@ import './Manage.css';
 import React, { useState, useEffect } from 'react';
 import { CategoryList } from './Categorylist';
 import { SubCategoryList } from './Subcategorylist';
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function Manage({ url }) {
     const [newCategory, setNewCategory] = useState("")
@@ -12,6 +13,12 @@ export default function Manage({ url }) {
     const [selectedSubCategory, setSelectedSubCategory] = useState(null)
     const [addingCategory, setAddingCategory] = useState(false)
     const [addingSubCategory, setAddingSubCategory] = useState(false)
+
+    const ToastAdd = () => {
+        toast.success('penis', {
+            position: toast.POSITION.TOP_RIGHT
+        });
+    }
 
     function saveCategory(e) {
         e.preventDefault()
@@ -25,6 +32,7 @@ export default function Manage({ url }) {
                 setNewCategory('')
                 setAddingCategory(false)
                 setSelectedCategory(response.data)
+                ToastAdd()
             }).catch(error => {
                 alert(error.response === undefined ? error : error.response.data.error)
             })
@@ -42,6 +50,7 @@ export default function Manage({ url }) {
                 setNewSubCategory('')
                 setAddingSubCategory(false)
                 setSelectedSubCategory(response.data)
+                ToastAdd()
             }).catch(error => {
                 alert(error.response === undefined ? error : error.response.data.error)
             })
@@ -59,6 +68,7 @@ export default function Manage({ url }) {
                 setNewSubCategory('')
                 setAddingSubCategory(false)
                 setSelectedSubCategory(response.data)
+                ToastAdd()
             }).catch(error => {
                 alert(error.response === undefined ? error : error.response.data.error)
             })

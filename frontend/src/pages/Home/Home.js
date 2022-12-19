@@ -5,6 +5,7 @@ import './Home.css';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Carousel from '../../components/Carousel/Carousel';
 import { useParams, Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 // LOGOS
 
@@ -49,6 +50,9 @@ export default function Home({ url }) {
 
   return (
     <>
+      {/* TOAST */}
+      <ToastContainer />
+
       {/* GRID */}
 
       <div className="grid-container pt-4">

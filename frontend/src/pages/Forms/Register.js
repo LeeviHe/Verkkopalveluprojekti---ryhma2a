@@ -2,8 +2,9 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import './Forms.css';
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 
-export default function Register({ url, setLoggedUser}) {
+export default function Register({ url, setLoggedUser }) {
   const [fname, setFname] = useState("")
   const [lname, setLname] = useState("")
   const [email, setEmail] = useState("")
@@ -20,15 +21,20 @@ export default function Register({ url, setLoggedUser}) {
     setIsActive(current => !current);
   };
 
+  const ToastRegister = () => {
+    toast.success('Kiitos rekisteröinnistä! Sinut on automaattisesti kirjattu sisään.', {
+      position: toast.POSITION.TOP_RIGHT
+    });
+  }
+
   function Register(e) {
     e.preventDefault()
     const json = { fname, lname, email, password }
     axios.post(url + "credentials/register.php", json, { withCredentials: true })
-      .then(resp => setLoggedUser(resp.data))
+      .then(resp => setLoggedUser(resp.data) & navigate('/') & ToastRegister())
       .catch(error => {
         alert(error.response === undefined ? error : error.response.data.error)
       })
-    navigate('/');
   }
 
   return (
