@@ -16,26 +16,18 @@ import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
 
-const URL = 'http://localhost:3000/backend/';
+const URL = 'http://localhost:3001/backend/';
 function App() {
   const [loggedUser, setLoggedUser] = useState(null);
+  const [cart, setCart] = useState([]);
+  const [names, setNames] = useState([]);
   useEffect(() => {
     axios.post(URL + "credentials/login.php", {}, { withCredentials: true })
       .then(resp => setLoggedUser(resp.data))
-      .catch(e => console.log(e.message))//
-  }, [])
-
-  const [names, setNames] = useState([]);
-
-  useEffect(() => {
+      .catch(e => console.log(e.message + " session not found"))//
     axios.get(URL + "credentials/user_info.php", { withCredentials: true })
       .then(resp => setNames(resp.data.names))
       .catch(e => console.log(e.message))
-  }, [])
-
-  const [cart, setCart] = useState([]);
-
-  useEffect(() => {
     if ('cart' in localStorage) {
       setCart(JSON.parse(localStorage.getItem('cart')));
     }
@@ -88,11 +80,10 @@ function App() {
       <div className='container'>
 
         <Routes>
-          {loggedUser ? <Route path="/login" element={<Userpage logemail={loggedUser} />} /> : <Route path="/login" element={<Login setLoggedUser={setLoggedUser} />} />}
-
+          <Route path="/login" element={<Login url={URL} setLoggedUser={setLoggedUser} />} />
           <Route path="/" element={<Home url={URL} />} />
           <Route path="/manage" element={<Manage url={URL} />} />
-          <Route path="/register" element={<Register setLoggedUser={setLoggedUser} />} />
+          <Route path="/register" element={<Register url={URL} setLoggedUser={setLoggedUser} />} />
           <Route path="/kategoriat/:categoryId" element={<Products url={URL} addToCart={addToCart} />} />
           <Route path="/kategoriat/:categoryId/:subcategoryId" element={<Products url={URL} addToCart={addToCart} />} />
           <Route path="/search/:searchPhrase" element={<Products url={URL} />} />

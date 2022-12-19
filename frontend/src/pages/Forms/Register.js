@@ -3,9 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './Forms.css';
 import { Link, useNavigate } from "react-router-dom";
 
-const URL = 'http://localhost:3000/backend/'
-
-export default function Register({ setLoggedUser }) {
+export default function Register({ url, setLoggedUser}) {
   const [fname, setFname] = useState("")
   const [lname, setLname] = useState("")
   const [email, setEmail] = useState("")
@@ -25,7 +23,7 @@ export default function Register({ setLoggedUser }) {
   function Register(e) {
     e.preventDefault()
     const json = { fname, lname, email, password }
-    axios.post(URL + "credentials/register.php", json, { withCredentials: true })
+    axios.post(url + "credentials/register.php", json, { withCredentials: true })
       .then(resp => setLoggedUser(resp.data))
       .catch(error => {
         alert(error.response === undefined ? error : error.response.data.error)

@@ -6,7 +6,7 @@ import './Sidebar.css';
 import darr from '../../images/ion-icon/chevron-down-outline.svg';
 import uarr from '../../images/ion-icon/chevron-up-outline.svg';
 
-const URL = 'http://localhost:3000/backend/';
+const URL = 'http://localhost:3001/backend/';
 
 export default function Sidebar() {
   const [categories, setCategories] = useState([])
