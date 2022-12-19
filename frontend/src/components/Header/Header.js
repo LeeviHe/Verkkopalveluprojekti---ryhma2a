@@ -58,7 +58,7 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   onKeyPress={(e) => executeSearch(e)}
-                  className="form-control-dark me-2 search-input"
+                  className="search_input form-control-dark me-2 search-input"
                   type="search"
                   placeholder='Etsi...'
                   aria-label='Search'></input>

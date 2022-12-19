@@ -100,3 +100,28 @@ textarea:focus, input:focus{
 .dropdown:hover .dropbtn {
   background-color: rgba(255, 255, 255, 0.85);
 }
+
+@media (max-width: 425px) {
+  .nav-item {
+    display: block;
+    margin-right: 0px;
+  }
+  .search_input {
+    width: 50%;
+  }
+  header {
+    display: flex; 
+    flex-direction: row;
+  }
+  .dropbtn{
+    padding: 0px;
+  }
+  .main-logo {
+    height: 3rem;
+  }
+  .header-container {
+    margin: 0px;
+
+  }
+ 
+}
