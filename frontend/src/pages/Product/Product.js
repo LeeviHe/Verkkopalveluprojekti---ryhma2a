@@ -24,7 +24,6 @@ export default function Product({ url, addToCart }) {
 
     return (
         <>
-            <ToastContainer />
             <div className="container cont-help pt-5 pb-5">
 
                 {/* SIDEBAR 

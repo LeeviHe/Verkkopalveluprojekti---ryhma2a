@@ -50,8 +50,6 @@ export default function Home({ url }) {
 
   return (
     <>
-      {/* TOAST */}
-      <ToastContainer />
 
       {/* GRID */}
 

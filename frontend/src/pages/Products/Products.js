@@ -61,7 +61,6 @@ export default function Products({ url, addToCart, img }) {
 
   return (
     <>
-      <ToastContainer />
       {/* GRID */}
 
       <div className="container product-container pt-4">
