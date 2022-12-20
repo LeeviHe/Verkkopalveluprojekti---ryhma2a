@@ -5,21 +5,17 @@ import { CategoryList } from './Categorylist';
 import { SubCategoryList } from './Subcategorylist';
 import { toast } from 'react-toastify';
 
-export default function Manage({url}) {
+export default function Manage({ url }) {
 
 
     const [newCategory, setNewCategory] = useState("")
     const [newSubCategory, setNewSubCategory] = useState("")
 
-    const [addManage, setAddmanage] = useState(false)
-    const [addingSubcategory, setAddingSubcategory] = useState(false)
-
     const [selectedCategory, setSelectedCategory] = useState(null)
     const [selectedSubCategory, setSelectedSubCategory] = useState(null)
     const [selectedSubCategoryCat, setSelectedSubCategoryCat] = useState(null)
 
-    const [products, setProducts] = useState ([])
-    const [brand, setBrand] = useState ('')
+    const [brand, setBrand] = useState('')
     const [productName, setProductName] = useState('')
     const [price, setPrice] = useState('')
 
@@ -64,158 +60,154 @@ export default function Manage({url}) {
             })
     }
 
-    /*useEffect(() => {
-        if (selectedCategory !== null) {
-            axios.get(url + 'products/getproducts.php/' + selectedCategory.category_id)
-            .then((response) => {
-                const json = response.data;
-                if (json) {
-                    setProducts(json.products);
-                }
-            }).catch(error => {
-                alert(error.response === undefined ? error : error.response.data.error)
-            })
-        }}, [url, selectedCategory]) */
     function saveProduct(e) {
         e.preventDefault()
         if (showToggle) {
             const json = JSON.stringify(
-                {brand: brand, 
-                name: productName, 
-                price: price, 
-                catid: selectedCategory.category_id, 
-                subcatid: selectedSubCategory.subcategory_id})
-            axios.post(url + 'products/addproduct.php', json, {
-            headers: {
-                'Content-Type' : 'application/json'}})
-            .then((response) => {
-            setBrand('')
-            setProductName('')
-            setPrice('')
-        }) .catch(error => {
-            alert(error.response === undefined ? error: error.response.data.error)
-        })
-        
-    } else {
-            const json = JSON.stringify(
-                {brand: brand, 
-                name: productName, 
-                price: price, 
-                catid: selectedCategory.category_id})
+                {
+                    brand: brand,
+                    name: productName,
+                    price: price,
+                    catid: selectedCategory.category_id,
+                    subcatid: selectedSubCategory.subcategory_id
+                })
             axios.post(url + 'products/addproduct.php', json, {
                 headers: {
-                    'Content-Type' : 'application/json'}})
-                .then(response => {
-                setBrand('')
-                setProductName('')
-                setPrice('')
-                ToastAdd()
-            })    
-            .catch(error => {
-                alert(error.response === undefined ? error : error.response.data.error)
+                    'Content-Type': 'application/json'
+                }
             })
-            
+                .then((response) => {
+                    setBrand('')
+                    setProductName('')
+                    setPrice('')
+                }).catch(error => {
+                    alert(error.response === undefined ? error : error.response.data.error)
+                })
+
+        } else {
+            const json = JSON.stringify(
+                {
+                    brand: brand,
+                    name: productName,
+                    price: price,
+                    catid: selectedCategory.category_id
+                })
+            axios.post(url + 'products/addproduct.php', json, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    setBrand('')
+                    setProductName('')
+                    setPrice('')
+                    ToastAdd()
+                })
+                .catch(error => {
+                    alert(error.response === undefined ? error : error.response.data.error)
+                })
+
         }
     }
 
     const [showToggle, setShowToggle] = useState(false);
     const toggleSub = (e) => {
         setShowToggle(!showToggle);
-      };
+    };
 
-        return (
-            <>
-                <div className='container'>
-                    <div className='manage-grid mt-5 mb-5'>
+    return (
+        <>
+            <div className='container'>
+                <div className='manage-grid mt-5 mb-5'>
 
-                        <div className='manage-category'>
-                            <h3 className='mb-3'>Lisää uusi kategoria</h3>
-                            <form onSubmit={saveCategory}>
-                                <div>
-                                    <label className='manage-label mb-1'>Kategorian nimi</label>
-                                    <br />
-                                    <input className='manage-input mb-2' 
+                    <div className='manage-category'>
+                        <h3 className='mb-3'>Lisää uusi kategoria</h3>
+                        <form onSubmit={saveCategory}>
+                            <div>
+                                <label className='manage-label mb-1'>Kategorian nimi</label>
+                                <br />
+                                <input className='manage-input mb-2'
                                     type="text" value={newCategory}
-                                    onChange={(e) => setNewCategory(e.target.value)} 
-                                    required/>
-                                </div>
-                                <button type="submit">Tallenna</button>
-                            </form>
-                        </div>
+                                    onChange={(e) => setNewCategory(e.target.value)}
+                                    required />
+                            </div>
+                            <button type="submit">Tallenna</button>
+                        </form>
+                    </div>
 
-                        <div className='manage-category'>
-                            <h3 className='mb-3'>Lisää uusi alakategoria</h3>
-                            <form onSubmit={saveSubCategory}>
-                                <div>
-                                    <label className="manage-label mb-1">Alakategorian nimi</label>
-                                    <br />
-                                    <input className='manage-input mb-2' 
-                                    type="text" value={newSubCategory} 
-                                    onChange={(e) => setNewSubCategory(e.target.value)} 
-                                    required/>
-                                </div>
-                                <div>
-                                    <label className="manage-label mb-2 mt-2">Kategoria &nbsp;</label>
-                                    <CategoryList
-                                        url={url}
-                                        selectedCategory={selectedSubCategoryCat}
-                                        setSelectedCategory={setSelectedSubCategoryCat}
-                                    />
-                                </div>
-                                <button type="submit">Tallenna</button>
-                            </form>
-                        </div>
+                    <div className='manage-category'>
+                        <h3 className='mb-3'>Lisää uusi alakategoria</h3>
+                        <form onSubmit={saveSubCategory}>
+                            <div>
+                                <label className="manage-label mb-1">Alakategorian nimi</label>
+                                <br />
+                                <input className='manage-input mb-2'
+                                    type="text" value={newSubCategory}
+                                    onChange={(e) => setNewSubCategory(e.target.value)}
+                                    required />
+                            </div>
+                            <div>
+                                <label className="manage-label mb-2 mt-2">Kategoria &nbsp;</label>
+                                <CategoryList
+                                    url={url}
+                                    selectedCategory={selectedSubCategoryCat}
+                                    setSelectedCategory={setSelectedSubCategoryCat}
+                                />
+                            </div>
+                            <button type="submit">Tallenna</button>
+                        </form>
+                    </div>
 
-                        <div className='manage-product'>
-                            <h3>Lisää uusi tuote</h3>
-                            <form onSubmit={saveProduct}>
-                                <div>
-                                    <label className="manage-label mb-1">Tuotemerkki</label>
-                                    <br />
-                                    <input className='manage-input mb-2'
-                                    type="text" value={brand} 
-                                    onChange={(e) => setBrand(e.target.value)} 
-                                    required/>
-                                </div>
-                                <div>
-                                    <label className="manage-label mb-1">Tuotenimi</label>
-                                    <br />
-                                    <input className='manage-input mb-2' 
-                                    type="text" 
-                                    value={productName} 
-                                    onChange={(e) => setProductName(e.target.value)} 
-                                    required/>
-                                </div>
-                                <div>
-                                    <label className="manage-label mb-1">Tuotehinta</label>
-                                    <br />
-                                    <input className='manage-input mb-2' 
-                                    type="text" 
-                                    value={price} 
-                                    onChange={(e) => setPrice(e.target.value)} 
-                                    required/>
-                                </div>
-                                <div>
-                                    <label className="manage-label mb-2 mt-2">Kategoria &nbsp;</label>
-                                    <CategoryList
-                                        url={url}
-                                        selectedCategory={selectedCategory}
-                                        setSelectedCategory={setSelectedCategory}
-                                    />
-                                </div>
-                                <div className='subcheckbox'>
-                                    <input id='subcheckbox' 
-                                    type="checkbox" 
-                                    onChange={toggleSub}/>
-                                    <label style={{
+                    <div className='manage-product'>
+                        <h3>Lisää uusi tuote</h3>
+                        <form onSubmit={saveProduct}>
+                            <div>
+                                <label className="manage-label mb-1">Tuotemerkki</label>
+                                <br />
+                                <input className='manage-input mb-2'
+                                    type="text" value={brand}
+                                    onChange={(e) => setBrand(e.target.value)}
+                                    required />
+                            </div>
+                            <div>
+                                <label className="manage-label mb-1">Tuotenimi</label>
+                                <br />
+                                <input className='manage-input mb-2'
+                                    type="text"
+                                    value={productName}
+                                    onChange={(e) => setProductName(e.target.value)}
+                                    required />
+                            </div>
+                            <div>
+                                <label className="manage-label mb-1">Tuotehinta</label>
+                                <br />
+                                <input className='manage-input mb-2'
+                                    type="text"
+                                    value={price}
+                                    onChange={(e) => setPrice(e.target.value)}
+                                    required />
+                            </div>
+                            <div>
+                                <label className="manage-label mb-2 mt-2">Kategoria &nbsp;</label>
+                                <CategoryList
+                                    url={url}
+                                    selectedCategory={selectedCategory}
+                                    setSelectedCategory={setSelectedCategory}
+                                />
+                            </div>
+                            <div className='subcheckbox'>
+                                <input id='subcheckbox'
+                                    type="checkbox"
+                                    onChange={toggleSub} />
+                                <label style={{
                                     color: "black"
-                                    }}
+                                }}
                                     for="subcheckbox"
                                     id="sublabel">
-                                    Haluan lisätä tuotteen alakategoriaan. 
-                                    </label>
-                                </div>
-                                {showToggle ?
+                                    Haluan lisätä tuotteen alakategoriaan.
+                                </label>
+                            </div>
+                            {showToggle ?
                                 <div>
                                     <label className="manage-label mb-1">Alakategoria &nbsp;</label>
                                     <SubCategoryList
@@ -225,12 +217,12 @@ export default function Manage({url}) {
                                         setSelectedSubCategory={setSelectedSubCategory}
                                     />
                                 </div> : ''}
-                                <button type="submit">Tallenna</button>
-                            </form>
-                        </div>
-
+                            <button type="submit">Tallenna</button>
+                        </form>
                     </div>
+
                 </div>
-            </>
-        )
-    }
+            </div>
+        </>
+    )
+}
