@@ -30,3 +30,12 @@
 #sublabel {
   padding-left: 0.5rem;
 }
+
+@media screen and (max-width: 425px) {
+
+.manage-grid {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0.5rem;
+}
+}
