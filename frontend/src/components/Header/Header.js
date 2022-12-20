@@ -41,6 +41,11 @@ export default function Header({ loggedUser, setLoggedUser, url, cart, emptyCart
       .catch(e => console.log(e.message + " No user info"))
   }, [loggedUser])
 
+  function buttonSearch(e) {
+    e.preventDefault();
+    navigate('/haku/' + search)
+  }
+
   function executeSearch(e) {
     if (e.charCode === 13) {
       e.preventDefault();
@@ -62,7 +67,7 @@ export default function Header({ loggedUser, setLoggedUser, url, cart, emptyCart
             </Link>
           </div>
 
-          <form className='header-form d-flex justify-content-center align-items-center'>
+          <form className='header-form d-flex justify-content-center align-items-center' onSubmit={buttonSearch}>
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
