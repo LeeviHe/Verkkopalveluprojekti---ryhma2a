@@ -135,7 +135,7 @@ VALUES
 -- Talvikengät
 ('Nilkkurit', 2), 
 ('Talvisaappaat', 2), 
---Juhlakengät
+-- Juhlakengät
 ('Korkokengät', 3), 
 ('Puvunkengät', 3);
 INSERT INTO product (brand, productname, price, category_id, subcategory_id, img)
@@ -164,5 +164,5 @@ VALUES
 ('Topman', 'Klassiset nauhakengät', 149.99, 3, 6, 'Suit1.png'),
 ('Prada', 'Korolliset sandaalit', 850, 3, 5, 'Heel.png');
 
-INSERT INTO customer (fname, lname, email, password, admin)
-VALUES ('Admin', 'Admin', 'admin', '$2y$10$eNAxooWSvnHdqXcbuCqxEutdkCjVcsW/ykkjf9B25JsjNLlSQnA5.', 1);
+INSERT INTO customer (fname, lname, email, password)
+VALUES ('Admin', 'Admin', 'admin', '$2y$10$eNAxooWSvnHdqXcbuCqxEutdkCjVcsW/ykkjf9B25JsjNLlSQnA5.');
