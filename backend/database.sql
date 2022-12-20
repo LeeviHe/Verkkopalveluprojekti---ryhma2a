@@ -165,4 +165,4 @@ VALUES
 ('Prada', 'Korolliset sandaalit', 850, 3, 5, 'Heel.png');
 
 INSERT INTO customer (fname, lname, email, password)
-VALUES ('Admin', 'Admin', 'admin', '$2y$10$eNAxooWSvnHdqXcbuCqxEutdkCjVcsW/ykkjf9B25JsjNLlSQnA5.');
+VALUES ('Admin', 'Admin', 'admin', '$2y$10$UlCV/fOP/Fh335KtexekN.EK2/4AzzMoNhwX.4xDzqyK3OgQlzCbi');
