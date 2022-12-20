@@ -5,15 +5,18 @@ import '../Order/Order.css';
 import './Checkout.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 
 export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount, url }) {
 
   const showToastMessage = () => {
-    toast.success('Tilaus onnistui!', {
+    toast.success('Kiitos tilauksestasi!', {
       position: toast.POSITION.TOP_RIGHT
     });
   };
+
+  const navigate = useNavigate();
 
   const [inputs,] = useState([]);
   const [inputIndex, setInputIndex] = useState(-1);
@@ -75,6 +78,7 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
       }).catch(error => {
         alert(error.response === undefined ? error : error.response.data.error);
       });
+      
   }
 
   if (finished === false) {
@@ -302,13 +306,6 @@ export default function Checkout({ cart, emptyCart, removeFromCart, updateAmount
       </>
     )
   } if (finished === true) {
-
-    return (
-      <>
-        <div className="container-fluid col12">
-          <div className="message">Kiitos tilauksestasi! Saat sähköpostiisi vielä tilausvahvistuksen.</div>
-        </div>
-      </>
-    )
+    navigate('/')
   }
 }
