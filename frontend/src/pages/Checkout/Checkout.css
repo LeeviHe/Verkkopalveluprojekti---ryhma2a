@@ -134,3 +134,10 @@
     max-width: 100%;
   }
 }
+
+@media screen and (max-width: 425px) {
+  .message {
+    margin: 0px;
+    margin-top: 10px;
+  }
+}
