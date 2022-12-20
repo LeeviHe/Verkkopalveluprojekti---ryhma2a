@@ -81,9 +81,9 @@ export default function Products({ url, addToCart, img }) {
 
         </label>
 
-        {params.searchPhrase ? <div className='product-item category-name'>Tuotteet haulla {categoryName}</div> : <div className='product-item category-name'>Tuotteet kategoriassa {categoryName}</div>}
 
         <div className='products-col pt-4'>
+          {params.searchPhrase ? <div className='category-name'>Tuotteet haulla {categoryName}</div> : <div className='product-item category-name'>Tuotteet kategoriassa {categoryName}</div>}
 
           {products.map(product => (
 
@@ -94,7 +94,7 @@ export default function Products({ url, addToCart, img }) {
                 <p className='group inner list-group-item-text'>
                   {product.brand}
                 </p>
-                <h6>{product.productname}</h6>
+                <h6 className='product-desc'>{product.productname}</h6>
               </div>
 
               <div className="row">

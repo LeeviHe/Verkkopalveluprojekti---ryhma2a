@@ -4,7 +4,6 @@ body {
   padding: 0px;
   margin: 0px;
   font-size: 20px;
-  min-height: 200vh;
 }
 
 #main-menu {
@@ -65,16 +64,30 @@ body {
 }
 
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 768px) {
   #main-menu {
     display: none;
   }
   #sidebar-menu {
+    top: 20px;
     display: inline;
+  }
+  #sidebar-btn {
+    top: 20px;
   }
   .main-carousel-col {
     width: 100%;
   }
+}
+
+@media screen and (max-width: 425px) {
+
+  #sidebar-menu {
+    top: 80px;
+  }
+  #sidebar-btn {
+    top: 80px;
+  } 
 }
 
 /* NORMAL SIDEBAR SETTINGS */

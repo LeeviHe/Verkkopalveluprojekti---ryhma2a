@@ -7,7 +7,7 @@ export default function Footer() {
   return (
 
     <div className="container-fluid">
-      <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 footer-container pb-3">
+      <footer id='footer' className="row row-cols-1 row-cols-sm-2 row-cols-md-5 footer-container pb-3">
 
         <div className="col mb-3">
           <h5>Sosiaalinen media</h5>

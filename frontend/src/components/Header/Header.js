@@ -81,7 +81,7 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
                   <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" className="nav-icon" style={{ marginRight: '1rem' }} />
 
                   <span style={{ color: 'black' }}>
-                    {loggedUser ? <h6 style={{ margin: '0' }}>Hei, {names.map(customer => <span>{customer.fname}</span>)}</h6> : ''}
+                    {loggedUser ? <h6 style={{ margin: '0' }}>Hei, {names.map(customer => <span>moi{customer.fname}</span>)}</h6> : ''}
                   </span>
                 </button>
 

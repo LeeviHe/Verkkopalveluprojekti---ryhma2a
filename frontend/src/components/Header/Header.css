@@ -182,4 +182,8 @@ textarea:focus, input:focus{
     height: 2rem;
   }
 
+  .nav-icon {
+    height: 2rem;
+  }
+
 }

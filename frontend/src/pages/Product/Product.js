@@ -23,7 +23,7 @@ export default function Product({ url, addToCart }) {
 
     return (
         <>
-            <div className="container cont-help pt-5 pb-5">
+            <div className="container product-container mt-5 mb-5">
 
                 {/* SIDEBAR */}
 
@@ -41,9 +41,9 @@ export default function Product({ url, addToCart }) {
 
                 </label>
 
-                <div className="row">
+                <div className="row helper-row">
 
-                    <div className="col-12 col-md-8 mb-3 d-flex justify-content-center">
+                    <div className="col-12 col-md-8 mb-3 d-flex justify-content-center product-col">
                         <div className='img-col d-flex justify-content-center'>
                             <img className='img-fluid product-img' src={url + 'img/' + product?.img} alt="tuotekuva" />
                         </div>
@@ -75,11 +75,11 @@ export default function Product({ url, addToCart }) {
 
                     <div className="col-6 d-flex align-items-center mt-3 mb-3">
                         <div>
-                            <div className='d-flex align-items-center'>
+                            <div className='info d-flex align-items-center'>
                                 <ion-icon style={{ color: "green" }} name="checkmark-circle-outline"></ion-icon>
                                 Kestävä kehitys
                             </div>
-                            <div className='d-flex align-items-center'>
+                            <div className='info d-flex align-items-center'>
                                 <ion-icon style={{ color: "green" }} name="checkmark-circle-outline"></ion-icon>
                                 Ilmainen palautus
                             </div>

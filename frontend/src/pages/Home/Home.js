@@ -75,7 +75,6 @@ export default function Home({ url }) {
 
       {/* GRID */}
       <div className="grid-container justify-content-center pt-4">
-
         {/* SIDEBAR*/}
 
         <div id="main-menu">
