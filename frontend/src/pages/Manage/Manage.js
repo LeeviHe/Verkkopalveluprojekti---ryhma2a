@@ -80,6 +80,7 @@ export default function Manage({ url }) {
                     setBrand('')
                     setProductName('')
                     setPrice('')
+                    ToastAdd()
                 }).catch(error => {
                     alert(error.response === undefined ? error : error.response.data.error)
                 })
