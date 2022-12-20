@@ -72,7 +72,7 @@ function checkLogin ($username, $password) {
 function getUserName ($username) {
     $db = openDb();
 
-    $sql = "SELECT fname, lname FROM  customer WHERE email=?";
+    $sql = "SELECT fname FROM  customer WHERE email=?";
     $statement = $db -> prepare($sql);
     $statement -> execute(array($username));
 

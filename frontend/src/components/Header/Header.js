@@ -7,10 +7,11 @@ import Cart from '../Shoppingcart/Shoppingcart.js';
 import { ToastContainer, toast } from 'react-toastify';
 
 
-export default function Header({ names, loggedUser, setLoggedUser, url, cart, emptyCart, removeFromCart, updateAmount }) {
+export default function Header({ loggedUser, setLoggedUser, url, cart, emptyCart, removeFromCart, updateAmount }) {
 
   const [categories, setCategories] = useState([]);
   const [search, setSearch] = useState([]);
+  const [name, setName] = useState([]);
 
   const ToastLogOut = () => {
     toast.success('Olet kirjautunut ulos', {
@@ -35,7 +36,10 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
       }).catch(error => {
         alert(error.response === undefined ? error : error.response.data.error)
       })
-  }, [])
+      axios.get(url + "credentials/user_info.php", { withCredentials: true })
+      .then(resp => setName(resp.data.name))
+      .catch(e => console.log(e.message + " No user info"))
+  }, [loggedUser])
 
   function executeSearch(e) {
     if (e.charCode === 13) {
@@ -81,7 +85,7 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
                   <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" className="nav-icon" style={{ marginRight: '1rem' }} />
 
                   <span style={{ color: 'black' }}>
-                    {loggedUser ? <h6 style={{ margin: '0' }}>Hei, {names.map(customer => <span>{customer.fname}</span>)}</h6> : ''}
+                    {loggedUser ? <h6 style={{ margin: '0' }}>Hei, {name.map(customer => <span>{customer.fname}</span>)}</h6> : ''}
                   </span>
                 </button>
 

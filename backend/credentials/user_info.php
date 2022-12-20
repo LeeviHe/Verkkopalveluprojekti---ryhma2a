@@ -9,12 +9,11 @@ if (!isset($_SESSION['username'])) {
     return;
 }
 
-$names = getUserName($_SESSION['username']);
+$name = getUserName($_SESSION['username']);
 
 $result = array();
-$result['names'] = $names;
+$result['name'] = $name;
 
 $json = json_encode($result);
 header('Content-type: application/json');
 echo $json;
-//Testi tiedosto atm

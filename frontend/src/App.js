@@ -20,14 +20,11 @@ const URL = 'http://localhost:3001/backend/';
 function App() {
   const [loggedUser, setLoggedUser] = useState(null);
   const [cart, setCart] = useState([]);
-  const [names, setNames] = useState([]);
+
   useEffect(() => {
     axios.post(URL + "credentials/login.php", {}, { withCredentials: true })
       .then(resp => setLoggedUser(resp.data))
-      .catch(e => console.log(e.message + " session not found"))//
-    axios.get(URL + "credentials/user_info.php", { withCredentials: true })
-      .then(resp => setNames(resp.data.names))
-      .catch(e => console.log(e.message))
+      .catch(e => console.log(e.message + " session not found"))
     if ('cart' in localStorage) {
       setCart(JSON.parse(localStorage.getItem('cart')));
     }
@@ -75,7 +72,7 @@ function App() {
 
   return (
     <>
-      <Header names={names} loggedUser={loggedUser} setLoggedUser={setLoggedUser} url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />
+      <Header loggedUser={loggedUser} setLoggedUser={setLoggedUser} url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />
 
       <div className='container'>
 
