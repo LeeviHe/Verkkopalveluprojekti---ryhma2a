@@ -1,8 +1,8 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Forms.css';
 import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export default function Register({ url, setLoggedUser }) {
   const [fname, setFname] = useState("")
@@ -98,8 +98,8 @@ export default function Register({ url, setLoggedUser }) {
                   id="email"
                   type="email"
                   pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z].{2,}$"
-                  onChange={e => setEmail(e.target.value)} 
-                  placeholder="nimi@example.com" 
+                  onChange={e => setEmail(e.target.value)}
+                  placeholder="nimi@example.com"
                   autoComplete='off'
                   required />
 
@@ -141,10 +141,11 @@ export default function Register({ url, setLoggedUser }) {
                 </span>
 
                 <div className='checkbox'>
-                  <input id='checkbox' 
-                  type="checkbox" />
+                  <input id='checkbox'
+                    type="checkbox" />
                   <label style={{
-                    color: "black"}}
+                    color: "black"
+                  }}
                     for="checkbox">
                     Kyllä, haluan vastaanottaa ajankohtaisia mainoksia ja tiedotuksia Shoelandolta sähköpostiini.
                   </label>
@@ -152,8 +153,8 @@ export default function Register({ url, setLoggedUser }) {
 
                 <p id="password-field"></p>
               </div>
-              <button type="submit" 
-              className='form-btn btn btn-primary mb-4 mt-4'>
+              <button type="submit"
+                className='form-btn btn btn-primary mb-4 mt-4'>
                 <span>Rekisteröi </span>
               </button>
             </form>

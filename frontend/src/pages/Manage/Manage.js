@@ -1,6 +1,6 @@
 import axios from 'axios';
 import './Manage.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { CategoryList } from './Categorylist';
 import { SubCategoryList } from './Subcategorylist';
 import { toast } from 'react-toastify';

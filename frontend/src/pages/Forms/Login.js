@@ -1,8 +1,8 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Forms.css';
 import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export function Login({ url, setLoggedUser }) {
 
@@ -75,8 +75,8 @@ export function Login({ url, setLoggedUser }) {
               </div>
 
               <div>
-                <Link to={"/rekisterointi"} 
-                style={{ fontSize: 'small' }}>
+                <Link to={"/rekisterointi"}
+                  style={{ fontSize: 'small' }}>
                   <span style={{ fontWeight: 'bold' }}>
                     Uusi käyttäjä?
                   </span> Rekisteröidy tästä
@@ -87,8 +87,8 @@ export function Login({ url, setLoggedUser }) {
                   </Link>
                 </p>
               </div>
-              <button type="submit" 
-              className='form-btn btn btn-primary mb-4 mt-4'>
+              <button type="submit"
+                className='form-btn btn btn-primary mb-4 mt-4'>
                 <span>Kirjaudu sisään</span>
               </button>
               <span style={{ color: 'red' }}>

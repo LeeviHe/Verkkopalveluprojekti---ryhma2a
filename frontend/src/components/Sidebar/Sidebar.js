@@ -4,7 +4,6 @@ import { UNSAFE_DataRouterContext, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
 import darr from '../../images/ion-icon/chevron-down-outline.svg';
-import uarr from '../../images/ion-icon/chevron-up-outline.svg';
 
 const URL = 'http://localhost:3001/backend/';
 

@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import './Product.css';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -29,7 +28,7 @@ export default function Products({ url, addToCart }) {
         if (params.searchPhrase === undefined && params.subcategoryId == null) {
           setCategoryName(json.category);
           setProducts(json.products);
-        } else if(params.searchPhrase === undefined && params.subcategoryId != null) {
+        } else if (params.searchPhrase === undefined && params.subcategoryId != null) {
           setCategoryName(json.subcategory);
           setProducts(json.subproducts);
         } else {

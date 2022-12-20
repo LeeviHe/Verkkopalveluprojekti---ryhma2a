@@ -4,8 +4,7 @@ import '../../App.js';
 import './Home.css';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Carousel from '../../components/Carousel/Carousel';
-import { useParams, Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 // LOGOS
 
@@ -50,28 +49,6 @@ export default function Home({ url }) {
 
   return (
     <>
-      {/*
-      <div class="container">
-        <div class="row justify-content-center">
-
-          <div class="sidebar-col">
-
-            <div id="main-menu">
-              <Sidebar />
-            </div>
-
-            <input type="checkbox" id="sidebar-input" />
-            <label id="sidebar-menu" for="sidebar-input">
-
-              <div id="sidebar-id" className='d-flex justify-content-center align-items-center'>
-                <ion-icon id="sidebar-btn" name="close-outline"></ion-icon>
-                <Sidebar />
-              </div>
-
-            </label>
-
-          </div>
-          */}
 
       {/* GRID */}
       <div className="grid-container justify-content-center pt-4">

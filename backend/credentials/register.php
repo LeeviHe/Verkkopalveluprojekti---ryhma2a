@@ -31,16 +31,3 @@ try {
 } catch (PDOException $pdoex) {
   returnError($pdoex);
 }
-
-/*
-
-old user register input
-
-registerUser($login_info->fname, $login_info->lname, $login_info->email, $login_info->password);
-
-$_SESSION['fullname'] = $login_info->fname." ".$login_info->lname ;
-$_SESSION['username'] = $login_info->email;
-
-header('HTTP/1.1 200 OK');
-echo $_SESSION['username'];
-*/
