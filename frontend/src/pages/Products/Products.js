@@ -67,11 +67,19 @@ export default function Products({ url, addToCart, img }) {
 
         {/* SIDEBAR */}
 
-        <div className='side'>
-          <>
-            <Sidebar />
-          </>
+        <div id="main-menu">
+          <Sidebar />
         </div>
+
+        <input type="checkbox" id="sidebar-input" />
+        <label id="sidebar-menu" for="sidebar-input">
+
+          <div id="sidebar-id" className='d-flex justify-content-center align-items-center'>
+            <ion-icon id="sidebar-btn" name="close-outline" />
+            <Sidebar />
+          </div>
+
+        </label>
 
         {params.searchPhrase ? <div className='product-item category-name'>Tuotteet haulla {categoryName}</div> : <div className='product-item category-name'>Tuotteet kategoriassa {categoryName}</div>}
 

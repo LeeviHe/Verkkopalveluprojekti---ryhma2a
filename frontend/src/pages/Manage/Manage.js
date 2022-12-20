@@ -3,7 +3,7 @@ import './Manage.css';
 import React, { useState, useEffect } from 'react';
 import { CategoryList } from './Categorylist';
 import { SubCategoryList } from './Subcategorylist';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export default function Manage({ url }) {
     const [newCategory, setNewCategory] = useState("")

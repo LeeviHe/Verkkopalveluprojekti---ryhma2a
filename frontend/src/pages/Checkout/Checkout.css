@@ -2,6 +2,15 @@
   max-width: 70rem;
 }
 
+.checkout-img {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+}
+
+.checkout-img img {
+  max-width: 100%;
+}
+
 .sum-col {
   padding: 1rem;
   background-color: rgba(0, 0, 0, 0.09);
@@ -106,4 +115,22 @@
 
 .form-check-label:hover {
   background-color: rgba(0, 0, 0, 0.581);
+}
+
+@media screen and (max-width: 991px) {
+  .checkout-img {
+    width: 150%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .checkout-img {
+    width: 200%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .cont-help {
+    max-width: 100%;
+  }
 }

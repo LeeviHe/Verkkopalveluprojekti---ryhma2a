@@ -48,71 +48,71 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
     <>
       <ToastContainer />
 
-      <div className="container-fluid header-container d-flex justify-content-center align-items-center">
+      <div className="container-fluid header-container d-flex justify-content-evenly align-items-center">
 
-        <header className="d-flex flex-wrap py-3">
+        <header className="d-flex flex-wrap py-3 helper-header">
 
-          <Link to="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <img src={img} className="main-logo" alt="Shoelando logo" />
-          </Link>
+          <div className='header-logo'>
+            <Link to="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+              <img src={img} className="main-logo" alt="Shoelando logo" />
+            </Link>
+          </div>
 
-          <ul className="nav nav-pills">
+          <form className='header-form d-flex justify-content-center align-items-center'>
+            <input
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              onKeyPress={(e) => executeSearch(e)}
+              className="form-control-dark me-2 search-input"
+              type="search"
+              placeholder='Etsi...'
+              aria-label='Search'></input>
 
-            <li className="nav-item">
+            <button type="submit" className="search-btn nav-items">
+              <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" className="nav-icon search-icon"></img>
+            </button>
+          </form>
 
-              <form className='d-flex justify-content-center align-items-center'>
+          <ul className="nav nav-pills d-flex justify-content-center align-items-center">
+            <li className="nav-items d-flex align-items-center">
 
-                <input
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  onKeyPress={(e) => executeSearch(e)}
-                  className="form-control-dark me-2 search-input"
-                  type="search"
-                  placeholder='Etsi...'
-                  aria-label='Search'></input>
+              <div class="dropdown">
+                <button class="dropbtn nav-items acc-btn d-flex align-items-center" disabled>
+                  <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" className="nav-icon" style={{ marginRight: '1rem' }} />
 
-                <button type="submit" className="nav-item">
-                  <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" className="nav-icon search-icon"></img>
+                  <span style={{ color: 'black' }}>
+                    {loggedUser ? <h6 style={{ margin: '0' }}>Hei, {names.map(customer => <span>{customer.fname}</span>)}</h6> : ''}
+                  </span>
                 </button>
 
-                <div class="dropdown">
-                  <button class="dropbtn nav-item acc-btn d-flex justify-items-center align-items-center" disabled>
-                    <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" className="nav-icon" style={{ marginRight: '1rem' }} />
+                <ul class="dropdown-menu dropdown-content">
+                  <li>
+                    {loggedUser == null ? <Link to="/login">
+                      Kirjaudu sisään
+                    </Link> : ''}
+                  </li>
+                  <li>
+                    {loggedUser ? <Link type="submit" className=' mb-3 mt-2' onClick={logout}>
+                      Kirjaudu ulos
+                    </Link> : ''}
+                  </li>
+                  <li>
+                    {loggedUser ? <Link to="*" className='mb-3 mt-2'>
+                      Tilaukseni
+                    </Link> : ''}
+                  </li>
+                </ul>
+              </div>
 
-                    <span style={{ color: 'black' }}>
-                      {loggedUser ? <h6>Hei, {names.map(customer => <span>{customer.fname}</span>)}</h6> : ''}
-                    </span>
-                  </button>
-
-                  <ul class="dropdown-menu dropdown-content">
-                    <li>
-                      {loggedUser == null ? <Link to="/login">
-                        Kirjaudu sisään
-                      </Link> : ''}
-                    </li>
-                    <li>
-                      {loggedUser ? <Link type="submit" className=' mb-3 mt-2' onClick={logout}>
-                        Kirjaudu ulos
-                      </Link> : ''}
-                    </li>
-                    <li>
-                      {loggedUser ? <Link to="*" className='mb-3 mt-2'>
-                        Tilaukseni
-                      </Link> : ''}
-                    </li>
-                  </ul>
-                </div>
-
-                {loggedUser == "admin" ?
-                  <button className='nav-item' type="button">
-                    <Link to="/manage">
-                      <img src='https://cdn-icons-png.flaticon.com/512/2040/2040504.png' className='nav-icon' />
-                    </Link>
-                  </button> : ''}
-              </form>
 
             </li>
 
+            {loggedUser == "admin" ?
+              <button className='nav-items' type="button">
+                <Link to="/manage">
+                  <img src='https://cdn-icons-png.flaticon.com/512/2040/2040504.png' className='nav-icon' />
+                </Link>
+              </button> : ''}
 
             <>
               <Cart cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} url={url} />

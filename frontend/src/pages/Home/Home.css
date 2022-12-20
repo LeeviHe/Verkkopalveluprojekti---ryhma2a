@@ -13,12 +13,13 @@ html {
   display: grid;
   grid-template-columns: 20% 2fr;
   grid-template-rows: 1fr auto;
+  column-gap: 10px;
 }
 
 /* MAIN CAROUSEL */
 
 .carousel-grid {
-  grid-column: 2 / span auto;
+  grid-column: 2;
 }
 
 .carousel-caption {
@@ -113,14 +114,13 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
 /* LOGOS SECTION */
 
 .logo-section {
-  margin: 1rem;
-  grid-column: 2 / span 3;
+  grid-column: 2;
+  grid-row: 2;
 }
 
 .logos {
   display: flex;
-  gap: 4rem;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .logo {
@@ -198,9 +198,10 @@ text-shadow: 2px 3px 7px rgba(31, 31, 31, 0.8);
   margin: 2rem 0;
 }
 
-/* .products-carousel div{
-gap: 10px;
-} */
+.m-carousel-img{
+  background: rgb(255,255,255);
+  background: linear-gradient(180deg, rgba(255,255,255,0) 3%, rgba(100, 100, 100, 0.435) 73%, rgba(255,255,255,0) 99%);
+}
 
 /* SECTION */
 
@@ -249,4 +250,71 @@ gap: 10px;
 .fixed-btn:active {
   font-weight: bold;
   border: none;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 991px) {
+
+  .grid-container {
+  grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media screen and (max-width: 750px) {
+
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .additional {
+    display: flex;
+    gap: 10px;
+    color: white;
+    margin-bottom: 2.5rem;
+  }
+
+  .logo-section {
+    margin: 0;
+    padding-top: 0;
+  }
+  
+  .logos {
+    gap: 0;
+    justify-content: space-around;
+  }
+
+  .fixed-section {
+    margin: 3rem 0;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+
+  .container {
+    margin: 0;
+    padding: 0;
+  }
+
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0 !important;
+  }
+
+  .additional {
+    flex-direction: column;
+    gap: 0px;
+  }
+
+.products-header {
+  margin-left: 2rem;
+}
+
+  .fixed-section {
+    margin-bottom: 0;
+  }
 }

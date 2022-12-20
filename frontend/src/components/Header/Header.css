@@ -7,22 +7,19 @@
   background-size: cover;
 }
 
-/*.d-flex {
-  gap: 40rem;
-} */
-
 .main-logo {
   height: 5rem;
+  margin-right: 34rem;
 }
 
 .nav {
   align-items: center;
 }
 
-.nav-item {
+.nav-items {
   background-color: transparent;
   border: none;
-  margin-right: 1.5rem;
+  margin-right: 1rem;
 }
 
 .search-input {
@@ -51,8 +48,10 @@ textarea:focus, input:focus{
 }
 
 .search-icon {
-  margin-right: 3rem;
-  margin-bottom: 0.4rem;
+  display: flex;
+  align-self: center;
+  margin-right: 1rem;
+  margin-bottom: 0;
 }
 
 .dropbtn {
@@ -101,27 +100,86 @@ textarea:focus, input:focus{
   background-color: rgba(255, 255, 255, 0.85);
 }
 
-@media (max-width: 425px) {
-  .nav-item {
-    display: block;
-    margin-right: 0px;
+@media (max-width: 1024px) {
+  .main-logo {
+    margin-right: 10rem;
   }
-  .search_input {
+}
+
+@media (max-width: 768px) {
+  .main-logo {
+    height: 4rem;
+    margin-right: 0;
+  }
+
+  .search-input {
     width: 50%;
   }
-  header {
-    display: flex; 
-    flex-direction: row;
-  }
-  .dropbtn{
-    padding: 0px;
-  }
-  .main-logo {
-    height: 3rem;
-  }
-  .header-container {
-    margin: 0px;
+}
 
+@media (max-width: 425px) {
+
+
+  .header-form {
+    background-color: white;
+    box-shadow: rgba(255, 186, 106, 0.25) 0px 30px 60px -12px inset, rgba(251, 191, 161, 0.292) 0px 18px 36px -18px inset;
   }
- 
+
+  .helper-header {
+    padding-bottom: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .header-logo {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .header-form {
+    grid-column: 2;
+    grid-row: 2;
+    justify-content: end;
+  }
+
+  .search-input {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border: none;
+    border-right: 2px solid rgb(68, 68, 68);
+    border-radius: 0;
+    height: 2.5rem;
+  }
+
+  .search-btn {
+    padding: 0;
+    margin: 0;
+  }
+
+  .main-logo {
+    height: 3.5rem;
+  }
+
+  .nav-pills {
+    justify-content: space-evenly !important;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .acc-btn {
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-items {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .search-icon {
+    height: 2rem;
+  }
+
 }

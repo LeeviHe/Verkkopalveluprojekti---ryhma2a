@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './product.css';
 
@@ -26,13 +25,21 @@ export default function Product({ url, addToCart }) {
         <>
             <div className="container cont-help pt-5 pb-5">
 
-                {/* SIDEBAR 
+                {/* SIDEBAR */}
 
-                <div className='side'>
-                    <>
+                <div id="main-menu">
+                    <Sidebar />
+                </div>
+
+                <input type="checkbox" id="sidebar-input" />
+                <label id="sidebar-menu" for="sidebar-input">
+
+                    <div id="sidebar-id" className='d-flex justify-content-center align-items-center'>
+                        <ion-icon id="sidebar-btn" name="close-outline" />
                         <Sidebar />
-                    </>
-                </div>*/}
+                    </div>
+
+                </label>
 
                 <div className="row">
 

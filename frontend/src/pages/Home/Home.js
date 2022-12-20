@@ -50,18 +50,52 @@ export default function Home({ url }) {
 
   return (
     <>
+      {/*
+      <div class="container">
+        <div class="row justify-content-center">
+
+          <div class="sidebar-col">
+
+            <div id="main-menu">
+              <Sidebar />
+            </div>
+
+            <input type="checkbox" id="sidebar-input" />
+            <label id="sidebar-menu" for="sidebar-input">
+
+              <div id="sidebar-id" className='d-flex justify-content-center align-items-center'>
+                <ion-icon id="sidebar-btn" name="close-outline"></ion-icon>
+                <Sidebar />
+              </div>
+
+            </label>
+
+          </div>
+          */}
 
       {/* GRID */}
+      <div className="grid-container justify-content-center pt-4">
 
-      <div className="grid-container pt-4">
+        {/* SIDEBAR*/}
 
-        {/* SIDEBAR */}
-        <>
+        <div id="main-menu">
           <Sidebar />
-        </>
+        </div>
+
+        <input type="checkbox" id="sidebar-input" />
+        <label id="sidebar-menu" for="sidebar-input">
+
+          <div id="sidebar-id" className='d-flex justify-content-center align-items-center'>
+            <ion-icon id="sidebar-btn" name="close-outline" />
+            <Sidebar />
+          </div>
+
+        </label>
+
         {/* MAIN CAROUSEL */}
 
-        <div className='carousel-grid col-12'>
+
+        <div className='carousel-grid'>
           <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-indicators">
               <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
@@ -108,7 +142,7 @@ export default function Home({ url }) {
 
         {/* LOGOS SECTION */}
 
-        <div className="logo-section pt-4">
+        <div className="logo-section mt-4">
           <div className="container">
             <div className="logos">
               <img className="logo" src={logo1} alt="Adidas logo" />
@@ -159,7 +193,7 @@ export default function Home({ url }) {
           </div>
         </div>
 
-        {/* PRODUCTS {return (showImage(product.category_id, product.img, 1))}*/}
+        {/* PRODUCTS */}
 
         <div className='products-carousel'>
 
@@ -172,7 +206,7 @@ export default function Home({ url }) {
             {sale.map(product =>
               <div className='m-carousel-img'>
                 <Link to={"/Product/" + product.product_id}>
-                  <img className='product-img' src={url + 'img/' + product.img} alt="tuotekuva" />
+                  <img className='product-img' style={{ width: '80%' }} src={url + 'img/' + product.img} alt="tuotekuva" />
                 </Link>
               </div>
             )}
@@ -187,7 +221,7 @@ export default function Home({ url }) {
             {latest.map(product =>
               <div className="m-carousel-img">
                 <Link to={"/Product/" + product.product_id}>
-                  <img classname='product-img' style={{ width: '100%' }} src={url + 'img/' + product.img} alt="tuotekuva" />
+                  <img className='product-img' style={{ width: '80%' }} src={url + 'img/' + product.img} alt="tuotekuva" />
                 </Link>
               </div>
             )}
@@ -202,7 +236,7 @@ export default function Home({ url }) {
             {wanted.map(product =>
               <div className="m-carousel-img">
                 <Link to={"/Product/" + product.product_id}>
-                  <img classname='product-img' style={{ width: '100%' }} src={url + 'img/' + product.img} alt="tuotekuva" />
+                  <img className='product-img' style={{ width: '80%' }} src={url + 'img/' + product.img} alt="tuotekuva" />
                 </Link>
               </div>
             )}
@@ -212,7 +246,7 @@ export default function Home({ url }) {
       </div >
 
 
-      {/* FIXED SECTION */}
+      {/* FIXED SECTION*/}
 
       < div className='fixed-section' >
         <div className='fixed-banner'>
@@ -230,8 +264,7 @@ export default function Home({ url }) {
             </form>
           </div>
         </div>
-      </div >
-
+      </div>
     </>
   )
 }

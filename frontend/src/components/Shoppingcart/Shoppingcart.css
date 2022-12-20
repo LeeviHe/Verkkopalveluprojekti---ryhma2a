@@ -79,3 +79,11 @@ a:hover {
   filter: brightness(90%);
   transition: 0.4s;
 }
+
+@media (max-width: 425px) { 
+
+.offcanvas {
+  width: 100%;
+}
+
+}
