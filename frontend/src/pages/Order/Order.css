@@ -110,8 +110,19 @@ hr {
 @media (max-width: 425px) {
     .order-grid {
         display: block;
+        padding: 10px;
     }
     .checkout-btn{
         margin: 12px;
     }
+    .cart-form {
+        display: block;
+    }
+    .form-item.lcol {
+        text-align: start;
+    }
+    .cart-price{
+        font-size: 15px;
+    }
+  
 }
