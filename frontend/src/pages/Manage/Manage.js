@@ -127,7 +127,10 @@ export default function Manage({ url }) {
                                 <label className='manage-label mb-1'>Kategorian nimi</label>
                                 <br />
                                 <input className='manage-input mb-2'
-                                    type="text" value={newCategory}
+                                    type="text"
+                                    pattern='^[a-zA-Zä-öÄ-Ö-_ ]+$'
+                                    minLength="3"
+                                    value={newCategory}
                                     onChange={(e) => setNewCategory(e.target.value)}
                                     required />
                             </div>
@@ -142,7 +145,10 @@ export default function Manage({ url }) {
                                 <label className="manage-label mb-1">Alakategorian nimi</label>
                                 <br />
                                 <input className='manage-input mb-2'
-                                    type="text" value={newSubCategory}
+                                    type="text"
+                                    pattern='^[a-zA-Zä-öÄ-Ö-_ ]+$'
+                                    minLength="3"
+                                    value={newSubCategory}
                                     onChange={(e) => setNewSubCategory(e.target.value)}
                                     required />
                             </div>
@@ -165,7 +171,10 @@ export default function Manage({ url }) {
                                 <label className="manage-label mb-1">Tuotemerkki</label>
                                 <br />
                                 <input className='manage-input mb-2'
-                                    type="text" value={brand}
+                                    type="text"
+                                    pattern='^[a-zA-Zä-öÄ-Ö0-9-_ ]+$'
+                                    minLength="3"
+                                    value={brand}
                                     onChange={(e) => setBrand(e.target.value)}
                                     required />
                             </div>
@@ -174,6 +183,8 @@ export default function Manage({ url }) {
                                 <br />
                                 <input className='manage-input mb-2'
                                     type="text"
+                                    pattern='^[a-zA-Zä-öÄ-Ö-_ ]+$'
+                                    minLength="3"
                                     value={productName}
                                     onChange={(e) => setProductName(e.target.value)}
                                     required />
@@ -183,6 +194,8 @@ export default function Manage({ url }) {
                                 <br />
                                 <input className='manage-input mb-2'
                                     type="text"
+                                    pattern='^[0-9]+$'
+                                    minLength="1"
                                     value={price}
                                     onChange={(e) => setPrice(e.target.value)}
                                     required />
