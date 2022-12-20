@@ -112,8 +112,38 @@ textarea:focus, input:focus{
     margin-right: 0;
   }
 
+  .header-form {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 15rem;
+    justify-content: end;
+  }
+
   .search-input {
     width: 50%;
+  }
+
+  .search-btn {
+    padding: 0;
+    margin: 0;
+  }
+
+  .main-logo {
+    height: 3.5rem;
+  }
+
+  .nav-pills {
+    justify-content: center !important;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .search-icon {
+    height: 2rem;
+  }
+
+  .nav-icon {
+    height: 2rem;
   }
 }
 
@@ -121,6 +151,7 @@ textarea:focus, input:focus{
 
 
   .header-form {
+    max-width: 100%;
     background-color: white;
     box-shadow: rgba(255, 186, 106, 0.25) 0px 30px 60px -12px inset, rgba(251, 191, 161, 0.292) 0px 18px 36px -18px inset;
   }
