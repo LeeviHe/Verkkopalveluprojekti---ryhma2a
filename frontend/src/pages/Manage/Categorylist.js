@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
-export function CategoryList({url, selectedCategory, setSelectedCategory, selectedSubCategory, setSelectedSubCategory}) {
+export function CategoryList({url, selectedCategory, setSelectedCategory}) {
 
     const [categories, setCategories] = useState([]);
 
@@ -14,23 +14,22 @@ export function CategoryList({url, selectedCategory, setSelectedCategory, select
                     setSelectedCategory(json[0])
                 }
                 setCategories(json)
-                
             }
-            
         }).catch (error => {
             alert(error.response === undefined ? error : error.response.data.error)
         })
     }, [selectedCategory])
-
+    
     function onCategoryChange(value) {
-        console.log(categories.filter(category => category.categoryname))
-        setSelectedCategory(categories.filter(category => category.categoryname === value))
-        console.log(selectedCategory[0].category_id)
+        const filtered = categories.find(index => index.category_id == value)
+        setSelectedCategory(filtered)
     }
     return (
         <select value={selectedCategory?.category_id} onChange={(e) => onCategoryChange(e.target.value)}>
             {categories.map((category) =>(
-                <option key={category.categoryname} value={category.categoryname}>{category.categoryname}</option>
+                <option key={category.category_id} value={category.category_id}>
+                    {category.categoryname}
+                </option>
             ))}
         </select>
     )
