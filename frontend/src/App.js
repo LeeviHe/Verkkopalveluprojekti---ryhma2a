@@ -83,7 +83,7 @@ function App() {
           <Route path="/rekisterointi" element={<Register url={URL} setLoggedUser={setLoggedUser} />} />
           <Route path="/kategoriat/:categoryId" element={<Products url={URL} addToCart={addToCart} />} />
           <Route path="/kategoriat/:categoryId/:subcategoryId" element={<Products url={URL} addToCart={addToCart} />} />
-          <Route path="/haku/:searchPhrase" element={<Products url={URL} />} />
+          <Route path="/haku/:searchPhrase" element={<Products url={URL} addToCart={addToCart}/>} />
           <Route path="/tuote/:productId" element={<Product url={URL} addToCart={addToCart} />} />
           <Route path="/tilaus" element={<Order url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />} />
           <Route path="/kassa" element={<Checkout url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />} />
