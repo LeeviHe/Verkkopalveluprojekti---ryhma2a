@@ -12,9 +12,7 @@ CREATE TABLE `customer` (
   `email` char(50) DEFAULT NULL UNIQUE,
   `zip` char(5) DEFAULT NULL,
   `city` char(15) DEFAULT NULL,
-  `password` char(255) DEFAULT NULL,
-  `subscribe` char(1) DEFAULT NULL,
-  `admin` INT(1)
+  `password` char(255) DEFAULT NULL
   );
 
   CREATE TABLE `customer_order`(
@@ -125,9 +123,21 @@ ALTER TABLE `product`
 
 
 INSERT INTO category (categoryname)
-VALUES ('Kesäkengät'), ('Talvikengät'), ('Juhlakengät');
+VALUES 
+('Kesäkengät'), 
+('Talvikengät'), 
+('Juhlakengät');
 INSERT INTO subcategory (subcategoryname, category_id)
-VALUES ('Tennarit', 1), ('Sandaalit', 1), ('Nilkkurit', 2), ('Talvisaappaat', 2), ('Korkokengät', 3), ('Puvunkengät', 3);
+VALUES 
+-- Kesäkengät
+('Tennarit', 1), 
+('Sandaalit', 1), 
+-- Talvikengät
+('Nilkkurit', 2), 
+('Talvisaappaat', 2), 
+--Juhlakengät
+('Korkokengät', 3), 
+('Puvunkengät', 3);
 INSERT INTO product (brand, productname, price, category_id, subcategory_id, img)
 VALUES
 -- KESÄKENGÄT
@@ -147,7 +157,6 @@ VALUES
 ('Merrel', 'BRAVADA EDGE 2', 129, 2, 3, 'Winter3.png'),
 
 -- JUHLAKENGÄT
--- Korkokengät
 ('Next', 'Korolliset avokkaat', 56, 3, 5, 'Heel3.png'),
 ('Topman', 'Loaferit/pistokkaat', 95, 3, 6, 'Suit2.png'),
 ('Pier One', 'Loaferit/pistokkaat', 74.95, 3, 6, 'Suit3.png'),

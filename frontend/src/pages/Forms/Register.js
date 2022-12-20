@@ -98,7 +98,9 @@ export default function Register({ url, setLoggedUser }) {
                   id="email"
                   type="email"
                   pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z].{2,}$"
-                  onChange={e => setEmail(e.target.value)} placeholder="nimi@example.com" autoComplete='off'
+                  onChange={e => setEmail(e.target.value)} 
+                  placeholder="nimi@example.com" 
+                  autoComplete='off'
                   required />
 
                 <span className='error-msg' style={{ fontSize: 'small', color: 'red' }}>
@@ -113,9 +115,13 @@ export default function Register({ url, setLoggedUser }) {
 
               <div className='input-container'>
 
-                <button className={isActive ? 'hidden' : 'passw-btn'} onClick={togglePassw}><ion-icon name="eye-off-outline"></ion-icon></button>
+                <button className={isActive ? 'hidden' : 'passw-btn'} onClick={togglePassw}>
+                  <ion-icon name="eye-off-outline"></ion-icon>
+                </button>
 
-                <button className={isActive ? 'passw-btn' : 'hidden'} onClick={togglePassw}><ion-icon name="eye-outline"></ion-icon></button>
+                <button className={isActive ? 'passw-btn' : 'hidden'} onClick={togglePassw}>
+                  <ion-icon name="eye-outline"></ion-icon>
+                </button>
 
                 <input className='form-input register'
                   id="password"
@@ -135,10 +141,10 @@ export default function Register({ url, setLoggedUser }) {
                 </span>
 
                 <div className='checkbox'>
-                  <input id='checkbox' type="checkbox" />
+                  <input id='checkbox' 
+                  type="checkbox" />
                   <label style={{
-                    color: "black"
-                  }}
+                    color: "black"}}
                     for="checkbox">
                     Kyllä, haluan vastaanottaa ajankohtaisia mainoksia ja tiedotuksia Shoelandolta sähköpostiini.
                   </label>
@@ -146,7 +152,10 @@ export default function Register({ url, setLoggedUser }) {
 
                 <p id="password-field"></p>
               </div>
-              <button type="submit" className='form-btn btn btn-primary mb-4 mt-4'><span>Rekisteröi </span></button>
+              <button type="submit" 
+              className='form-btn btn btn-primary mb-4 mt-4'>
+                <span>Rekisteröi </span>
+              </button>
             </form>
 
 
