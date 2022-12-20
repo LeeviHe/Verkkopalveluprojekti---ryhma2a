@@ -7,10 +7,11 @@ import Cart from '../Shoppingcart/Shoppingcart.js';
 import { ToastContainer, toast } from 'react-toastify';
 
 
-export default function Header({ names, loggedUser, setLoggedUser, url, cart, emptyCart, removeFromCart, updateAmount }) {
+export default function Header({ loggedUser, setLoggedUser, url, cart, emptyCart, removeFromCart, updateAmount }) {
 
   const [categories, setCategories] = useState([]);
   const [search, setSearch] = useState([]);
+  const [name, setName] = useState([]);
 
   const ToastLogOut = () => {
     toast.success('Olet kirjautunut ulos', {
@@ -35,12 +36,20 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
       }).catch(error => {
         alert(error.response === undefined ? error : error.response.data.error)
       })
-  }, [])
+    axios.get(url + "credentials/user_info.php", { withCredentials: true })
+      .then(resp => setName(resp.data.name))
+      .catch(e => console.log(e.message + " No user info"))
+  }, [loggedUser])
+
+  function buttonSearch(e) {
+    e.preventDefault();
+    navigate('/haku/' + search)
+  }
 
   function executeSearch(e) {
     if (e.charCode === 13) {
       e.preventDefault();
-      navigate('/search/' + search);
+      navigate('/haku/' + search);
     }
   }
 
@@ -58,7 +67,7 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
             </Link>
           </div>
 
-          <form className='header-form d-flex justify-content-center align-items-center'>
+          <form className='header-form d-flex justify-content-center align-items-center' onSubmit={buttonSearch}>
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -81,13 +90,13 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
                   <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" className="nav-icon" style={{ marginRight: '1rem' }} />
 
                   <span style={{ color: 'black' }}>
-                    {loggedUser ? <h6 style={{ margin: '0' }}>Hei, {names.map(customer => <span>moi{customer.fname}</span>)}</h6> : ''}
+                    {loggedUser ? <h6 style={{ margin: '0' }}>Hei, {name.map(customer => <span>{customer.fname}</span>)}</h6> : ''}
                   </span>
                 </button>
 
                 <ul class="dropdown-menu dropdown-content">
                   <li>
-                    {loggedUser == null ? <Link to="/login">
+                    {loggedUser == null ? <Link to="/kirjautuminen">
                       Kirjaudu sisään
                     </Link> : ''}
                   </li>
@@ -109,7 +118,7 @@ export default function Header({ names, loggedUser, setLoggedUser, url, cart, em
 
             {loggedUser == "admin" ?
               <button className='nav-items' type="button">
-                <Link to="/manage">
+                <Link to="/yllapito">
                   <img src='https://cdn-icons-png.flaticon.com/512/2040/2040504.png' className='nav-icon' />
                 </Link>
               </button> : ''}

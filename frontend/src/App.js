@@ -20,14 +20,11 @@ const URL = 'http://localhost:3001/backend/';
 function App() {
   const [loggedUser, setLoggedUser] = useState(null);
   const [cart, setCart] = useState([]);
-  const [names, setNames] = useState([]);
+
   useEffect(() => {
     axios.post(URL + "credentials/login.php", {}, { withCredentials: true })
       .then(resp => setLoggedUser(resp.data))
-      .catch(e => console.log(e.message + " session not found"))//
-    axios.get(URL + "credentials/user_info.php", { withCredentials: true })
-      .then(resp => setNames(resp.data.names))
-      .catch(e => console.log(e.message))
+      .catch(e => console.log(e.message + " session not found"))
     if ('cart' in localStorage) {
       setCart(JSON.parse(localStorage.getItem('cart')));
     }
@@ -75,21 +72,21 @@ function App() {
 
   return (
     <>
-      <Header names={names} loggedUser={loggedUser} setLoggedUser={setLoggedUser} url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />
+      <Header loggedUser={loggedUser} setLoggedUser={setLoggedUser} url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />
 
       <div className='container'>
 
         <Routes>
-          <Route path="/login" element={<Login url={URL} setLoggedUser={setLoggedUser} />} />
+          <Route path="/kirjautuminen" element={<Login url={URL} setLoggedUser={setLoggedUser} />} />
           <Route path="/" element={<Home url={URL} />} />
-          <Route path="/manage" element={<Manage url={URL} />} />
-          <Route path="/register" element={<Register url={URL} setLoggedUser={setLoggedUser} />} />
+          <Route path="/yllapito" element={<Manage url={URL} />} />
+          <Route path="/rekisterointi" element={<Register url={URL} setLoggedUser={setLoggedUser} />} />
           <Route path="/kategoriat/:categoryId" element={<Products url={URL} addToCart={addToCart} />} />
           <Route path="/kategoriat/:categoryId/:subcategoryId" element={<Products url={URL} addToCart={addToCart} />} />
-          <Route path="/search/:searchPhrase" element={<Products url={URL} />} />
-          <Route path="/product/:productId" element={<Product url={URL} addToCart={addToCart} />} />
-          <Route path="/order" element={<Order url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />} />
-          <Route path="/Checkout" element={<Checkout url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />} />
+          <Route path="/haku/:searchPhrase" element={<Products url={URL} />} />
+          <Route path="/tuote/:productId" element={<Product url={URL} addToCart={addToCart} />} />
+          <Route path="/tilaus" element={<Order url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />} />
+          <Route path="/kassa" element={<Checkout url={URL} cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} emptyCart={emptyCart} />} />
           <Route path="*" element={<UConstruction />} />
         </Routes>
       </div>

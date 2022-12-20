@@ -79,7 +79,12 @@ export default function Manage({url}) {
     function saveProduct(e) {
         e.preventDefault()
         if (showToggle) {
-            const json = JSON.stringify({brand: brand, name: productName, price: price, catid: selectedCategory.category_id, subcatid: selectedSubCategory.subcategory_id})
+            const json = JSON.stringify(
+                {brand: brand, 
+                name: productName, 
+                price: price, 
+                catid: selectedCategory.category_id, 
+                subcatid: selectedSubCategory.subcategory_id})
             axios.post(url + 'products/addproduct.php', json, {
             headers: {
                 'Content-Type' : 'application/json'}})
@@ -92,7 +97,11 @@ export default function Manage({url}) {
         })
         
     } else {
-            const json = JSON.stringify({brand: brand, name: productName, price: price, catid: selectedCategory.category_id})
+            const json = JSON.stringify(
+                {brand: brand, 
+                name: productName, 
+                price: price, 
+                catid: selectedCategory.category_id})
             axios.post(url + 'products/addproduct.php', json, {
                 headers: {
                     'Content-Type' : 'application/json'}})
@@ -108,10 +117,12 @@ export default function Manage({url}) {
             
         }
     }
+
     const [showToggle, setShowToggle] = useState(false);
     const toggleSub = (e) => {
         setShowToggle(!showToggle);
       };
+
         return (
             <>
                 <div className='container'>
@@ -192,12 +203,15 @@ export default function Manage({url}) {
                                         setSelectedCategory={setSelectedCategory}
                                     />
                                 </div>
-                                <div className='checkbox'>
-                                    <input id='checkbox' type="checkbox" onChange={toggleSub}/>
+                                <div className='subcheckbox'>
+                                    <input id='subcheckbox' 
+                                    type="checkbox" 
+                                    onChange={toggleSub}/>
                                     <label style={{
                                     color: "black"
                                     }}
-                                    for="checkbox">
+                                    for="subcheckbox"
+                                    id="sublabel">
                                     Haluan lisätä tuotteen alakategoriaan. 
                                     </label>
                                 </div>
@@ -210,7 +224,7 @@ export default function Manage({url}) {
                                         selectedSubCategory={selectedSubCategory}
                                         setSelectedSubCategory={setSelectedSubCategory}
                                     />
-                                </div> : <span></span>}
+                                </div> : ''}
                                 <button type="submit">Tallenna</button>
                             </form>
                         </div>

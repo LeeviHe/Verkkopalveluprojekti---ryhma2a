@@ -204,7 +204,7 @@ export default function Home({ url }) {
 
             {sale.map(product =>
               <div className='m-carousel-img'>
-                <Link to={"/Product/" + product.product_id}>
+                <Link to={"/tuote/" + product.product_id}>
                   <img className='product-img' style={{ width: '80%' }} src={url + 'img/' + product.img} alt="tuotekuva" />
                 </Link>
               </div>
@@ -219,7 +219,7 @@ export default function Home({ url }) {
           >
             {latest.map(product =>
               <div className="m-carousel-img">
-                <Link to={"/Product/" + product.product_id}>
+                <Link to={"/tuote/" + product.product_id}>
                   <img className='product-img' style={{ width: '80%' }} src={url + 'img/' + product.img} alt="tuotekuva" />
                 </Link>
               </div>
@@ -234,7 +234,7 @@ export default function Home({ url }) {
           >
             {wanted.map(product =>
               <div className="m-carousel-img">
-                <Link to={"/Product/" + product.product_id}>
+                <Link to={"/tuote/" + product.product_id}>
                   <img className='product-img' style={{ width: '80%' }} src={url + 'img/' + product.img} alt="tuotekuva" />
                 </Link>
               </div>
