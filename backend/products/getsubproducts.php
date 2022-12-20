@@ -20,7 +20,6 @@ try {
     echo json_encode(array(
       "subcategory" => $subcategory ['subcategoryname'],
       "subproducts" => $subproducts
-      //"testi" => $parameters
     ));
   }
   catch (PDOException $pdoex) {

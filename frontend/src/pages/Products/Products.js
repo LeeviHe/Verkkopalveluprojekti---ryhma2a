@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-export default function Products({ url, addToCart, img }) {
+export default function Products({ url, addToCart }) {
   const [categoryName, setCategoryName] = useState('');
   const [products, setProducts] = useState([]);
 
@@ -15,8 +15,10 @@ export default function Products({ url, addToCart, img }) {
 
   useEffect(() => {
     let address = '';
-    if (params.searchPhrase === undefined) {
+    if (params.searchPhrase === undefined && params.subcategoryId == null) {
       address = url + '/products/getproducts.php/' + params.categoryId;
+    } else if (params.searchPhrase === undefined && params.subcategoryId != null) {
+      address = url + 'products/getsubproducts.php/' + params.categoryId + '/' + params.subcategoryId;
     } else {
       address = url + '/products/search.php/' + params.searchPhrase;
     }
@@ -24,10 +26,12 @@ export default function Products({ url, addToCart, img }) {
     axios.get(address)
       .then((response) => {
         const json = response.data;
-        //console.log(json);
-        if (params.searchPhrase === undefined) {
+        if (params.searchPhrase === undefined && params.subcategoryId == null) {
           setCategoryName(json.category);
           setProducts(json.products);
+        } else if(params.searchPhrase === undefined && params.subcategoryId != null) {
+          setCategoryName(json.subcategory);
+          setProducts(json.subproducts);
         } else {
           setCategoryName(params.searchPhrase);
           setProducts(json);
@@ -35,28 +39,6 @@ export default function Products({ url, addToCart, img }) {
       }).catch(error => {
         alert(error.response === undefined ? error : error.response.data.error)
       })
-  }, [params])
-
-  useEffect(() => {
-    if (params.subcategoryId != null) {
-      axios.get(url + 'products/getsubproducts.php/' + params.categoryId + '/' + params.subcategoryId)
-        .then((response) => {
-          const json = response.data;
-          setCategoryName(json.subcategory);
-          setProducts(json.subproducts);
-        }).catch(error => {
-          alert(error.response === undefined ? error : error.response.data.error);
-        })
-    } else if (params.searchPhrase === undefined) {
-      axios.get(url + 'products/getproducts.php/' + params.categoryId)
-        .then((response) => {
-          const json = response.data;
-          setCategoryName(json.category);
-          setProducts(json.products);
-        }).catch(error => {
-          alert(error.response === undefined ? error : error.response.data.error);
-        })
-    }
   }, [params])
 
   return (
@@ -90,7 +72,7 @@ export default function Products({ url, addToCart, img }) {
             <div className='item' key={product.product_id}>
 
               <div className='thumbnail'>
-                <Link to={"/Product/" + product.product_id}><img className='product-img' src={url + 'img/' + product.img} alt="tuotekuva" /></Link>
+                <Link to={"/tuote/" + product.product_id}><img className='product-img' src={url + 'img/' + product.img} alt="tuotekuva" /></Link>
                 <p className='group inner list-group-item-text'>
                   {product.brand}
                 </p>

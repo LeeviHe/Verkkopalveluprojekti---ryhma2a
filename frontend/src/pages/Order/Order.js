@@ -102,7 +102,7 @@ export default function Order({ cart, emptyCart, removeFromCart, updateAmount, u
                             <div className='cart-price'>{finalsum.toLocaleString(navigator.language, { minimumFractionDigits: 2 })} €</div>
 
                         </div>
-                        <Link to="/checkout">
+                        <Link to="/kassa">
                             <button type="button" className="checkout-btn btn btn-primary mt-4">Kassalle</button>
                         </Link>
                     </div>

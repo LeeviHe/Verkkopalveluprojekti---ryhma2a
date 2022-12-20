@@ -75,7 +75,7 @@ export function Login({ url, setLoggedUser }) {
               </div>
 
               <div>
-                <Link to={"/register"} style={{ fontSize: 'small' }}><span style={{ fontWeight: 'bold' }}>Uusi käyttäjä?</span> Rekisteröidy tästä</Link>
+                <Link to={"/rekisterointi"} style={{ fontSize: 'small' }}><span style={{ fontWeight: 'bold' }}>Uusi käyttäjä?</span> Rekisteröidy tästä</Link>
                 <p className='forgotten-password'>
                   <Link to="*">Unohditko salasanasi?</Link>
                 </p>

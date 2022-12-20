@@ -98,7 +98,7 @@ export default function Cart({ cart, removeFromCart, updateAmount, url }) {
               <div>{sum.toFixed(2)} €</div>
             </div>
             <div className="d-flex justify-content-center py-3">
-              <Link to="/order">
+              <Link to="/tilaus">
                 <button className="cart-btn">Siirry tilaamaan</button>
               </Link>
             </div>

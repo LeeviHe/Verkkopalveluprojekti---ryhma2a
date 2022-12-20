@@ -44,7 +44,7 @@ export default function Header({ loggedUser, setLoggedUser, url, cart, emptyCart
   function executeSearch(e) {
     if (e.charCode === 13) {
       e.preventDefault();
-      navigate('/search/' + search);
+      navigate('/haku/' + search);
     }
   }
 
@@ -91,7 +91,7 @@ export default function Header({ loggedUser, setLoggedUser, url, cart, emptyCart
 
                 <ul class="dropdown-menu dropdown-content">
                   <li>
-                    {loggedUser == null ? <Link to="/login">
+                    {loggedUser == null ? <Link to="/kirjautuminen">
                       Kirjaudu sisään
                     </Link> : ''}
                   </li>
@@ -113,7 +113,7 @@ export default function Header({ loggedUser, setLoggedUser, url, cart, emptyCart
 
             {loggedUser == "admin" ?
               <button className='nav-items' type="button">
-                <Link to="/manage">
+                <Link to="/yllapito">
                   <img src='https://cdn-icons-png.flaticon.com/512/2040/2040504.png' className='nav-icon' />
                 </Link>
               </button> : ''}
